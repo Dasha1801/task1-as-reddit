@@ -1,12 +1,12 @@
 import React from 'react';
-import Articles from '../articles/articles';
 import Header from '../header/header';
+import Main from '../main/main';
 
 function App():JSX.Element {
   return (
     <div>
       <Header />
-      <Articles />
+      <Main />
     </div>
   );
 }

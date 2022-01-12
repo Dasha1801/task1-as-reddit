@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import Article from '../article/article';
 import { ArticleInfo } from '../../shared/articleInfo';
+import { PATH } from '../../constants';
 
  interface ArticleProps {
     kind: string,
@@ -11,11 +12,10 @@ import { ArticleInfo } from '../../shared/articleInfo';
 function Articles():JSX.Element {
   const [articles, setArticles] = useState<ArticleInfo[]>([]);
   const [error, setError] = useState('');
-  const path = 'https://www.reddit.com/r/javascript.json?limit=8';
 
   async function getArticles() :Promise<void> {
     try {
-      const { children } = (await axios.get(path)).data.data;
+      const { children } = (await axios.get(PATH.data)).data.data;
       const items = children.map((el:ArticleProps) => el.data);
       setArticles(items);
     } catch (Error) {

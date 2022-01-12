@@ -1,0 +1,30 @@
+@import '../../index.scss';
+
+.article{
+    border: $border;
+    background: white;
+    display: grid;
+    grid-template-columns: 1fr 10fr 1fr;
+    margin-bottom: 10px;
+    word-wrap: break-word;
+
+    .content{
+        padding-left: 1em;
+    }
+
+    .title{
+        color:$colorTitle;
+    }
+
+    .selfText{
+        color:  $colorContent;
+    }
+
+    .url{
+        color: $colorLink;
+        font-size: 13px;
+        font-weight: 600;
+        padding-bottom: 1em;
+        display: inline-block;
+    }
+}

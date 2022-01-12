@@ -1,12 +1,13 @@
 import React from 'react';
 import './header.scss';
+import { PATH } from '../../constants';
 
 function Header():JSX.Element {
   return (
     <header className="header">
       <div className="wrapper">
         <img
-          src="https://a.thumbs.redditmedia.com/zDOFJTXd6fmlD58VDGypiV94Leflz11woxmgbGY6p_4.png"
+          src={PATH.logo}
           alt="logo"
           className="logo"
         />

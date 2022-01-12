@@ -1,0 +1,33 @@
+.likes{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-block-start: 1em;
+    background-color: #f4f4f5;
+
+    .iconUp, .iconDown{
+        color: #898989;
+        cursor: pointer;
+    }
+
+    .iconUp:hover{
+        color: rgb(94, 130, 230)
+    }
+
+    .iconDown:hover{
+        color: rgb(230, 133, 94)
+    }
+
+    // .iconDown:active{
+    //     color: rgb(231, 94, 40)
+    // }
+
+    // .iconUp:active{
+    //     color: rgb(28, 81, 226)
+    // }
+
+    .score{
+        margin: 5px;
+        font-size: 12px;
+    }
+}

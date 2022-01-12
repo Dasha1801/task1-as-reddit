@@ -1,8 +1,12 @@
+@import '../../index.scss';
+
 .header{
     height: 164px;
     background: linear-gradient(to bottom, #33a8ff 50%,#ffffff 50%);
     display: flex;
     margin-bottom: 24px;
+    color: #1c1c1c;
+    font-family: $font;
 
     .logo{
         border-radius: 100%;
@@ -22,5 +26,9 @@
 
     .namePage{
         margin-left: 16px;
+        font-size: 34px;
+        font-weight: 700;
+        line-height: 32px;
+        letter-spacing: 3px;
     }
 }
