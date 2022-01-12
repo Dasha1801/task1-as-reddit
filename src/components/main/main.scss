@@ -6,11 +6,26 @@
     padding: 20px 24px;
 
     .wrapper{
-        width: 1024px;
+        max-width: 1024px;
         display: grid;
         margin: 0 auto;
-        display: grid;
         grid-template-columns: 2fr 1fr;
-        gap: 15px;
+        gap: 10px;
+    }
+
+    @media(max-width: 960px){
+            .wrapper{
+                grid-template-columns: 100%;
+                gap: 0;
+            }
+    }
+
+}
+
+
+@media(max-width: 460px){
+    .main{
+        padding: 10px 12px;
     }
 }
+

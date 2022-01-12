@@ -1,13 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import Article from '../article/article';
-import { ArticleInfo } from '../../shared/articleInfo';
+import { ArticleInfo, ArticleProps } from '../../shared/interfaces';
 import { PATH } from '../../constants';
-
- interface ArticleProps {
-    kind: string,
-    data: ArticleInfo
-}
 
 function Articles():JSX.Element {
   const [articles, setArticles] = useState<ArticleInfo[]>([]);

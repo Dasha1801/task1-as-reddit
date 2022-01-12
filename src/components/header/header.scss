@@ -21,7 +21,7 @@
         margin: 0 auto;
         display: flex;
         align-items: center;
-        padding-top: 44px;
+        padding: 44px 20px 0;
     }
 
     .namePage{
@@ -31,4 +31,28 @@
         line-height: 32px;
         letter-spacing: 3px;
     }
+}
+
+@media(max-width:460px){
+    .header{
+        height: 114px;
+        margin-bottom: 0;
+
+        .wrapper{
+            padding: 34px 12px;
+            align-items: flex-start;
+        }
+
+        .logo{
+            width: 60px;
+            height: 60px;
+        }
+
+        .namePage{
+            margin-left: 14px;
+            font-size: 30px;
+            letter-spacing: 2px;
+        }
+    }
+   
 }

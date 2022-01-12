@@ -5,6 +5,7 @@ function Sidebar():JSX.Element {
   return (
     <aside className="sidebar">
       <ItemSidebar />
+      <ItemSidebar />
     </aside>
   );
 }

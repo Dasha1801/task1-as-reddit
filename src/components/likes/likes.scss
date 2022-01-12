@@ -3,6 +3,7 @@
     flex-direction: column;
     align-items: center;
     padding-block-start: 1em;
+    padding-block-end: 1em;
     background-color: #f4f4f5;
 
     .iconUp, .iconDown{
@@ -18,16 +19,28 @@
         color: rgb(230, 133, 94)
     }
 
-    // .iconDown:active{
-    //     color: rgb(231, 94, 40)
-    // }
+    .iconDown:active{
+        color: rgb(231, 94, 40)
+    }
 
-    // .iconUp:active{
-    //     color: rgb(28, 81, 226)
-    // }
+    .iconUp:active{
+        color: rgb(28, 81, 226)
+    }
 
     .score{
         margin: 5px;
         font-size: 12px;
     }
+
+    @media(max-width:460px){
+        .iconUp, .iconDown{
+            width: 15px;
+            height: 15px;
+        }
+
+        .score{
+            font-size: 10px;
+        }
+    }
 }
+

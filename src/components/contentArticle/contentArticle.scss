@@ -1,0 +1,41 @@
+@import '../../index.scss';
+
+.content{
+    padding-left: 1em;
+
+    .title{
+            color:$colorTitle;
+    }
+
+    .selfText{
+        color:  $colorContent;
+    }
+
+    .url{
+        color: $colorLink;
+        font-size: 13px;
+        font-weight: 600;
+        padding-bottom: 1em;
+        display: inline-block;
+    }
+}
+
+@media(max-width: 460px){
+    .content{
+        padding-left: 0.6em;
+
+        .title{
+            font-size: 1em;
+            margin: 16px 0 0;
+        }
+
+        .selfText{
+            font-size: 0.8em;
+            margin: 8px 0;
+        }
+
+        .url{
+            font-size: 11px;
+        }
+    }
+}
