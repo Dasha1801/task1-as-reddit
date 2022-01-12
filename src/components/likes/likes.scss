@@ -7,24 +7,15 @@
     background-color: #f4f4f5;
 
     .iconUp, .iconDown{
-        color: #898989;
         cursor: pointer;
     }
 
     .iconUp:hover{
-        color: rgb(94, 130, 230)
+        color: #6084e6
     }
 
     .iconDown:hover{
-        color: rgb(230, 133, 94)
-    }
-
-    .iconDown:active{
-        color: rgb(231, 94, 40)
-    }
-
-    .iconUp:active{
-        color: rgb(28, 81, 226)
+        color: #e6855e
     }
 
     .score{
