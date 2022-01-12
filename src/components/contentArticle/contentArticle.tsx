@@ -1,11 +1,13 @@
 import React from 'react';
+import FooterArticle from '../footerArticle/footerArticle';
 import { InfoItem } from '../../shared/interfaces';
 import './contentArticle.scss';
 
 function ContentArticle({ item }:InfoItem):JSX.Element {
   const {
-    title, selftext, url,
+    title, selftext, url, num_comments,
   } = item;
+
   return (
     <div className="content">
       <h3 className="title">{title}</h3>
@@ -14,6 +16,7 @@ function ContentArticle({ item }:InfoItem):JSX.Element {
         {url.slice(0, 24)}
         ...
       </a>
+      <FooterArticle num_comments={num_comments} />
     </div>
   );
 }

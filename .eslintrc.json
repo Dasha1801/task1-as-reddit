@@ -23,6 +23,11 @@
     }
   },
   "rules": {
+    "camelcase": ["error"],
+    "@typescript-eslint/naming-convention": [
+        "error",
+        { "selector": "property", "format": ["snake_case"] }
+    ],
     "linebreak-style": ["error", "windows"],
     "no-use-before-define": "off",
     "@typescript-eslint/no-use-before-define": ["error"],
@@ -48,5 +53,13 @@
     "react-hooks/exhaustive-deps": "warn",
     "import/prefer-default-export": "off",
     "react/prop-types": "off"
-  }
+  },
+  "overrides": [
+    {
+      "files": ["**/*.ts", "**/*.tsx"],
+      "rules": {
+        "camelcase": ["off"]
+      }
+    }
+  ]
 }

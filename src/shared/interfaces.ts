@@ -4,6 +4,7 @@ export interface ArticleInfo {
     selftext: string
     url: string
     score: number
+    num_comments: number
 }
 
 export interface InfoItem{
