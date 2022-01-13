@@ -1,26 +1,30 @@
-import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import Article from '../article/article';
-import { ArticleInfo, ArticleProps } from '../../shared/interfaces';
+import { setArticles } from 'components/redux/articlesSlice';
+import React, { useCallback, useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { PATH } from '../../constants';
+import { ArticleProps } from '../../shared/interfaces';
+import Article from '../article/article';
+import { TStore } from '../redux';
 
 function Articles():JSX.Element {
-  const [articles, setArticles] = useState<ArticleInfo[]>([]);
+  const dispatch = useDispatch();
+  const { articles } = useSelector((state: TStore) => state.articles_reducer);
   const [error, setError] = useState('');
 
-  async function getArticles() :Promise<void> {
+  const getArticles = useCallback(async () => {
     try {
       const { children } = (await axios.get(PATH.data)).data.data;
       const items = children.map((el:ArticleProps) => el.data);
-      setArticles(items);
+      dispatch(setArticles({ articles: items }));
     } catch (Error) {
       setError('Oops! Page not found!');
     }
-  }
+  }, [dispatch]);
 
   useEffect(() => {
     getArticles();
-  }, []);
+  }, [getArticles]);
 
   return (
     <div>

@@ -23,10 +23,13 @@
     }
   },
   "rules": {
+    "no-param-reassign": [2, { 
+      "props": false
+  }],
     "camelcase": ["error"],
     "@typescript-eslint/naming-convention": [
         "error",
-        { "selector": "property", "format": ["snake_case"] }
+        { "selector": ["property", "objectLiteralProperty"], "format": ["snake_case", "camelCase"] }
     ],
     "linebreak-style": ["error", "windows"],
     "no-use-before-define": "off",
