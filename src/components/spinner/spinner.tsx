@@ -10,6 +10,7 @@ function Spinner():JSX.Element {
         size="150px"
         primaryColor="#33a8ff"
         secondaryColor="gray"
+        data-teatid="loader"
       />
     </div>
 

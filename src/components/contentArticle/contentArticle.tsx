@@ -12,7 +12,7 @@ function ContentArticle({ item }:InfoItem):JSX.Element {
     <div className="content">
       <h3 className="title">{title}</h3>
       <p className="selfText">{selftext}</p>
-      <a className="url" href={url} target="_blank" rel="noreferrer">
+      <a className="url" href={url} target="_blank" rel="noreferrer" data-testid="link">
         {url.slice(0, 24)}
         ...
       </a>

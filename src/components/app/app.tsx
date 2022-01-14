@@ -4,7 +4,7 @@ import Main from '../main/main';
 
 function App():JSX.Element {
   return (
-    <div>
+    <div data-testid="app">
       <Header />
       <Main />
     </div>

@@ -10,8 +10,9 @@ function Header():JSX.Element {
           src={PATH.logo}
           alt="logo"
           className="logo"
+          data-testid="img"
         />
-        <h1 className="namePage">javascript</h1>
+        <h1 className="namePage" data-testid="title-header">javascript</h1>
       </div>
     </header>
   );

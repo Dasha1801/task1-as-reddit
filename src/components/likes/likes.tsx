@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import './likes.scss';
 import { FaArrowDown, FaArrowUp } from 'react-icons/fa';
 
-interface InfoScore{
+export interface InfoScore{
   score: number
 }
 
@@ -55,7 +55,7 @@ function Likes({ score }:InfoScore):JSX.Element {
   };
 
   return (
-    <div className="likes">
+    <div className="likes" data-testid="likes">
       <FaArrowUp
         size="20px"
         className="iconUp"
