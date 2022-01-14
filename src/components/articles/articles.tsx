@@ -1,16 +1,19 @@
 import axios from 'axios';
-import { setArticles } from 'components/redux/articlesSlice';
-import React, { useCallback, useEffect, useState } from 'react';
+import { setArticles } from 'components/redux/slices/articlesSlice';
+import { getStateError } from 'components/redux/slices/errorSlice';
+import { getStateLoading } from 'components/redux/slices/loadingSlice';
+import React, { useCallback, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { PATH } from '../../constants';
 import { ArticleProps } from '../../shared/interfaces';
 import Article from '../article/article';
 import { TStore } from '../redux';
+import Spinner from '../spinner/spinner';
 
 function Articles():JSX.Element {
   const dispatch = useDispatch();
   const { articles } = useSelector((state: TStore) => state.articles_reducer);
-  const [error, setError] = useState('');
+  const { loading } = useSelector((state: TStore) => state.loading_reducer);
 
   const getArticles = useCallback(async () => {
     try {
@@ -18,7 +21,9 @@ function Articles():JSX.Element {
       const items = children.map((el:ArticleProps) => el.data);
       dispatch(setArticles({ articles: items }));
     } catch (Error) {
-      setError('Oops! Page not found!');
+      dispatch(getStateError({ error: true }));
+    } finally {
+      dispatch(getStateLoading({ loading: false }));
     }
   }, [dispatch]);
 
@@ -26,12 +31,18 @@ function Articles():JSX.Element {
     getArticles();
   }, [getArticles]);
 
+  function renderArticles():JSX.Element[] {
+    return (articles.map((item) => <Article item={item} key={item.id} />));
+  }
+
+  function renderSpinner():JSX.Element | undefined {
+    return <Spinner />;
+  }
+
   return (
     <div>
-      {articles.length
-        ? (articles.map((item) => <Article item={item} key={item.id} />))
-        : error}
-
+      {loading ? renderSpinner() : null}
+      {articles.length ? renderArticles() : null}
     </div>
   );
 }

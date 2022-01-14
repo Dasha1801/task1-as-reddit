@@ -2,8 +2,10 @@
 
 .main{
     background-color: $bgColor;
+    min-height: 100vh;
     margin: 0 auto;
     padding: 20px 24px;
+    position: relative;
 
     .wrapper{
         max-width: 1024px;
