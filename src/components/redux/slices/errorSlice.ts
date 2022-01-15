@@ -1,16 +1,16 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
-interface IErrorState{
+interface IErrorState {
   error: boolean
 }
 
-const initialState:IErrorState = {
+const initialState: IErrorState = {
   error: false,
 };
 
-  type TPayload = {
-    error: boolean;
-  };
+type TPayload = {
+  error: boolean;
+};
 
 const errorSlice = createSlice({
   name: 'error',

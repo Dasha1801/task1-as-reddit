@@ -1,6 +1,6 @@
 import { ArticleInfo } from './interfaces';
 
-export const item:ArticleInfo = {
+export const item: ArticleInfo = {
   title: 'My website freezes after ...?',
   id: 'xg98gg',
   selftext: 'What trying to do:I work for a TV station as a broadcast Technician.What try',

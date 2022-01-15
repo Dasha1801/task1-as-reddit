@@ -2,11 +2,11 @@ import React from 'react';
 import { FaRegCommentAlt, FaMedal, FaShare } from 'react-icons/fa';
 import './footerArticle.scss';
 
-interface InfoComment{
-    num_comments: number
+interface InfoComment {
+  num_comments: number;
 }
 
-function FooterArticle({ num_comments }:InfoComment):JSX.Element {
+function FooterArticle({ num_comments }: InfoComment): JSX.Element {
   return (
     <footer className="footer">
       <nav className="navFooter">
@@ -26,7 +26,6 @@ function FooterArticle({ num_comments }:InfoComment):JSX.Element {
           </li>
         </ul>
       </nav>
-
     </footer>
   );
 }

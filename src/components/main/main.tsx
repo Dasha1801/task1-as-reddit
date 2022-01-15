@@ -6,7 +6,7 @@ import Sidebar from '../sidebar/sidebar';
 import { TStore } from '../redux';
 import './main.scss';
 
-function Main():JSX.Element {
+function Main(): JSX.Element {
   const { loading } = useSelector((state: TStore) => state.loading_reducer);
   const { error } = useSelector((state: TStore) => state.error_reducer);
   return (

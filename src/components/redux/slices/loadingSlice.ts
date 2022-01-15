@@ -1,16 +1,16 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
-interface ILoadingState{
+interface ILoadingState {
   loading: boolean
 }
 
-const initialState:ILoadingState = {
+const initialState: ILoadingState = {
   loading: true,
 };
 
-  type TPayload = {
-    loading: boolean;
-  };
+type TPayload = {
+  loading: boolean;
+};
 
 const loadingSlice = createSlice({
   name: 'loading',

@@ -23,13 +23,19 @@
     }
   },
   "rules": {
-    "no-param-reassign": [2, { 
-      "props": false
-  }],
+    "no-param-reassign": [
+      2,
+      {
+        "props": false
+      }
+    ],
     "camelcase": ["error"],
     "@typescript-eslint/naming-convention": [
-        "error",
-        { "selector": ["property", "objectLiteralProperty"], "format": ["snake_case", "camelCase"] }
+      "error",
+      {
+        "selector": ["property", "objectLiteralProperty"],
+        "format": ["snake_case", "camelCase"]
+      }
     ],
     "linebreak-style": ["error", "windows"],
     "no-use-before-define": "off",
@@ -51,7 +57,7 @@
         "allowExpressions": true
       }
     ],
-    "max-len": ["warn", { "code": 100 }],
+    "max-len": ["warn", { "code": 110 }],
     "react-hooks/rules-of-hooks": "error",
     "react-hooks/exhaustive-deps": "warn",
     "import/prefer-default-export": "off",

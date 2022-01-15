@@ -1,27 +1,26 @@
-@import '../../index.scss';
+@import "../../index.scss";
 
-.article{
-    border: $border;
-    background: white;
-    display: grid;
-    grid-template-columns: 1fr 10fr 1fr;
-    margin-bottom: 10px;
-    word-wrap: break-word;
+.article {
+  border: $border;
+  background: white;
+  display: grid;
+  grid-template-columns: 1fr 10fr 1fr;
+  margin-bottom: 10px;
+  word-wrap: break-word;
 
-    .iconLink{
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        padding-block-start: 1em;
-        color: #898989;
+  .iconLink {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-block-start: 1em;
+    color: #898989;
+  }
+
+  @media (max-width: 640px) {
+    .iconLink {
+      width: 15px;
+      height: 15px;
+      margin: 0 auto;
     }
-
-    @media(max-width: 640px){
-        .iconLink{
-            width: 15px;
-            height: 15px;
-            margin: 0 auto;
-        }
-    }
-
+  }
 }

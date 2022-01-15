@@ -5,7 +5,7 @@ import { TStore } from '../redux';
 import { fetchArticles } from '../redux/asyncActions';
 import Spinner from '../spinner/spinner';
 
-function Articles():JSX.Element {
+function Articles(): JSX.Element {
   const dispatch = useDispatch();
   const { articles } = useSelector((state: TStore) => state.articles_reducer);
   const { loading } = useSelector((state: TStore) => state.loading_reducer);
@@ -14,11 +14,11 @@ function Articles():JSX.Element {
     fetchArticles()(dispatch);
   }, [dispatch]);
 
-  function renderArticles():JSX.Element[] {
-    return (articles.map((item) => <Article item={item} key={item.id} />));
+  function renderArticles(): JSX.Element[] {
+    return articles.map((item) => <Article item={item} key={item.id} />);
   }
 
-  function renderSpinner():JSX.Element | undefined {
+  function renderSpinner(): JSX.Element | undefined {
     return <Spinner />;
   }
 

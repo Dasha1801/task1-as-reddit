@@ -1,17 +1,17 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { ArticleInfo } from 'shared/interfaces';
 
-interface IArticleState{
+interface IArticleState {
   articles: ArticleInfo[]
 }
 
-const initialState:IArticleState = {
+const initialState: IArticleState = {
   articles: [],
 };
 
-  type TPayload = {
-    articles: ArticleInfo[];
-  };
+type TPayload = {
+  articles: ArticleInfo[];
+};
 
 const articlesSlice = createSlice({
   name: 'articles',

@@ -5,10 +5,8 @@ import ContentArticle from '../contentArticle/contentArticle';
 import Likes from '../likes/likes';
 import './article.scss';
 
-function Article({ item }:InfoItem):JSX.Element {
-  const {
-    score, url,
-  } = item;
+function Article({ item }: InfoItem): JSX.Element {
+  const { score, url } = item;
   return (
     <article className="article">
       <Likes score={score} />
@@ -16,7 +14,6 @@ function Article({ item }:InfoItem):JSX.Element {
       <a className="iconLink" href={url} target="_blank" rel="noreferrer">
         <FaExternalLinkAlt size="20px" />
       </a>
-
     </article>
   );
 }

@@ -7,7 +7,7 @@ export interface ArticleInfo {
     num_comments: number
 }
 
-export interface InfoItem{
+export interface InfoItem {
     item: ArticleInfo
 }
 

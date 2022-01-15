@@ -2,18 +2,15 @@ import React from 'react';
 import LoadingSpin from 'react-loading-spin';
 import './spinner.scss';
 
-function Spinner():JSX.Element {
+function Spinner(): JSX.Element {
   return (
-
-    <div className="parentLoader">
+    <div className="parentLoader" data-testid="parentLoader">
       <LoadingSpin
         size="150px"
         primaryColor="#33a8ff"
         secondaryColor="gray"
-        data-teatid="loader"
       />
     </div>
-
   );
 }
 
