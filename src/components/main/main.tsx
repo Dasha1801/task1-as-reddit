@@ -10,12 +10,12 @@ function Main(): JSX.Element {
   const { loading } = useSelector((state: TStore) => state.loading_reducer);
   const { error } = useSelector((state: TStore) => state.error_reducer);
   return (
-    <main className="main">
-      <div className="wrapper">
+    <main className="main" data-testid="main">
+      <div className="wrapper" data-testid="sidebar">
         <Articles />
         {!(loading || error) ? <Sidebar /> : null}
       </div>
-      {error ? <PageNotFound /> : null}
+      {error ? <PageNotFound data-testid="pageNotFound" /> : null}
     </main>
   );
 }

@@ -11,7 +11,7 @@ function Article({ item }: InfoItem): JSX.Element {
     <article className="article">
       <Likes score={score} />
       <ContentArticle item={item} />
-      <a className="iconLink" href={url} target="_blank" rel="noreferrer">
+      <a className="iconLink" href={url} target="_blank" rel="noreferrer" data-testid="link-article">
         <FaExternalLinkAlt size="20px" />
       </a>
     </article>

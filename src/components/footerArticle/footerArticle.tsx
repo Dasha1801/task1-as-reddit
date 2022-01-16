@@ -13,7 +13,7 @@ function FooterArticle({ num_comments }: InfoComment): JSX.Element {
         <ul className="listLink">
           <li className="link">
             <FaRegCommentAlt className="icon" size="16px" />
-            <span className="countComments">{num_comments}</span>
+            <span className="countComments" data-testid="count-comments">{num_comments}</span>
             Comments
           </li>
           <li className="link">

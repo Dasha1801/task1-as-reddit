@@ -1,10 +1,9 @@
 import { render, screen } from '@testing-library/react';
-import * as React from 'react';
 import ItemSidebar from './itemSidebar';
 
 describe('ItemSidebar component', () => {
   beforeEach(() => {
-    render(<ItemSidebar />);
+    render(ItemSidebar());
   });
 
   it('ItemSidebar render', () => {

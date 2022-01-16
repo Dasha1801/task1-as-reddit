@@ -1,10 +1,9 @@
 import { render, screen } from '@testing-library/react';
-import * as React from 'react';
 import Spinner from './spinner';
 
 describe('Spinner component', () => {
   beforeEach(() => {
-    render(<Spinner />);
+    render(Spinner());
   });
 
   it('Spinner render', () => {

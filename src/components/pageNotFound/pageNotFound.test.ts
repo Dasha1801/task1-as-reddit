@@ -1,11 +1,10 @@
 import { render, screen } from '@testing-library/react';
-import * as React from 'react';
 import { PATH } from '../../constants';
 import PageNotFound from './pageNotFound';
 
-describe('PageNotFound render', () => {
+describe('PageNotFound component', () => {
   beforeEach(() => {
-    render(<PageNotFound />);
+    render(PageNotFound());
   });
 
   it('PageNotFound render', () => {

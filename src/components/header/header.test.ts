@@ -2,7 +2,7 @@ import { render } from '@testing-library/react';
 import { PATH } from '../../constants';
 import Header from './header';
 
-describe('Header render', () => {
+describe('Header component', () => {
   it('Text on title header', () => {
     const el = render(Header());
     const elText = el.getByTestId('title-header');
