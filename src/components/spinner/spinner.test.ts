@@ -6,8 +6,9 @@ describe('Spinner component', () => {
     render(Spinner());
   });
 
-  it('Spinner render', () => {
+  it('should render Spinner', () => {
     const loader = screen.getByTestId('loading-spin');
+
     expect(loader).toHaveStyle('border-radius: 50%');
   });
 });

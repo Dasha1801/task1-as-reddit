@@ -17,12 +17,17 @@
     font-weight: 600;
     padding-bottom: 1em;
     display: inline-block;
+
+    text-overflow: ellipsis;
+    width: 240px;
+    white-space: nowrap;
+    overflow: hidden;
   }
 }
 
 @media (max-width: 460px) {
   .content {
-    padding-left: 0.6em;
+    padding: 0.6em;
 
     .title {
       font-size: 0.8em;

@@ -13,9 +13,9 @@ describe('App component', () => {
     );
   });
 
-  it('App render', () => {
+  it('should render App', () => {
     expect(screen.getByTestId('app')).toBeInTheDocument();
-    expect(screen.findByRole('main')).toBeTruthy();
-    expect(screen.findByRole('heading')).toBeTruthy();
+    expect(screen.getByRole('main')).toBeInTheDocument();
+    expect(screen.getByRole('heading')).toBeInTheDocument();
   });
 });

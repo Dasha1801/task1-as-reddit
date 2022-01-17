@@ -6,6 +6,7 @@
   word-wrap: break-word;
   color: $colorSidebar;
   border: $border;
+  font-family: $fontSidebar;
   background: white;
   margin-bottom: 10px;
 
@@ -23,7 +24,6 @@
   .content {
     padding: 12px;
     margin: 0;
-    font-family: $font;
     font-size: 14px;
     line-height: 21px;
     font-weight: 400;

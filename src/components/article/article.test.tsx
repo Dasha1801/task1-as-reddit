@@ -4,12 +4,14 @@ import { item } from '../../shared/mocks';
 
 describe('Article component', () => {
   beforeEach(() => render(Article({ item })));
-  it('Article render', () => {
+
+  it('should render Article', () => {
     expect(screen.getByRole('navigation')).toBeInTheDocument();
   });
 
-  it('Path to Article', () => {
+  it('should path to Article', () => {
     const anchor = screen.getByTestId('link-article');
+
     expect(anchor.getAttribute('href')).toBe(item.url);
   });
 });

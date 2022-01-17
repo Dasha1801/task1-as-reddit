@@ -14,18 +14,18 @@ function Articles(): JSX.Element {
     fetchArticles()(dispatch);
   }, [dispatch]);
 
-  function renderArticles(): JSX.Element[] {
-    return articles.map((item) => <Article item={item} key={item.id} />);
-  }
-
-  function renderSpinner(): JSX.Element | undefined {
-    return <Spinner />;
+  function renderArticles(): JSX.Element[] | null {
+    return articles.length
+      ? articles.map((item) => (
+        <Article item={item} key={item.id} />
+      ))
+      : null;
   }
 
   return (
     <div>
-      {loading ? renderSpinner() : null}
-      {articles.length ? renderArticles() : null}
+      {loading && <Spinner />}
+      {renderArticles()}
     </div>
   );
 }

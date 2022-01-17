@@ -10,8 +10,9 @@ describe('FooterArticle component', () => {
     render(<FooterArticle num_comments={num_comments} />);
   });
 
-  it('FooterArticle render', () => {
+  it('should render FooterArticle', () => {
     const countComments = screen.getByTestId('count-comments');
+
     expect(countComments).toHaveTextContent(num_comments.toString());
     expect(screen.getByText(/Comments/i)).toBeInTheDocument();
   });

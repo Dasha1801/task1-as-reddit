@@ -1,6 +1,6 @@
 import React from 'react';
-import './header.scss';
 import { PATH } from '../../constants';
+import './header.scss';
 
 function Header(): JSX.Element {
   return (

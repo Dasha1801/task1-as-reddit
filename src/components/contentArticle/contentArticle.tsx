@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactMarkdown from 'react-markdown';
 import FooterArticle from '../footerArticle/footerArticle';
 import { InfoItem } from '../../shared/interfaces';
 import './contentArticle.scss';
@@ -11,7 +12,7 @@ function ContentArticle({ item }: InfoItem): JSX.Element {
   return (
     <div className="content">
       <h3 className="title">{title}</h3>
-      <p className="selfText">{selftext}</p>
+      <ReactMarkdown className="selfText">{selftext}</ReactMarkdown>
       <a
         className="url"
         href={url}
@@ -19,8 +20,7 @@ function ContentArticle({ item }: InfoItem): JSX.Element {
         rel="noreferrer"
         data-testid="link"
       >
-        {url.slice(0, 24)}
-        ...
+        {url}
       </a>
       <FooterArticle num_comments={num_comments} />
     </div>

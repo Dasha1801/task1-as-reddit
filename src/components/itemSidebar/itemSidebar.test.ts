@@ -6,9 +6,10 @@ describe('ItemSidebar component', () => {
     render(ItemSidebar());
   });
 
-  it('ItemSidebar render', () => {
+  it('should render ItemSidebar', () => {
     const item = screen.getByTestId('itemSidebar');
     const title = screen.getByTestId('title');
+
     expect(title.textContent).toBe('Lorem ipsum dolor sit amet.');
     expect(item.hasChildNodes).toBeTruthy();
   });

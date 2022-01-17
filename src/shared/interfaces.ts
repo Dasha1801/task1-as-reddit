@@ -15,3 +15,11 @@ export interface ArticleProps {
     kind: string,
     data: ArticleInfo
 }
+
+export interface InfoComment {
+    num_comments: number;
+}
+
+export interface InfoScore {
+    score: number;
+}

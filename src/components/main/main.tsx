@@ -13,7 +13,7 @@ function Main(): JSX.Element {
     <main className="main" data-testid="main">
       <div className="wrapper" data-testid="sidebar">
         <Articles />
-        {!(loading || error) ? <Sidebar /> : null}
+        {!(loading || error) && <Sidebar />}
       </div>
       {error ? <PageNotFound data-testid="pageNotFound" /> : null}
     </main>

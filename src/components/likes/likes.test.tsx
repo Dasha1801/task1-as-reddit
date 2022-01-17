@@ -11,23 +11,46 @@ describe('Likes component', () => {
     render(<Likes score={score} />);
   });
 
-  it('Likes render', () => {
+  it('should render Likes', () => {
     const countLikes = screen.getByTestId('display-score');
+
     expect(countLikes).toHaveTextContent(score.toString());
   });
 
-  it('Logic component', () => {
+  it('should be testing logic component', () => {
     const btnInc = screen.getByTestId('inc');
     const btnDec = screen.getByTestId('dec');
     const countLikes = screen.getByTestId('display-score');
-    expect(countLikes).toHaveStyle('color:  rgb(0, 0, 0)');
     userEvent.click(btnInc);
+
     expect(countLikes).toHaveTextContent((score + 1).toString());
-    expect(btnInc).toHaveStyle('color: rgb(28, 81, 226)');
+
     userEvent.click(btnInc);
+
     expect(countLikes).toHaveTextContent(score.toString());
+
     userEvent.click(btnDec);
+
     expect(countLikes).toHaveTextContent((score - 1).toString());
-    expect(btnDec).toHaveStyle('color: rgb(231, 94, 40)');
+  });
+
+  it('should unselect button when increment button clicked 2 times', () => {
+    const btnInc = screen.getByTestId('inc');
+
+    const countLikes = screen.getByTestId('display-score');
+    userEvent.click(btnInc);
+    userEvent.click(btnInc);
+
+    expect(countLikes).toHaveTextContent(score.toString());
+  });
+
+  it('should unselect button when increment button clicked 2 times', () => {
+    const btnDec = screen.getByTestId('dec');
+
+    const countLikes = screen.getByTestId('display-score');
+    userEvent.click(btnDec);
+    userEvent.click(btnDec);
+
+    expect(countLikes).toHaveTextContent(score.toString());
   });
 });

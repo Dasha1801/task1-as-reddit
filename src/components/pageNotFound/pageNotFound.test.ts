@@ -7,12 +7,13 @@ describe('PageNotFound component', () => {
     render(PageNotFound());
   });
 
-  it('PageNotFound render', () => {
-    expect(screen.getByRole('img')).toBeTruthy();
+  it('should render PageNotFound', () => {
+    expect(screen.getByRole('img')).toBeInTheDocument();
   });
 
-  it('Path to img', () => {
+  it('should be Path to img', () => {
     const img = screen.getByTestId('img');
+
     expect(img.getAttribute('src')).toBe(PATH.error404);
   });
 });

@@ -1,10 +1,7 @@
 import React from 'react';
 import { FaRegCommentAlt, FaMedal, FaShare } from 'react-icons/fa';
+import { InfoComment } from 'shared/interfaces';
 import './footerArticle.scss';
-
-interface InfoComment {
-  num_comments: number;
-}
 
 function FooterArticle({ num_comments }: InfoComment): JSX.Element {
   return (
@@ -13,7 +10,9 @@ function FooterArticle({ num_comments }: InfoComment): JSX.Element {
         <ul className="listLink">
           <li className="link">
             <FaRegCommentAlt className="icon" size="16px" />
-            <span className="countComments" data-testid="count-comments">{num_comments}</span>
+            <span className="countComments" data-testid="count-comments">
+              {num_comments}
+            </span>
             Comments
           </li>
           <li className="link">
