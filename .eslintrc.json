@@ -23,6 +23,21 @@
     }
   },
   "rules": {
+    "no-param-reassign": [
+      2,
+      {
+        "props": false
+      }
+    ],
+    "camelcase": ["error"],
+    "@typescript-eslint/naming-convention": [
+      "error",
+      {
+        "selector": ["property", "objectLiteralProperty"],
+        "format": ["snake_case", "camelCase"]
+      }
+    ],
+    "linebreak-style": ["error", "windows"],
     "no-use-before-define": "off",
     "@typescript-eslint/no-use-before-define": ["error"],
     "react/jsx-filename-extension": ["warn", { "extensions": [".tsx"] }],
@@ -43,10 +58,18 @@
         "allowExpressions": true
       }
     ],
-    "max-len": ["warn", { "code": 80 }],
+    "max-len": ["warn", { "code": 110 }],
     "react-hooks/rules-of-hooks": "error",
     "react-hooks/exhaustive-deps": "warn",
     "import/prefer-default-export": "off",
     "react/prop-types": "off"
-  }
+  },
+  "overrides": [
+    {
+      "files": ["**/*.ts", "**/*.tsx"],
+      "rules": {
+        "camelcase": ["off"]
+      }
+    }
+  ]
 }

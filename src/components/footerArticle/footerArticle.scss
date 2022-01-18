@@ -1,0 +1,32 @@
+.footer {
+  .listLink {
+    list-style-type: none;
+    padding-left: 0;
+    display: flex;
+    width: 100%;
+  }
+
+  .link {
+    margin-right: 20px;
+    color: #898989;
+    font-weight: 600;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+  }
+
+  .icon,
+  .countComments {
+    padding-right: 3px;
+  }
+
+  @media (max-width: 640px) {
+    .listLink {
+      margin-top: 0;
+    }
+    .link {
+      font-size: 12px;
+    }
+  }
+}

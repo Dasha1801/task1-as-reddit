@@ -1,8 +1,13 @@
 import React from 'react';
+import Header from '../header/header';
+import Main from '../main/main';
 
-function App():JSX.Element {
+function App(): JSX.Element {
   return (
-    <div><h1>learn react</h1></div>
+    <div data-testid="app">
+      <Header />
+      <Main />
+    </div>
   );
 }
 

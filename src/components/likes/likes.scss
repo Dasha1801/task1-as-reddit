@@ -1,0 +1,47 @@
+.likes {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-block-start: 1em;
+  padding-block-end: 1em;
+  background-color: #f4f4f5;
+
+  .iconUp,
+  .iconDown {
+    cursor: pointer;
+    color: rgb(128, 128, 128);
+  }
+
+  .iconUp:hover {
+    color: #6084e6;
+  }
+
+  .iconDown:hover {
+    color: #e6855e;
+  }
+
+  .score {
+    margin: 5px;
+    font-size: 12px;
+  }
+
+  .likesIncrease{
+    color:rgb(28, 81, 226);
+  }
+
+  .likesDecrease{
+    color:rgb(231, 94, 40);
+  }
+
+  @media (max-width: 460px) {
+    .iconUp,
+    .iconDown {
+      width: 15px;
+      height: 15px;
+    }
+
+    .score {
+      font-size: 10px;
+    }
+  }
+}

@@ -1,17 +1,17 @@
+$colorTitle: #222222;
+$colorContent: #878a8c;
+$bgColor: #dae0e6;
+$colorSidebar: #1a1a1b;
+$border: 1px solid #ccc;
+$font: "Nanum Myeongjo", serif;
+$fontSidebar: "Roboto", sans-serif;
+$fontContent: "Noto Sans", sans-serif;
+$colorLink: #cc8b00;
+
 body {
+  padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-}
-
-.root{
-  color: red;
+  box-sizing: border-box;
+  min-height: calc(100vh - 48px);
+  line-height: 1;
 }
