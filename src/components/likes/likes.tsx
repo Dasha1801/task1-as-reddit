@@ -10,10 +10,10 @@ function Likes({ score }: InfoScore): JSX.Element {
   const handlerClickArrow = (n: number): void => (!countState ? setCountState(n) : setCountState(0));
 
   const colorArrowUp = classNames('iconUp', {
-    likesIncrease: countState === +1,
+    likesIncrease: countState > 0,
   });
   const colorArrowDown = classNames('iconDown', {
-    likesDecrease: countState === -1,
+    likesDecrease: countState < 0,
   });
   const colorScore = classNames('score', {
     likesDecrease: countState < 0,
