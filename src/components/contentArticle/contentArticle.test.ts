@@ -2,7 +2,7 @@ import { render, screen } from '@testing-library/react';
 import ContentArticle from './contentArticle';
 import { item } from '../../shared/mocks';
 
-describe('ContentArticle component', () => {
+describe('Test ContentArticle component', () => {
   it('should render ContentArticle', () => {
     render(ContentArticle({ item }));
 
@@ -11,9 +11,9 @@ describe('ContentArticle component', () => {
   });
 
   it('should be path link to article', () => {
-    const { getByTestId } = render(ContentArticle({ item }));
-    const anchor = getByTestId('link');
+    render(ContentArticle({ item }));
+    const title = screen.getByRole('heading', { name: item.title });
 
-    expect(anchor.getAttribute('href')).toBe(item.url);
+    expect(title).toBeInTheDocument();
   });
 });

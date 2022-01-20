@@ -6,18 +6,16 @@ import { item } from '../../shared/mocks';
 
 const { score } = item;
 
-describe('Likes component', () => {
-  beforeEach(() => {
-    render(<Likes score={score} />);
-  });
-
+describe('Test Likes component', () => {
   it('should render Likes', () => {
+    render(<Likes score={score} />);
     const countLikes = screen.getByTestId('display-score');
 
     expect(countLikes).toHaveTextContent(score.toString());
   });
 
   it('should be testing logic component', () => {
+    render(<Likes score={score} />);
     const btnInc = screen.getByTestId('inc');
     const btnDec = screen.getByTestId('dec');
     const countLikes = screen.getByTestId('display-score');
@@ -35,6 +33,7 @@ describe('Likes component', () => {
   });
 
   it('should unselect button when increment button clicked 2 times', () => {
+    render(<Likes score={score} />);
     const btnInc = screen.getByTestId('inc');
 
     const countLikes = screen.getByTestId('display-score');
@@ -44,7 +43,8 @@ describe('Likes component', () => {
     expect(countLikes).toHaveTextContent(score.toString());
   });
 
-  it('should unselect button when increment button clicked 2 times', () => {
+  it('should unselect button when decrement button clicked 2 times', () => {
+    render(<Likes score={score} />);
     const btnDec = screen.getByTestId('dec');
 
     const countLikes = screen.getByTestId('display-score');

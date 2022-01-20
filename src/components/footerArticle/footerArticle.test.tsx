@@ -5,12 +5,9 @@ import FooterArticle from './footerArticle';
 
 const { num_comments } = item;
 
-describe('FooterArticle component', () => {
-  beforeEach(() => {
-    render(<FooterArticle num_comments={num_comments} />);
-  });
-
+describe('Test FooterArticle component', () => {
   it('should render FooterArticle', () => {
+    render(<FooterArticle num_comments={num_comments} />);
     const countComments = screen.getByTestId('count-comments');
 
     expect(countComments).toHaveTextContent(num_comments.toString());

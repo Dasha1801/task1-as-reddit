@@ -3,8 +3,8 @@ import './itemSidebar.scss';
 
 function ItemSidebar(): JSX.Element {
   return (
-    <div className="itemSidebar" data-testid="itemSidebar">
-      <header className="title" data-testid="title">Lorem ipsum dolor sit amet.</header>
+    <div className="itemSidebar">
+      <header className="title">Lorem ipsum dolor sit amet.</header>
       <p className="content">
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur,
         dolores perspiciatis! Asperiores quisquam ea culpa velit est facilis

@@ -3,15 +3,16 @@ import Article from './article';
 import { item } from '../../shared/mocks';
 
 describe('Article component', () => {
-  beforeEach(() => render(Article({ item })));
-
   it('should render Article', () => {
+    render(Article({ item }));
+
     expect(screen.getByRole('navigation')).toBeInTheDocument();
   });
 
   it('should path to Article', () => {
+    render(Article({ item }));
     const anchor = screen.getByTestId('link-article');
 
-    expect(anchor.getAttribute('href')).toBe(item.url);
+    expect(anchor).toHaveAttribute('href', item.url);
   });
 });
