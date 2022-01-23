@@ -1,0 +1,44 @@
+.iconScrollUp {
+  width: 35px;
+  height: 35px;
+  padding: 7px;
+  border: 3px solid #222222;
+  color: #222222;
+  position: fixed;
+  bottom: 5%;
+  right: 24px;
+  opacity: 0;
+  border-radius: 10px;
+  background: #0078d3b4;
+  z-index: 10;
+}
+
+.activeButton {
+  opacity: 1;
+  cursor: pointer;
+}
+
+.iconScrollUp:hover {
+  background-color: #cc8b00;
+}
+
+@media (max-width: 960px) {
+  .iconScrollUp {
+    width: 28px;
+    height: 28px;
+  }
+}
+
+@media (max-width: 720px) {
+  .iconScrollUp {
+    width: 25px;
+    height: 25px;
+  }
+}
+
+@media (max-width: 580px) {
+  .iconScrollUp {
+    width: 20px;
+    height: 20px;
+  }
+}
