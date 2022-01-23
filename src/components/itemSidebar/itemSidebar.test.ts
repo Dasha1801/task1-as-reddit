@@ -1,16 +1,11 @@
 import { render, screen } from '@testing-library/react';
 import ItemSidebar from './itemSidebar';
 
-describe('ItemSidebar component', () => {
-  beforeEach(() => {
-    render(ItemSidebar());
-  });
-
+describe('Test ItemSidebar component', () => {
   it('should render ItemSidebar', () => {
-    const item = screen.getByTestId('itemSidebar');
-    const title = screen.getByTestId('title');
+    render(ItemSidebar());
+    const title = screen.getByText('Lorem ipsum dolor sit amet.');
 
-    expect(title.textContent).toBe('Lorem ipsum dolor sit amet.');
-    expect(item.hasChildNodes).toBeTruthy();
+    expect(title).toBeInTheDocument();
   });
 });

@@ -11,11 +11,11 @@ function Main(): JSX.Element {
   const { error } = useSelector((state: TStore) => state.error_reducer);
   return (
     <main className="main" data-testid="main">
-      <div className="wrapper" data-testid="sidebar">
+      <div className="wrapper">
         <Articles />
         {!(loading || error) && <Sidebar />}
       </div>
-      {error ? <PageNotFound data-testid="pageNotFound" /> : null}
+      {error && <PageNotFound />}
     </main>
   );
 }
