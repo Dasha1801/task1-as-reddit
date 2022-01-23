@@ -7,15 +7,19 @@
   position: fixed;
   bottom: 5%;
   right: 24px;
-  opacity: 0;
+  // opacity: 0;
   border-radius: 10px;
   background: #0078d3b4;
   z-index: 10;
 }
 
-.activeButton {
+.active {
   opacity: 1;
   cursor: pointer;
+}
+
+.notActive {
+  opacity: 0;
 }
 
 .iconScrollUp:hover {

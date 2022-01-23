@@ -1,10 +1,10 @@
-import { fetchArticles } from "components/redux/asyncActions";
-import { useCallback, useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { initialCount } from "../../constants";
-import Article from "../article/article";
-import { TStore } from "../redux";
-import Spinner from "../spinner/spinner";
+import { fetchArticles } from 'components/redux/asyncActions';
+import React, { useCallback, useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { initialCount } from '../../constants';
+import Article from '../article/article';
+import { TStore } from '../redux';
+import Spinner from '../spinner/spinner';
 
 function Articles(): JSX.Element {
   const dispatch = useDispatch();
@@ -15,14 +15,14 @@ function Articles(): JSX.Element {
   const scrollHandler = useCallback(
     (e) => {
       if (
-        e.target.documentElement.scrollHeight -
-          (e.target.documentElement.scrollTop + window.innerHeight) ===
-        0
+        e.target.documentElement.scrollHeight
+          - (e.target.documentElement.scrollTop + window.innerHeight)
+        === 0
       ) {
         setCountArticles(countArticles + 10);
       }
     },
-    [countArticles]
+    [countArticles],
   );
 
   useEffect(() => {
@@ -30,10 +30,10 @@ function Articles(): JSX.Element {
   }, [countArticles, dispatch]);
 
   useEffect(() => {
-    document.addEventListener("scroll", scrollHandler);
+    document.addEventListener('scroll', scrollHandler);
 
     return function removeScrollHandler(): void {
-      document.removeEventListener("scroll", scrollHandler);
+      document.removeEventListener('scroll', scrollHandler);
     };
   }, [scrollHandler]);
 

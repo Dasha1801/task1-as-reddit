@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 import PageNotFound from 'components/pageNotFound/pageNotFound';
 import Articles from '../articles/articles';
 import Sidebar from '../sidebar/sidebar';
-import ButtonScrollUp from '../buttonScrollTop/buttonScrollTop';
+import ButtonScrollTop from '../buttonScrollTop/buttonScrollTop';
 import { TStore } from '../redux';
 import './main.scss';
 
@@ -16,7 +16,7 @@ function Main(): JSX.Element {
       <div className="wrapper">
         <Articles />
         {!(loading || error) && <Sidebar />}
-        <ButtonScrollUp />
+        <ButtonScrollTop />
       </div>
       {error && <PageNotFound />}
     </main>

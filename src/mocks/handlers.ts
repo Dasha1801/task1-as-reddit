@@ -18,7 +18,7 @@ export const handlers = [
         data: {
           title: 'Freezes after ...?',
           id: 'xg98jg',
-          selftext: 'What trying to do:I work for a TV station as a broadcast Technician.What try',
+          selftext: '',
           url: 'https://www.reddit.com/r/javascript/comments/',
           score: 5,
           num_comments: 31,

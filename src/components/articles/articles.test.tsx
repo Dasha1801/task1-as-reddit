@@ -25,9 +25,9 @@ describe('Test Articles component', () => {
     );
 
     const text = await screen.findByText('My website freezes after ...?');
-    const allLink = await screen.findAllByTestId('link');
+    const allLink = await screen.findByTestId('link');
 
-    expect(allLink).toHaveLength(2);
+    expect(allLink).toBeInTheDocument();
     expect(text).toBeInTheDocument();
   });
 });

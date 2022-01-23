@@ -9,19 +9,23 @@ function ContentArticle({ item }: InfoItem): JSX.Element {
     title, selftext, url, num_comments,
   } = item;
 
+  const renderLink = (): JSX.Element | undefined => (!selftext.length ? (
+    <a
+      className="url"
+      href={url}
+      target="_blank"
+      rel="noreferrer"
+      data-testid="link"
+    >
+      {url}
+    </a>
+  ) : undefined);
+
   return (
     <div className="content">
       <h3 className="title">{title}</h3>
       <ReactMarkdown className="selfText">{selftext}</ReactMarkdown>
-      <a
-        className="url"
-        href={url}
-        target="_blank"
-        rel="noreferrer"
-        data-testid="link"
-      >
-        {url}
-      </a>
+      {renderLink()}
       <FooterArticle num_comments={num_comments} />
     </div>
   );
