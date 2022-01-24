@@ -1,4 +1,5 @@
 import React from 'react';
+import { HashRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import ReactDOM from 'react-dom';
 import { PersistGate } from 'redux-persist/integration/react';
@@ -12,7 +13,9 @@ ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
       <PersistGate loading={<Spinner />} persistor={persistor}>
-        <App />
+        <HashRouter>
+          <App />
+        </HashRouter>
       </PersistGate>
     </Provider>
   </React.StrictMode>,

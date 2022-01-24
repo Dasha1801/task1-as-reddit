@@ -1,4 +1,5 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 import { TiMessages } from 'react-icons/ti';
 import { BsBellFill } from 'react-icons/bs';
 import IconSaveItems from '../iconSaveItems/iconSaveItems';
@@ -9,7 +10,9 @@ function NavPanel(): JSX.Element {
     <nav className="navPanel">
       <ul className="listItem">
         <li className="iconItem">
-          <IconSaveItems />
+          <NavLink to="/saveArticles">
+            <IconSaveItems />
+          </NavLink>
         </li>
         <li className="iconItem">
           <TiMessages size={24} color="gray" />

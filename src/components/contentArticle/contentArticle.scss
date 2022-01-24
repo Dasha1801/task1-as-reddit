@@ -47,6 +47,10 @@
   }
 }
 
+.contentSaveArticles{
+  max-width: $widthContentSaveArticle;
+}
+
 @media (max-width: 460px) {
   .content {
     padding: 0.6em;

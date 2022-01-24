@@ -1,0 +1,17 @@
+.wrapper {
+  max-width: 1024px;
+  display: grid;
+  margin: 40px auto 0;
+  gap: 10px;
+
+  .message{
+      width: 100%;
+      font-size: 36px;
+      margin: 40px auto;
+      padding: 40px 0;
+      background-color: #33a8ff;
+      color: white;
+      font-weight: 700;
+      text-align: center;
+  }
+}
