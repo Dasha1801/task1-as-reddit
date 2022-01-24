@@ -2,7 +2,7 @@
 
 .content {
   padding-left: 1em;
-  max-width: 534px;
+  max-width: $widthContentArticle;
 
   .title {
     color: $colorTitle;
@@ -13,8 +13,8 @@
     position: relative;
     overflow: hidden;
     text-overflow: clip;
-    -moz-box-orient: vertical;
     display: -webkit-box;
+    -moz-box-orient: vertical;
     -webkit-line-clamp: 10;
     -webkit-box-orient: vertical;
   }

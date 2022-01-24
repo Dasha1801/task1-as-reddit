@@ -1,15 +1,9 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import { FaAngleDoubleUp } from 'react-icons/fa';
-import classNames from 'classnames';
 import './buttonScrollTop.scss';
 
-function ButtonScrollTop(): JSX.Element {
+function ButtonScrollTop(): JSX.Element | null {
   const [isVisible, setIsVisible] = useState(false);
-
-  const stylesButton = classNames('iconScrollUp', {
-    active: isVisible,
-    notActive: !isVisible,
-  });
 
   const scrollToTop = (): void => {
     window.scrollTo({
@@ -35,11 +29,16 @@ function ButtonScrollTop(): JSX.Element {
   }, [toggleVisibility]);
 
   return (
-    <FaAngleDoubleUp
-      className={stylesButton}
-      onClick={scrollToTop}
-      data-testid="btnScrollToTop"
-    />
+    <>
+      {' '}
+      {isVisible && (
+      <FaAngleDoubleUp
+        className="iconScrollUp"
+        onClick={scrollToTop}
+        data-testid="btnScrollToTop"
+      />
+      ) }
+    </>
   );
 }
 

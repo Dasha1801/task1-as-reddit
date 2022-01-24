@@ -1,4 +1,4 @@
-import { screen, render } from '@testing-library/react';
+import { screen, render, waitForElementToBeRemoved } from '@testing-library/react';
 import React from 'react';
 import { Provider } from 'react-redux';
 import { store } from 'components/redux';
@@ -24,8 +24,10 @@ describe('Test Articles component', () => {
       </Provider>,
     );
 
-    const text = await screen.findByText('My website freezes after ...?');
-    const allLink = await screen.findByTestId('link');
+    await waitForElementToBeRemoved(() => screen.queryByTestId('parentLoader'));
+
+    const text = screen.getByText('My website freezes after ...?');
+    const allLink = screen.getByTestId('link');
 
     expect(allLink).toBeInTheDocument();
     expect(text).toBeInTheDocument();

@@ -9,17 +9,22 @@ function ContentArticle({ item }: InfoItem): JSX.Element {
     title, selftext, url, num_comments,
   } = item;
 
-  const renderLink = (): JSX.Element | undefined => (!selftext.length ? (
-    <a
-      className="url"
-      href={url}
-      target="_blank"
-      rel="noreferrer"
-      data-testid="link"
-    >
-      {url}
-    </a>
-  ) : undefined);
+  const renderLink = (): JSX.Element | null => {
+    if (selftext.length) {
+      return null;
+    }
+    return (
+      <a
+        className="url"
+        href={url}
+        target="_blank"
+        rel="noreferrer"
+        data-testid="link"
+      >
+        {url}
+      </a>
+    );
+  };
 
   return (
     <div className="content">

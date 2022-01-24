@@ -14,11 +14,8 @@ function Articles(): JSX.Element {
 
   const scrollHandler = useCallback(
     (e) => {
-      if (
-        e.target.documentElement.scrollHeight
-          - (e.target.documentElement.scrollTop + window.innerHeight)
-        === 0
-      ) {
+      const page = e.target.documentElement;
+      if (page.scrollHeight - (page.scrollTop + window.innerHeight) === 0) {
         setCountArticles(countArticles + 10);
       }
     },
