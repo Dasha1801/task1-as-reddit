@@ -6,7 +6,7 @@ import './contentArticle.scss';
 
 function ContentArticle({ item }: InfoItem): JSX.Element {
   const {
-    title, selftext, url, num_comments,
+    title, selftext, url,
   } = item;
 
   const renderLink = (): JSX.Element | null => {
@@ -31,7 +31,7 @@ function ContentArticle({ item }: InfoItem): JSX.Element {
       <h3 className="title">{title}</h3>
       <ReactMarkdown className="selfText">{selftext}</ReactMarkdown>
       {renderLink()}
-      <FooterArticle num_comments={num_comments} />
+      <FooterArticle item={item} />
     </div>
   );
 }

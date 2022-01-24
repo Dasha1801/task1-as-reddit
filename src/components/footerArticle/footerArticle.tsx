@@ -1,9 +1,37 @@
-import React from 'react';
-import { FaRegCommentAlt, FaMedal, FaShare } from 'react-icons/fa';
-import { InfoComment } from 'shared/interfaces';
+import {
+  saveArticles,
+  removeArticles,
+} from 'components/redux/slices/savedArticlesSlice';
+import React, { useEffect, useState } from 'react';
+import { FaMedal, FaRegCommentAlt, FaShare } from 'react-icons/fa';
+import { useDispatch, useSelector } from 'react-redux';
+import { InfoItem } from 'shared/interfaces';
+import classNames from 'classnames';
 import './footerArticle.scss';
+import { TStore } from 'components/redux';
 
-function FooterArticle({ num_comments }: InfoComment): JSX.Element {
+function FooterArticle({ item }: InfoItem): JSX.Element {
+  const { savedArticles } = useSelector((state: TStore) => state.savedArticles);
+  const [saved, setSaved] = useState(false);
+  const dispatch = useDispatch();
+  const { num_comments } = item;
+
+  const saveArticle = (): void => {
+    if (!saved) {
+      dispatch(saveArticles({ savedArticles: item }));
+      setSaved(true);
+    } else {
+      dispatch(removeArticles({ savedArticles: item }));
+      setSaved(false);
+    }
+  };
+
+  useEffect(() => {
+    const { id } = item;
+    const isSaveItem = savedArticles.find((el) => el.id === id);
+    isSaveItem && setSaved(true);
+  }, [item, savedArticles]);
+
   return (
     <footer className="footer">
       <nav className="navFooter">
@@ -19,9 +47,13 @@ function FooterArticle({ num_comments }: InfoComment): JSX.Element {
             <FaMedal className="icon" size="16px" />
             Award
           </li>
-          <li className="link">
-            <FaShare className="icon" size="16px" />
-            Share
+          <li
+            className={classNames('link', {
+              save: saved,
+            })}
+          >
+            <FaShare className="icon" size="16px" onClick={saveArticle} />
+            {saved ? 'Saved' : 'Unsaved'}
           </li>
         </ul>
       </nav>

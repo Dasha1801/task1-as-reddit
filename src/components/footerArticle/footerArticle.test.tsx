@@ -1,16 +1,20 @@
 import { render, screen } from '@testing-library/react';
 import * as React from 'react';
+import { Provider } from 'react-redux';
 import { item } from '../../shared/mocks';
 import FooterArticle from './footerArticle';
-
-const { num_comments } = item;
+import { store } from '../redux';
 
 describe('Test FooterArticle component', () => {
   it('should render FooterArticle', () => {
-    render(<FooterArticle num_comments={num_comments} />);
+    render(
+      <Provider store={store}>
+        <FooterArticle item={item} />
+      </Provider>,
+    );
     const countComments = screen.getByTestId('count-comments');
 
-    expect(countComments).toHaveTextContent(num_comments.toString());
+    expect(countComments).toHaveTextContent(item.num_comments.toString());
     expect(screen.getByText(/Comments/i)).toBeInTheDocument();
   });
 });

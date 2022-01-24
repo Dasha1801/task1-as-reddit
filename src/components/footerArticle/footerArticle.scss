@@ -13,12 +13,16 @@
     font-size: 14px;
     display: flex;
     align-items: center;
-    cursor: pointer;
   }
 
   .icon,
   .countComments {
+    cursor: pointer;
     padding-right: 3px;
+  }
+
+  .save{
+    opacity: 0.5;
   }
 
   @media (max-width: 640px) {
