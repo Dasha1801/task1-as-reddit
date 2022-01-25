@@ -2,7 +2,7 @@ import React, { useCallback, useEffect, useState } from 'react';
 import { FaAngleDoubleUp } from 'react-icons/fa';
 import './buttonScrollTop.scss';
 
-function ButtonScrollTop(): JSX.Element | null {
+function ButtonScrollTop(): JSX.Element | false {
   const [isVisible, setIsVisible] = useState(false);
 
   const scrollToTop = (): void => {
@@ -28,17 +28,12 @@ function ButtonScrollTop(): JSX.Element | null {
     };
   }, [toggleVisibility]);
 
-  return (
-    <>
-      {' '}
-      {isVisible && (
-      <FaAngleDoubleUp
-        className="iconScrollUp"
-        onClick={scrollToTop}
-        data-testid="btnScrollToTop"
-      />
-      ) }
-    </>
+  return isVisible && (
+  <FaAngleDoubleUp
+    className="iconScrollUp"
+    onClick={scrollToTop}
+    data-testid="btnScrollToTop"
+  />
   );
 }
 
