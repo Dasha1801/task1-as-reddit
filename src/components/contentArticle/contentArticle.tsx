@@ -1,5 +1,5 @@
 import React from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation, NavLink } from 'react-router-dom';
 import classNames from 'classnames';
 import ReactMarkdown from 'react-markdown';
 import FooterArticle from '../footerArticle/footerArticle';
@@ -29,13 +29,15 @@ function ContentArticle({ item }: InfoItem): JSX.Element {
   };
 
   return (
-    <div
-      className={classNames('content', {
-        contentSaveArticles: path !== '/',
-      })}
+    <div className={classNames('content', {
+      contentSaveArticles: path !== '/',
+    })}
     >
-      <h3 className="title">{title}</h3>
-      <ReactMarkdown className="selfText">{selftext}</ReactMarkdown>
+      <NavLink to="/postPage" className="linkToPostPage">
+        <h3 className="title">{title}</h3>
+        <ReactMarkdown className="selfText">{selftext}</ReactMarkdown>
+      </NavLink>
+
       {renderLink()}
       <FooterArticle item={item} />
     </div>

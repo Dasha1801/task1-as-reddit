@@ -1,3 +1,5 @@
+import classNames from 'classnames';
+import { TStore } from 'components/redux';
 import {
   addSavedArticle,
   removeArticle,
@@ -6,9 +8,7 @@ import React, { useEffect, useState } from 'react';
 import { FaMedal, FaRegCommentAlt, FaShare } from 'react-icons/fa';
 import { useDispatch, useSelector } from 'react-redux';
 import { InfoItem } from 'shared/interfaces';
-import classNames from 'classnames';
 import './footerArticle.scss';
-import { TStore } from 'components/redux';
 
 function FooterArticle({ item }: InfoItem): JSX.Element {
   const { savedArticles } = useSelector((state: TStore) => state.savedArticles);

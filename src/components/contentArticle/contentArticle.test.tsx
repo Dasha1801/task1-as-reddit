@@ -30,5 +30,7 @@ it('should don`t render link to article', () => {
     </Provider>,
   );
 
-  expect(screen.queryByRole('link')).not.toBeInTheDocument();
+  expect(
+    screen.queryByRole('link', { name: item.url }),
+  ).not.toBeInTheDocument();
 });

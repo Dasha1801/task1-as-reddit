@@ -4,6 +4,11 @@
   padding-left: 1em;
   max-width: $widthContentArticle;
 
+  .linkToPostPage {
+    text-decoration: none;
+    display: block;
+  }
+
   .title {
     color: $colorTitle;
   }

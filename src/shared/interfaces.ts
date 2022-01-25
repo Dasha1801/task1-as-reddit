@@ -1,10 +1,11 @@
 export interface ArticleInfo {
-    title: string
-    id: string
-    selftext: string
-    url: string
-    score: number
-    num_comments: number
+    author?: string;
+    title: string;
+    id: string;
+    selftext: string;
+    url: string;
+    score: number;
+    num_comments: number;
 }
 
 export interface InfoItem {
@@ -21,5 +22,12 @@ export interface InfoComment {
 }
 
 export interface InfoScore {
+    score: number;
+}
+
+export interface CommentInfo {
+    author: string;
+    body_html: string;
+    id: string;
     score: number;
 }
