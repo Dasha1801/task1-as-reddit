@@ -51,8 +51,9 @@ function FooterArticle({ item }: InfoItem): JSX.Element {
             className={classNames('link', {
               save: saved,
             })}
+            data-testid="listItemSave"
           >
-            <FaShare className="icon" size="16px" onClick={saveArticle} />
+            <FaShare className="icon" size="16px" onClick={saveArticle} data-testid="iconSave" />
             {saved ? 'Saved' : 'Unsaved'}
           </li>
         </ul>

@@ -11,7 +11,7 @@ function SavedArticlesPage(): JSX.Element {
       ? savedArticles.map((item) => <Article item={item} key={item.id} />)
       : <div className="message">No saved articles!</div>;
   }
-  return <div className="wrapper">{renderSaveArticles()}</div>;
+  return <main className="savedArticlesPage"><div className="wrapper">{renderSaveArticles()}</div></main>;
 }
 
 export default SavedArticlesPage;

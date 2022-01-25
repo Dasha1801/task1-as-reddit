@@ -1,17 +1,24 @@
-.wrapper {
-  max-width: 1024px;
-  display: grid;
-  margin: 40px auto 0;
-  gap: 10px;
+.savedArticlesPage {
+  background-color: #dae0e6;
+  min-height: 100vh;
+  margin: 0 auto;
+  padding: 20px 24px;
 
-  .message{
-      width: 100%;
-      font-size: 36px;
-      margin: 40px auto;
-      padding: 40px 0;
-      background-color: #33a8ff;
-      color: white;
-      font-weight: 700;
-      text-align: center;
+  .wrapper {
+    max-width: 1024px;
+    display: grid;
+    margin: 0 auto;
+    gap: 10px;
+  }
+
+  .message {
+    width: 100%;
+    font-size: 36px;
+    margin: 40px auto;
+    padding: 40px 0;
+    background-color: #33a8ff;
+    color: white;
+    font-weight: 700;
+    text-align: center;
   }
 }

@@ -17,6 +17,7 @@ function Article({ item }: InfoItem): JSX.Element {
 
   return (
     <article
+      data-testid="article"
       className={classNames('article', {
         saveArticle: path !== '/',
       })}
@@ -35,6 +36,7 @@ function Article({ item }: InfoItem): JSX.Element {
         </a>
       ) : (
         <TiDelete
+          data-testid="iconDelete"
           size="30px"
           color="red"
           className="iconLink"
