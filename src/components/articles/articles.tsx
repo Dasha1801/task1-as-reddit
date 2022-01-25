@@ -1,18 +1,38 @@
 import { fetchArticles } from 'components/redux/asyncActions';
-import React, { useEffect } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { initialCount } from '../../constants';
 import Article from '../article/article';
 import { TStore } from '../redux';
 import Spinner from '../spinner/spinner';
 
 function Articles(): JSX.Element {
   const dispatch = useDispatch();
-  const { articles } = useSelector((state: TStore) => state.articles_reducer);
-  const { loading } = useSelector((state: TStore) => state.loading_reducer);
+  const [countArticles, setCountArticles] = useState(initialCount);
+  const { articles } = useSelector((state: TStore) => state.articles);
+  const { loading } = useSelector((state: TStore) => state.loading);
+
+  const scrollHandler = useCallback(
+    (e) => {
+      const page = e.target.documentElement;
+      if (page.scrollHeight - (page.scrollTop + window.innerHeight) === 0) {
+        setCountArticles(countArticles + 10);
+      }
+    },
+    [countArticles],
+  );
 
   useEffect(() => {
-    fetchArticles()(dispatch);
-  }, [dispatch]);
+    fetchArticles(countArticles)(dispatch);
+  }, [countArticles, dispatch]);
+
+  useEffect(() => {
+    document.addEventListener('scroll', scrollHandler);
+
+    return function removeScrollHandler(): void {
+      document.removeEventListener('scroll', scrollHandler);
+    };
+  }, [scrollHandler]);
 
   function renderArticles(): JSX.Element[] | null {
     return articles.length

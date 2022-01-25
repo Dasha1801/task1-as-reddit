@@ -6,7 +6,7 @@ describe('Test ContentArticle component', () => {
   it('should render ContentArticle', () => {
     render(ContentArticle({ item }));
 
-    expect(screen.getByRole('link')).toBeInTheDocument();
+    expect(screen.queryByRole('link')).not.toBeInTheDocument();
     expect(screen.getByText(/My website/)).toBeInTheDocument();
   });
 

@@ -9,10 +9,11 @@ function ContentArticle({ item }: InfoItem): JSX.Element {
     title, selftext, url, num_comments,
   } = item;
 
-  return (
-    <div className="content">
-      <h3 className="title">{title}</h3>
-      <ReactMarkdown className="selfText">{selftext}</ReactMarkdown>
+  const renderLink = (): JSX.Element | null => {
+    if (selftext.length) {
+      return null;
+    }
+    return (
       <a
         className="url"
         href={url}
@@ -22,6 +23,14 @@ function ContentArticle({ item }: InfoItem): JSX.Element {
       >
         {url}
       </a>
+    );
+  };
+
+  return (
+    <div className="content">
+      <h3 className="title">{title}</h3>
+      <ReactMarkdown className="selfText">{selftext}</ReactMarkdown>
+      {renderLink()}
       <FooterArticle num_comments={num_comments} />
     </div>
   );
