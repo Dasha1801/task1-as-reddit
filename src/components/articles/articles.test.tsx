@@ -1,5 +1,10 @@
-import { screen, render, waitForElementToBeRemoved } from '@testing-library/react';
+import {
+  screen,
+  render,
+  waitForElementToBeRemoved,
+} from '@testing-library/react';
 import React from 'react';
+import { HashRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { store } from 'components/redux';
 import Articles from './articles';
@@ -8,7 +13,9 @@ describe('Test Articles component', () => {
   it('should render Spinner', () => {
     render(
       <Provider store={store}>
-        <Articles />
+        <HashRouter>
+          <Articles />
+        </HashRouter>
       </Provider>,
     );
 
@@ -20,7 +27,9 @@ describe('Test Articles component', () => {
   it('should be response msw', async () => {
     render(
       <Provider store={store}>
-        <Articles />
+        <HashRouter>
+          <Articles />
+        </HashRouter>
       </Provider>,
     );
 

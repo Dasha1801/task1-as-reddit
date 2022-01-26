@@ -3,6 +3,7 @@ import { server } from 'mocks/server';
 import { rest } from 'msw';
 import React from 'react';
 import { Provider } from 'react-redux';
+import { HashRouter } from 'react-router-dom';
 import { store } from '../redux';
 import App from './app';
 
@@ -10,7 +11,9 @@ describe('App component', () => {
   it('should render App', () => {
     render(
       <Provider store={store}>
-        <App />
+        <HashRouter>
+          <App />
+        </HashRouter>
       </Provider>,
     );
     expect(screen.getByTestId('app')).toBeInTheDocument();
@@ -28,7 +31,9 @@ describe('App component', () => {
 
     render(
       <Provider store={store}>
-        <App />
+        <HashRouter>
+          <App />
+        </HashRouter>
       </Provider>,
     );
 

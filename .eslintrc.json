@@ -20,7 +20,13 @@
     "ecmaVersion": 13,
     "sourceType": "module"
   },
-  "plugins": ["react", "@typescript-eslint", "react-hooks", "testing-library", "jest-dom"],
+  "plugins": [
+    "react",
+    "@typescript-eslint",
+    "react-hooks",
+    "testing-library",
+    "jest-dom"
+  ],
   "settings": {
     "import/resolver": {
       "node": {
@@ -30,6 +36,7 @@
     }
   },
   "rules": {
+    "newline-before-return": "error",
     "no-param-reassign": [
       2,
       {
