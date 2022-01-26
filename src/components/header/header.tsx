@@ -11,7 +11,7 @@ function Header(): JSX.Element {
         <NavLink to="/">
           <img src={PATH.logo} alt="logo" className="logo" />
         </NavLink>
-        <h1 className="namePage">javascript</h1>
+        <h1 className="">javascript</h1>
         <NavPanel />
       </div>
     </header>

@@ -1,10 +1,10 @@
+import classNames from 'classnames';
 import React, { useState } from 'react';
 import { FaArrowDown, FaArrowUp } from 'react-icons/fa';
-import classNames from 'classnames';
-import { InfoScore } from 'shared/interfaces';
+import { ILikes } from 'shared/interfaces';
 import './likes.scss';
 
-function Likes({ score }: InfoScore): JSX.Element {
+function Likes({ score, className }:ILikes): JSX.Element {
   const [countState, setCountState] = useState(0);
 
   const handlerClickArrow = (n: number): void => (!countState ? setCountState(n) : setCountState(0));
@@ -21,7 +21,7 @@ function Likes({ score }: InfoScore): JSX.Element {
   });
 
   return (
-    <div className="likes">
+    <div className={`likes ${className}`}>
       <FaArrowUp
         size="20px"
         className={colorArrowUp}

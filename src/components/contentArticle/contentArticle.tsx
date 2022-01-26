@@ -17,7 +17,7 @@ function ContentArticle({ item }: InfoItem): JSX.Element {
 
     return (
       <a
-        className="url"
+        className="linkPost"
         href={url}
         target="_blank"
         rel="noreferrer"

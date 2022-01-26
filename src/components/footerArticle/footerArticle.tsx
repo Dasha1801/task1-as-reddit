@@ -10,7 +10,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { InfoItem } from 'shared/interfaces';
 import './footerArticle.scss';
 
-function FooterArticle({ item }: InfoItem): JSX.Element {
+function FooterArticle({ item, className }: InfoItem): JSX.Element {
   const { savedArticles } = useSelector((state: TStore) => state.savedArticles);
   const [saved, setSaved] = useState(false);
   const dispatch = useDispatch();
@@ -35,7 +35,7 @@ function FooterArticle({ item }: InfoItem): JSX.Element {
   return (
     <footer className="footer">
       <nav className="navFooter">
-        <ul className="listLink">
+        <ul className={`listLink ${className}`}>
           <li className="link">
             <FaRegCommentAlt className="icon" size="16px" />
             <span className="countComments" data-testid="count-comments">

@@ -37,19 +37,6 @@
       rgba(255, 255, 255, 0.85)
     );
   }
-
-  .url {
-    color: $colorLink;
-    font-size: 13px;
-    font-weight: 600;
-    padding-bottom: 1em;
-    display: inline-block;
-
-    text-overflow: ellipsis;
-    width: 240px;
-    white-space: nowrap;
-    overflow: hidden;
-  }
 }
 
 .contentSaveArticles {
@@ -68,10 +55,6 @@
     .selfText {
       font-size: 0.7em;
       margin: 8px 0;
-    }
-
-    .url {
-      font-size: 11px;
     }
   }
 }

@@ -1,0 +1,31 @@
+.listItemFooter {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  max-width: 170px;
+  justify-content: space-between;
+  font-weight: 600;
+  font-size: 14px;
+  align-items: center;
+
+  .likesInComment {
+    flex-direction: row;
+    align-items: center;
+    padding-block-start: 0;
+    padding-block-end: 0;
+    background-color: white;
+  }
+
+  .replyComment {
+    display: flex;
+    align-items: center;
+  }
+
+  .iconReplay {
+    width: 18px;
+    height: 18px;
+    color: gray;
+    margin-right: 3px;
+  }
+}

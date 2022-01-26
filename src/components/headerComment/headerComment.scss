@@ -1,0 +1,17 @@
+.headerComment {
+  display: flex;
+  align-items: center;
+  font-weight: 700;
+  margin-top: 16px;
+  font-size: 13px;
+
+  .iconUser {
+    padding: 5px;
+    border-radius: 50%;
+    background-color: #f4f4f5;
+    color: #33a8ff;
+    width: 20px;
+    height: 20px;
+    margin-right: 8px;
+  }
+}

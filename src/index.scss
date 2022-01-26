@@ -6,6 +6,7 @@ $border: 1px solid #ccc;
 $font: "Nanum Myeongjo", serif;
 $fontSidebar: "Roboto", sans-serif;
 $fontContent: "Noto Sans", sans-serif;
+$fontContentPost: "Lato", sans-serif;
 $colorLink: #cc8b00;
 $widthContentArticle: 534px;
 $widthContentSaveArticle: 850px;
@@ -16,4 +17,24 @@ body {
   box-sizing: border-box;
   min-height: calc(100vh - 48px);
   line-height: 1;
+  color: $colorContent;
+}
+
+.linkPost {
+  color: $colorLink;
+  font-size: 13px;
+  font-weight: 600;
+  padding-bottom: 1em;
+  display: inline-block;
+
+  text-overflow: ellipsis;
+  width: 240px;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+@media (max-width: 460px) {
+  .linkPost {
+    font-size: 11px;
+  }
 }
