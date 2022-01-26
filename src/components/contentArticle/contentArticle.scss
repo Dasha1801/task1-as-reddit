@@ -18,7 +18,7 @@
     position: relative;
     overflow: hidden;
     text-overflow: clip;
-    display: -webkit-box;
+    display: box;
     -moz-box-orient: vertical;
     -webkit-line-clamp: 10;
     -webkit-box-orient: vertical;
@@ -30,12 +30,7 @@
     width: 100%;
     height: 100%;
     z-index: 2;
-    background-image: linear-gradient(
-      to bottom,
-      transparent,
-      rgba(255, 255, 255, 0.35),
-      rgba(255, 255, 255, 0.85)
-    );
+    background-image: linear-gradient(to bottom, transparent, #ffffff59, #ffffffd9);
   }
 }
 

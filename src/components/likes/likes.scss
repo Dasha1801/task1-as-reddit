@@ -9,7 +9,7 @@
   .iconUp,
   .iconDown {
     cursor: pointer;
-    color: rgb(128, 128, 128);
+    color: #808080;
   }
 
   .iconUp:hover {
@@ -26,11 +26,11 @@
   }
 
   .likesIncrease {
-    color: rgb(28, 81, 226);
+    color: #1c51e2;
   }
 
   .likesDecrease {
-    color: rgb(231, 94, 40);
+    color: #e75e28;
   }
 
   @media (max-width: 460px) {

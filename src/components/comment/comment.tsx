@@ -1,5 +1,5 @@
-import ContentComment from 'components/contentComment/contentComment';
 import React from 'react';
+import ContentComment from 'components/contentComment/contentComment';
 import HeaderComment from '../headerComment/headerComment';
 import FooterComment from '../footerComment/footerComment';
 import './comment.scss';
