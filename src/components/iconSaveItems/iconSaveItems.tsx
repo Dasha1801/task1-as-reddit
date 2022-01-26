@@ -12,12 +12,22 @@ function IconSaveItems(): JSX.Element {
     if (!countSaveItems) {
       return null;
     }
-    return <span className="countSaveItems" data-testid="countItem">{countSaveItems}</span>;
+
+    return (
+      <span className="countSaveItems" data-testid="countItem">
+        {countSaveItems}
+      </span>
+    );
   };
 
   return (
     <>
-      <HiSave size={24} color="gray" className="iconSaveItems" data-testid="iconSavedItems" />
+      <HiSave
+        size={24}
+        color="gray"
+        className="iconSaveItems"
+        data-testid="iconSavedItems"
+      />
       {renderCountSavedItem()}
     </>
   );

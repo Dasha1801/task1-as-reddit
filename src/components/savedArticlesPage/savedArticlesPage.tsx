@@ -7,11 +7,18 @@ import './savedArticlesPage.scss';
 function SavedArticlesPage(): JSX.Element {
   const { savedArticles } = useSelector((state: TStore) => state.savedArticles);
   function renderSaveArticles(): JSX.Element[] | JSX.Element {
-    return savedArticles.length
-      ? savedArticles.map((item) => <Article item={item} key={item.id} />)
-      : <div className="message">No saved articles!</div>;
+    return savedArticles.length ? (
+      savedArticles.map((item) => <Article item={item} key={item.id} />)
+    ) : (
+      <div className="message">No saved articles!</div>
+    );
   }
-  return <main className="savedArticlesPage"><div className="wrapper">{renderSaveArticles()}</div></main>;
+
+  return (
+    <main className="savedArticlesPage">
+      <div className="wrapper">{renderSaveArticles()}</div>
+    </main>
+  );
 }
 
 export default SavedArticlesPage;

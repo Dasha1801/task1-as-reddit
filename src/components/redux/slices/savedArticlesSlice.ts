@@ -9,23 +9,18 @@ const initialState: IArticleState = {
   savedArticles: [],
 };
 
-type TPayload = {
-  savedArticles: ArticleInfo;
-};
-
 const savedArticlesSlice = createSlice({
   name: 'savedArticles',
   initialState,
   reducers: {
-    saveArticles: (state, { payload }: PayloadAction<TPayload>) => {
-      state.savedArticles = [...state.savedArticles, payload.savedArticles];
+    addSavedArticle: (state, { payload }: PayloadAction<ArticleInfo>) => {
+      state.savedArticles = [...state.savedArticles, payload];
     },
-    removeArticles: (state, { payload }: PayloadAction<TPayload>) => {
-      state.savedArticles = state.savedArticles.filter((el) => el.id !== payload.savedArticles.id);
+    removeArticle: (state, { payload }: PayloadAction<ArticleInfo>) => {
+      state.savedArticles = state.savedArticles.filter((el) => el.id !== payload.id);
     },
   },
 });
 
 export const savedArticles_reducer = savedArticlesSlice.reducer;
-export const { saveArticles } = savedArticlesSlice.actions;
-export const { removeArticles } = savedArticlesSlice.actions;
+export const { addSavedArticle, removeArticle } = savedArticlesSlice.actions;

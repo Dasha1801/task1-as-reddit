@@ -51,11 +51,9 @@ describe('Article component', () => {
   it('should render delete icon', () => {
     render(
       <Provider store={store}>
-        render(
         <MemoryRouter initialEntries={[{ pathname: '/saveArticles' }]}>
           <Article item={item} />
         </MemoryRouter>
-        );
       </Provider>,
     );
 

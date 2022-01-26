@@ -1,6 +1,6 @@
 import {
-  saveArticles,
-  removeArticles,
+  addSavedArticle,
+  removeArticle,
 } from 'components/redux/slices/savedArticlesSlice';
 import React, { useEffect, useState } from 'react';
 import { FaMedal, FaRegCommentAlt, FaShare } from 'react-icons/fa';
@@ -18,10 +18,10 @@ function FooterArticle({ item }: InfoItem): JSX.Element {
 
   const saveArticle = (): void => {
     if (!saved) {
-      dispatch(saveArticles({ savedArticles: item }));
+      dispatch(addSavedArticle(item));
       setSaved(true);
     } else {
-      dispatch(removeArticles({ savedArticles: item }));
+      dispatch(removeArticle(item));
       setSaved(false);
     }
   };
@@ -53,7 +53,12 @@ function FooterArticle({ item }: InfoItem): JSX.Element {
             })}
             data-testid="listItemSave"
           >
-            <FaShare className="icon" size="16px" onClick={saveArticle} data-testid="iconSave" />
+            <FaShare
+              className="icon"
+              size="16px"
+              onClick={saveArticle}
+              data-testid="iconSave"
+            />
             {saved ? 'Saved' : 'Unsaved'}
           </li>
         </ul>

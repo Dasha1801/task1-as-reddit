@@ -1,7 +1,7 @@
 import React from 'react';
 import { useLocation } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import { removeArticles } from 'components/redux/slices/savedArticlesSlice';
+import { removeArticle } from 'components/redux/slices/savedArticlesSlice';
 import classNames from 'classnames';
 import { FaExternalLinkAlt } from 'react-icons/fa';
 import { TiDelete } from 'react-icons/ti';
@@ -40,7 +40,7 @@ function Article({ item }: InfoItem): JSX.Element {
           size="30px"
           color="red"
           className="iconLink"
-          onClick={() => dispatch(removeArticles({ savedArticles: item }))}
+          onClick={() => dispatch(removeArticle(item))}
         />
       )}
     </article>

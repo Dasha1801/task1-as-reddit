@@ -14,6 +14,7 @@ function ContentArticle({ item }: InfoItem): JSX.Element {
     if (selftext.length) {
       return null;
     }
+
     return (
       <a
         className="url"
