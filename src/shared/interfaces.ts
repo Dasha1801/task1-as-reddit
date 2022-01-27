@@ -33,3 +33,8 @@ export interface ICommentInfo {
     id: string
     score: number
 }
+
+export interface ICommentProps {
+    kind: string,
+    data: ICommentInfo
+}

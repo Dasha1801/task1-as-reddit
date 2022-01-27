@@ -7,6 +7,7 @@
         "scss/at-import-partial-extension": "always",
         "scss/at-import-partial-extension-blacklist": [".scss"],
         "max-nesting-depth": [3, { "ignore": "pseudo-classes", "ignoreAtRules": "media" }],
-        "selector-max-compound-selectors": [4]
+        "selector-max-compound-selectors": [4],
+        "value-no-vendor-prefix": null
     }
   }

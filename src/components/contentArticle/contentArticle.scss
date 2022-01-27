@@ -3,6 +3,7 @@
 .content {
   padding-left: 1em;
   max-width: $widthContentArticle;
+  word-break: break-word;
 
   .linkToPostPage {
     text-decoration: none;
@@ -16,12 +17,10 @@
   .selfText {
     color: $colorContent;
     position: relative;
-    overflow: hidden;
-    text-overflow: clip;
-    display: box;
-    -moz-box-orient: vertical;
+    display: -webkit-box;
     -webkit-line-clamp: 10;
     -webkit-box-orient: vertical;
+    overflow: hidden;
   }
 
   .selfText::before {
@@ -36,6 +35,12 @@
 
 .contentSaveArticles {
   max-width: $widthContentSaveArticle;
+}
+
+@media (max-width: 960px) {
+  .content {
+    max-width: 680px;
+  }
 }
 
 @media (max-width: 460px) {

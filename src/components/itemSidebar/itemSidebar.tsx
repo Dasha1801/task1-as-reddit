@@ -5,7 +5,7 @@ function ItemSidebar(): JSX.Element {
   return (
     <div className="itemSidebar">
       <header className="title">Lorem ipsum dolor sit amet.</header>
-      <p className="content">
+      <p className="contentSidebar">
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur,
         dolores perspiciatis! Asperiores quisquam ea culpa velit est facilis
         quidem sunt commodi minus non, illo repudiandae corporis sint enim

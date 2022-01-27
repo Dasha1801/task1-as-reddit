@@ -11,7 +11,7 @@
   margin-bottom: 10px;
 
   .title {
-    background: #0079d3;
+    background: #0076d1;
     font-size: 17px;
     line-height: 45px;
     font-weight: 700;
@@ -20,9 +20,9 @@
     padding: 0 12px;
   }
 
-  .content {
+  .contentSidebar {
     padding: 12px;
-    margin: 0;
+    margin: 0 auto;
     font-size: 14px;
     line-height: 21px;
     font-weight: 400;
@@ -34,7 +34,7 @@
       font-size: 14px;
     }
 
-    .content {
+    .contentSidebar {
       font-size: 12px;
       line-height: 14px;
     }

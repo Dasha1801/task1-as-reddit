@@ -25,6 +25,12 @@
   }
 }
 
+@media (max-width: 960px) {
+  .article {
+    grid-template-columns: 1fr 13fr 1fr;
+  }
+}
+
 .saveArticle {
   grid-template-columns: 1fr 13fr 1fr;
 }
