@@ -83,6 +83,7 @@
       "eslint --cache --fix",
       "prettier --write",
       "test --watchAll=false --findRelatedTests --bail"
-    ]
+    ],
+    "**/*.{scss, css}": "npm run stylelint"
   }
 }

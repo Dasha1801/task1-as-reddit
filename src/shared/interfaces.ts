@@ -29,12 +29,30 @@ export interface ILikes {
 
 export interface ICommentInfo {
     author: string
-    body_html: string
+    body: string
     id: string
+    score: number
+    created_utc: number
+}
+
+export interface IAuthorDateComment {
+    author: string
+    created_utc: number
+}
+
+export interface ITextComment {
+    body: string
+}
+
+export interface ILikesComment {
     score: number
 }
 
 export interface ICommentProps {
     kind: string,
     data: ICommentInfo
+}
+
+export interface IComment {
+    item: ICommentInfo
 }

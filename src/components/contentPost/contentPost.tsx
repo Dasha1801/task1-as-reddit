@@ -1,18 +1,22 @@
+import { TStore } from 'components/redux';
 import React from 'react';
 import ReactMarkdown from 'react-markdown';
+import { useSelector } from 'react-redux';
 import FooterArticle from '../footerArticle/footerArticle';
-import { item } from '../../shared/mocks';
 import './contentPost.scss';
 
 function ContentPost(): JSX.Element {
+  const { post } = useSelector((state: TStore) => state.comments);
+  const { title, selftext, url } = post;
+
   return (
     <>
-      <h1 className="postTitle">{item.title}</h1>
-      <ReactMarkdown className="textContent">{item.selftext}</ReactMarkdown>
-      <a className="linkPost" href={item.url} target="_blank" rel="noreferrer">
-        {item.url}
+      <h1 className="postTitle">{title}</h1>
+      <ReactMarkdown className="textContent">{selftext}</ReactMarkdown>
+      <a className="linkPost" href={url} target="_blank" rel="noreferrer">
+        {url}
       </a>
-      <FooterArticle item={item} className="marginStyle" />
+      <FooterArticle item={post} className="marginStyle" />
     </>
   );
 }

@@ -1,13 +1,13 @@
 import React from 'react';
 import { FaRegCommentAlt } from 'react-icons/fa';
-import { item } from '../../shared/mocks';
+import { ILikesComment } from 'shared/interfaces';
 import Likes from '../likes/likes';
 import './footerComment.scss';
 
-function FooterComment(): JSX.Element {
+function FooterComment({ score }: ILikesComment): JSX.Element {
   return (
     <ul className="listItemFooter">
-      <Likes score={item.score} className="likesInComment" />
+      <Likes score={score} className="likesInComment" />
       <li className="replyComment">
         <FaRegCommentAlt className="iconReplay" />
         <span>Reply</span>
