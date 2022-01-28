@@ -1,22 +1,23 @@
 import React from 'react';
 import { IComment } from 'shared/interfaces';
-import ContentComment from 'components/contentComment/contentComment';
-import HeaderComment from '../headerComment/headerComment';
-import FooterComment from '../footerComment/footerComment';
+import CommentItem from '../commentItem/commentItem';
 import './comment.scss';
 
 function Comment({ item }: IComment): JSX.Element {
-  const { author, body, score, created_utc } = item;
+  const renderComment = ({ item: comment }: IComment): JSX.Element | null => {
+    const nestedComments = comment.replies?.data?.children
+      ? comment.replies?.data.children.map((nestedItem) => renderComment({ item: nestedItem.data }))
+      : null;
 
-  return (
-    <div className="comment">
-      <HeaderComment author={author} created_utc={created_utc} />
-      <div className="wrapperContent">
-        <ContentComment body={body} />
-        <FooterComment score={score} />
+    return (
+      <div className="comments">
+        <CommentItem item={comment} key={comment.id} />
+        {nestedComments}
       </div>
-    </div>
-  );
+    );
+  };
+
+  return <>{renderComment({ item })}</>;
 }
 
 export default Comment;

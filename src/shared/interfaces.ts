@@ -14,7 +14,6 @@ export interface InfoItem {
 }
 
 export interface ArticleProps {
-    kind: string,
     data: ArticleInfo
 }
 
@@ -27,12 +26,23 @@ export interface ILikes {
     className?: string
 }
 
+export interface IReplies {
+    data: {
+        children: ICommentProps[]
+    }
+}
+
+export interface IRepliesChildren {
+    data: IReplies[]
+}
+
 export interface ICommentInfo {
     author: string
     body: string
     id: string
     score: number
     created_utc: number
+    replies: IReplies | undefined
 }
 
 export interface IAuthorDateComment {
@@ -49,7 +59,6 @@ export interface ILikesComment {
 }
 
 export interface ICommentProps {
-    kind: string,
     data: ICommentInfo
 }
 
