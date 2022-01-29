@@ -10,7 +10,7 @@ function Comments(): JSX.Element {
   const { comments } = useSelector((state: TStore) => state.comments);
 
   function renderComments(): JSX.Element[] | null {
-    return comments.length ? comments.map((item) => <Comment item={item} key={item.id} />) : null;
+    return comments.length ? comments.map((item) => <Comment item={item} />) : null;
   }
 
   return (

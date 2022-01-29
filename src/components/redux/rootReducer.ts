@@ -4,6 +4,7 @@ import { loading_reducer } from './slices/loadingSlice';
 import { error_reducer } from './slices/errorSlice';
 import { comments_reducer } from './slices/commentsSlice';
 import { savedArticles_reducer } from './slices/savedArticlesSlice';
+import { rulesSubreddit_reducer } from './slices/rulesSubredditSlice';
 
 const rootReducer = combineReducers({
   articles: articles_reducer,
@@ -11,6 +12,7 @@ const rootReducer = combineReducers({
   error: error_reducer,
   savedArticles: savedArticles_reducer,
   comments: comments_reducer,
+  rulesSubreddit: rulesSubreddit_reducer
 });
 
 export default rootReducer;

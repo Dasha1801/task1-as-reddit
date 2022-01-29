@@ -1,13 +1,20 @@
-import { screen, render } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import React from 'react';
+import { Provider } from 'react-redux';
+import { store } from '../redux';
 import Sidebar from './sidebar';
 
 describe('Test Sidebar component', () => {
-  it('should be render Sidebar, count ItemSidebar', () => {
-    render(<Sidebar />);
+  it('should be response msw', async () => {
+    render(
+      <Provider store={store}>
+        <Sidebar />
+      </Provider>
+    );
 
-    const countItem = screen.getAllByText('Lorem ipsum dolor sit amet.');
+    const allRules = await screen.findAllByTestId('rule');
 
-    expect(countItem).toHaveLength(2);
+    expect(allRules).toHaveLength(3);
+    expect(screen.getByText('Excessive Self-Promotion')).toBeInTheDocument();
   });
 });

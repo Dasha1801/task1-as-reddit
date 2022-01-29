@@ -43,6 +43,26 @@ export const handlers = [
         }]
       }
     }
-  ])))
+  ]))),
+
+  rest.get('https://www.reddit.com/r/javascript/about/rules.json', (req, res, ctx) => res(ctx.json({
+    rules: [
+      {
+        short_name: "Excessive Self-Promotion",
+        description: "It's ok to promote your own content, or content that you're otherwise vested in",
+        created_utc: 175
+      },
+      {
+        short_name: "Where's the Javascript?",
+        description: "Demos can be fun, but they really don't provide for much",
+        created_utc: 176
+      },
+      {
+        short_name: "/r/JavaScript is not a support forum",
+        description: "Is this a help request? Try /r/LearnJavascript instead!",
+        created_utc: 177
+      }
+    ]
+  })))
 ];
 

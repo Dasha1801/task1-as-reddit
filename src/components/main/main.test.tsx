@@ -12,7 +12,7 @@ describe('Test Main component', () => {
         <HashRouter>
           <Main />
         </HashRouter>
-      </Provider>,
+      </Provider>
     );
     const main = screen.getByTestId('main');
 
@@ -25,11 +25,11 @@ describe('Test Main component', () => {
         <HashRouter>
           <Main />
         </HashRouter>
-      </Provider>,
+      </Provider>
     );
 
     const listsArray = await screen.findAllByRole('list');
 
-    expect(listsArray).toHaveLength(2);
+    expect(listsArray).toHaveLength(3);
   });
 });

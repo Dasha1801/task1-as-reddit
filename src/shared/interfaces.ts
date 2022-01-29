@@ -17,10 +17,6 @@ export interface ArticleProps {
     data: ArticleInfo
 }
 
-// export interface InfoComment {
-//     num_comments: number
-// }
-
 export interface ILikes {
     score: number
     className?: string
@@ -64,4 +60,10 @@ export interface ICommentProps {
 
 export interface IComment {
     item: ICommentInfo
+}
+
+export interface IRulesSubreddit{
+    short_name: string
+    description: string
+    created_utc: number
 }
