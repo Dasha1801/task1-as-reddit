@@ -14,7 +14,7 @@ function Comments(): JSX.Element {
   }
 
   return (
-    <div className="wrapperComments">
+    <div className="wrapperComments" data-testid="wrapperComments">
       <NewComment />
       <SortComments />
       {renderComments()}

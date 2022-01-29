@@ -24,7 +24,25 @@ export const handlers = [
           num_comments: 31,
         },
       }],
-    },
-    kind: {},
+    }
   }))),
+
+  rest.get('https://www.reddit.com/r/javascript/comments/xg98gg.json', (req, res, ctx) => res(ctx.json([
+    [],
+    {
+      data: {
+        children: [{
+          data: {
+            author: 'simon',
+            body: 'It will load the image only at the point when you assign an src to it, browsers do that.',
+            id: 'xf458l5',
+            score: 18,
+            created_utc: 1643379472,
+            replies: '',
+          }
+        }]
+      }
+    }
+  ])))
 ];
+

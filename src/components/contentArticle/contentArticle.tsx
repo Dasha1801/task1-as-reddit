@@ -37,7 +37,7 @@ function ContentArticle({ item }: InfoItem): JSX.Element {
         contentSaveArticles: path !== '/',
       })}
     >
-      <NavLink to="/postPage" className="linkToPostPage" onClick={handlerClick}>
+      <NavLink to="/postPage" className="linkToPostPage" onClick={handlerClick} data-testid="linkToPost">
         <h3 className="title">{title}</h3>
         <ReactMarkdown className="selfText">{selftext}</ReactMarkdown>
       </NavLink>

@@ -21,13 +21,7 @@
     "plugin:testing-library/react",
     "plugin:jest-dom/recommended"
   ],
-  "plugins": [
-    "react",
-    "@typescript-eslint",
-    "react-hooks",
-    "testing-library",
-    "jest-dom"
-  ],
+  "plugins": ["react", "@typescript-eslint", "react-hooks", "testing-library", "jest-dom"],
   "settings": {
     "import/resolver": {
       "node": {

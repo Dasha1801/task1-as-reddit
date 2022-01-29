@@ -32,7 +32,7 @@ export const fetchComments = (id: string) => async function getComments(dispatch
     const { children } = (await axios.get(`${PATH.comments}${id}.json`)).data[1].data;
     const items = children.map((el: ICommentProps) => el.data);
     dispatch(setComments({ comments: items }));
-  } finally{
+  } finally {
     dispatch(getStateLoading({ loading: false }));
   }
 };

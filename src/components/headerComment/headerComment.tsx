@@ -7,9 +7,9 @@ import { getTime } from '../../utils';
 function HeaderComment({ author, created_utc }: IAuthorDateComment): JSX.Element {
   return (
     <div className="headerComment">
-      <FaUser className="iconUser" />
+      <FaUser className="iconUser" data-testid="iconUser" />
       <span>{author}</span>
-      <span className='sendComment'>{getTime(created_utc)}</span>
+      <span className="sendComment">{getTime(created_utc)}</span>
     </div>
   );
 }

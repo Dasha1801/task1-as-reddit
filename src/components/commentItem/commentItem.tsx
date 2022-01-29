@@ -6,10 +6,10 @@ import FooterComment from '../footerComment/footerComment';
 import './commentItem.scss';
 
 function CommentItem({ item }: IComment): JSX.Element {
-  const { author, body, score, created_utc, id } = item;
+  const { author, body, score, created_utc } = item;
 
   return (
-    <div className="comment" key={id}>
+    <div className="comment">
       <HeaderComment author={author} created_utc={created_utc} />
       <div className="wrapperContent">
         <ContentComment body={body} />

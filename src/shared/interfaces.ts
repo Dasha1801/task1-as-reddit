@@ -17,9 +17,9 @@ export interface ArticleProps {
     data: ArticleInfo
 }
 
-export interface InfoComment {
-    num_comments: number
-}
+// export interface InfoComment {
+//     num_comments: number
+// }
 
 export interface ILikes {
     score: number

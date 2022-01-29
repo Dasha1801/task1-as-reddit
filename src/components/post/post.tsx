@@ -4,7 +4,7 @@ import HeaderPost from '../headerPost/headerPost';
 
 function Post(): JSX.Element {
   return (
-    <div className="post">
+    <div className="post" data-testid="post">
       <HeaderPost />
       <ContentPost />
     </div>

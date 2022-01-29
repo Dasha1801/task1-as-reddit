@@ -10,7 +10,7 @@ function Comment({ item }: IComment): JSX.Element {
       : null;
 
     return (
-      <div className="comments">
+      <div className="comments" data-testid="wrapperComment">
         <CommentItem item={comment} key={comment.id} />
         {nestedComments}
       </div>
