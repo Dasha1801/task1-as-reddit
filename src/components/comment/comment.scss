@@ -1,4 +1,6 @@
+@import "../../colors.scss";
+
 .comments {
   margin-left: 20px;
-  border-left: 2px solid #80808015;
+  border-left: 2px solid $borderColorComments;
 }

@@ -1,4 +1,5 @@
 @import "../../index.scss";
+@import "../../colors.scss";
 
 .itemSidebar {
   border-radius: 4px;
@@ -12,19 +13,18 @@
   padding-bottom: 10px;
 
   .title {
-    background: #0076d1;
+    background: $sideBarBgHeader;
     font-size: 17px;
     line-height: 45px;
     font-weight: 700;
-    color: white;
+    color: $sideBarColorTitle;
     height: 45px;
     padding: 0 12px;
   }
 
   .itemList {
-    color: #0076d1;
     font-weight: 600;
-    border-bottom: 1px solid #80808086;
+    border-bottom: 1px solid $sideBarColorBorder;
   }
 
   .itemName {

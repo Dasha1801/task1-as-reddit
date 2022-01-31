@@ -1,3 +1,5 @@
+@import "../../colors.scss";
+
 .footer {
   .listLink {
     list-style-type: none;
@@ -8,7 +10,7 @@
 
   .link {
     margin-right: 20px;
-    color: #898989;
+    color: $linkArticleColor;
     font-weight: 600;
     font-size: 14px;
     display: flex;

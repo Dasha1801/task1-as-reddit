@@ -1,13 +1,15 @@
+@import "../../colors.scss";
+
 .countSaveItems {
   position: absolute;
   display: block;
   font-size: 11px;
   padding: 2px;
-  color: white;
+  color: $countSaveItemsColor;
   font-weight: 700;
   top: 3px;
   margin-left: 18px;
-  background: #0079d3;
+  background: $iconSaveBg;
   border-radius: 30%;
   line-height: 12px;
 }

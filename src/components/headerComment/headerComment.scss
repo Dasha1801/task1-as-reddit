@@ -1,3 +1,5 @@
+@import "../../colors.scss";
+
 .headerComment {
   display: flex;
   align-items: center;
@@ -9,8 +11,8 @@
   .iconUser {
     padding: 5px;
     border-radius: 50%;
-    background-color: #f4f4f5;
-    color: #33a8ff;
+    background-color: $iconUserBg;
+    color: $iconUserColor;
     width: 20px;
     height: 20px;
     margin-right: 8px;
@@ -18,6 +20,6 @@
 
   .sendComment {
     margin-left: 5px;
-    color: #808080bc;
+    color: $timeCommentColor;
   }
 }

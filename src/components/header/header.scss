@@ -1,16 +1,17 @@
 @import "../../index.scss";
+@import "../../colors.scss";
 
 .header {
   height: 164px;
-  background: linear-gradient(to bottom, #33a8ff 50%, #fff 50%);
+  background: linear-gradient(to bottom, $colorGradientToHeader 50%, $colorGradientBottomHeader 50%);
   display: flex;
   margin-bottom: 24px;
-  color: #1c1c1c;
+  color: $headerColor;
   font-family: $font;
 
   .logo {
     border-radius: 100%;
-    border: 4px solid #fff;
+    border: 4px solid $colorBorderLogo;
     display: inline-block;
     height: 72px;
     width: 72px;

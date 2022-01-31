@@ -1,4 +1,4 @@
-@import "../../index.scss";
+@import "../../colors.scss";
 
 .headerPost {
   display: flex;
@@ -18,7 +18,7 @@
 
   .subreddit {
     font-size: 12px;
-    color: #1c1c1c;
+    color: $subredditColor;
     line-height: 20px;
     margin-right: 5px;
   }

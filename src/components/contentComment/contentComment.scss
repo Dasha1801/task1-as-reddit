@@ -1,7 +1,10 @@
+@import "../../index.scss";
+@import "../../colors.scss";
+
 .commentContent {
-  font-family: Lato, sans-serif;
+  font-family: $fontContentComment;
   font-size: 14px;
   font-weight: 400;
   line-height: 18px;
-  color: #404040d5;
+  color: $colorContentComment;
 }

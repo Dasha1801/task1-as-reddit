@@ -1,13 +1,11 @@
-$colorTitle: #222;
-$colorContent: #414141d0;
-$bgColor: #dae0e6;
-$colorSidebar: #1a1a1b;
-$border: 1px solid #ccc;
+@import "./colors.scss";
+
+$border: 1px solid $borderColor;
 $font: "Nanum Myeongjo", serif;
 $fontSidebar: "Roboto", sans-serif;
 $fontContent: "Noto Sans", sans-serif;
 $fontContentPost: "Lato", sans-serif;
-$colorLink: #cc8b00;
+$fontContentComment: "Lato", sans-serif;
 $widthContentArticle: 543px;
 $widthContentSaveArticle: 850px;
 

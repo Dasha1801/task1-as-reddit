@@ -1,3 +1,5 @@
+@import "../../colors.scss";
+
 .listItemFooter {
   list-style-type: none;
   margin: 0;
@@ -14,7 +16,7 @@
     align-items: center;
     padding-block-start: 0;
     padding-block-end: 0;
-    background-color: white;
+    background-color: $likesInCommentBg;
   }
 
   .replyComment {
@@ -25,7 +27,7 @@
   .iconReplay {
     width: 18px;
     height: 18px;
-    color: gray;
+    color: $linkArticleColor;
     margin-right: 3px;
   }
 }

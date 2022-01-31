@@ -1,5 +1,7 @@
+@import "../../colors.scss";
+
 .savedArticlesPage {
-  background-color: #dae0e6;
+  background-color: $savedArticlesPageBg;
   min-height: 100vh;
   margin: 0 auto;
   padding: 20px 24px;
@@ -16,8 +18,8 @@
     font-size: 36px;
     margin: 40px auto;
     padding: 40px 0;
-    background-color: #33a8ff;
-    color: white;
+    background-color: $savedArticlesPageMessage;
+    color: $savedArticlesColorMessage;
     font-weight: 700;
     text-align: center;
   }
