@@ -22,6 +22,25 @@ export interface ILikes {
     className?: string
 }
 
+export interface IResComment {
+    data: [
+        [],
+        {
+            data: {
+                children: ICommentProps[]
+            }
+        }
+    ]
+}
+
+export interface IResArticles {
+    data: {
+        data: {
+            children: ArticleProps[]
+        }
+    }
+}
+
 export interface IReplies {
     data: {
         children: ICommentProps[]
@@ -62,7 +81,7 @@ export interface IComment {
     item: ICommentInfo
 }
 
-export interface IRulesSubreddit{
+export interface IRulesSubreddit {
     short_name: string
     description: string
     created_utc: number

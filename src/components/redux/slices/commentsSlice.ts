@@ -1,5 +1,7 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { sortComments } from 'utils';
 import { ArticleInfo, ICommentInfo } from '../../../shared/interfaces';
+import { TSort } from './sortSlice';
 
 interface ICommentState {
   post: ArticleInfo
@@ -37,8 +39,11 @@ const commentsSlice = createSlice({
     getPost: (state, { payload }: PayloadAction<TPayloadPost>) => {
       state.post = payload.post;
     },
+    sortBy: (state, { payload }: PayloadAction<TSort>) => {
+      state.comments = sortComments(payload, state.comments)
+    }
   },
 });
 
 export const comments_reducer = commentsSlice.reducer;
-export const { setComments, getPost } = commentsSlice.actions;
+export const { setComments, getPost, sortBy } = commentsSlice.actions;

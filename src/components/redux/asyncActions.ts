@@ -1,11 +1,8 @@
 import axios from 'axios';
+import { mapResponseToArticles, mapResponseToComments } from 'utils';
 import { PATH } from '../../constants';
 import {
-  ArticleInfo,
-  ArticleProps,
-  ICommentInfo,
-  ICommentProps,
-  IRulesSubreddit
+  ArticleInfo, ICommentInfo, IRulesSubreddit
 } from '../../shared/interfaces';
 import { setArticles } from './slices/articlesSlice';
 import { setComments } from './slices/commentsSlice';
@@ -20,9 +17,8 @@ export const fetchArticles = (count: number) => async function getArticles(dispa
   { loading: boolean; }; type: string;
 }) => void) {
   try {
-    const { children } = (await axios.get(`${PATH.data}${count}`)).data.data;
-    const items = children.map((el: ArticleProps) => el.data);
-    dispatch(setArticles({ articles: items }));
+    const res = await axios.get(`${PATH.data}${count}`);
+    dispatch(setArticles({ articles: mapResponseToArticles(res) }));
   } catch (Error) {
     dispatch(getStateError({ error: true }));
   } finally {
@@ -36,13 +32,13 @@ export const fetchComments = (id: string) => async function getComments(dispatch
   { loading: boolean; }; type: string;
 }) => void) {
   try {
-    const { children } = (await axios.get(`${PATH.comments}${id}.json`)).data[1].data;
-    const items = children.map((el: ICommentProps) => el.data);
-    dispatch(setComments({ comments: items }));
+    const res = await axios.get(`${PATH.comments}${id}.json`);
+    dispatch(setComments({ comments: mapResponseToComments(res) }));
   } finally {
     dispatch(getStateLoading({ loading: false }));
   }
 };
+
 
 export const fetchRulesSubreddit = () => async function getRules(dispatch: (arg0: {
   payload:
