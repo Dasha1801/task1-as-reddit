@@ -1,7 +1,7 @@
 {
     "extends": "stylelint-config-standard-scss",
     "rules": {
-        "selector-class-pattern": "^[a-z][a-zA-Z0-9]+$|^ant-|^mz-",
+        "selector-class-pattern": "^[a-z][a-zA-Z0-9-]+$|^ant-|^mz-",
         "scss/dollar-variable-pattern": ["/^foo-/", {"ignore": "global"}] ,
         "scss/selector-no-redundant-nesting-selector": true,
         "scss/at-import-partial-extension": "always",
@@ -11,3 +11,4 @@
         "value-no-vendor-prefix": null
     }
   }
+

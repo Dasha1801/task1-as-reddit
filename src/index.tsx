@@ -10,16 +10,14 @@ import './index.scss';
 import Spinner from './components/spinner/spinner';
 
 ReactDOM.render(
-  <React.StrictMode>
-    <Provider store={store}>
-      <PersistGate loading={<Spinner />} persistor={persistor}>
-        <HashRouter>
-          <App />
-        </HashRouter>
-      </PersistGate>
-    </Provider>
-  </React.StrictMode>,
-  document.getElementById('root'),
+  <Provider store={store}>
+    <PersistGate loading={<Spinner />} persistor={persistor}>
+      <HashRouter>
+        <App />
+      </HashRouter>
+    </PersistGate>
+  </Provider>,
+  document.getElementById('root')
 );
 
 // If you want to start measuring performance in your app, pass a function

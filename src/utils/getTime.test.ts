@@ -1,6 +1,5 @@
 import { getTime } from './index';
 
-
 describe('Test getTime function', () => {
 
     beforeEach(() => {
@@ -9,7 +8,6 @@ describe('Test getTime function', () => {
         // @ts-ignore
         global.Date = jest.fn(() => mockDate);
     })
-
 
     test('Checking what the function returns', () => {
         expect(getTime(1643694600)).toBe('10 min. ago');

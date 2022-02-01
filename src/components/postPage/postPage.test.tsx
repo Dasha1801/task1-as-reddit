@@ -24,7 +24,7 @@ describe('Test PostPage component', () => {
     fireEvent.click(screen.getByText('My website freezes after ...?'));
 
     expect(screen.queryByTestId('main')).not.toBeInTheDocument();
-    expect(screen.getByTestId('post')).toBeInTheDocument();
+    expect(await screen.findByTestId('post')).toBeInTheDocument();
   });
 
   it('should be response msw', async () => {

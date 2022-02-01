@@ -23,4 +23,30 @@
     font-weight: 700;
     text-align: center;
   }
+
+  .animation-enter {
+    opacity: 0;
+    transform-origin: center;
+    transform: translateY(-20%) scale(0.9, 0.9);
+  }
+
+  .animation-enter-active {
+    opacity: 1;
+    transform-origin: center;
+    transform: translateY(0%) scale(1, 1);
+    transition: all ease 1s;
+  }
+
+  .animation-exit {
+    opacity: 1;
+    transform-origin: center;
+    transform: translateY(0%) scale(1, 1);
+  }
+
+  .animation-exit-active {
+    opacity: 0;
+    transform-origin: center;
+    transform: translateY(-20%) scale(0.9, 0.9);
+    transition: all ease 1s;
+  }
 }
