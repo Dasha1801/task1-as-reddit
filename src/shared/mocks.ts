@@ -1,4 +1,4 @@
-import { ArticleInfo } from './interfaces';
+import { ArticleInfo, ICommentInfo } from './interfaces';
 
 export const item: ArticleInfo = {
   title: 'My website freezes after ...?',
@@ -8,3 +8,12 @@ export const item: ArticleInfo = {
   score: 55,
   num_comments: 3,
 };
+
+export const commentMock: ICommentInfo = {
+  author: 'simon',
+  body: 'It will load the image only at the point when you assign an src to it, browsers do that.',
+  id: 'xf458l5',
+  score: 18,
+  created_utc: 1643379472,
+  replies: undefined,
+}

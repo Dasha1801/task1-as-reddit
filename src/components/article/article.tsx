@@ -25,13 +25,7 @@ function Article({ item }: InfoItem): JSX.Element {
       <Likes score={score} />
       <ContentArticle item={item} />
       {path === '/' ? (
-        <a
-          className="iconLink"
-          href={url}
-          target="_blank"
-          rel="noreferrer"
-          data-testid="link-article"
-        >
+        <a className="iconLink" href={url} target="_blank" rel="noreferrer" data-testid="link-article">
           <FaExternalLinkAlt size="20px" />
         </a>
       ) : (

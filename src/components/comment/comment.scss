@@ -1,0 +1,7 @@
+@import "../../colors.scss";
+
+.comments {
+  margin-left: 20px;
+  border-left: 1px solid $borderColorComments;
+  z-index: 10;
+}

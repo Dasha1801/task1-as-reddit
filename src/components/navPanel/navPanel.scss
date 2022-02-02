@@ -1,8 +1,10 @@
+@import "../../colors.scss";
+
 .navPanel {
   position: absolute;
   width: 31%;
   right: 24px;
-  border: 2px solid #33a8ff;
+  border: 2px solid $navPanelBorder;
   border-radius: 10px;
   bottom: -20px;
   padding-top: 3px;
@@ -38,6 +40,6 @@
   .navPanel {
     right: 12px;
     bottom: -7px;
-    background-color: white;
+    background-color: $navPanelBg;
   }
 }

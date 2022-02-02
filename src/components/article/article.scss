@@ -1,10 +1,11 @@
 @import "../../index.scss";
+@import "../../colors.scss";
 
 .article {
-  border: $border;
-  background: white;
   display: grid;
+  border: $border;
   grid-template-columns: 1fr 10fr 1fr;
+  background: $articleBg;
   margin-bottom: 10px;
   word-wrap: break-word;
 
@@ -13,7 +14,7 @@
     flex-direction: column;
     align-items: center;
     padding-block-start: 1em;
-    color: #898989;
+    color: $linkArticleColor;
   }
 
   @media (max-width: 640px) {
@@ -22,6 +23,12 @@
       height: 15px;
       margin: 0 auto;
     }
+  }
+}
+
+@media (max-width: 960px) {
+  .article {
+    grid-template-columns: 1fr 13fr 1fr;
   }
 }
 

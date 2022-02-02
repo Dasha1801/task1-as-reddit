@@ -12,7 +12,7 @@ describe('Test SavedArticlesPage component', () => {
         <HashRouter>
           <SavedArticlesPage />
         </HashRouter>
-      </Provider>,
+      </Provider>
     );
 
     expect(screen.getByText(/no saved articles!/i)).toBeInTheDocument();

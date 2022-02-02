@@ -1,0 +1,28 @@
+@import "../../index.scss";
+@import "../../colors.scss";
+
+.newComment {
+  margin: 25px 0;
+  width: 100%;
+  font-family: $fontContentPost;
+  font-weight: 400;
+  font-size: 13px;
+  position: relative;
+
+  .authorComment {
+    margin-bottom: 4px;
+  }
+
+  .name {
+    font-weight: 700;
+    padding-left: 4px;
+    color: $colorLink;
+  }
+
+  .btnSubmit {
+    cursor: pointer;
+    position: absolute;
+    right: 0;
+    bottom: -28px;
+  }
+}

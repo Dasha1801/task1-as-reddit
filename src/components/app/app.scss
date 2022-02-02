@@ -1,0 +1,20 @@
+.animation {
+  position: absolute;
+  width: 100%;
+}
+
+.animation-enter-active {
+  animation: animation-pages 1s;
+}
+
+@keyframes animation-pages {
+  0% {
+    opacity: 0;
+    transform: translateX(-50%);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}

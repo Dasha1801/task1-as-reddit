@@ -14,7 +14,7 @@ describe('App component', () => {
         <HashRouter>
           <App />
         </HashRouter>
-      </Provider>,
+      </Provider>
     );
     expect(screen.getByTestId('app')).toBeInTheDocument();
     expect(screen.getByRole('main')).toBeInTheDocument();
@@ -23,10 +23,9 @@ describe('App component', () => {
 
   it('should render img error', async () => {
     server.use(
-      rest.get('https://www.reddit.com/r/javascript.json', (req, res, ctx) => res.once(
-        ctx.status(500),
-        ctx.json({ message: 'Internal server error' }),
-      )),
+      rest.get('https://www.reddit.com/r/javascript.json', (req, res, ctx) =>
+        res.once(ctx.status(500), ctx.json({ message: 'Internal server error' }))
+      )
     );
 
     render(
@@ -34,7 +33,7 @@ describe('App component', () => {
         <HashRouter>
           <App />
         </HashRouter>
-      </Provider>,
+      </Provider>
     );
 
     const imageError = await screen.findByAltText('error404');

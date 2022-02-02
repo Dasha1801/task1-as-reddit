@@ -1,3 +1,5 @@
+import classNames from 'classnames';
+import { TStore } from 'components/redux';
 import {
   addSavedArticle,
   removeArticle,
@@ -6,11 +8,9 @@ import React, { useEffect, useState } from 'react';
 import { FaMedal, FaRegCommentAlt, FaShare } from 'react-icons/fa';
 import { useDispatch, useSelector } from 'react-redux';
 import { InfoItem } from 'shared/interfaces';
-import classNames from 'classnames';
 import './footerArticle.scss';
-import { TStore } from 'components/redux';
 
-function FooterArticle({ item }: InfoItem): JSX.Element {
+function FooterArticle({ item, className }: InfoItem): JSX.Element {
   const { savedArticles } = useSelector((state: TStore) => state.savedArticles);
   const [saved, setSaved] = useState(false);
   const dispatch = useDispatch();
@@ -35,7 +35,7 @@ function FooterArticle({ item }: InfoItem): JSX.Element {
   return (
     <footer className="footer">
       <nav className="navFooter">
-        <ul className="listLink">
+        <ul className={`listLink ${className}`}>
           <li className="link">
             <FaRegCommentAlt className="icon" size="16px" />
             <span className="countComments" data-testid="count-comments">

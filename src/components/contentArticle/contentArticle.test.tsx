@@ -13,7 +13,7 @@ describe('Test ContentArticle component', () => {
         <HashRouter>
           <ContentArticle item={item} />
         </HashRouter>
-      </Provider>,
+      </Provider>
     );
     const title = screen.getByRole('heading', { name: item.title });
 
@@ -27,8 +27,8 @@ it('should don`t render link to article', () => {
       <HashRouter>
         <ContentArticle item={item} />
       </HashRouter>
-    </Provider>,
+    </Provider>
   );
 
-  expect(screen.queryByRole('link')).not.toBeInTheDocument();
+  expect(screen.queryByRole('link', { name: item.url })).not.toBeInTheDocument();
 });

@@ -1,23 +1,25 @@
+@import "../../colors.scss";
+
 .likes {
   display: flex;
   flex-direction: column;
   align-items: center;
   padding-block-start: 1em;
   padding-block-end: 1em;
-  background-color: #f4f4f5;
+  background-color: $likesColorBg;
 
   .iconUp,
   .iconDown {
     cursor: pointer;
-    color: rgb(128, 128, 128);
+    color: $likesIconColor;
   }
 
   .iconUp:hover {
-    color: #6084e6;
+    color: $likesIconUpHover;
   }
 
   .iconDown:hover {
-    color: #e6855e;
+    color: $likesIconDownHover;
   }
 
   .score {
@@ -26,11 +28,11 @@
   }
 
   .likesIncrease {
-    color: rgb(28, 81, 226);
+    color: $likesIncrease;
   }
 
   .likesDecrease {
-    color: rgb(231, 94, 40);
+    color: $likesDecrease;
   }
 
   @media (max-width: 460px) {

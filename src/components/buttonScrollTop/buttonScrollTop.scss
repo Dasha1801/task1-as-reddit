@@ -1,20 +1,22 @@
+@import "../../colors.scss";
+
 .iconScrollUp {
   width: 35px;
   height: 35px;
   padding: 7px;
-  border: 3px solid #222222;
-  color: #222222;
+  border: 3px solid $iconScrollColor;
+  color: $iconScrollColor;
   position: fixed;
   bottom: 5%;
   right: 24px;
   border-radius: 10px;
-  background: #0078d3b4;
+  background: $iconScrollBg;
   z-index: 10;
   cursor: pointer;
 }
 
 .iconScrollUp:hover {
-  background-color: #cc8b00;
+  background-color: $iconScrollHover;
 }
 
 @media (max-width: 960px) {
