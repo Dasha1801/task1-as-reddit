@@ -1,6 +1,6 @@
-import { fetchArticles } from 'components/redux/asyncActions';
 import React, { useCallback, useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { fetchArticles } from '../redux/asyncActions';
 import { initialCount } from '../../constants';
 import Article from '../article/article';
 import { TStore } from '../redux';
@@ -19,7 +19,7 @@ function Articles(): JSX.Element {
         setCountArticles(countArticles + 10);
       }
     },
-    [countArticles],
+    [countArticles]
   );
 
   useEffect(() => {
@@ -35,9 +35,7 @@ function Articles(): JSX.Element {
   }, [scrollHandler]);
 
   function renderArticles(): JSX.Element[] | null {
-    return articles.length
-      ? articles.map((item) => <Article item={item} key={item.id} />)
-      : null;
+    return articles.length ? articles.map((item) => <Article item={item} key={item.id} />) : null;
   }
 
   return (
