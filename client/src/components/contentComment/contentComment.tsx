@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactMarkdown from 'react-markdown';
-import { ITextComment } from 'shared/interfaces';
+import { ITextComment } from '../../shared/interfaces';
 import './contentComment.scss';
 
 function ContentComment({ body }: ITextComment): JSX.Element {

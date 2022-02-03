@@ -29,11 +29,7 @@ function ButtonScrollTop(): JSX.Element | null {
   }, [toggleVisibility]);
 
   return isVisible ? (
-    <FaAngleDoubleUp
-      className="iconScrollUp"
-      onClick={scrollToTop}
-      data-testid="btnScrollToTop"
-    />
+    <FaAngleDoubleUp className="iconScrollUp" onClick={scrollToTop} data-testid="btnScrollToTop" />
   ) : null;
 }
 

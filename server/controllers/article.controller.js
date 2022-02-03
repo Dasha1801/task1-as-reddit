@@ -23,3 +23,19 @@ exports.create = (req, res) => {
       });
     });
 };
+
+exports.findAllArticles = (req, res) => {
+  const { limit } = req.body;
+  Article.findAll({
+    offset: 1,
+    limit: limit,
+  })
+    .then((data) => {
+      res.send(data);
+    })
+    .catch((err) => {
+      res.status(500).send({
+        message: err.message || "Some error occurred while retrieving Article.",
+      });
+    });
+};

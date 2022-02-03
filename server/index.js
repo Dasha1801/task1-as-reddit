@@ -2,7 +2,7 @@ const express = require("express");
 const cors = require("cors");
 const db = require("./models/index");
 const app = express();
-const { fetchArticles } = require("./utils/index");
+const { fetchData } = require("./utils/index");
 
 const corsOptions = {
   origin: "http://localhost:3000",
@@ -15,11 +15,12 @@ app.use(express.urlencoded({ extended: true }));
 db.sequelize.sync({ force: false }).then(() => console.log("re-sync done!"));
 
 require("./routes/article.route")(app);
-
-fetchArticles();
+require("./routes/comment.route")(app);
+require("./routes/rule.route")(app);
 
 setInterval(() => {
-  fetchArticles();
+  console.log("база данных обновлена");
+  fetchData();
 }, 300000);
 
 const PORT = process.env.PORT || 3001;

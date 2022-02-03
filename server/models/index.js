@@ -25,5 +25,7 @@ db.Sequelize = Sequelize;
 db.sequelize = sequelize;
 
 db.articles = require("./article.model")(sequelize, Sequelize);
+db.comments = require("./comment.model")(sequelize, Sequelize);
+db.rules = require("./rule.model")(sequelize, Sequelize);
 
 module.exports = db;

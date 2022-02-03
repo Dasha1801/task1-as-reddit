@@ -1,7 +1,7 @@
-import { TStore } from 'components/redux';
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { PATH } from '../../constants';
+import { TStore } from '../redux';
 import './headerPost.scss';
 
 function HeaderPost(): JSX.Element {

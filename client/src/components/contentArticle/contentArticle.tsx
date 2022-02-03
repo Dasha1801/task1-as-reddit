@@ -1,10 +1,10 @@
 import React from 'react';
-import { getPost } from 'components/redux/slices/commentsSlice';
 import { useLocation, NavLink } from 'react-router-dom';
 import classNames from 'classnames';
 import ReactMarkdown from 'react-markdown';
 import { useDispatch } from 'react-redux';
-import { fetchComments } from 'components/redux/asyncActions';
+import { getPost } from '../redux/slices/commentsSlice';
+import { fetchComments } from '../redux/asyncActions';
 import FooterArticle from '../footerArticle/footerArticle';
 import { InfoItem } from '../../shared/interfaces';
 import './contentArticle.scss';

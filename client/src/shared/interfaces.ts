@@ -1,88 +1,92 @@
 export interface ArticleInfo {
-    author?: string
-    title: string
-    id: string
-    selftext: string
-    url: string
-    score: number
-    num_comments: number
+  author?: string;
+  title: string;
+  id: string;
+  selftext: string;
+  url: string;
+  score: number;
+  num_comments: number;
 }
 
 export interface InfoItem {
-    item: ArticleInfo
-    className?: string
+  item: ArticleInfo;
+  className?: string;
 }
 
 export interface ArticleProps {
-    data: ArticleInfo
+  data: ArticleInfo;
 }
 
 export interface ILikes {
-    score: number
-    className?: string
+  score: number;
+  className?: string;
 }
 
 export interface IResComment {
-    data: [
-        [],
-        {
-            data: {
-                children: ICommentProps[]
-            }
-        }
-    ]
+  data: [
+    [],
+    {
+      data: {
+        children: ICommentProps[];
+      };
+    }
+  ];
 }
 
 export interface IResArticles {
+  data: {
     data: {
-        data: {
-            children: ArticleProps[]
-        }
-    }
+      children: ArticleProps[];
+    };
+  };
 }
 
 export interface IReplies {
-    data: {
-        children: ICommentProps[]
-    }
+  data: {
+    children: ICommentProps[];
+  };
 }
 
 export interface IRepliesChildren {
-    data: IReplies[]
+  data: IReplies[];
 }
 
 export interface ICommentInfo {
-    author: string
-    body: string
-    id: string
-    score: number
-    created_utc: number
-    replies: IReplies | undefined
+  author: string;
+  body: string;
+  id: string;
+  score: number;
+  created_utc: number;
+  replies: IReplies | undefined;
 }
 
 export interface IAuthorDateComment {
-    author: string
-    created_utc: number
+  author: string;
+  created_utc: number;
 }
 
 export interface ITextComment {
-    body: string
+  body: string;
 }
 
 export interface ILikesComment {
-    score: number
+  score: number;
 }
 
 export interface ICommentProps {
-    data: ICommentInfo
+  data: ICommentInfo;
 }
 
 export interface IComment {
-    item: ICommentInfo
+  item: ICommentInfo;
 }
 
 export interface IRulesSubreddit {
-    short_name: string
-    description: string
-    created_utc: number
+  short_name: string;
+  description: string;
+  created_utc: number;
+}
+
+export interface ILimitArticles {
+  limit: number;
 }

@@ -1,13 +1,10 @@
-import classNames from 'classnames';
-import { TStore } from 'components/redux';
-import {
-  addSavedArticle,
-  removeArticle,
-} from 'components/redux/slices/savedArticlesSlice';
 import React, { useEffect, useState } from 'react';
+import classNames from 'classnames';
 import { FaMedal, FaRegCommentAlt, FaShare } from 'react-icons/fa';
 import { useDispatch, useSelector } from 'react-redux';
-import { InfoItem } from 'shared/interfaces';
+import { TStore } from '../redux';
+import { addSavedArticle, removeArticle } from '../redux/slices/savedArticlesSlice';
+import { InfoItem } from '../../shared/interfaces';
 import './footerArticle.scss';
 
 function FooterArticle({ item, className }: InfoItem): JSX.Element {
@@ -53,12 +50,7 @@ function FooterArticle({ item, className }: InfoItem): JSX.Element {
             })}
             data-testid="listItemSave"
           >
-            <FaShare
-              className="icon"
-              size="16px"
-              onClick={saveArticle}
-              data-testid="iconSave"
-            />
+            <FaShare className="icon" size="16px" onClick={saveArticle} data-testid="iconSave" />
             {saved ? 'Saved' : 'Unsaved'}
           </li>
         </ul>

@@ -1,7 +1,7 @@
-import { TStore } from 'components/redux';
 import React from 'react';
 import { HiSave } from 'react-icons/hi';
 import { useSelector } from 'react-redux';
+import { TStore } from '../redux';
 import './iconSaveItems.scss';
 
 function IconSaveItems(): JSX.Element {
@@ -22,12 +22,7 @@ function IconSaveItems(): JSX.Element {
 
   return (
     <>
-      <HiSave
-        size={24}
-        color="gray"
-        className="iconSaveItems"
-        data-testid="iconSavedItems"
-      />
+      <HiSave size={24} color="gray" className="iconSaveItems" data-testid="iconSavedItems" />
       {renderCountSavedItem()}
     </>
   );

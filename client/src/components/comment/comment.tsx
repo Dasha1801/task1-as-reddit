@@ -1,5 +1,5 @@
 import React from 'react';
-import { IComment } from 'shared/interfaces';
+import { IComment } from '../../shared/interfaces';
 import CommentItem from '../commentItem/commentItem';
 import './comment.scss';
 

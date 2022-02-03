@@ -1,6 +1,6 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import PageNotFound from 'components/pageNotFound/pageNotFound';
+import PageNotFound from '../pageNotFound/pageNotFound';
 import Articles from '../articles/articles';
 import Sidebar from '../sidebar/sidebar';
 import ButtonScrollTop from '../buttonScrollTop/buttonScrollTop';

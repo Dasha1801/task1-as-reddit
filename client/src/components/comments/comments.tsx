@@ -1,6 +1,6 @@
-import { TStore } from 'components/redux';
 import React, { useCallback } from 'react';
 import { useSelector } from 'react-redux';
+import { TStore } from '../redux';
 import Comment from '../comment/comment';
 import NewComment from '../newComment/newComment';
 import SortComments from '../sortComments/sortComments';

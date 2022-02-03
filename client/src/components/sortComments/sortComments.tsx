@@ -1,8 +1,8 @@
-import { TStore } from 'components/redux';
-import { sortBy } from 'components/redux/slices/commentsSlice';
-import { changeSortType, TSort } from 'components/redux/slices/sortSlice';
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { TStore } from '../redux';
+import { sortBy } from '../redux/slices/commentsSlice';
+import { changeSortType, TSort } from '../redux/slices/sortSlice';
 import './sortComments.scss';
 
 function SortComments(): JSX.Element {

@@ -1,7 +1,7 @@
-import { TStore } from 'components/redux';
 import React from 'react';
 import ReactMarkdown from 'react-markdown';
 import { useSelector } from 'react-redux';
+import { TStore } from '../redux';
 import FooterArticle from '../footerArticle/footerArticle';
 import './contentPost.scss';
 
