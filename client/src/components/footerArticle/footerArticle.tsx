@@ -2,9 +2,9 @@ import React, { useEffect, useState } from 'react';
 import classNames from 'classnames';
 import { FaMedal, FaRegCommentAlt, FaShare } from 'react-icons/fa';
 import { useDispatch, useSelector } from 'react-redux';
-import { TStore } from '../redux';
 import { addSavedArticle, removeArticle } from '../redux/slices/savedArticlesSlice';
 import { InfoItem } from '../../shared/interfaces';
+import { TStore } from '../redux';
 import './footerArticle.scss';
 
 function FooterArticle({ item, className }: InfoItem): JSX.Element {

@@ -2,7 +2,7 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { ArticleInfo } from '../../../shared/interfaces';
 
 interface IArticleState {
-  savedArticles: ArticleInfo[]
+  savedArticles: ArticleInfo[];
 }
 
 const initialState: IArticleState = {

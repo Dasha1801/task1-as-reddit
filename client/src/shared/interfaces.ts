@@ -90,3 +90,7 @@ export interface IRulesSubreddit {
 export interface ILimitArticles {
   limit: number;
 }
+
+export interface IDeleteArticle {
+  id: string;
+}

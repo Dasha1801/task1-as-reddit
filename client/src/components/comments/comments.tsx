@@ -7,7 +7,7 @@ import SortComments from '../sortComments/sortComments';
 import './comments.scss';
 
 function Comments(): JSX.Element {
-  const { comments } = useSelector((state: TStore) => state.comments);
+  const { comments } = useSelector((state: TStore) => state.article);
 
   const renderComments = useCallback(
     (): JSX.Element[] | null =>

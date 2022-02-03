@@ -5,8 +5,8 @@ import classNames from 'classnames';
 import { FaExternalLinkAlt } from 'react-icons/fa';
 import { TiDelete } from 'react-icons/ti';
 import { InfoItem } from '../../shared/interfaces';
-import { removeArticle } from '../redux/slices/savedArticlesSlice';
 import ContentArticle from '../contentArticle/contentArticle';
+import { removeArticle } from '../redux/slices/savedArticlesSlice';
 import Likes from '../likes/likes';
 import './article.scss';
 

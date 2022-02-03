@@ -1,7 +1,7 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { TStore } from '../redux';
-import { sortBy } from '../redux/slices/commentsSlice';
+import { sortBy } from '../redux/slices/articleSlice';
 import { changeSortType, TSort } from '../redux/slices/sortSlice';
 import './sortComments.scss';
 

@@ -5,7 +5,7 @@ import { TStore } from '../redux';
 import './headerPost.scss';
 
 function HeaderPost(): JSX.Element {
-  const { author } = useSelector((state: TStore) => state.comments).post;
+  const { author } = useSelector((state: TStore) => state.article).article;
 
   return (
     <div className="headerPost">

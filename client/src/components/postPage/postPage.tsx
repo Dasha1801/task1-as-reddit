@@ -9,7 +9,7 @@ import { TStore } from '../redux';
 import './postPage.scss';
 
 function PostPage(): JSX.Element {
-  const { score } = useSelector((state: TStore) => state.comments).post;
+  const { score } = useSelector((state: TStore) => state.article).article;
 
   return (
     <main className="main">

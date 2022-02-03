@@ -1,12 +1,12 @@
-import React from 'react';
-import { useLocation, NavLink } from 'react-router-dom';
 import classNames from 'classnames';
+import React from 'react';
 import ReactMarkdown from 'react-markdown';
 import { useDispatch } from 'react-redux';
-import { getPost } from '../redux/slices/commentsSlice';
-import { fetchComments } from '../redux/asyncActions';
-import FooterArticle from '../footerArticle/footerArticle';
+import { NavLink, useLocation } from 'react-router-dom';
 import { InfoItem } from '../../shared/interfaces';
+import FooterArticle from '../footerArticle/footerArticle';
+import { fetchComments } from '../redux/asyncActions';
+import { getArticle } from '../redux/slices/articleSlice';
 import './contentArticle.scss';
 
 function ContentArticle({ item }: InfoItem): JSX.Element {
@@ -15,7 +15,7 @@ function ContentArticle({ item }: InfoItem): JSX.Element {
   const { title, selftext, url, id } = item;
 
   const handlerClick = (): void => {
-    dispatch(getPost({ post: item }));
+    dispatch(getArticle({ article: item }));
     fetchComments(id)(dispatch);
   };
 
