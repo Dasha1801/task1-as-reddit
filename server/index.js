@@ -20,6 +20,8 @@ require("./routes/comment.route")(app);
 require("./routes/savedArticle.route")(app);
 require("./routes/rule.route")(app);
 
+fetchData();
+
 setInterval(() => {
   fetchData();
 }, timeUpdate);

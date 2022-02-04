@@ -3,7 +3,8 @@ module.exports = (app) => {
 
   const router = require("express").Router();
 
-  router.post("/", comments.createComment);
+  router.post("/comment", comments.createComment);
+  router.post("/comments", comments.findComments);
 
-  app.use("/comments", router);
+  app.use("/", router);
 };

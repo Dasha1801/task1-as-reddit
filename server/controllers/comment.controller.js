@@ -9,6 +9,7 @@ exports.createComment = (req, res) => {
     score: req.body.score,
     created_utc: req.body.created_utc,
     articleId: req.body.articleId,
+    replies: req.body.replies,
   };
 
   Comment.create(comment)
@@ -20,5 +21,16 @@ exports.createComment = (req, res) => {
         message:
           err.message || "Some error occurred while creating the Comment.",
       });
+    });
+};
+
+exports.findComments = (req, res) => {
+  const { id } = req.body;
+  Comment.findAll({ where: { articleId: id } })
+    .then((data) => {
+      res.send(data);
+    })
+    .catch((err) => {
+      console.log(">> Error while finding comments: ", err);
     });
 };

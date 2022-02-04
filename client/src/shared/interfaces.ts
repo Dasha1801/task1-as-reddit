@@ -91,6 +91,6 @@ export interface ILimitArticles {
   limit: number;
 }
 
-export interface IDeleteArticle {
+export interface IArticleId {
   id: string;
 }

@@ -19,6 +19,15 @@ module.exports = (sequelize, Sequelize) => {
     articleId: {
       type: Sequelize.STRING,
     },
+    replies: {
+      type: Sequelize.TEXT,
+      get: function () {
+        return JSON.parse(this.getDataValue("replies"));
+      },
+      set: function (val) {
+        return this.setDataValue("replies", JSON.stringify(val));
+      },
+    },
   });
 
   return Comment;

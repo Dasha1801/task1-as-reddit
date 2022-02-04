@@ -5,8 +5,8 @@ import { useDispatch } from 'react-redux';
 import { NavLink, useLocation } from 'react-router-dom';
 import { InfoItem } from '../../shared/interfaces';
 import FooterArticle from '../footerArticle/footerArticle';
-import { fetchComments } from '../redux/asyncActions';
-import { getArticle } from '../redux/slices/articleSlice';
+import { fetchComments } from '../../server/api';
+import { getArticle, setComments } from '../redux/slices/articleSlice';
 import './contentArticle.scss';
 
 function ContentArticle({ item }: InfoItem): JSX.Element {
@@ -16,11 +16,11 @@ function ContentArticle({ item }: InfoItem): JSX.Element {
 
   const handlerClick = (): void => {
     dispatch(getArticle({ article: item }));
-    fetchComments(id)(dispatch);
+    fetchComments({ id }).then((res) => dispatch(setComments({ comments: res })));
   };
 
   const renderLink = (): JSX.Element | null => {
-    if (selftext.length) {
+    if (!selftext) {
       return null;
     }
 

@@ -7,7 +7,7 @@ const sendArticleInDb = (res) =>
   });
 
 const sendCommentInDb = (res) =>
-  axios.post("http://localhost:3001/comments", res).catch(function (error) {
+  axios.post("http://localhost:3001/comment", res).catch(function (error) {
     console.log(error);
   });
 
