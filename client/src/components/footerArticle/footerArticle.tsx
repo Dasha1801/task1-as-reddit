@@ -1,10 +1,11 @@
-import React, { useEffect, useState } from 'react';
 import classNames from 'classnames';
+import React, { useCallback, useEffect, useState } from 'react';
 import { FaMedal, FaRegCommentAlt, FaShare } from 'react-icons/fa';
 import { useDispatch, useSelector } from 'react-redux';
-import { addSavedArticle, removeArticle } from '../redux/slices/savedArticlesSlice';
+import { deleteArticle, fetchSavedArticles, saveInDbArticle } from '../../server/api';
 import { InfoItem } from '../../shared/interfaces';
 import { TStore } from '../redux';
+import { setSavedArticles } from '../redux/slices/savedArticlesSlice';
 import './footerArticle.scss';
 
 function FooterArticle({ item, className }: InfoItem): JSX.Element {
@@ -13,12 +14,18 @@ function FooterArticle({ item, className }: InfoItem): JSX.Element {
   const dispatch = useDispatch();
   const { num_comments } = item;
 
-  const saveArticle = (): void => {
+  const getSavedArticles = useCallback(() => {
+    fetchSavedArticles().then((res) => dispatch(setSavedArticles(res)));
+  }, [dispatch]);
+
+  const saveArticle = async (): Promise<void> => {
     if (!saved) {
-      dispatch(addSavedArticle(item));
+      await saveInDbArticle(item);
+      getSavedArticles();
       setSaved(true);
     } else {
-      dispatch(removeArticle(item));
+      await deleteArticle({ id: item.id });
+      getSavedArticles();
       setSaved(false);
     }
   };
@@ -27,7 +34,7 @@ function FooterArticle({ item, className }: InfoItem): JSX.Element {
     const { id } = item;
     const isSaveItem = savedArticles.find((el) => el.id === id);
     isSaveItem && setSaved(true);
-  }, [item, savedArticles]);
+  }, [item, savedArticles.length]);
 
   return (
     <footer className="footer">
