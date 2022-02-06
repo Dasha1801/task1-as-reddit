@@ -1,7 +1,4 @@
-import {
-  render,
-  screen,
-} from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import React from 'react';
 import { Provider } from 'react-redux';
 import { HashRouter, MemoryRouter } from 'react-router-dom';
@@ -16,7 +13,7 @@ describe('Article component', () => {
         <HashRouter>
           <Article item={item} />
         </HashRouter>
-      </Provider>,
+      </Provider>
     );
 
     expect(screen.getByRole('navigation')).toBeInTheDocument();
@@ -28,7 +25,7 @@ describe('Article component', () => {
         <HashRouter>
           <Article item={item} />
         </HashRouter>
-      </Provider>,
+      </Provider>
     );
     const anchor = screen.getByTestId('link-article');
 
@@ -41,10 +38,11 @@ describe('Article component', () => {
         <HashRouter>
           <Article item={item} />
         </HashRouter>
-      </Provider>,
+      </Provider>
     );
 
     const deleteIcon = screen.queryByTestId('iconDelete');
+
     expect(deleteIcon).not.toBeInTheDocument();
   });
 
@@ -54,10 +52,11 @@ describe('Article component', () => {
         <MemoryRouter initialEntries={[{ pathname: '/saveArticles' }]}>
           <Article item={item} />
         </MemoryRouter>
-      </Provider>,
+      </Provider>
     );
 
     const deleteIcon = screen.getByTestId('iconDelete');
+
     expect(deleteIcon).toBeInTheDocument();
   });
 });

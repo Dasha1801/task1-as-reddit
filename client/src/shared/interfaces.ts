@@ -22,25 +22,6 @@ export interface ILikes {
   className?: string;
 }
 
-export interface IResComment {
-  data: [
-    [],
-    {
-      data: {
-        children: ICommentProps[];
-      };
-    }
-  ];
-}
-
-export interface IResArticles {
-  data: {
-    data: {
-      children: ArticleProps[];
-    };
-  };
-}
-
 export interface IReplies {
   data: {
     children: ICommentProps[];

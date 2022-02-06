@@ -21,7 +21,6 @@ describe('Test Comment component', () => {
       'It will load the image only at the point when you assign an src to it, browsers do that.'
     );
 
-    expect(wrapperComment).toBeInTheDocument();
     expect(wrapperComment).toHaveClass('comments');
     expect(commentText).toBeInTheDocument();
   });

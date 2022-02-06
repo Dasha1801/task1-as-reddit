@@ -5,14 +5,16 @@ import ItemsSidebar from './itemsSidebar';
 import { store } from '../redux';
 
 describe('Test ItemsSidebar component', () => {
-  it('should render ItemsSidebar', () => {
+  it('should be response msw', async () => {
     render(
       <Provider store={store}>
         <ItemsSidebar />
       </Provider>
     );
 
-    expect(screen.getByText('r/javascript Rules')).toBeInTheDocument();
-    expect(screen.getByRole('list')).toHaveClass('contentSidebar');
+    const allRules = await screen.findAllByTestId('rule');
+
+    expect(allRules).toHaveLength(3);
+    expect(screen.getByText('Excessive Self-Promotion')).toBeInTheDocument();
   });
 });

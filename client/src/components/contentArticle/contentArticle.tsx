@@ -14,13 +14,13 @@ function ContentArticle({ item }: InfoItem): JSX.Element {
   const path = useLocation().pathname;
   const { title, selftext, url, id } = item;
 
-  const handlerClick = (): void => {
+  const handlerClick = async (): Promise<void> => {
+    await fetchComments({ id }).then((res) => dispatch(setComments({ comments: res })));
     dispatch(getArticle({ article: item }));
-    fetchComments({ id }).then((res) => dispatch(setComments({ comments: res })));
   };
 
   const renderLink = (): JSX.Element | null => {
-    if (!selftext) {
+    if (selftext.length) {
       return null;
     }
 
@@ -38,7 +38,9 @@ function ContentArticle({ item }: InfoItem): JSX.Element {
       })}
     >
       <NavLink to="/postPage" className="linkToPostPage" onClick={handlerClick} data-testid="linkToPost">
-        <h3 className="title">{title}</h3>
+        <h3 className="title" data-testid="titleArticle">
+          {title}
+        </h3>
         <ReactMarkdown className="selfText">{selftext}</ReactMarkdown>
       </NavLink>
 

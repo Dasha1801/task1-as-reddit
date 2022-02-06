@@ -5,6 +5,7 @@ import Articles from '../articles/articles';
 import Sidebar from '../sidebar/sidebar';
 import ButtonScrollTop from '../buttonScrollTop/buttonScrollTop';
 import { TStore } from '../redux';
+import Spinner from '../spinner/spinner';
 import './main.scss';
 
 function Main(): JSX.Element {
@@ -14,8 +15,13 @@ function Main(): JSX.Element {
   return (
     <main className="main" data-testid="main">
       <div className="wrapper">
-        <Articles />
-        {!(loading || error) && <Sidebar />}
+        {loading && <Spinner />}
+        {!error && (
+          <>
+            <Articles />
+            <Sidebar />
+          </>
+        )}
         <ButtonScrollTop />
       </div>
       {error && <PageNotFound />}

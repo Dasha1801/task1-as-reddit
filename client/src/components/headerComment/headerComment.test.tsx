@@ -6,7 +6,7 @@ import { commentMock } from '../../shared/mocks';
 const { author, created_utc } = commentMock;
 
 describe('Test HeaderComment component', () => {
-  it('should render component', async () => {
+  it('should render component', () => {
     render(<HeaderComment author={author} created_utc={created_utc} />);
 
     expect(screen.getByText('simon')).toBeInTheDocument();

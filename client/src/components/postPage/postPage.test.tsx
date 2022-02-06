@@ -1,30 +1,39 @@
-import { fireEvent, render, screen, waitForElementToBeRemoved } from '@testing-library/react';
+import { fireEvent, render, screen } from '@testing-library/react';
 import React from 'react';
 import { Provider } from 'react-redux';
 import { HashRouter } from 'react-router-dom';
-import App from '../app/app';
-import PostPage from './postPage';
+import { item } from '../../shared/mocks';
+import ContentArticle from '../contentArticle/contentArticle';
 import { store } from '../redux';
+import PostPage from './postPage';
 
 describe('Test PostPage component', () => {
-  it('should render PostPage when click on content article', async () => {
+  it('should render PostPage when click on content article', () => {
     render(
       <Provider store={store}>
         <HashRouter>
-          <App />
+          <ContentArticle item={item} />
         </HashRouter>
       </Provider>
     );
 
-    await waitForElementToBeRemoved(() => screen.queryByTestId('parentLoader'));
+    const linkToPost = screen.getByTestId('linkToPost');
 
-    expect(screen.getByTestId('main')).toBeInTheDocument();
-    expect(screen.queryByTestId('post')).not.toBeInTheDocument();
+    expect(linkToPost).toHaveTextContent('My website freezes after ...?');
 
-    fireEvent.click(screen.getByText('My website freezes after ...?'));
+    fireEvent.click(linkToPost);
 
-    expect(screen.queryByTestId('main')).not.toBeInTheDocument();
-    expect(await screen.findByTestId('post')).toBeInTheDocument();
+    render(
+      <Provider store={store}>
+        <HashRouter>
+          <PostPage />
+        </HashRouter>
+      </Provider>
+    );
+
+    expect(screen.getByTestId('post')).toHaveTextContent(
+      'What trying to do:I work for a TV station as a broadcast Technician.What try'
+    );
   });
 
   it('should be response msw', async () => {
@@ -36,9 +45,7 @@ describe('Test PostPage component', () => {
       </Provider>
     );
 
-    const comment = await screen.findByText(
-      'It will load the image only at the point when you assign an src to it, browsers do that.'
-    );
+    const comment = await screen.findByText('simon');
 
     expect(comment).toBeInTheDocument();
   });

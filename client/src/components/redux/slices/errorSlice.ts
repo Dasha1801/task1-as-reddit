@@ -1,7 +1,7 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 interface IErrorState {
-  error: boolean
+  error: boolean;
 }
 
 const initialState: IErrorState = {

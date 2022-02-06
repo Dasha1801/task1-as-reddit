@@ -1,9 +1,9 @@
-import { render, screen } from '@testing-library/react';
-import { server } from 'mocks/server';
-import { rest } from 'msw';
 import React from 'react';
+import { render, screen } from '@testing-library/react';
+import { rest } from 'msw';
 import { Provider } from 'react-redux';
 import { HashRouter } from 'react-router-dom';
+import { server } from '../../mocks/server';
 import { store } from '../redux';
 import App from './app';
 
@@ -16,6 +16,7 @@ describe('App component', () => {
         </HashRouter>
       </Provider>
     );
+
     expect(screen.getByTestId('app')).toBeInTheDocument();
     expect(screen.getByRole('main')).toBeInTheDocument();
     expect(screen.getByRole('heading')).toBeInTheDocument();
@@ -23,7 +24,7 @@ describe('App component', () => {
 
   it('should render img error', async () => {
     server.use(
-      rest.get('https://www.reddit.com/r/javascript.json', (req, res, ctx) =>
+      rest.post('http://localhost:3001/posts', (req, res, ctx) =>
         res.once(ctx.status(500), ctx.json({ message: 'Internal server error' }))
       )
     );
@@ -37,6 +38,7 @@ describe('App component', () => {
     );
 
     const imageError = await screen.findByAltText('error404');
+
     expect(imageError).toBeInTheDocument();
   });
 });

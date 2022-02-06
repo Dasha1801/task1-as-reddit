@@ -6,8 +6,8 @@ import { PersistGate } from 'redux-persist/integration/react';
 import App from './components/app/app';
 import Spinner from './components/spinner/spinner';
 import { persistor, store } from './components/redux';
-import './index.scss';
 import reportWebVitals from './reportWebVitals';
+import './index.scss';
 
 ReactDOM.render(
   <Provider store={store}>

@@ -6,7 +6,8 @@ const { fetchData } = require("./utils/index");
 const { timeUpdate } = require("./constants/index");
 
 const corsOptions = {
-  origin: "http://localhost:3000",
+  // origin: "http://localhost:3000",
+  origin: "https://as-reddit.netlify.app",
 };
 
 app.use(cors(corsOptions));

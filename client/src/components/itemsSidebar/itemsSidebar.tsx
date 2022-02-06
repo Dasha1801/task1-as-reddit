@@ -1,10 +1,11 @@
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { useCallback, useEffect } from 'react';
+import { useStateIfMounted } from 'use-state-if-mounted';
 import { fetchRules } from '../../server/api';
 import { IRulesSubreddit } from '../../shared/interfaces';
 import './itemsSidebar.scss';
 
 function ItemSidebar(): JSX.Element {
-  const [rules, setRules] = useState<IRulesSubreddit[]>([]);
+  const [rules, setRules] = useStateIfMounted<IRulesSubreddit[]>([]);
 
   const getAllRules = useCallback(async () => {
     const allRules = await fetchRules();

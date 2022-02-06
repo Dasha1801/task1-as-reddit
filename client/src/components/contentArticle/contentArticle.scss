@@ -1,5 +1,5 @@
-@import "../../index.scss";
-@import "../../colors.scss";
+@import '../../index.scss';
+@import '../../colors.scss';
 
 .content {
   padding-left: 1em;
@@ -25,18 +25,17 @@
   }
 
   .selfText::before {
-    content: "";
+    content: '';
     position: absolute;
     width: 100%;
     height: 100%;
     z-index: 2;
-    background-image:
-      linear-gradient(
-        to bottom,
-        transparent,
-        $colorGradientToArticle,
-        $colorGradientBottomArticle
-      );
+    background-image: linear-gradient(
+      to bottom,
+      transparent,
+      $colorGradientToArticle,
+      $colorGradientBottomArticle
+    );
   }
 }
 

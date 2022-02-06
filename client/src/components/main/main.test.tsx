@@ -19,6 +19,20 @@ describe('Test Main component', () => {
     expect(main).toHaveClass('main');
   });
 
+  it('should render Spinner', () => {
+    render(
+      <Provider store={store}>
+        <HashRouter>
+          <Main />
+        </HashRouter>
+      </Provider>
+    );
+
+    const spinner = screen.getByTestId('parentLoader');
+
+    expect(spinner).toBeInTheDocument();
+  });
+
   it('should be response msw', async () => {
     render(
       <Provider store={store}>
@@ -28,8 +42,8 @@ describe('Test Main component', () => {
       </Provider>
     );
 
-    const listsArray = await screen.findAllByRole('list');
+    const titleArticle = await screen.findByText('My website');
 
-    expect(listsArray).toHaveLength(3);
+    expect(titleArticle).toBeInTheDocument();
   });
 });

@@ -1,18 +1,17 @@
 import React, { useCallback, useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
+import { useStateIfMounted } from 'use-state-if-mounted';
 import { initialCount } from '../../constants';
 import { fetchArticles } from '../../server/api';
 import { ArticleInfo } from '../../shared/interfaces';
 import Article from '../article/article';
-import { TStore } from '../redux';
+import { getStateError } from '../redux/slices/errorSlice';
 import { getStateLoading } from '../redux/slices/loadingSlice';
-import Spinner from '../spinner/spinner';
 
 function Articles(): JSX.Element {
-  const dispatch = useDispatch();
-  const { loading } = useSelector((state: TStore) => state.loading);
   const [countArticles, setCountArticles] = useState(initialCount);
-  const [articles, setArticles] = useState<ArticleInfo[]>([]);
+  const [articles, setArticles] = useStateIfMounted<ArticleInfo[]>([]);
+  const dispatch = useDispatch();
 
   const scrollHandler = useCallback(
     (e) => {
@@ -24,10 +23,13 @@ function Articles(): JSX.Element {
     [countArticles]
   );
 
-  const getAllArticles = useCallback(async () => {
-    const allArticles = await fetchArticles({ limit: countArticles });
-    setArticles(allArticles);
-    dispatch(getStateLoading({ loading: false }));
+  const getAllArticles = useCallback(() => {
+    fetchArticles({ limit: countArticles })
+      .then((res) => setArticles(res))
+      .catch(() => dispatch(getStateError({ error: true })))
+      .finally(() => {
+        dispatch(getStateLoading({ loading: false }));
+      });
   }, [countArticles, dispatch]);
 
   useEffect(() => {
@@ -46,11 +48,6 @@ function Articles(): JSX.Element {
     return articles.length ? articles.map((item) => <Article item={item} key={item.id} />) : null;
   }
 
-  return (
-    <div>
-      {loading && <Spinner />}
-      {renderArticles()}
-    </div>
-  );
+  return <div data-testid="wrapperArticles">{renderArticles()}</div>;
 }
 export default Articles;
