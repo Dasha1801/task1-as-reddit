@@ -75,3 +75,8 @@ export interface ILimitArticles {
 export interface IArticleId {
   id: string;
 }
+
+export interface IPropsModal {
+  show: boolean;
+  setState: React.Dispatch<React.SetStateAction<boolean>>;
+}
