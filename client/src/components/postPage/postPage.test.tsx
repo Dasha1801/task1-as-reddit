@@ -31,9 +31,7 @@ describe('Test PostPage component', () => {
       </Provider>
     );
 
-    expect(screen.getByTestId('post')).toHaveTextContent(
-      'What trying to do:I work for a TV station as a broadcast Technician.What try'
-    );
+    expect(screen.getByTestId('post')).toHaveTextContent('r/javascriptPosted');
   });
 
   it('should be response msw', async () => {

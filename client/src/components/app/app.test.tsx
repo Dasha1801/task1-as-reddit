@@ -5,6 +5,7 @@ import { Provider } from 'react-redux';
 import { HashRouter } from 'react-router-dom';
 import { server } from '../../mocks/server';
 import { store } from '../redux';
+import { baseUrl } from '../../constants/index';
 import App from './app';
 
 describe('App component', () => {
@@ -24,7 +25,7 @@ describe('App component', () => {
 
   it('should render img error', async () => {
     server.use(
-      rest.post('http://localhost:3001/posts', (req, res, ctx) =>
+      rest.post(`${baseUrl}posts`, (req, res, ctx) =>
         res.once(ctx.status(500), ctx.json({ message: 'Internal server error' }))
       )
     );

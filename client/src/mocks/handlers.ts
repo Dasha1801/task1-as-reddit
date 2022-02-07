@@ -1,7 +1,8 @@
 import { rest } from 'msw';
+import { baseUrl } from '../constants/index';
 
 export const handlers = [
-  rest.post('http://localhost:3001/posts', (req, res, ctx) =>
+  rest.post(`${baseUrl}posts`, (req, res, ctx) =>
     res(
       ctx.json([
         {
@@ -24,7 +25,7 @@ export const handlers = [
     )
   ),
 
-  rest.post('http://localhost:3001/comments', (req, res, ctx) =>
+  rest.post(`${baseUrl}comments`, (req, res, ctx) =>
     res(
       ctx.json([
         {
@@ -39,7 +40,7 @@ export const handlers = [
     )
   ),
 
-  rest.get('http://localhost:3001/rules', (req, res, ctx) =>
+  rest.get(`${baseUrl}rules`, (req, res, ctx) =>
     res(
       ctx.json([
         {
@@ -61,7 +62,7 @@ export const handlers = [
     )
   ),
 
-  rest.get('http://localhost:3001/save', (req, res, ctx) =>
+  rest.get(`${baseUrl}save`, (req, res, ctx) =>
     res(
       ctx.json([
         {

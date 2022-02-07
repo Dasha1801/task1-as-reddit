@@ -5,7 +5,7 @@ interface ILoadingState {
 }
 
 const initialState: ILoadingState = {
-  loading: true,
+  loading: false,
 };
 
 type TPayload = {

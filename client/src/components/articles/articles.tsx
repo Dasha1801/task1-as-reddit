@@ -2,11 +2,9 @@ import React, { useCallback, useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useStateIfMounted } from 'use-state-if-mounted';
 import { initialCount } from '../../constants';
-import { fetchArticles } from '../../server/api';
 import { ArticleInfo } from '../../shared/interfaces';
 import Article from '../article/article';
-import { getStateError } from '../redux/slices/errorSlice';
-import { getStateLoading } from '../redux/slices/loadingSlice';
+import { fetchData } from '../redux/asyncActions';
 
 function Articles(): JSX.Element {
   const [countArticles, setCountArticles] = useState(initialCount);
@@ -23,18 +21,9 @@ function Articles(): JSX.Element {
     [countArticles]
   );
 
-  const getAllArticles = useCallback(() => {
-    fetchArticles({ limit: countArticles })
-      .then((res) => setArticles(res))
-      .catch(() => dispatch(getStateError({ error: true })))
-      .finally(() => {
-        dispatch(getStateLoading({ loading: false }));
-      });
-  }, [countArticles, dispatch]);
-
   useEffect(() => {
-    getAllArticles();
-  }, [getAllArticles]);
+    fetchData(countArticles, setArticles)(dispatch);
+  }, [countArticles, dispatch]);
 
   useEffect(() => {
     document.addEventListener('scroll', scrollHandler);

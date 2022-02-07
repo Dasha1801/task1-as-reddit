@@ -1,9 +1,9 @@
-import { screen, render } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
+import React from 'react';
 import { Provider } from 'react-redux';
 import { HashRouter } from 'react-router-dom';
-import React from 'react';
-import Main from './main';
 import { store } from '../redux';
+import Main from './main';
 
 describe('Test Main component', () => {
   it('should be render', () => {
