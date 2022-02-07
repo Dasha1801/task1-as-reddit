@@ -1,7 +1,7 @@
 import classNames from 'classnames';
 import React, { useState } from 'react';
 import { FaArrowDown, FaArrowUp } from 'react-icons/fa';
-import { ILikes } from 'shared/interfaces';
+import { ILikes } from '../../shared/interfaces';
 import './likes.scss';
 
 function Likes({ score, className }: ILikes): JSX.Element {

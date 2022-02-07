@@ -13,7 +13,7 @@ describe('Test Header component', () => {
         <HashRouter>
           <Header />
         </HashRouter>
-      </Provider>,
+      </Provider>
     );
     const title = screen.getByRole('heading', { name: /javascript/i });
 
@@ -26,7 +26,7 @@ describe('Test Header component', () => {
         <HashRouter>
           <Header />
         </HashRouter>
-      </Provider>,
+      </Provider>
     );
     const img = screen.getByAltText(/logo/i);
 

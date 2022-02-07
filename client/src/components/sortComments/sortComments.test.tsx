@@ -1,18 +1,34 @@
-import { screen, render } from '@testing-library/react';
+import { screen, render, fireEvent } from '@testing-library/react';
 import React from 'react';
 import { Provider } from 'react-redux';
+import { HashRouter } from 'react-router-dom';
+import ContentArticle from '../contentArticle/contentArticle';
 import SortComments from './sortComments';
+import { item } from '../../shared/mocks';
 import { store } from '../redux';
 
 describe('Test SortComments component', () => {
-  it('should render component', () => {
+  it('should render component', async () => {
+    render(
+      <Provider store={store}>
+        <HashRouter>
+          <ContentArticle item={item} />
+        </HashRouter>
+      </Provider>
+    );
+
+    const linkToPost = screen.getByTestId('linkToPost');
+
+    expect(linkToPost).toHaveTextContent('My website freezes after ...?');
+
+    fireEvent.click(linkToPost);
     render(
       <Provider store={store}>
         <SortComments />
       </Provider>
     );
-    const select = screen.getByTestId('select');
-    const allOption = screen.getAllByRole('option');
+    const select = await screen.findByTestId('select');
+    const allOption = await screen.findAllByRole('option');
 
     expect(screen.getByText(/sort By:/i)).toBeInTheDocument();
     expect(select).toHaveAttribute('name');

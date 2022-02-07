@@ -1,6 +1,6 @@
 import React from 'react';
 import { FaRegCommentAlt } from 'react-icons/fa';
-import { ILikesComment } from 'shared/interfaces';
+import { ILikesComment } from '../../shared/interfaces';
 import Likes from '../likes/likes';
 import './footerComment.scss';
 

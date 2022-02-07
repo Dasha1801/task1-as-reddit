@@ -1,19 +1,22 @@
-import ButtonScrollTop from 'components/buttonScrollTop/buttonScrollTop';
-import Likes from 'components/likes/likes';
-import Sidebar from 'components/sidebar/sidebar';
 import React from 'react';
-import { item } from '../../shared/mocks';
+import { useSelector } from 'react-redux';
+import ButtonScrollTop from '../buttonScrollTop/buttonScrollTop';
+import Likes from '../likes/likes';
+import Sidebar from '../sidebar/sidebar';
 import Comments from '../comments/comments';
 import Post from '../post/post';
+import { TStore } from '../redux';
 import './postPage.scss';
 
 function PostPage(): JSX.Element {
+  const { score } = useSelector((state: TStore) => state.article).article;
+
   return (
     <main className="main">
       <div className="wrapper">
         <div className="container">
           <div className="postWrapper">
-            <Likes score={item.score} className="bgLikes" />
+            <Likes score={score} className="bgLikes" />
             <Post />
           </div>
           <Comments />

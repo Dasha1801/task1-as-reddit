@@ -1,13 +1,13 @@
-import { TStore } from 'components/redux';
 import React from 'react';
 import ReactMarkdown from 'react-markdown';
 import { useSelector } from 'react-redux';
+import { TStore } from '../redux';
 import FooterArticle from '../footerArticle/footerArticle';
 import './contentPost.scss';
 
 function ContentPost(): JSX.Element {
-  const { post } = useSelector((state: TStore) => state.comments);
-  const { title, selftext, url } = post;
+  const { article } = useSelector((state: TStore) => state.article);
+  const { title, selftext, url } = article;
 
   return (
     <>
@@ -16,7 +16,7 @@ function ContentPost(): JSX.Element {
       <a className="linkPost" href={url} target="_blank" rel="noreferrer">
         {url}
       </a>
-      <FooterArticle item={post} className="marginStyle" />
+      <FooterArticle item={article} className="marginStyle" />
     </>
   );
 }

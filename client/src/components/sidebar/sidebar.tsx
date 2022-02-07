@@ -1,18 +1,14 @@
-import { fetchRulesSubreddit } from 'components/redux/asyncActions';
-import React, { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import React from 'react';
+import { useSelector } from 'react-redux';
 import ItemsSidebar from '../itemsSidebar/itemsSidebar';
+import { TStore } from '../redux';
 
 function Sidebar(): JSX.Element {
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    fetchRulesSubreddit()(dispatch);
-  }, [dispatch]);
+  const { loading } = useSelector((state: TStore) => state.loading);
 
   return (
     <aside className="sidebar" data-testid="sidebar">
-      <ItemsSidebar />
+      {!loading && <ItemsSidebar />}
     </aside>
   );
 }

@@ -1,16 +1,15 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { sortComments } from 'utils';
+import { sortComments } from '../../../utils/index';
 import { ArticleInfo, ICommentInfo } from '../../../shared/interfaces';
 import { TSort } from './sortSlice';
 
-interface ICommentState {
-  post: ArticleInfo
-  comments: ICommentInfo[]
+interface IArticleState {
+  article: ArticleInfo;
+  comments: ICommentInfo[];
 }
 
-const initialState: ICommentState = {
-  comments: [],
-  post: {
+const initialState: IArticleState = {
+  article: {
     author: '',
     title: '',
     id: '',
@@ -18,7 +17,8 @@ const initialState: ICommentState = {
     url: '',
     score: 0,
     num_comments: 0,
-  }
+  },
+  comments: [],
 };
 
 type TPayloadComments = {
@@ -26,24 +26,24 @@ type TPayloadComments = {
 };
 
 type TPayloadPost = {
-  post: ArticleInfo;
+  article: ArticleInfo;
 };
 
-const commentsSlice = createSlice({
-  name: 'comments',
+const articleSlice = createSlice({
+  name: 'article',
   initialState,
   reducers: {
     setComments: (state, { payload }: PayloadAction<TPayloadComments>) => {
       state.comments = payload.comments;
     },
-    getPost: (state, { payload }: PayloadAction<TPayloadPost>) => {
-      state.post = payload.post;
+    getArticle: (state, { payload }: PayloadAction<TPayloadPost>) => {
+      state.article = payload.article;
     },
     sortBy: (state, { payload }: PayloadAction<TSort>) => {
-      state.comments = sortComments(payload, state.comments)
-    }
+      state.comments = sortComments(payload, state.comments);
+    },
   },
 });
 
-export const comments_reducer = commentsSlice.reducer;
-export const { setComments, getPost, sortBy } = commentsSlice.actions;
+export const article_reducer = articleSlice.reducer;
+export const { setComments, getArticle, sortBy } = articleSlice.actions;

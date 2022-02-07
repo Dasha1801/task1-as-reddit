@@ -1,29 +1,28 @@
-import { fetchArticles } from 'components/redux/asyncActions';
 import React, { useCallback, useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
+import { useStateIfMounted } from 'use-state-if-mounted';
 import { initialCount } from '../../constants';
+import { ArticleInfo } from '../../shared/interfaces';
 import Article from '../article/article';
-import { TStore } from '../redux';
-import Spinner from '../spinner/spinner';
+import { fetchData } from '../redux/asyncActions';
 
 function Articles(): JSX.Element {
-  const dispatch = useDispatch();
   const [countArticles, setCountArticles] = useState(initialCount);
-  const { articles } = useSelector((state: TStore) => state.articles);
-  const { loading } = useSelector((state: TStore) => state.loading);
+  const [articles, setArticles] = useStateIfMounted<ArticleInfo[]>([]);
+  const dispatch = useDispatch();
 
   const scrollHandler = useCallback(
     (e) => {
       const page = e.target.documentElement;
       if (page.scrollHeight - (page.scrollTop + window.innerHeight) === 0) {
-        setCountArticles(countArticles + 10);
+        setCountArticles(countArticles + initialCount);
       }
     },
-    [countArticles],
+    [countArticles]
   );
 
   useEffect(() => {
-    fetchArticles(countArticles)(dispatch);
+    fetchData(countArticles, setArticles)(dispatch);
   }, [countArticles, dispatch]);
 
   useEffect(() => {
@@ -35,16 +34,9 @@ function Articles(): JSX.Element {
   }, [scrollHandler]);
 
   function renderArticles(): JSX.Element[] | null {
-    return articles.length
-      ? articles.map((item) => <Article item={item} key={item.id} />)
-      : null;
+    return articles.length ? articles.map((item) => <Article item={item} key={item.id} />) : null;
   }
 
-  return (
-    <div>
-      {loading && <Spinner />}
-      {renderArticles()}
-    </div>
-  );
+  return <div data-testid="wrapperArticles">{renderArticles()}</div>;
 }
 export default Articles;

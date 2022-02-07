@@ -1,13 +1,23 @@
-import React from 'react';
-import { useSelector } from 'react-redux';
-import { TStore } from '../redux';
+import React, { useCallback, useEffect } from 'react';
+import { useStateIfMounted } from 'use-state-if-mounted';
+import { fetchRules } from '../../server/api';
+import { IRulesSubreddit } from '../../shared/interfaces';
 import './itemsSidebar.scss';
 
 function ItemSidebar(): JSX.Element {
-  const { rulesSubreddit } = useSelector((state: TStore) => state.rulesSubreddit);
+  const [rules, setRules] = useStateIfMounted<IRulesSubreddit[]>([]);
+
+  const getAllRules = useCallback(async () => {
+    const allRules = await fetchRules();
+    setRules(allRules);
+  }, []);
+
+  useEffect(() => {
+    getAllRules();
+  }, [getAllRules]);
 
   const renderListItem = (): JSX.Element[] =>
-    rulesSubreddit.map((el) => (
+    rules.map((el) => (
       <li className="itemList" key={el.created_utc} data-testid="rule">
         <h4 className="itemName">{el.short_name}</h4>
         <p className="description">{el.description}</p>

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Route, Routes, useLocation } from 'react-router-dom';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
-import PageNotFound from 'components/pageNotFound/pageNotFound';
+import PageNotFound from '../pageNotFound/pageNotFound';
 import Header from '../header/header';
 import Main from '../main/main';
 import PostPage from '../postPage/postPage';

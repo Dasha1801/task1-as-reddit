@@ -1,13 +1,13 @@
 import React from 'react';
-import { HashRouter } from 'react-router-dom';
-import { Provider } from 'react-redux';
 import ReactDOM from 'react-dom';
+import { Provider } from 'react-redux';
+import { HashRouter } from 'react-router-dom';
 import { PersistGate } from 'redux-persist/integration/react';
-import { persistor, store } from './components/redux';
 import App from './components/app/app';
+import Spinner from './components/spinner/spinner';
+import { persistor, store } from './components/redux';
 import reportWebVitals from './reportWebVitals';
 import './index.scss';
-import Spinner from './components/spinner/spinner';
 
 ReactDOM.render(
   <Provider store={store}>

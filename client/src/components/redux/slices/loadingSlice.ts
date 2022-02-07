@@ -1,11 +1,11 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 interface ILoadingState {
-  loading: boolean
+  loading: boolean;
 }
 
 const initialState: ILoadingState = {
-  loading: true,
+  loading: false,
 };
 
 type TPayload = {
