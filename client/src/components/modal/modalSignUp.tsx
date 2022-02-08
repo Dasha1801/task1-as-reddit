@@ -1,5 +1,6 @@
 import React from 'react';
-import { Modal, Button } from 'react-bootstrap';
+import { Modal } from 'react-bootstrap';
+import FormSignUp from '../forms/formSignUp';
 import { IPropsModal } from '../../shared/interfaces';
 
 function ModalSignUp({ show, setState }: IPropsModal): JSX.Element {
@@ -10,12 +11,9 @@ function ModalSignUp({ show, setState }: IPropsModal): JSX.Element {
       <Modal.Header closeButton>
         <Modal.Title>SIGN UP</Modal.Title>
       </Modal.Header>
-      <Modal.Body />
-      <Modal.Footer>
-        <Button variant="primary" onClick={handleClose}>
-          Submit
-        </Button>
-      </Modal.Footer>
+      <Modal.Body>
+        <FormSignUp />
+      </Modal.Body>
     </Modal>
   );
 }

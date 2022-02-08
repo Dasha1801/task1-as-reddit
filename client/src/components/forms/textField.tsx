@@ -1,0 +1,24 @@
+/* eslint-disable react/jsx-props-no-spreading */
+import React from 'react';
+import { useField, FieldHookConfig } from 'formik';
+import './forms.scss';
+
+interface ITextField {
+  label: string;
+}
+
+function TextField({ label, ...props }: ITextField & FieldHookConfig<string>): JSX.Element {
+  const [field, meta] = useField(props);
+
+  return (
+    <div className="wrapperLabel">
+      <label htmlFor={props.id || props.name} className="label">
+        {label}
+        <input className="input" {...field} />
+      </label>
+      {meta.touched && meta.error ? <div className="error">{meta.error}</div> : null}
+    </div>
+  );
+}
+
+export default TextField;

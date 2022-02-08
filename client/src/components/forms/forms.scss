@@ -1,0 +1,41 @@
+.form {
+  //   display: flex;
+  //   flex-direction: column;
+  //   justify-content: flex-end;
+
+  .wrapperLabel {
+    width: 100%;
+    position: relative;
+  }
+
+  .label {
+    display: flex;
+    align-items: center;
+    width: 95%;
+    justify-content: space-between;
+    margin-bottom: 25px;
+  }
+
+  .input {
+    width: 69%;
+  }
+
+  .buttons {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .buttonSubmit {
+    margin-left: 10px;
+  }
+
+  .error {
+    position: absolute;
+    color: red;
+    font-size: 12px;
+    top: 32px;
+    left: 138px;
+    z-index: 10;
+    background-color: white;
+  }
+}
