@@ -1,14 +1,15 @@
-import { Form, Formik } from 'formik';
 import React from 'react';
+import { Form, Formik } from 'formik';
 import { Button } from 'react-bootstrap';
 import * as Yup from 'yup';
-import './forms.scss';
 import TextField from './textField';
+import { searchCity } from '../../server/api';
+import './forms.scss';
 
 function FormLogIn(): JSX.Element {
   const validate = Yup.object({
     name: Yup.string()
-      .min(6, 'Name must be at least 6 characters')
+      .min(2, 'Name must be at least 2 characters')
       .max(84, 'Length must be no more than 84 characters')
       .required('Name is required'),
     phone: Yup.string()
@@ -29,10 +30,21 @@ function FormLogIn(): JSX.Element {
     confirmPassword: Yup.string()
       .oneOf([Yup.ref('password'), null], 'Password must match')
       .required('Confirm password is required'),
-      address: Yup.string()
-      .min(12, 'Address must be at least 20 characters')
+    city: Yup.string()
+      .test('isCityValid', 'invalid city', async (value) => {
+        try {
+          const isCityValid = await searchCity({ city: value });
+
+          return isCityValid;
+        } catch (error) {
+          return false;
+        }
+      })
+      .required('City is required'),
+    address: Yup.string()
+      .min(10, 'Address must be at least 10 characters')
       .max(84, 'Length must be no more than 84 characters')
-      .required('Name is required'),
+      .required('Address is required'),
   });
 
   return (
@@ -54,7 +66,7 @@ function FormLogIn(): JSX.Element {
       }}
     >
       {(formik) => (
-        <Form className="form">
+        <Form className="form" data-testid="formSignUp">
           <TextField label="Name:" name="name" type="text" />
           <TextField label="Phone:" name="phone" type="text" />
           <TextField label="Email:" name="email" type="email" />

@@ -77,11 +77,10 @@ export interface IArticleId {
 }
 
 export interface ICity {
-  city: string;
+  city: string|undefined;
 }
 
 export interface IPropsModal {
   show: boolean;
   setState: React.Dispatch<React.SetStateAction<boolean>>;
 }
-

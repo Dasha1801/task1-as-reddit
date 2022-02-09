@@ -11,9 +11,9 @@ function TextField({ label, ...props }: ITextField & FieldHookConfig<string>): J
 
   return (
     <div className="wrapperLabel">
-      <label htmlFor={props.id || props.name} className="label">
+      <label htmlFor={props.name} className="label">
         {label}
-        <input className="input" {...field} />
+        <input className="input" data-testid={props.name} {...field} />
       </label>
       {meta.touched && meta.error ? <div className="error">{meta.error}</div> : null}
     </div>

@@ -28,7 +28,7 @@ function FormLogIn(): JSX.Element {
       }}
     >
       {(formik) => (
-        <Form className="form">
+        <Form className="form" data-testid="formLogIn">
           <TextField label="Email:" name="email" />
           <TextField label="Password:" name="password" />
           <div className="buttons">
