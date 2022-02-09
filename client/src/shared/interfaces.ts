@@ -76,7 +76,12 @@ export interface IArticleId {
   id: string;
 }
 
+export interface ICity {
+  city: string;
+}
+
 export interface IPropsModal {
   show: boolean;
   setState: React.Dispatch<React.SetStateAction<boolean>>;
 }
+

@@ -1,6 +1,13 @@
 import axios from 'axios';
-import { ArticleInfo, IRulesSubreddit, ILimitArticles, IArticleId, ICommentInfo } from '../shared/interfaces';
 import { baseUrl } from '../constants/index';
+import {
+  ArticleInfo,
+  IArticleId,
+  ICity,
+  ICommentInfo,
+  ILimitArticles,
+  IRulesSubreddit,
+} from '../shared/interfaces';
 
 export const fetchRules = (): Promise<IRulesSubreddit[]> =>
   axios.get(`${baseUrl}rules`).then((res) => res.data);
@@ -17,3 +24,6 @@ export const fetchArticles = (limit: ILimitArticles): Promise<ArticleInfo[]> =>
 
 export const fetchComments = (id: IArticleId): Promise<ICommentInfo[]> =>
   axios.post(`${baseUrl}comments`, id).then((res) => res.data);
+
+export const searchCity = async (name: ICity): Promise<boolean> =>
+  (await axios.post(`${baseUrl}search/${name.city}`)).data.isCity;

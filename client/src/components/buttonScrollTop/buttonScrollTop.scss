@@ -1,8 +1,8 @@
 @import '../../colors.scss';
 
 .iconScrollUp {
-  width: 35px;
-  height: 35px;
+  width: 45px;
+  height: 45px;
   padding: 7px;
   border: 3px solid $iconScrollColor;
   color: $iconScrollColor;
@@ -21,21 +21,21 @@
 
 @media (max-width: 960px) {
   .iconScrollUp {
-    width: 28px;
-    height: 28px;
+    width: 40px;
+    height: 40px;
   }
 }
 
 @media (max-width: 720px) {
   .iconScrollUp {
-    width: 25px;
-    height: 25px;
+    width: 35px;
+    height: 35px;
   }
 }
 
 @media (max-width: 580px) {
   .iconScrollUp {
-    width: 20px;
-    height: 20px;
+    width: 30px;
+    height: 30px;
   }
 }

@@ -37,7 +37,7 @@ function Article({ item }: InfoItem): JSX.Element {
       ) : (
         <TiDelete
           data-testid="iconDelete"
-          size="30px"
+          size="45px"
           color="red"
           className="iconLink"
           onClick={handlerClick}
