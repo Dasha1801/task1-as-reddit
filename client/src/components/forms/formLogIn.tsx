@@ -1,13 +1,17 @@
+import { TStore } from 'components/redux';
 import { Form, Formik } from 'formik';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Button } from 'react-bootstrap';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import * as Yup from 'yup';
 import { logInUser } from '../redux/asyncActions';
-import './forms.scss';
+import BaseAlert from '../alert/baseAlert';
 import TextField from './textField';
+import './forms.scss';
 
 function FormLogIn(): JSX.Element {
+  const [show, setShow] = useState(false);
+  const { user } = useSelector((state: TStore) => state.user);
   const dispatch = useDispatch();
 
   const validate = Yup.object({
@@ -25,31 +29,50 @@ function FormLogIn(): JSX.Element {
       .required('Password is required'),
   });
 
+  const showAlert = (): JSX.Element | null => {
+    if (show && user.name) {
+      return <BaseAlert variant="success" text="Successfully completed" />;
+    }
+    if (show && !user.name) {
+      return <BaseAlert variant="danger" text="User not found" />;
+    }
+
+    return null;
+  };
+
+  useEffect(() => {
+    showAlert();
+  }, [user.name]);
+
   return (
-    <Formik
-      initialValues={{ name: '', email: '', password: '' }}
-      validationSchema={validate}
-      onSubmit={(values, actions) => {
-        logInUser(values)(dispatch);
-        actions.resetForm();
-      }}
-    >
-      {(formik) => (
-        <Form className="form" data-testid="formLogIn">
-          <TextField label="Name:" name="name" type="text" />
-          <TextField label="Email:" name="email" />
-          <TextField label="Password:" name="password" />
-          <div className="buttons">
-            <Button className="btn-danger mt-3" type="reset">
-              Reset
-            </Button>
-            <Button type="submit" className="mt-3 buttonSubmit">
-              Submit
-            </Button>
-          </div>
-        </Form>
-      )}
-    </Formik>
+    <>
+      <Formik
+        initialValues={{ name: '', email: '', password: '' }}
+        validationSchema={validate}
+        onSubmit={(values, actions) => {
+          logInUser(values)(dispatch);
+          setShow(true);
+          actions.resetForm();
+        }}
+      >
+        {(formik) => (
+          <Form className="form" data-testid="formLogIn">
+            <TextField label="Name:" name="name" type="text" />
+            <TextField label="Email:" name="email" />
+            <TextField label="Password:" name="password" />
+            <div className="buttons">
+              <Button className="btn-danger mt-3" type="reset">
+                Reset
+              </Button>
+              <Button type="submit" className="mt-3 buttonSubmit">
+                Submit
+              </Button>
+            </div>
+          </Form>
+        )}
+      </Formik>
+      {showAlert()}
+    </>
   );
 }
 export default FormLogIn;

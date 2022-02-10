@@ -5,6 +5,7 @@ import PageNotFound from '../pageNotFound/pageNotFound';
 import Header from '../header/header';
 import Main from '../main/main';
 import PostPage from '../postPage/postPage';
+import UserPage from '../userPage/userPage';
 import SavedArticlesPage from '../savedArticlesPage/savedArticlesPage';
 import './app.scss';
 
@@ -14,6 +15,7 @@ function App(): JSX.Element {
     { path: '/', element: <Main /> },
     { path: '/saveArticles', element: <SavedArticlesPage /> },
     { path: '/postPage', element: <PostPage /> },
+    { path: '/user', element: <UserPage /> },
     { path: '*', element: <PageNotFound /> },
   ];
 

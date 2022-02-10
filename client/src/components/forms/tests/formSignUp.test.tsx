@@ -1,12 +1,21 @@
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import React from 'react';
+import { Provider } from 'react-redux';
+import { HashRouter } from 'react-router-dom';
+import { store } from '../../redux';
 import IconUser from '../../iconUser/iconUser';
 import FormSignUp from '../formSignUp';
 
 describe('Test FormSignUp Component', () => {
   it('should show form signUp when click iconUser and btn signUp', () => {
-    render(<IconUser />);
+    render(
+      <Provider store={store}>
+        <HashRouter>
+          <IconUser />
+        </HashRouter>
+      </Provider>
+    );
 
     expect(screen.queryByRole('button', { name: /sign up/i })).not.toBeInTheDocument();
 
@@ -22,7 +31,9 @@ describe('Test FormSignUp Component', () => {
   });
 
   it('should be enter and reset input', () => {
-    render(<FormSignUp />);
+    const setState = jest.fn();
+
+    render(<FormSignUp setState={setState} />);
 
     const name = screen.getByTestId(/name/i);
     const phone = screen.getByTestId(/phone/i);

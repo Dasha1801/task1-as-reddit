@@ -3,10 +3,11 @@ import React from 'react';
 import { Button } from 'react-bootstrap';
 import * as Yup from 'yup';
 import { registerUser, searchCity } from '../../server/api';
-import './forms.scss';
+import { IPropsForm } from '../../shared/interfaces';
 import TextField from './textField';
+import './forms.scss';
 
-function FormLogIn(): JSX.Element {
+function FormLogIn({ setState }: IPropsForm): JSX.Element {
   const validate = Yup.object({
     name: Yup.string()
       .min(2, 'Name must be at least 2 characters')
@@ -63,6 +64,7 @@ function FormLogIn(): JSX.Element {
         const { confirmPassword, ...data } = values;
         registerUser(data);
         actions.resetForm();
+        setState(false);
       }}
     >
       {(formik) => (

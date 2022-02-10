@@ -85,6 +85,10 @@ export interface IPropsModal {
   setState: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
+export interface IPropsForm {
+  setState: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
 export interface IRegisterUser {
   name: string;
   email: string;
@@ -108,4 +112,11 @@ export interface IUser {
   phone: string;
   city: string;
   address: string;
+}
+
+export interface IPropsSignUpGroup {
+  setShowPopover: React.Dispatch<React.SetStateAction<boolean>>;
+  setShowModalLogIn: React.Dispatch<React.SetStateAction<boolean>>;
+  setShowModalSignUp: React.Dispatch<React.SetStateAction<boolean>>;
+  showPopover: boolean;
 }

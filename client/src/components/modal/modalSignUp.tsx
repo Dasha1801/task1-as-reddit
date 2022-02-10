@@ -12,7 +12,7 @@ function ModalSignUp({ show, setState }: IPropsModal): JSX.Element {
         <Modal.Title>SIGN UP</Modal.Title>
       </Modal.Header>
       <Modal.Body>
-        <FormSignUp />
+        <FormSignUp setState={setState} />
       </Modal.Body>
     </Modal>
   );

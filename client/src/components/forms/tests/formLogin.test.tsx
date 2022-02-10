@@ -1,12 +1,21 @@
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import React from 'react';
+import { Provider } from 'react-redux';
+import { HashRouter } from 'react-router-dom';
+import { store } from '../../redux';
 import IconUser from '../../iconUser/iconUser';
 import FormLogin from '../formLogIn';
 
 describe('Test FormLogin Component', () => {
   it('should show form logIn when click iconUser and btn logIn', () => {
-    render(<IconUser />);
+    render(
+      <Provider store={store}>
+        <HashRouter>
+          <IconUser />
+        </HashRouter>
+      </Provider>
+    );
 
     expect(screen.queryByRole('button', { name: /log in/i })).not.toBeInTheDocument();
 
@@ -22,7 +31,13 @@ describe('Test FormLogin Component', () => {
   });
 
   it('should be enter and reset input', () => {
-    render(<FormLogin />);
+    render(
+      <Provider store={store}>
+        <HashRouter>
+          <FormLogin />
+        </HashRouter>
+      </Provider>
+    );
 
     const email = screen.getByTestId(/email/i);
     const password = screen.getByTestId(/password/i);
