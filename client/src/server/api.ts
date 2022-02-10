@@ -6,6 +6,7 @@ import {
   ICity,
   ICommentInfo,
   ILimitArticles,
+  IRegisterUser,
   IRulesSubreddit,
 } from '../shared/interfaces';
 
@@ -27,3 +28,6 @@ export const fetchComments = (id: IArticleId): Promise<ICommentInfo[]> =>
 
 export const searchCity = async (name: ICity): Promise<boolean> =>
   (await axios.post(`${baseUrl}search/${name.city}`)).data.isCity;
+
+export const registerUser = (res: IRegisterUser): Promise<void> =>
+  axios.post(`${baseUrl}api/auth/signup`, res);

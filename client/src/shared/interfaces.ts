@@ -77,10 +77,35 @@ export interface IArticleId {
 }
 
 export interface ICity {
-  city: string|undefined;
+  city: string | undefined;
 }
 
 export interface IPropsModal {
   show: boolean;
   setState: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+export interface IRegisterUser {
+  name: string;
+  email: string;
+  password: string;
+  phone: string;
+  city: string;
+  address: string;
+}
+
+export interface ILogInUser {
+  name: string;
+  email: string;
+  password: string;
+}
+
+export interface IUser {
+  accessToken: string;
+  name: string;
+  email: string;
+  password: string;
+  phone: string;
+  city: string;
+  address: string;
 }

@@ -1,10 +1,10 @@
-import React from 'react';
 import { Form, Formik } from 'formik';
+import React from 'react';
 import { Button } from 'react-bootstrap';
 import * as Yup from 'yup';
-import TextField from './textField';
-import { searchCity } from '../../server/api';
+import { registerUser, searchCity } from '../../server/api';
 import './forms.scss';
+import TextField from './textField';
 
 function FormLogIn(): JSX.Element {
   const validate = Yup.object({
@@ -60,9 +60,9 @@ function FormLogIn(): JSX.Element {
       }}
       validationSchema={validate}
       onSubmit={(values, actions) => {
-        console.log({ values, actions });
-        alert(JSON.stringify(values, null, 2));
-        actions.setSubmitting(false);
+        const { confirmPassword, ...data } = values;
+        registerUser(data);
+        actions.resetForm();
       }}
     >
       {(formik) => (
