@@ -25,7 +25,7 @@ function FormLogIn(): JSX.Element {
       return <BaseAlert variant="success" text="Successfully completed" setState={setShow} />;
     }
     if (show && !user.name) {
-      return <BaseAlert variant="danger" text="User not found" setState={setShow} />;
+      return <BaseAlert variant="danger" text="User not found!" setState={setShow} />;
     }
 
     return null;

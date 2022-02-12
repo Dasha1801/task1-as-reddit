@@ -1,0 +1,15 @@
+@import '../../colors.scss';
+
+.userProfile {
+  text-decoration: none;
+
+  .iconUser {
+    color: $colorIconSavedUser;
+    width: 30px;
+    height: 30px;
+    margin-right: 5px;
+    padding: 3px;
+    border: 1px solid $colorIconSavedUser;
+    border-radius: 25%;
+  }
+}

@@ -8,7 +8,7 @@ import FormBtns from '../btnsGroup/formBtns';
 import BaseAlert from '../alert/baseAlert';
 import './forms.scss';
 
-function FormLogIn({ setState }: IPropsForm): JSX.Element {
+function FormSignUp({ setState }: IPropsForm): JSX.Element {
   const [showAlert, setShowAlert] = useState(false);
 
   const handleRegister = async (data: IRegisterUser): Promise<void> => {
@@ -57,4 +57,4 @@ function FormLogIn({ setState }: IPropsForm): JSX.Element {
     </>
   );
 }
-export default FormLogIn;
+export default FormSignUp;

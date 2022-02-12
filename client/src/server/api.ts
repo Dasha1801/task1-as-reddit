@@ -48,3 +48,11 @@ export const searchCity = async (name: ICity): Promise<boolean> =>
 
 export const registerUser = (res: IRegisterUser): Promise<void> =>
   axios.post(`${baseUrl}api/auth/signup`, res);
+
+export const logoutUser = (token: string): Promise<AxiosResponse> => {
+  const options = {
+    headers: { 'x-access-token': token },
+  };
+
+  return axios.put(`${baseUrl}api/auth/logout`, options);
+};

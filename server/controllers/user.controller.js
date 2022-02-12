@@ -73,3 +73,22 @@ exports.login = (req, res) => {
       res.status(500).send({ message: err.message });
     });
 };
+
+exports.logout = (req, res) => {
+  const token = req.headers["x-access-token"];
+  jwt.sign(token, "", { expiresIn: 1 }, (logout, err) => {
+    if (logout) {
+      res.status(200).send({
+        name: "",
+        email: "",
+        phone: "",
+        city: "",
+        address: "",
+        password: "",
+        accessToken: "",
+      });
+    } else {
+      res.send({ msg: "Error" });
+    }
+  });
+};

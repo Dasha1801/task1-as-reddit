@@ -28,12 +28,8 @@ const userSlice = createSlice({
     addUser: (state, { payload }: PayloadAction<TPayload>) => {
       state.user = payload.user;
     },
-
-    deleteUser: (state) => {
-      state.user = initialState.user;
-    },
   },
 });
 
 export const user_reducer = userSlice.reducer;
-export const { addUser, deleteUser } = userSlice.actions;
+export const { addUser } = userSlice.actions;
