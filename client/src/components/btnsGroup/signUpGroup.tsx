@@ -1,12 +1,8 @@
 import React from 'react';
 import { IPropsSignUpGroup } from '../../shared/interfaces';
 
-function SignUpGroup({
-  setShowPopover,
-  setShowModalLogIn,
-  setShowModalSignUp,
-  showPopover,
-}: IPropsSignUpGroup): JSX.Element {
+function SignUpGroup({ ...props }: IPropsSignUpGroup): JSX.Element {
+  const { setShowPopover, setShowModalLogIn, setShowModalSignUp, showPopover } = props;
 
   const handleShowLogIn = (): void => {
     setShowPopover(!showPopover);

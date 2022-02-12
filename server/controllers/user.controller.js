@@ -5,13 +5,6 @@ var jwt = require("jsonwebtoken");
 var bcrypt = require("bcryptjs");
 
 exports.signup = async (req, res) => {
-  async function isValidEmail(model, email) {
-    const data = await model.findOne({
-      where: { email: email },
-    });
-    return data;
-  }
-
   const user = {
     name: req.body.name,
     email: req.body.email,
@@ -21,18 +14,25 @@ exports.signup = async (req, res) => {
     password: bcrypt.hashSync(req.body.password, 8),
   };
 
-  const { email } = user;
-  const isEmail = await isValidEmail(User, email);
+  User.findOne({
+    where: {
+      email: user.email,
+    },
+  })
+    .then((email) => {
+      if (email) {
+        return res
+          .status(401)
+          .send({ message: "Failed! Email is already in use!" });
+      }
 
-  if (!isEmail) {
-    User.create(user)
-      .then((data) => {
+      User.create(user).then((data) => {
         res.send(data);
-      })
-      .catch((err) => {
-        console.log(">> Error while creating user: ", err);
       });
-  }
+    })
+    .catch((err) => {
+      res.status(500).send({ message: err.message });
+    });
 };
 
 exports.login = (req, res) => {
@@ -45,15 +45,15 @@ exports.login = (req, res) => {
       if (!user) {
         return res.status(404).send({ message: "User Not found." });
       }
-      var passwordIsValid = bcrypt.compareSync(
+      const passwordIsValid = bcrypt.compareSync(
         req.body.password,
         user.password
       );
       if (!passwordIsValid) {
-        return res.status(401).send({
-          accessToken: null,
-          message: "Invalid Password!",
-        });
+        return res.status(401);
+      }
+      if (req.body.name !== user.name) {
+        return res.status(401);
       }
       var token = jwt.sign({ email: user.email }, config.secret, {
         expiresIn: 86400,

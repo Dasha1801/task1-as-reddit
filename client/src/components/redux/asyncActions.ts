@@ -31,5 +31,5 @@ export const logInUser = (res: ILogInUser) =>
           dispatch(addUser({ user: response.data }));
         }
       })
-      .catch((e) => 'User not found');
+      .catch((error) => error.status);
   };

@@ -1,30 +1,40 @@
-import classNames from 'classnames';
 import React, { useCallback, useEffect, useState } from 'react';
+import classNames from 'classnames';
 import { FaMedal, FaRegCommentAlt, FaShare } from 'react-icons/fa';
 import { useDispatch, useSelector } from 'react-redux';
 import { deleteArticle, fetchSavedArticles, saveInDbArticle } from '../../server/api';
 import { InfoItem } from '../../shared/interfaces';
 import { TStore } from '../redux';
 import { setSavedArticles } from '../redux/slices/savedArticlesSlice';
+import ErrorAlert from '../alert/baseAlert';
 import './footerArticle.scss';
 
 function FooterArticle({ item, className }: InfoItem): JSX.Element {
   const { savedArticles } = useSelector((state: TStore) => state.savedArticles);
+  const { accessToken } = useSelector((state: TStore) => state.user).user;
   const [saved, setSaved] = useState(false);
+  const [show, setShow] = useState(false);
   const dispatch = useDispatch();
   const { num_comments } = item;
 
-  const getSavedArticles = useCallback(() => {
-    fetchSavedArticles().then((res) => dispatch(setSavedArticles(res)));
+  const getSavedArticles = useCallback(async () => {
+    const resServer = await fetchSavedArticles(accessToken);
+    dispatch(setSavedArticles(resServer.data));
   }, [dispatch]);
 
   const saveArticle = async (): Promise<void> => {
     if (!saved) {
-      await saveInDbArticle(item);
-      getSavedArticles();
-      setSaved(true);
+      try {
+        const resServer = await saveInDbArticle(item, accessToken);
+        if (resServer.data) {
+          getSavedArticles();
+          setSaved(true);
+        }
+      } catch {
+        setShow(true);
+      }
     } else {
-      await deleteArticle({ id: item.id });
+      await deleteArticle({ id: item.id }, accessToken);
       getSavedArticles();
       setSaved(false);
     }
@@ -62,6 +72,7 @@ function FooterArticle({ item, className }: InfoItem): JSX.Element {
           </li>
         </ul>
       </nav>
+      {show && <ErrorAlert setState={setShow} text="Available for registered users only!" variant="danger" />}
     </footer>
   );
 }

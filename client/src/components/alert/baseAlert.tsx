@@ -1,17 +1,16 @@
 import React from 'react';
 import { Alert } from 'react-bootstrap';
+import { IAlert } from '../../shared/interfaces';
+import './alert.scss';
 
-interface IAlert {
-  variant: string;
-  text: string;
-}
+function ErrorAlert({ ...props }: IAlert): JSX.Element {
+  const { text, setState, variant } = props;
 
-function BaseAlert({ variant, text }: IAlert): JSX.Element {
   return (
-    <Alert variant={variant} style={{ marginTop: '10px' }}>
-      <span>{text}</span>
+    <Alert variant={variant} onClose={() => setState(false)} dismissible className="errorAlert">
+      <p className="warning">{text}</p>
     </Alert>
   );
 }
 
-export default BaseAlert;
+export default ErrorAlert;

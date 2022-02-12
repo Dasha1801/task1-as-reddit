@@ -85,6 +85,12 @@ export interface IPropsModal {
   setState: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
+export interface IAlert {
+  variant: string;
+  text: string;
+  setState: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
 export interface IPropsForm {
   setState: React.Dispatch<React.SetStateAction<boolean>>;
 }

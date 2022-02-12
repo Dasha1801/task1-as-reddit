@@ -1,4 +1,4 @@
-const { authJwt } = require("../middleware");
+const controller = require("../controllers/user.controller");
 
 module.exports = function (app) {
   app.use(function (req, res, next) {
@@ -9,5 +9,7 @@ module.exports = function (app) {
     next();
   });
 
-  app.get("/api/test/user", [authJwt.verifyToken]);
+  app.post("/api/auth/signup", controller.signup);
+
+  app.post("/api/auth/login", controller.login);
 };

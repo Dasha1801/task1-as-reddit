@@ -1,12 +1,13 @@
-import { TStore } from 'components/redux';
-import { Form, Formik } from 'formik';
 import React, { useEffect, useState } from 'react';
-import { Button } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
-import * as Yup from 'yup';
+import { Form, Formik } from 'formik';
+import { TStore } from '../redux';
+import { validateLogIn } from './validate/validateLogIn';
 import { logInUser } from '../redux/asyncActions';
+import FormBtns from '../btnsGroup/formBtns';
 import BaseAlert from '../alert/baseAlert';
 import TextField from './textField';
+import { ILogInUser } from '../../shared/interfaces';
 import './forms.scss';
 
 function FormLogIn(): JSX.Element {
@@ -14,27 +15,17 @@ function FormLogIn(): JSX.Element {
   const { user } = useSelector((state: TStore) => state.user);
   const dispatch = useDispatch();
 
-  const validate = Yup.object({
-    name: Yup.string()
-      .min(2, 'Name must be at least 2 characters')
-      .max(84, 'Length must be no more than 84 characters')
-      .required('Name is required'),
-    email: Yup.string()
-      .email('Email is invalid')
-      .max(84, 'Length must be no more than 84 characters')
-      .required('Email is required'),
-    password: Yup.string()
-      .min(6, 'Password must be at least 6 characters')
-      .max(84, 'Length must be no more than 84 characters')
-      .required('Password is required'),
-  });
+  const handleLogIn = async (data: ILogInUser): Promise<void> => {
+    await logInUser(data)(dispatch);
+    setShow(true);
+  };
 
   const showAlert = (): JSX.Element | null => {
     if (show && user.name) {
-      return <BaseAlert variant="success" text="Successfully completed" />;
+      return <BaseAlert variant="success" text="Successfully completed" setState={setShow} />;
     }
     if (show && !user.name) {
-      return <BaseAlert variant="danger" text="User not found" />;
+      return <BaseAlert variant="danger" text="User not found" setState={setShow} />;
     }
 
     return null;
@@ -42,17 +33,15 @@ function FormLogIn(): JSX.Element {
 
   useEffect(() => {
     showAlert();
-  }, [user.name]);
+  }, [user.name, show]);
 
   return (
     <>
       <Formik
         initialValues={{ name: '', email: '', password: '' }}
-        validationSchema={validate}
-        onSubmit={(values, actions) => {
-          logInUser(values)(dispatch);
-          setShow(true);
-          actions.resetForm();
+        validationSchema={validateLogIn}
+        onSubmit={(values) => {
+          handleLogIn(values);
         }}
       >
         {(formik) => (
@@ -60,14 +49,7 @@ function FormLogIn(): JSX.Element {
             <TextField label="Name:" name="name" type="text" />
             <TextField label="Email:" name="email" />
             <TextField label="Password:" name="password" />
-            <div className="buttons">
-              <Button className="btn-danger mt-3" type="reset">
-                Reset
-              </Button>
-              <Button type="submit" className="mt-3 buttonSubmit">
-                Submit
-              </Button>
-            </div>
+            <FormBtns />
           </Form>
         )}
       </Formik>
