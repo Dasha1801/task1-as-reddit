@@ -18,18 +18,4 @@ describe('Test IconSaveItems component', () => {
     expect(screen.getByTestId('iconSavedItems')).toBeInTheDocument();
     expect(screen.queryByTestId('countItem')).not.toBeInTheDocument();
   });
-
-  it('should be response msw', async () => {
-    render(
-      <Provider store={store}>
-        <HashRouter>
-          <IconSaveItems />
-        </HashRouter>
-      </Provider>
-    );
-
-    const countArticles = await screen.findByTestId('countItem');
-
-    expect(countArticles).toHaveTextContent('2');
-  });
 });

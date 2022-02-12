@@ -1,12 +1,12 @@
-import React, { useCallback, useEffect, useState } from 'react';
 import classNames from 'classnames';
+import React, { useEffect, useState } from 'react';
 import { FaMedal, FaRegCommentAlt, FaShare } from 'react-icons/fa';
 import { useDispatch, useSelector } from 'react-redux';
-import { deleteArticle, fetchSavedArticles, saveInDbArticle } from '../../server/api';
+import { deleteArticle, saveInDbArticle } from '../../server/api';
 import { InfoItem } from '../../shared/interfaces';
-import { TStore } from '../redux';
-import { setSavedArticles } from '../redux/slices/savedArticlesSlice';
 import ErrorAlert from '../alert/baseAlert';
+import { TStore } from '../redux';
+import { getSavedArticles } from '../redux/asyncActions';
 import './footerArticle.scss';
 
 function FooterArticle({ item, className }: InfoItem): JSX.Element {
@@ -17,17 +17,12 @@ function FooterArticle({ item, className }: InfoItem): JSX.Element {
   const dispatch = useDispatch();
   const { num_comments } = item;
 
-  const getSavedArticles = useCallback(async () => {
-    const resServer = await fetchSavedArticles(accessToken);
-    dispatch(setSavedArticles(resServer.data));
-  }, [dispatch]);
-
   const saveArticle = async (): Promise<void> => {
     if (!saved) {
       try {
         const resServer = await saveInDbArticle(item, accessToken);
         if (resServer.data) {
-          getSavedArticles();
+          getSavedArticles(accessToken)(dispatch);
           setSaved(true);
         }
       } catch {
@@ -35,7 +30,7 @@ function FooterArticle({ item, className }: InfoItem): JSX.Element {
       }
     } else {
       await deleteArticle({ id: item.id }, accessToken);
-      getSavedArticles();
+      getSavedArticles(accessToken)(dispatch);
       setSaved(false);
     }
   };

@@ -1,9 +1,10 @@
 import axios from 'axios';
 import { baseUrl } from '../../constants';
-import { fetchArticles } from '../../server/api';
+import { fetchArticles, fetchSavedArticles } from '../../server/api';
 import { ArticleInfo, ILogInUser, IUser } from '../../shared/interfaces';
 import { getStateError } from './slices/errorSlice';
 import { getStateLoading } from './slices/loadingSlice';
+import { setSavedArticles } from './slices/savedArticlesSlice';
 import { addUser } from './slices/userSlice';
 
 export const fetchData = (count: number, setArticles: React.Dispatch<React.SetStateAction<ArticleInfo[]>>) =>
@@ -32,4 +33,10 @@ export const logInUser = (res: ILogInUser) =>
         }
       })
       .catch((error) => error.status);
+  };
+
+export const getSavedArticles = (accessToken: string) =>
+  async function getUserSavedArticles(dispatch: (arg0: { payload: ArticleInfo[]; type: string }) => void) {
+    const resServer = await fetchSavedArticles(accessToken);
+    dispatch(setSavedArticles(resServer.data));
   };
