@@ -45,9 +45,9 @@ describe('Test FormLogin Component', () => {
     expect(email).toBeInTheDocument();
     expect(password).toBeInTheDocument();
 
-    userEvent.type(email, '6227968@gmaol.com');
+    userEvent.type(email, '6227968@gmail.com');
 
-    expect(screen.getByTestId<HTMLInputElement>(/email/).value).toEqual('6227968@gmaol.com');
+    expect(screen.getByTestId<HTMLInputElement>(/email/).value).toEqual('6227968@gmail.com');
 
     userEvent.clear(email);
 

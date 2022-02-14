@@ -21,7 +21,7 @@ function RegisteredGroup(): JSX.Element {
   return (
     <>
       <NavLink to="/user" className="userProfile">
-        <button type="button" className="item">
+        <button type="button" className="item" data-testid="linkToUserPage">
           <FaUserAstronaut className="iconUser" />
           {name}
         </button>

@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Form, Formik } from 'formik';
 import { TStore } from '../redux';
 import { validateLogIn } from './validate/validateLogIn';
-import { logInUser } from '../redux/asyncActions';
+import { getSavedArticles, logInUser } from '../redux/asyncActions';
 import FormBtns from '../btnsGroup/formBtns';
 import BaseAlert from '../alert/baseAlert';
 import TextField from './textField';
@@ -22,6 +22,8 @@ function FormLogIn(): JSX.Element {
 
   const showAlert = (): JSX.Element | null => {
     if (show && user.name) {
+      getSavedArticles(user.accessToken)(dispatch);
+
       return <BaseAlert variant="success" text="Successfully completed" setState={setShow} />;
     }
     if (show && !user.name) {
