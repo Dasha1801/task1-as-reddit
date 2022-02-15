@@ -26,8 +26,12 @@ exports.signup = async (req, res) => {
           .send({ message: "Failed! Email is already in use!" });
       }
 
+      const token = jwt.sign({ email: user.email }, config.secret, {
+        expiresIn: 86400,
+      });
+
       User.create(user).then((data) => {
-        res.send(data);
+        res.send({ accessToken: token, ...data });
       });
     })
     .catch((err) => {
@@ -50,12 +54,12 @@ exports.login = (req, res) => {
         user.password
       );
       if (!passwordIsValid) {
-        return res.status(401);
+        return res.status(401).send({ message: "User Not found." });
       }
       if (req.body.name !== user.name) {
-        return res.status(401);
+        return res.status(401).send({ message: "User Not found." });
       }
-      var token = jwt.sign({ email: user.email }, config.secret, {
+      const token = jwt.sign({ email: user.email }, config.secret, {
         expiresIn: 86400,
       });
 

@@ -1,24 +1,27 @@
-import React, { useState } from 'react';
 import { Form, Formik } from 'formik';
-import { registerUser } from '../../server/api';
-import { IPropsForm, IRegisterUser } from '../../shared/interfaces';
-import { validateSignUp } from './validate/validateSignUp';
-import TextField from './textField';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { IRegisterUser } from '../../shared/interfaces';
+import BasePopover from '../alert/basePopover';
 import FormBtns from '../btnsGroup/formBtns';
-import BaseAlert from '../alert/baseAlert';
+import { TStore } from '../redux';
+import { getSavedArticles, signUpUser } from '../redux/asyncActions';
 import './forms.scss';
+import TextField from './textField';
+import { validateSignUp } from './validate/validateSignUp';
 
-function FormSignUp({ setState }: IPropsForm): JSX.Element {
-  const [showAlert, setShowAlert] = useState(false);
+function FormSignUp(): JSX.Element {
+  const { accessToken } = useSelector((state: TStore) => state.user).user;
+  const { show } = useSelector((state: TStore) => state.popover);
+  const dispatch = useDispatch();
 
-  const handleRegister = async (data: IRegisterUser): Promise<void> => {
-    try {
-      const response = await registerUser(data);
-      if (typeof response === 'object') setState(false);
-    } catch {
-      setShowAlert(true);
-    }
+  const handleRegister = (props: IRegisterUser): void => {
+    signUpUser(props)(dispatch);
   };
+
+  useEffect(() => {
+    getSavedArticles(accessToken)(dispatch);
+  }, [accessToken]);
 
   return (
     <>
@@ -51,9 +54,7 @@ function FormSignUp({ setState }: IPropsForm): JSX.Element {
           </Form>
         )}
       </Formik>
-      {showAlert && (
-        <BaseAlert text="Failed! Email is already in use!" variant="danger" setState={setShowAlert} />
-      )}
+      {!accessToken && show && <BasePopover variant="danger" text="Failed! Email is already in use!" />}
     </>
   );
 }

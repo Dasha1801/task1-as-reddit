@@ -4,7 +4,7 @@ import { FaMedal, FaRegCommentAlt, FaShare } from 'react-icons/fa';
 import { useDispatch, useSelector } from 'react-redux';
 import { deleteArticle, saveInDbArticle } from '../../server/api';
 import { InfoItem } from '../../shared/interfaces';
-import ErrorAlert from '../alert/baseAlert';
+import BaseAlert from '../alert/baseAlert';
 import { TStore } from '../redux';
 import { getSavedArticles } from '../redux/asyncActions';
 import './footerArticle.scss';
@@ -16,6 +16,10 @@ function FooterArticle({ item, className }: InfoItem): JSX.Element {
   const [show, setShow] = useState(false);
   const dispatch = useDispatch();
   const { num_comments } = item;
+
+  useEffect(() => {
+    setSaved(false);
+  }, [accessToken]);
 
   const saveArticle = async (): Promise<void> => {
     if (!saved) {
@@ -67,7 +71,7 @@ function FooterArticle({ item, className }: InfoItem): JSX.Element {
           </li>
         </ul>
       </nav>
-      {show && <ErrorAlert setState={setShow} text="Available for registered users only!" variant="danger" />}
+      {show && <BaseAlert setState={setShow} text="Available for registered users only!" variant="danger" />}
     </footer>
   );
 }

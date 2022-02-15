@@ -1,41 +1,27 @@
-import React, { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
 import { Form, Formik } from 'formik';
-import { TStore } from '../redux';
-import { validateLogIn } from './validate/validateLogIn';
-import { getSavedArticles, logInUser } from '../redux/asyncActions';
-import FormBtns from '../btnsGroup/formBtns';
-import BaseAlert from '../alert/baseAlert';
-import TextField from './textField';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { ILogInUser } from '../../shared/interfaces';
+import BasePopover from '../alert/basePopover';
+import FormBtns from '../btnsGroup/formBtns';
+import { TStore } from '../redux';
+import { getSavedArticles, logInUser } from '../redux/asyncActions';
 import './forms.scss';
+import TextField from './textField';
+import { validateLogIn } from './validate/validateLogIn';
 
 function FormLogIn(): JSX.Element {
-  const [show, setShow] = useState(false);
-  const { user } = useSelector((state: TStore) => state.user);
+  const { accessToken } = useSelector((state: TStore) => state.user).user;
+  const { show } = useSelector((state: TStore) => state.popover);
   const dispatch = useDispatch();
 
-  const handleLogIn = async (data: ILogInUser): Promise<void> => {
-    await logInUser(data)(dispatch);
-    setShow(true);
-  };
-
-  const showAlert = (): JSX.Element | null => {
-    if (show && user.name) {
-      getSavedArticles(user.accessToken)(dispatch);
-
-      return <BaseAlert variant="success" text="Successfully completed" setState={setShow} />;
-    }
-    if (show && !user.name) {
-      return <BaseAlert variant="danger" text="User not found!" setState={setShow} />;
-    }
-
-    return null;
+  const handleLogIn = (data: ILogInUser): void => {
+    logInUser(data)(dispatch);
   };
 
   useEffect(() => {
-    showAlert();
-  }, [user.name, show]);
+    getSavedArticles(accessToken)(dispatch);
+  }, [accessToken]);
 
   return (
     <>
@@ -55,7 +41,7 @@ function FormLogIn(): JSX.Element {
           </Form>
         )}
       </Formik>
-      {showAlert()}
+      {!accessToken && show && <BasePopover variant="danger" text="User not found!" />}
     </>
   );
 }

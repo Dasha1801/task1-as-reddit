@@ -1,8 +1,13 @@
 module.exports = (sequelize, Sequelize) => {
   const SavedArticle = sequelize.define("savedArticle", {
+    number: {
+      type: Sequelize.INTEGER,
+      autoIncrement: true,
+      primaryKey: true,
+      allowNull: false,
+    },
     id: {
       type: Sequelize.STRING,
-      primaryKey: true,
     },
     title: {
       type: Sequelize.STRING,

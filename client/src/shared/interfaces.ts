@@ -91,8 +91,10 @@ export interface IAlert {
   setState: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-export interface IPropsForm {
-  setState: React.Dispatch<React.SetStateAction<boolean>>;
+export interface IPopover {
+  variant: string;
+  text: string;
+  className?: string;
 }
 
 export interface IRegisterUser {

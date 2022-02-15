@@ -9,6 +9,6 @@ describe('Test BaseAlert component', () => {
     render(<BaseAlert variant="successful" text="It is ok!" setState={setState} />);
 
     expect(screen.getByText(/it is ok!/i)).toBeInTheDocument();
-    expect(screen.getByRole('alert')).toHaveClass('errorAlert');
+    expect(screen.getByRole('alert')).toHaveClass('alert');
   });
 });

@@ -1,8 +1,6 @@
-.form {
-  //   display: flex;
-  //   flex-direction: column;
-  //   justify-content: flex-end;
+@import '../../colors.scss';
 
+.form {
   .wrapperLabel {
     width: 100%;
     position: relative;
@@ -11,13 +9,13 @@
   .label {
     display: flex;
     align-items: center;
-    width: 95%;
+    width: 100%;
     justify-content: space-between;
     margin-bottom: 25px;
   }
 
   .input {
-    width: 69%;
+    width: 65%;
   }
 
   .buttons {
@@ -31,11 +29,10 @@
 
   .error {
     position: absolute;
-    color: red;
+    color: $colorError;
     font-size: 12px;
     top: 32px;
-    left: 138px;
     z-index: 10;
-    background-color: white;
+    background-color: $bgError;
   }
 }

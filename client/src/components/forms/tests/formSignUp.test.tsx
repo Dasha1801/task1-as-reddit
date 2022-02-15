@@ -31,9 +31,11 @@ describe('Test FormSignUp Component', () => {
   });
 
   it('should be enter and reset input', () => {
-    const setState = jest.fn();
-
-    render(<FormSignUp setState={setState} />);
+    render(
+      <Provider store={store}>
+        <FormSignUp />
+      </Provider>
+    );
 
     const name = screen.getByTestId(/name/i);
     const phone = screen.getByTestId(/phone/i);

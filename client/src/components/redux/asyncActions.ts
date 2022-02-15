@@ -1,9 +1,10 @@
 import axios from 'axios';
 import { baseUrl } from '../../constants';
 import { fetchArticles, fetchSavedArticles } from '../../server/api';
-import { ArticleInfo, ILogInUser, IUser } from '../../shared/interfaces';
+import { ArticleInfo, ILogInUser, IRegisterUser, IUser } from '../../shared/interfaces';
 import { getStateError } from './slices/errorSlice';
 import { getStateLoading } from './slices/loadingSlice';
+import { showPopover } from './slices/popoverSlice';
 import { setSavedArticles } from './slices/savedArticlesSlice';
 import { addUser } from './slices/userSlice';
 
@@ -24,7 +25,9 @@ export const fetchData = (count: number, setArticles: React.Dispatch<React.SetSt
   };
 
 export const logInUser = (res: ILogInUser) =>
-  async function getArticles(dispatch: (arg0: { payload: { user: IUser }; type: string }) => void) {
+  async function getResServer(
+    dispatch: (arg0: { payload: { user: IUser } | { show: boolean }; type: string }) => void
+  ) {
     axios
       .post(`${baseUrl}api/auth/login`, res)
       .then((response) => {
@@ -32,7 +35,27 @@ export const logInUser = (res: ILogInUser) =>
           dispatch(addUser({ user: response.data }));
         }
       })
-      .catch((error) => error.status);
+      .finally(() => {
+        dispatch(showPopover({ show: true }));
+      });
+  };
+
+export const signUpUser = (res: IRegisterUser) =>
+  async function getResServer(
+    dispatch: (arg0: { payload: { user: IUser } | { show: boolean }; type: string }) => void
+  ) {
+    axios
+      .post(`${baseUrl}api/auth/signup`, res)
+      .then((response) => {
+        if (response.data.accessToken) {
+          dispatch(
+            addUser({ user: { ...response.data.dataValues, accessToken: response.data.accessToken } })
+          );
+        }
+      })
+      .finally(() => {
+        dispatch(showPopover({ show: true }));
+      });
   };
 
 export const getSavedArticles = (accessToken: string) =>
