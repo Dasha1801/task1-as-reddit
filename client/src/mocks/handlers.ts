@@ -99,4 +99,21 @@ export const handlers = [
       ctx.json({ name: 'Simon', email: '6227968@gmail.com', phone: '+375296227968', accessToken: 'token' })
     )
   ),
+
+  rest.post(`${baseUrl}api/auth/signup`, (req, res, ctx) =>
+    res(
+      ctx.status(200),
+      ctx.json({
+        accessToken: 'token',
+        dataValues: {
+          name: 'Simon',
+          email: '6227968@gmail.com',
+          phone: '+375296227968',
+          city: 'минск',
+          address: 'ул.седых 32-40',
+          password: '$2a$08$Elf.fNT/YLIJ42fJVgwlZ.sSL/dDQFsjODxPKNb0/tBvO9UCSVZaC',
+        },
+      })
+    )
+  ),
 ];

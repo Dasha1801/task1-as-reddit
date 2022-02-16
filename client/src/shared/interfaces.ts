@@ -76,10 +76,6 @@ export interface IArticleId {
   id: string;
 }
 
-export interface ICity {
-  city: string | undefined;
-}
-
 export interface IPropsModal {
   show: boolean;
   setState: React.Dispatch<React.SetStateAction<boolean>>;
@@ -127,4 +123,13 @@ export interface IPropsSignUpGroup {
   setShowModalLogIn: React.Dispatch<React.SetStateAction<boolean>>;
   setShowModalSignUp: React.Dispatch<React.SetStateAction<boolean>>;
   showPopover: boolean;
+}
+
+export interface ICityProps {
+  name: string;
+}
+
+export interface IFieldProps {
+  setState: (field: string, value: string, shouldValidate?: boolean | undefined) => void;
+  city: string;
 }

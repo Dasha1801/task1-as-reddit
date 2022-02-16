@@ -3,8 +3,9 @@ import userEvent from '@testing-library/user-event';
 import React from 'react';
 import { Provider } from 'react-redux';
 import { HashRouter } from 'react-router-dom';
-import { store } from '../../redux';
+import App from '../../app/app';
 import IconUser from '../../iconUser/iconUser';
+import { store } from '../../redux';
 import FormSignUp from '../formSignUp';
 
 describe('Test FormSignUp Component', () => {
@@ -58,5 +59,29 @@ describe('Test FormSignUp Component', () => {
     userEvent.clear(phone);
 
     expect(screen.getByTestId<HTMLInputElement>(/phone/).value).toEqual('');
+  });
+
+  it('should be response msw', async () => {
+    render(
+      <Provider store={store}>
+        <HashRouter>
+          <App />
+        </HashRouter>
+      </Provider>
+    );
+
+    userEvent.click(screen.getByTestId('logoUser'));
+    userEvent.click(screen.getByText(/sign up/i));
+
+    userEvent.type(await screen.findByTestId(/email/i), '6227968@gmail.com');
+    userEvent.type(await screen.findByTestId('password'), '123456');
+    userEvent.type(await screen.findByTestId(/name/i), 'Simon');
+    userEvent.type(await screen.findByTestId(/confirmPassword/i), '123456');
+    userEvent.type(await screen.findByTestId(/city/i), 'гродно');
+    userEvent.type(await screen.findByTestId(/address/i), 'ул.седых 32-40');
+    userEvent.type(await screen.findByTestId(/phone/i), '296227968');
+    userEvent.click(screen.getByText(/submit/i));
+
+    expect(await screen.findByText(/successfully completed/i)).toBeInTheDocument();
   });
 });

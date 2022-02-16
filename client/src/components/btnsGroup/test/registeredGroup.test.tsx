@@ -15,7 +15,6 @@ describe('Test RegisteredGroup component', () => {
       </Provider>
     );
 
-    expect(screen.getByRole('link')).toBeInTheDocument();
-    expect(screen.getByRole('button', { name: /exit/i })).toBeInTheDocument();
+    expect(screen.getAllByRole('button')).toHaveLength(2);
   });
 });

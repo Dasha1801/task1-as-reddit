@@ -35,4 +35,26 @@
     z-index: 10;
     background-color: $bgError;
   }
+
+  .variantCity {
+    margin-left: 35%;
+    margin-top: -23px;
+    text-align: center;
+
+    .itemCity {
+      width: 100%;
+      border: none;
+      background: $bgItemCity;
+      color: $colorItemCity;
+      font-size: 14px;
+      display: block;
+      padding: 3px;
+      margin: 2px auto;
+    }
+
+    .itemCity:hover {
+      background: $bgItemCityHover;
+      color: $colorItemCityHover;
+    }
+  }
 }

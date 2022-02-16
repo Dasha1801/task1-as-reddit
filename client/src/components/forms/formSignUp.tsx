@@ -6,9 +6,10 @@ import BasePopover from '../alert/basePopover';
 import FormBtns from '../btnsGroup/formBtns';
 import { TStore } from '../redux';
 import { getSavedArticles, signUpUser } from '../redux/asyncActions';
-import './forms.scss';
+import AutocompleteCity from './autocomplete/autocompleteCity';
 import TextField from './textField';
 import { validateSignUp } from './validate/validateSignUp';
+import './forms.scss';
 
 function FormSignUp(): JSX.Element {
   const { accessToken } = useSelector((state: TStore) => state.user).user;
@@ -21,7 +22,7 @@ function FormSignUp(): JSX.Element {
 
   useEffect(() => {
     getSavedArticles(accessToken)(dispatch);
-  }, [accessToken]);
+  }, [accessToken, dispatch]);
 
   return (
     <>
@@ -48,8 +49,8 @@ function FormSignUp(): JSX.Element {
             <TextField label="Email:" name="email" type="email" />
             <TextField label="Password:" name="password" type="password" />
             <TextField label="Confirm Password:" name="confirmPassword" type="password" />
-            <TextField label="City:" name="city" type="text" />
             <TextField label=" Address:" name="address" type="text" />
+            <AutocompleteCity setState={formik.setFieldValue} city={formik.values.city} />
             <FormBtns />
           </Form>
         )}
