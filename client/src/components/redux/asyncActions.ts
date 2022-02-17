@@ -47,6 +47,22 @@ export const logInUser = (res: ILogInUser | ILogInSocialUser, rout: string) =>
       });
   };
 
+export const updateProfile = (res: IRegisterUser) =>
+  async function getUpdateUser(
+    dispatch: (arg0: { payload: { user: IUser } | { show: boolean }; type: string }) => void
+  ) {
+    axios
+      .put(`${baseUrl}api/auth/update`, res)
+      .then((response) => {
+        if (response.data.accessToken) {
+          dispatch(addUser({ user: response.data }));
+        }
+      })
+      .finally(() => {
+        dispatch(showPopover({ show: true }));
+      });
+  };
+
 export const signUpUser = (res: IRegisterUser | IRegisterSocialUser) =>
   async function getResServer(
     dispatch: (arg0: { payload: { user: IUser } | { show: boolean }; type: string }) => void

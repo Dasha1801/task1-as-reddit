@@ -13,6 +13,8 @@ module.exports = function (app) {
 
   app.post("/api/auth/login", controller.login);
 
+  app.put("/api/auth/update", controller.updateProfile);
+
   app.post("/api/auth/socialLogin", controller.socialLogin);
 
   app.put("/api/auth/logout", controller.logout);

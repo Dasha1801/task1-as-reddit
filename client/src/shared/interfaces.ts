@@ -145,7 +145,6 @@ export interface IFieldProps {
 
 export interface IAction {
   action: string;
-  setState: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 export interface IProfile {

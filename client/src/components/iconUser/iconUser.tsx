@@ -15,6 +15,7 @@ function IconUser(): JSX.Element {
   const [target, setTarget] = useState(null);
   const [showModalLogIn, setShowModalLogIn] = useState(false);
   const [showModalSignUp, setShowModalSignUp] = useState(false);
+
   const handleClick = (event: React.BaseSyntheticEvent): void => {
     setShowPopover(!showPopover);
     setTarget(event.target);
@@ -25,7 +26,7 @@ function IconUser(): JSX.Element {
       <FaUser className="iconUser" onClick={handleClick} data-testid="logoUser" />
       <Overlay show={showPopover} target={target} placement="bottom" containerPadding={30}>
         <Popover id="popover-contained">
-          <Popover.Body>
+          <Popover.Body style={{ display: 'flex', flexDirection: 'column' }}>
             {user.name ? (
               <RegisteredGroup />
             ) : (

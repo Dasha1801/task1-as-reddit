@@ -10,4 +10,15 @@
     max-width: 1024px;
     margin: 0 auto;
   }
+
+  .userHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .iconHeader {
+    cursor: pointer;
+    color: $iconUpdateProfile;
+  }
 }

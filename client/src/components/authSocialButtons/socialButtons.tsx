@@ -8,7 +8,7 @@ import { IAction, IProfile } from '../../shared/interfaces';
 import { GG_APP_ID, FB_APP_ID } from '../../constants';
 import './socialButtons.scss';
 
-function SocialButtons({ action, setState }: IAction): JSX.Element {
+function SocialButtons({ action }: IAction): JSX.Element {
   const dispatch = useDispatch();
   const { accessToken } = useSelector((state: TStore) => state.user).user;
   const [profile, setProfile] = useState<IProfile>({ name: '', email: '' });
@@ -18,12 +18,10 @@ function SocialButtons({ action, setState }: IAction): JSX.Element {
   const handleLogin = (): void => {
     if (action === 'signUp' && profile.email) {
       signUpUser({ ...profile, phone: '', city: '', password: '' })(dispatch);
-      setState(false);
     }
 
     if (action === 'logIn' && profile.email) {
       logInUser({ email: profile.email }, 'socialLogin')(dispatch);
-      setState(false);
     }
   };
 

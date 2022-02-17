@@ -14,7 +14,7 @@ function ModalSignUp({ show, setState }: IPropsModal): JSX.Element {
       </Modal.Header>
       <Modal.Body>
         <FormSignUp />
-        <SocialButtons action="signUp" setState={setState} />
+        <SocialButtons action="signUp" />
       </Modal.Body>
     </Modal>
   );
