@@ -2,6 +2,7 @@ import React from 'react';
 import { Modal } from 'react-bootstrap';
 import FormSignUp from '../forms/formSignUp';
 import { IPropsModal } from '../../shared/interfaces';
+import SocialButtons from '../authSocialButtons/socialButtons';
 
 function ModalSignUp({ show, setState }: IPropsModal): JSX.Element {
   const handleClose = (): void => setState(false);
@@ -13,6 +14,7 @@ function ModalSignUp({ show, setState }: IPropsModal): JSX.Element {
       </Modal.Header>
       <Modal.Body>
         <FormSignUp />
+        <SocialButtons action="signUp" setState={setState} />
       </Modal.Body>
     </Modal>
   );

@@ -78,6 +78,35 @@ exports.login = (req, res) => {
     });
 };
 
+exports.socialLogin = (req, res) => {
+  User.findOne({
+    where: {
+      email: req.body.email,
+    },
+  })
+    .then((user) => {
+      if (!user) {
+        return res.status(404).send({ message: "User Not found." });
+      }
+      const token = jwt.sign({ email: user.email }, config.secret, {
+        expiresIn: 86400,
+      });
+
+      res.status(200).send({
+        name: user.name,
+        email: user.email,
+        phone: user.phone,
+        city: user.city,
+        address: user.address,
+        password: user.password,
+        accessToken: token,
+      });
+    })
+    .catch((err) => {
+      res.status(500).send({ message: err.message });
+    });
+};
+
 exports.logout = (req, res) => {
   const token = req.headers["x-access-token"];
   jwt.sign(token, "", { expiresIn: 1 }, (logout, err) => {

@@ -7,3 +7,5 @@ export const baseUrl =
     ? 'http://localhost:3001/'
     : 'https://deploy-server-as-reddit.herokuapp.com/';
 export const initialCount = 10;
+export const GG_APP_ID = '259823594522-9b4pudiq4oegjflvta8t40u846fhsdsp.apps.googleusercontent.com';
+export const FB_APP_ID = '280040930714284';

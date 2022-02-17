@@ -102,10 +102,19 @@ export interface IRegisterUser {
   address: string;
 }
 
+export interface IRegisterSocialUser {
+  name: string;
+  email: string;
+}
+
 export interface ILogInUser {
   name: string;
   email: string;
   password: string;
+}
+
+export interface ILogInSocialUser {
+  email: string;
 }
 
 export interface IUser {
@@ -132,4 +141,14 @@ export interface ICityProps {
 export interface IFieldProps {
   setState: (field: string, value: string, shouldValidate?: boolean | undefined) => void;
   city: string;
+}
+
+export interface IAction {
+  action: string;
+  setState: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+export interface IProfile {
+  name: string;
+  email: string;
 }
