@@ -1,24 +1,26 @@
-import React from 'react';
 import classNames from 'classnames';
+import React from 'react';
 import { FaExternalLinkAlt } from 'react-icons/fa';
 import { TiDelete } from 'react-icons/ti';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useLocation } from 'react-router-dom';
-import { deleteArticle, fetchSavedArticles } from '../../server/api';
+import { deleteArticle } from '../../server/api';
 import { InfoItem } from '../../shared/interfaces';
 import ContentArticle from '../contentArticle/contentArticle';
 import Likes from '../likes/likes';
-import { setSavedArticles } from '../redux/slices/savedArticlesSlice';
+import { TStore } from '../redux';
+import { getSavedArticles } from '../redux/asyncActions';
 import './article.scss';
 
 function Article({ item }: InfoItem): JSX.Element {
   const dispatch = useDispatch();
+  const { accessToken } = useSelector((state: TStore) => state.user).user;
   const path = useLocation().pathname;
   const { score, url } = item;
 
   const handlerClick = async (): Promise<void> => {
-    await deleteArticle({ id: item.id });
-    fetchSavedArticles().then((res) => dispatch(setSavedArticles(res)));
+    await deleteArticle({ id: item.id }, accessToken);
+    getSavedArticles(accessToken)(dispatch);
   };
 
   return (
@@ -37,7 +39,7 @@ function Article({ item }: InfoItem): JSX.Element {
       ) : (
         <TiDelete
           data-testid="iconDelete"
-          size="30px"
+          size="45px"
           color="red"
           className="iconLink"
           onClick={handlerClick}

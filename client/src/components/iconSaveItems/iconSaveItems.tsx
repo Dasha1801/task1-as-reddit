@@ -1,18 +1,18 @@
 import React, { useEffect } from 'react';
 import { HiSave } from 'react-icons/hi';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchSavedArticles } from '../../server/api';
 import { TStore } from '../redux';
-import { setSavedArticles } from '../redux/slices/savedArticlesSlice';
+import { getSavedArticles } from '../redux/asyncActions';
 import './iconSaveItems.scss';
 
 function IconSaveItems(): JSX.Element {
   const dispatch = useDispatch();
   const { savedArticles } = useSelector((state: TStore) => state.savedArticles);
+  const { accessToken } = useSelector((state: TStore) => state.user).user;
   const countSaveItems = savedArticles.length;
 
   useEffect(() => {
-    fetchSavedArticles().then((res) => dispatch(setSavedArticles(res)));
+    if (accessToken) getSavedArticles(accessToken)(dispatch);
   }, [dispatch]);
 
   const renderCountSavedItem = (): JSX.Element | null => {

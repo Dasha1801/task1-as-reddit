@@ -16,8 +16,11 @@ const savedArticlesSlice = createSlice({
     setSavedArticles: (state, { payload }: PayloadAction<ArticleInfo[]>) => {
       state.savedArticles = payload;
     },
+    resetSavedArticles: (state) => {
+      state.savedArticles = initialState.savedArticles;
+    },
   },
 });
 
 export const savedArticles_reducer = savedArticlesSlice.reducer;
-export const { setSavedArticles } = savedArticlesSlice.actions;
+export const { setSavedArticles, resetSavedArticles } = savedArticlesSlice.actions;

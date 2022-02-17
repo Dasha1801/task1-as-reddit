@@ -1,0 +1,43 @@
+@import '../../colors.scss';
+
+.wrapperIconUser {
+  .iconUser {
+    position: absolute;
+    width: 36px;
+    height: 36px;
+    color: $iconUserFormColor;
+    bottom: -20px;
+    right: 24px;
+    padding: 8px;
+    border-radius: 50%;
+    background-color: $iconUserFormBg;
+    cursor: pointer;
+  }
+}
+
+@media (max-width: 465px) {
+  .iconUser {
+    bottom: -7px;
+    width: 26px;
+    height: 26px;
+    padding: 5px;
+    right: 16px;
+  }
+}
+
+.item {
+  background: none;
+  border: none;
+  min-width: 105px;
+  font-size: 18px;
+  font-weight: 700;
+  cursor: pointer;
+  text-align: center;
+  color: $colorBtnUnHover;
+  display: block;
+}
+
+.item:hover {
+  transform: scale(1.2);
+  color: $colorBtnHover;
+}

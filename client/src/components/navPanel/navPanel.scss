@@ -3,7 +3,7 @@
 .navPanel {
   position: absolute;
   width: 31%;
-  right: 24px;
+  right: 68px;
   border: 2px solid $navPanelBorder;
   border-radius: 10px;
   bottom: -20px;
@@ -38,8 +38,8 @@
 
 @media (max-width: 465px) {
   .navPanel {
-    right: 12px;
     bottom: -7px;
     background-color: $navPanelBg;
+    right: 50px;
   }
 }

@@ -5,6 +5,7 @@
   padding-left: 1em;
   max-width: $widthContentArticle;
   word-break: break-word;
+  padding-block-start: 1em;
 
   .linkToPostPage {
     text-decoration: none;
@@ -13,6 +14,7 @@
 
   .title {
     color: $colorTitle;
+    font-size: 18px;
   }
 
   .selfText {
@@ -22,6 +24,7 @@
     -webkit-line-clamp: 10;
     -webkit-box-orient: vertical;
     overflow: hidden;
+    font-size: 14px;
   }
 
   .selfText::before {

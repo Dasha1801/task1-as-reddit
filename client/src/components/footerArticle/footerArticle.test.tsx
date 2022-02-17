@@ -1,4 +1,5 @@
-import { fireEvent, render, screen } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import * as React from 'react';
 import { Provider } from 'react-redux';
 import { item } from '../../shared/mocks';
@@ -30,7 +31,7 @@ describe('Test FooterArticle component', () => {
 
     expect(listItemSave).toHaveTextContent(/unsaved/i);
 
-    fireEvent.click(saveIcon);
+    userEvent.click(saveIcon);
 
     expect(listItemSave).toHaveTextContent(/saved/i);
   });

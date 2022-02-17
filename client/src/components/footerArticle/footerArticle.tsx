@@ -1,31 +1,40 @@
 import classNames from 'classnames';
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { FaMedal, FaRegCommentAlt, FaShare } from 'react-icons/fa';
 import { useDispatch, useSelector } from 'react-redux';
-import { deleteArticle, fetchSavedArticles, saveInDbArticle } from '../../server/api';
+import { deleteArticle, saveInDbArticle } from '../../server/api';
 import { InfoItem } from '../../shared/interfaces';
+import BaseAlert from '../alert/baseAlert';
 import { TStore } from '../redux';
-import { setSavedArticles } from '../redux/slices/savedArticlesSlice';
+import { getSavedArticles } from '../redux/asyncActions';
 import './footerArticle.scss';
 
 function FooterArticle({ item, className }: InfoItem): JSX.Element {
   const { savedArticles } = useSelector((state: TStore) => state.savedArticles);
+  const { accessToken } = useSelector((state: TStore) => state.user).user;
   const [saved, setSaved] = useState(false);
+  const [show, setShow] = useState(false);
   const dispatch = useDispatch();
   const { num_comments } = item;
 
-  const getSavedArticles = useCallback(() => {
-    fetchSavedArticles().then((res) => dispatch(setSavedArticles(res)));
-  }, [dispatch]);
+  useEffect(() => {
+    setSaved(false);
+  }, [accessToken]);
 
   const saveArticle = async (): Promise<void> => {
     if (!saved) {
-      await saveInDbArticle(item);
-      getSavedArticles();
-      setSaved(true);
+      try {
+        const resServer = await saveInDbArticle(item, accessToken);
+        if (resServer.data) {
+          getSavedArticles(accessToken)(dispatch);
+          setSaved(true);
+        }
+      } catch {
+        setShow(true);
+      }
     } else {
-      await deleteArticle({ id: item.id });
-      getSavedArticles();
+      await deleteArticle({ id: item.id }, accessToken);
+      getSavedArticles(accessToken)(dispatch);
       setSaved(false);
     }
   };
@@ -62,6 +71,7 @@ function FooterArticle({ item, className }: InfoItem): JSX.Element {
           </li>
         </ul>
       </nav>
+      {show && <BaseAlert setState={setShow} text="Available for registered users only!" variant="danger" />}
     </footer>
   );
 }

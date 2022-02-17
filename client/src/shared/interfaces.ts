@@ -75,3 +75,61 @@ export interface ILimitArticles {
 export interface IArticleId {
   id: string;
 }
+
+export interface IPropsModal {
+  show: boolean;
+  setState: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+export interface IAlert {
+  variant: string;
+  text: string;
+  setState: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+export interface IPopover {
+  variant: string;
+  text: string;
+  className?: string;
+}
+
+export interface IRegisterUser {
+  name: string;
+  email: string;
+  password: string;
+  phone: string;
+  city: string;
+  address: string;
+}
+
+export interface ILogInUser {
+  name: string;
+  email: string;
+  password: string;
+}
+
+export interface IUser {
+  accessToken: string;
+  name: string;
+  email: string;
+  password: string;
+  phone: string;
+  city: string;
+  address: string;
+}
+
+export interface IPropsSignUpGroup {
+  setShowPopover: React.Dispatch<React.SetStateAction<boolean>>;
+  setShowModalLogIn: React.Dispatch<React.SetStateAction<boolean>>;
+  setShowModalSignUp: React.Dispatch<React.SetStateAction<boolean>>;
+  showPopover: boolean;
+}
+
+export interface ICityProps {
+  name: string;
+}
+
+export interface IFieldProps {
+  setState: (field: string, value: string, shouldValidate?: boolean | undefined) => void;
+  city: string;
+}

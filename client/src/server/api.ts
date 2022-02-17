@@ -1,19 +1,44 @@
-import axios from 'axios';
-import { ArticleInfo, IRulesSubreddit, ILimitArticles, IArticleId, ICommentInfo } from '../shared/interfaces';
+import axios, { AxiosResponse } from 'axios';
 import { baseUrl } from '../constants/index';
+import { ArticleInfo, IArticleId, ICommentInfo, ILimitArticles, IRulesSubreddit } from '../shared/interfaces';
 
 export const fetchRules = (): Promise<IRulesSubreddit[]> =>
   axios.get(`${baseUrl}rules`).then((res) => res.data);
 
-export const fetchSavedArticles = (): Promise<ArticleInfo[]> =>
-  axios.get(`${baseUrl}save`).then((res) => res.data);
+export const fetchSavedArticles = (token: string): Promise<AxiosResponse> => {
+  const options = {
+    headers: { 'x-access-token': token },
+  };
 
-export const saveInDbArticle = (res: ArticleInfo): Promise<void> => axios.post(`${baseUrl}save`, res);
+  return axios.get(`${baseUrl}save`, options);
+};
 
-export const deleteArticle = (res: IArticleId): Promise<void> => axios.delete(`${baseUrl}save/${res.id}`);
+export const saveInDbArticle = (res: ArticleInfo, token: string): Promise<AxiosResponse> => {
+  const options = {
+    headers: { 'x-access-token': token },
+  };
+
+  return axios.post(`${baseUrl}save`, res, options);
+};
+
+export const deleteArticle = (res: IArticleId, token: string): Promise<AxiosResponse> => {
+  const options = {
+    headers: { 'x-access-token': token },
+  };
+
+  return axios.delete(`${baseUrl}save/${res.id}`, options);
+};
 
 export const fetchArticles = (limit: ILimitArticles): Promise<ArticleInfo[]> =>
   axios.post(`${baseUrl}posts`, limit).then((res) => res.data);
 
 export const fetchComments = (id: IArticleId): Promise<ICommentInfo[]> =>
   axios.post(`${baseUrl}comments`, id).then((res) => res.data);
+
+export const logoutUser = (token: string): Promise<AxiosResponse> => {
+  const options = {
+    headers: { 'x-access-token': token },
+  };
+
+  return axios.put(`${baseUrl}api/auth/logout`, options);
+};

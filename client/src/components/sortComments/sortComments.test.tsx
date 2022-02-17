@@ -1,4 +1,5 @@
-import { screen, render, fireEvent } from '@testing-library/react';
+import { screen, render } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import React from 'react';
 import { Provider } from 'react-redux';
 import { HashRouter } from 'react-router-dom';
@@ -21,7 +22,7 @@ describe('Test SortComments component', () => {
 
     expect(linkToPost).toHaveTextContent('My website freezes after ...?');
 
-    fireEvent.click(linkToPost);
+    userEvent.click(linkToPost);
     render(
       <Provider store={store}>
         <SortComments />

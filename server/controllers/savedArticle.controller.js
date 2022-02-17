@@ -10,6 +10,7 @@ exports.createSavedArticle = (req, res) => {
     url: req.body.url,
     score: req.body.score,
     num_comments: req.body.num_comments,
+    userEmail: req.email,
   };
 
   SavedArticle.create(savedArticle)
@@ -25,7 +26,7 @@ exports.createSavedArticle = (req, res) => {
 };
 
 exports.findAllSavedArticles = (req, res) => {
-  SavedArticle.findAll()
+  SavedArticle.findAll({ where: { userEmail: req.email } })
     .then((data) => {
       res.send(data);
     })
@@ -39,9 +40,10 @@ exports.findAllSavedArticles = (req, res) => {
 
 exports.deleteSavedArticles = (req, res) => {
   const id = req.params.id;
+  const userEmail = req.email;
 
   SavedArticle.destroy({
-    where: { id: id },
+    where: { id: id, userEmail: userEmail },
   })
     .then((num) => {
       if (num == 1) {

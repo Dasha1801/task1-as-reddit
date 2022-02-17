@@ -2,6 +2,7 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { PATH } from '../../constants';
 import NavPanel from '../navPanel/navPanel';
+import IconUser from '../iconUser/iconUser';
 import './header.scss';
 
 function Header(): JSX.Element {
@@ -11,8 +12,9 @@ function Header(): JSX.Element {
         <NavLink to="/">
           <img src={PATH.logo} alt="logo" className="logo" />
         </NavLink>
-        <h1 className="">javascript</h1>
+        <h1>javascript</h1>
         <NavPanel />
+        <IconUser />
       </div>
     </header>
   );

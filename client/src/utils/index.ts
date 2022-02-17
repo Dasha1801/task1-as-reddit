@@ -1,4 +1,5 @@
 import { ICommentInfo } from '../shared/interfaces';
+import { cities } from '../data/cities';
 
 export const getTime = (created_utc: number): string => {
   const nowTimeInSec = new Date().getTime() / 1000;
@@ -36,3 +37,6 @@ export const sortComments = (sortParams: string, items: ICommentInfo[]): ICommen
 
   return items;
 };
+
+export const findCity = (city: string): number =>
+  cities.findIndex((el) => el.name.toLowerCase() === city.trim().toLowerCase());

@@ -16,4 +16,4 @@ export const commentMock: ICommentInfo = {
   score: 18,
   created_utc: 1643379472,
   replies: undefined,
-}
+};

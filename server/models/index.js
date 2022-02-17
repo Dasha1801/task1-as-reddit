@@ -28,5 +28,17 @@ db.articles = require("./article.model")(sequelize, Sequelize);
 db.savedArticles = require("./savedArticle.model")(sequelize, Sequelize);
 db.comments = require("./comment.model")(sequelize, Sequelize);
 db.rules = require("./rule.model")(sequelize, Sequelize);
+db.users = require("./user.model")(sequelize, Sequelize);
+
+db.users.hasMany(db.savedArticles, {
+  as: "savedArticles",
+  onDelete: "cascade",
+});
+
+db.savedArticles.belongsTo(db.users, {
+  foreignKey: "userEmail",
+  as: "user",
+  onDelete: "cascade",
+});
 
 module.exports = db;

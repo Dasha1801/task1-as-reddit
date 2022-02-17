@@ -1,0 +1,60 @@
+@import '../../colors.scss';
+
+.form {
+  .wrapperLabel {
+    width: 100%;
+    position: relative;
+  }
+
+  .label {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    justify-content: space-between;
+    margin-bottom: 25px;
+  }
+
+  .input {
+    width: 65%;
+  }
+
+  .buttons {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .buttonSubmit {
+    margin-left: 10px;
+  }
+
+  .error {
+    position: absolute;
+    color: $colorError;
+    font-size: 12px;
+    top: 32px;
+    z-index: 10;
+    background-color: $bgError;
+  }
+
+  .variantCity {
+    margin-left: 35%;
+    margin-top: -23px;
+    text-align: center;
+
+    .itemCity {
+      width: 100%;
+      border: none;
+      background: $bgItemCity;
+      color: $colorItemCity;
+      font-size: 14px;
+      display: block;
+      padding: 3px;
+      margin: 2px auto;
+    }
+
+    .itemCity:hover {
+      background: $bgItemCityHover;
+      color: $colorItemCityHover;
+    }
+  }
+}
