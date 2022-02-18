@@ -63,9 +63,9 @@ export interface IComment {
 }
 
 export interface IRulesSubreddit {
-  short_name: string;
+  title: string;
   description: string;
-  created_utc: number;
+  id: string;
 }
 
 export interface ILimitArticles {
@@ -150,4 +150,8 @@ export interface IAction {
 export interface IProfile {
   name: string;
   email: string;
+}
+
+export interface IPropsItemRule {
+  item: IRulesSubreddit;
 }

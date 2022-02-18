@@ -1,4 +1,4 @@
-import { ArticleInfo, ICommentInfo } from './interfaces';
+import { ArticleInfo, ICommentInfo, IRulesSubreddit } from './interfaces';
 
 export const item: ArticleInfo = {
   title: 'My website freezes after ...?',
@@ -17,3 +17,35 @@ export const commentMock: ICommentInfo = {
   created_utc: 1643379472,
   replies: undefined,
 };
+
+export const rules: IRulesSubreddit[] = [
+  {
+    title: 'Remember the human.',
+    description: "Remember the human. It's ok to disagree, but we should attack ideas, not people.",
+    id: 'r1',
+  },
+  {
+    title: '/r/JavaScript is not a support forum',
+    description: 'Is this a help request? Try /r/LearnJavascript instead!',
+    id: 'r2',
+  },
+  { title: 'Advertising', description: 'Advertising paid products and services is prohibited.', id: 'r3' },
+  {
+    title: 'Excessive Self-Promotion',
+    description:
+      "It's ok to promote your own content, or content that you're otherwise vested in, but it should not constitute a majority of your contributions.",
+    id: 'r4',
+  },
+  { title: 'Java !== Javascript', description: 'Java is not the same as Javascript.', id: 'r5' },
+  {
+    title: 'Low-effort content (listicles, memes, etc.)',
+    description: 'Low-effort content such as listicles, memes, clickbait, etc. is prohibited.',
+    id: 'r6',
+  },
+  {
+    title: "Where's the Javascript?",
+    description:
+      "Demos can be fun, but they really don't provide for much discussion unless code is provided as well.",
+    id: 'r7',
+  },
+];

@@ -11,21 +11,6 @@ const sendCommentInDb = (res) =>
     console.log(error);
   });
 
-const sendRuleInDb = (res) =>
-  axios.post("http://localhost:3001/rules", res).catch(function (error) {
-    console.log(error);
-  });
-
-const fetchRules = async () => {
-  try {
-    (await axios.get(PATH.rulesSubreddit)).data.rules.map((el) => {
-      sendRuleInDb(el);
-    });
-  } catch (Error) {
-    console.error(Error);
-  }
-};
-
 const fetchComments = async (id) => {
   try {
     (await axios.get(`${PATH.comments}${id}.json`)).data[1].data.children
@@ -52,4 +37,3 @@ const fetchData = async () => {
 };
 
 exports.fetchData = fetchData;
-exports.fetchRules = fetchRules;

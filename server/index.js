@@ -21,7 +21,6 @@ db.sequelize.sync({ force: false }).then(() => console.log("re-sync done!"));
 require("./routes/article.route")(app);
 require("./routes/comment.route")(app);
 require("./routes/savedArticle.route")(app);
-require("./routes/rule.route")(app);
 require("./routes/user.route")(app);
 
 setInterval(() => {

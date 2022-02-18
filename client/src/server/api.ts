@@ -2,9 +2,6 @@ import axios, { AxiosResponse } from 'axios';
 import { baseUrl } from '../constants/index';
 import { ArticleInfo, IArticleId, ICommentInfo, ILimitArticles, IRulesSubreddit } from '../shared/interfaces';
 
-export const fetchRules = (): Promise<IRulesSubreddit[]> =>
-  axios.get(`${baseUrl}rules`).then((res) => res.data);
-
 export const fetchSavedArticles = (token: string): Promise<AxiosResponse> => {
   const options = {
     headers: { 'x-access-token': token },
