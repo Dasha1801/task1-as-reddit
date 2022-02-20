@@ -1,4 +1,4 @@
-import { ArticleInfo, ICommentInfo, IRulesSubreddit } from './interfaces';
+import { ArticleInfo, ICommentInfo, IDataTable, IRulesSubreddit } from './interfaces';
 
 export const item: ArticleInfo = {
   title: 'My website freezes after ...?',
@@ -47,5 +47,50 @@ export const rules: IRulesSubreddit[] = [
     description:
       "Demos can be fun, but they really don't provide for much discussion unless code is provided as well.",
     id: 'r7',
+  },
+];
+
+export const dataTable: IDataTable[] = [
+  {
+    date: 'February 18',
+    organizers: 'Amir Khan vs Kell Brook',
+    network: 'Showtime',
+    id: 'tr1',
+  },
+  {
+    date: 'February 19',
+    organizers: 'Zaur Abdullaev vs Jorge Linares',
+    network: 'ESPN+',
+    id: 'tr2',
+  },
+  {
+    date: 'February 20',
+    organizers: 'Zaur Abdullaev vs Jorge Linares',
+    network: 'DAZN',
+    id: 'tr3',
+  },
+  {
+    date: 'February 21',
+    organizers: 'Amir Khan vs Kell Brook',
+    network: 'Sky Sports Box Office (UK), ESPN+ (USA)',
+    id: 'tr4',
+  },
+  {
+    date: 'February 22',
+    organizers: 'Josh Taylor vs Jack Catterall',
+    network: 'Showtime',
+    id: 'tr5',
+  },
+  {
+    date: 'February 23',
+    organizers: 'Amir Khan vs Kell Brook',
+    network: 'Sky Sports Box Office (UK), ESPN+ (USA)',
+    id: 'tr6',
+  },
+  {
+    date: 'February 24',
+    organizers: 'Josh Taylor vs Jack Catterall',
+    network: 'Showtime',
+    id: 'tr7',
   },
 ];

@@ -1,10 +1,10 @@
 import { render, screen } from '@testing-library/react';
 import React from 'react';
-import ItemsSidebar from './itemsSidebar';
+import Rules from './rules';
 
-describe('Test ItemsSidebar component', () => {
+describe('Test Rules component', () => {
   it('should be response msw', async () => {
-    render(<ItemsSidebar />);
+    render(<Rules />);
 
     const allRules = screen.getAllByTestId('rule');
 

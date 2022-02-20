@@ -1,0 +1,35 @@
+@import '../../colors.scss';
+
+.tableWrapper {
+  margin: 12px auto;
+  font-size: 12px;
+  line-height: 21px;
+  font-weight: 400;
+  word-wrap: break-word;
+  width: 95%;
+  border: 2px solid $tableBorderColor;
+
+  .contentTable {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
+  .contentTable:nth-child(odd) {
+    background-color: $tableBgOdd;
+  }
+
+  .contentTable:nth-child(even) {
+    background-color: $tableBgEven;
+  }
+
+  .headerTable,
+  .tr {
+    border: 1px solid $tableBorderColor;
+    padding: 4px;
+  }
+
+  .headerTable {
+    text-align: center;
+    background-color: $tableBgEven;
+  }
+}

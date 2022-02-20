@@ -1,14 +1,20 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import ItemsSidebar from '../itemsSidebar/itemsSidebar';
 import { TStore } from '../redux';
+import Rules from '../rules/rules';
+import Table from '../tableSidebar/table';
 
 function Sidebar(): JSX.Element {
   const { loading } = useSelector((state: TStore) => state.loading);
 
   return (
     <aside className="sidebar" data-testid="sidebar">
-      {!loading && <ItemsSidebar />}
+      {!loading && (
+        <>
+          <Rules />
+          <Table />
+        </>
+      )}
     </aside>
   );
 }

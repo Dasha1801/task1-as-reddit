@@ -155,3 +155,14 @@ export interface IProfile {
 export interface IPropsItemRule {
   item: IRulesSubreddit;
 }
+
+export interface IDataTable {
+  date: string;
+  organizers: string;
+  network: string;
+  id: string;
+}
+
+export interface IPropsTrTable {
+  item: IDataTable;
+}

@@ -3,9 +3,9 @@ import classNames from 'classnames';
 import { MdOutlineKeyboardArrowDown } from 'react-icons/md';
 import { CSSTransition } from 'react-transition-group';
 import { IPropsItemRule } from '../../shared/interfaces';
-import './itemsSidebar.scss';
+import './rules.scss';
 
-function ItemSidebar({ item }: IPropsItemRule): JSX.Element {
+function Rule({ item }: IPropsItemRule): JSX.Element {
   const [show, setShow] = useState(false);
   const showDescription = (): void => setShow(!show);
 
@@ -25,4 +25,4 @@ function ItemSidebar({ item }: IPropsItemRule): JSX.Element {
   );
 }
 
-export default ItemSidebar;
+export default Rule;

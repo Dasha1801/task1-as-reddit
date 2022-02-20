@@ -1,30 +1,25 @@
 import React, { useState } from 'react';
 import { DragDropContext, Draggable, Droppable, DropResult } from 'react-beautiful-dnd';
-import { rules } from '../../shared/mocks';
-import { IRulesSubreddit } from '../../shared/interfaces';
-import ItemSidebar from './itemSidebar';
-import './itemsSidebar.scss';
+import { dataTable } from '../../shared/mocks';
+import { IDataTable } from '../../shared/interfaces';
+import HeaderTable from './headerTable';
+import TrTable from './trTable';
+import './table.scss';
 
-const getItemStyle = (isDragging: boolean, draggableStyle: any): object => ({
-  background: isDragging ? '#0076d1' : 'white',
-  color: isDragging ? 'white' : '#1a1a1b',
-  ...draggableStyle,
-});
-
-function ItemsSidebar(): JSX.Element {
-  const [allItems, setAllItems] = useState<IRulesSubreddit[]>(rules);
+function Table(): JSX.Element {
+  const [allItems, setAllItems] = useState<IDataTable[]>(dataTable);
 
   const renderListItem = (): JSX.Element[] =>
     allItems.map((el, index) => (
       <Draggable key={el.id} draggableId={el.id} index={index}>
-        {(provided, snapshot) => (
+        {(provided) => (
           <div
+            className="contentTable"
             ref={provided.innerRef}
             {...provided.draggableProps}
             {...provided.dragHandleProps}
-            style={getItemStyle(snapshot.isDragging, provided.draggableProps.style)}
           >
-            <ItemSidebar item={el} key={el.id} />
+            <TrTable item={el} key={el.id} />
           </div>
         )}
       </Draggable>
@@ -42,14 +37,16 @@ function ItemsSidebar(): JSX.Element {
   };
 
   return (
-    <div className="itemsSidebar">
-      <header className="title">r/javascript Rules</header>
+    <div className="itemSidebar">
+      <header className="title">Upcoming meeting</header>
       <DragDropContext onDragEnd={onDragEnd}>
-        <Droppable droppableId="rules">
+        <Droppable droppableId="table">
           {(provided) => (
-            <ol className="contentSidebar" {...provided.droppableProps} ref={provided.innerRef}>
+            <div className="tableWrapper" {...provided.droppableProps} ref={provided.innerRef}>
+              <HeaderTable />
               {renderListItem()}
-            </ol>
+              {provided.placeholder}
+            </div>
           )}
         </Droppable>
       </DragDropContext>
@@ -57,4 +54,4 @@ function ItemsSidebar(): JSX.Element {
   );
 }
 
-export default ItemsSidebar;
+export default Table;
