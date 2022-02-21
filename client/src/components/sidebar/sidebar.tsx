@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux';
 import { TStore } from '../redux';
 import Rules from '../rules/rules';
 import Table from '../tableSidebar/table';
+import Community from '../communityBlock/community';
 
 function Sidebar(): JSX.Element {
   const { loading } = useSelector((state: TStore) => state.loading);
@@ -11,6 +12,7 @@ function Sidebar(): JSX.Element {
     <aside className="sidebar" data-testid="sidebar">
       {!loading && (
         <>
+          <Community />
           <Rules />
           <Table />
         </>

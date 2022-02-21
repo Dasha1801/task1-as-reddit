@@ -1,0 +1,105 @@
+@import '../../index.scss';
+@import '../../colors.scss';
+
+.contentSidebar {
+  .aboutCommunity {
+    font-size: 15px;
+    line-height: 23px;
+  }
+
+  .highlightItem {
+    font-family: $font;
+    letter-spacing: 1px;
+  }
+
+  .members,
+  .createPost {
+    display: flex;
+    padding-bottom: 16px;
+    margin-bottom: 16px;
+    border-bottom: 1px solid $sideBarColorBorder;
+    flex-wrap: wrap;
+  }
+
+  .itemMembers {
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .countMembers {
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 18px;
+  }
+
+  .nameCount {
+    font-size: 11px;
+    line-height: 11px;
+  }
+
+  .btn {
+    color: $communityBtnColor;
+    width: 100%;
+    background: $communityBtnBg;
+    font-weight: 600;
+    letter-spacing: 1px;
+    border-radius: 20px;
+    font-size: 14px;
+  }
+
+  .btn:hover {
+    background-color: $communityBtnBgHover;
+  }
+
+  .options {
+    display: flex;
+    justify-content: space-between;
+    align-items: self-end;
+    background-color: $communityOptionsBg;
+    padding: 5px 6px 0;
+    border-radius: 20px;
+  }
+
+  .optionsCommunity {
+    text-transform: uppercase;
+    font-size: 11px;
+    font-weight: 600;
+    color: $communityOptionsColor;
+  }
+
+  .arrowOptions {
+    display: block;
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+    color: $communityOptionsColor;
+    transform: rotate(0deg);
+    transition: transform 1100ms;
+  }
+
+  .rotate {
+    transform: rotate(180deg);
+    transition: all 300ms;
+  }
+
+  .theme {
+    display: flex;
+    margin-top: 15px;
+    font-size: 14px;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .titleTheme {
+    font-size: 14px;
+    line-height: 14px;
+    padding: 0;
+    margin: 0;
+  }
+
+  .wrapperTheme {
+    display: flex;
+    align-items: center;
+  }
+}

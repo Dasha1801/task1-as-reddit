@@ -14,7 +14,7 @@ function Rule({ item }: IPropsItemRule): JSX.Element {
       <div className="headerRule">
         <h4 className="itemName">{item.title}</h4>
         <MdOutlineKeyboardArrowDown
-          className={classNames('arrowRule', { rotate: show })}
+          className={classNames('arrowOptions', { rotate: show })}
           onClick={showDescription}
         />
       </div>

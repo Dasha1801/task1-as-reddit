@@ -32,8 +32,9 @@ export const rules: IRulesSubreddit[] = [
   { title: 'Advertising', description: 'Advertising paid products and services is prohibited.', id: 'r3' },
   {
     title: 'Excessive Self-Promotion',
-    description:
-      "It's ok to promote your own content, or content that you're otherwise vested in, but it should not constitute a majority of your contributions.",
+    description: `It's ok to promote your own content, or content that you're 
+    otherwise vested in, but it should not
+    constitute a majority of your contributions.`,
     id: 'r4',
   },
   { title: 'Java !== Javascript', description: 'Java is not the same as Javascript.', id: 'r5' },
