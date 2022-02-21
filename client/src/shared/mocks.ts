@@ -1,4 +1,4 @@
-import { ArticleInfo, ICommentInfo, IDataTable, IRulesSubreddit } from './interfaces';
+import { ArticleInfo, ICommentInfo, IDataTable, IRulesSubreddit, IFilters } from './interfaces';
 
 export const item: ArticleInfo = {
   title: 'My website freezes after ...?',
@@ -94,4 +94,11 @@ export const dataTable: IDataTable[] = [
     network: 'Showtime',
     id: 'tr7',
   },
+];
+
+export const filters: IFilters[] = [
+  { name: 'AskJS', id: 'f1', order: 1 },
+  { name: 'Showoff Saturday', id: 'f2', order: 2 },
+  { name: 'WTF Wednesday', id: 'f3', order: 3 },
+  { name: 'Subreddit Stats', id: 'f4', order: 4 },
 ];

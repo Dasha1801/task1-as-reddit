@@ -4,6 +4,7 @@ import { TStore } from '../redux';
 import Rules from '../rules/rules';
 import Table from '../tableSidebar/table';
 import Community from '../communityBlock/community';
+import Filter from '../filterBlock/filter';
 
 function Sidebar(): JSX.Element {
   const { loading } = useSelector((state: TStore) => state.loading);
@@ -15,6 +16,7 @@ function Sidebar(): JSX.Element {
           <Community />
           <Rules />
           <Table />
+          <Filter />
         </>
       )}
     </aside>

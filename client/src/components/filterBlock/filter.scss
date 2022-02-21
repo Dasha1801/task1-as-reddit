@@ -1,0 +1,27 @@
+@import '../../colors.scss';
+
+.contentFilter {
+  display: flex;
+  flex-wrap: wrap;
+  width: 95%;
+  padding: 12px 0 24px;
+  margin: 0 auto;
+
+  .filter {
+    background-color: $filterBg;
+    font-size: 15px;
+    padding: 7px 12px;
+    border-radius: 20px;
+    margin: 0 10px 10px 0;
+    color: $filterColor;
+    cursor: grab;
+  }
+
+  .opacity {
+    opacity: 0.45;
+  }
+
+  .active {
+    background-color: $filterActiveBg;
+  }
+}

@@ -166,3 +166,9 @@ export interface IDataTable {
 export interface IPropsTrTable {
   item: IDataTable;
 }
+
+export interface IFilters {
+  name: string;
+  id: string;
+  order: number;
+}
