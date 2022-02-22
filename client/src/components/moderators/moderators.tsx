@@ -13,7 +13,7 @@ function Moderators(): JSX.Element {
       <Draggable key={el.id} draggableId={el.id} index={index}>
         {(provided) => (
           <div ref={provided.innerRef} {...provided.draggableProps} {...provided.dragHandleProps}>
-            <div key={el.id} className="wrapperModerator">
+            <div key={el.id} className="wrapperModerator" data-testid="moderator">
               <span>{el.name}</span>
               {el.text && <span className="textModerator">{el.text}</span>}
             </div>

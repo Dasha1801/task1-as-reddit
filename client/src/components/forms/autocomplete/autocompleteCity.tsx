@@ -25,7 +25,7 @@ function AutocompleteCity({ setState, city }: IFieldProps): JSX.Element {
     <>
       <AutocompleteField label="City:" name="city" type="city" onChange={onChangeHandler} value={city} />
       {suggestions.length ? (
-        <div className="variantCity">
+        <div className="variantCity" data-testId="variants">
           {suggestions.slice(0, 5).map((el) => (
             <input
               className="itemCity"

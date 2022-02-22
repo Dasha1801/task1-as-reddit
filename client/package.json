@@ -9,7 +9,6 @@
     "@testing-library/react": "12.1.2",
     "@testing-library/user-event": "13.5.0",
     "@toolz/allow": "1.1.5",
-    "@types/jest": "27.4.0",
     "@types/node": "17.0.9",
     "@types/react": "17.0.38",
     "@types/react-dom": "17.0.11",
@@ -68,6 +67,8 @@
   },
   "devDependencies": {
     "@babel/plugin-transform-modules-commonjs": "7.16.8",
+    "@types/jest": "27.4.0",
+    "@types/mocha": "9.1.0",
     "@types/react-beautiful-dnd": "13.1.2",
     "@types/react-transition-group": "4.4.4",
     "@types/redux-mock-store": "1.0.3",

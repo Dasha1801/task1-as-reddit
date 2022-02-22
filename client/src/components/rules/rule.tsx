@@ -16,10 +16,13 @@ function Rule({ item }: IPropsItemRule): JSX.Element {
         <MdOutlineKeyboardArrowDown
           className={classNames('arrowOptions', { rotate: show })}
           onClick={showDescription}
+          data-testid="arrowInfo"
         />
       </div>
       <CSSTransition in={show} timeout={1000} classNames="animation-item" unmountOnExit appear>
-        <p className="description">{item.description}</p>
+        <p className="description" data-testid="description">
+          {item.description}
+        </p>
       </CSSTransition>
     </li>
   );

@@ -51,6 +51,7 @@ function Filter(): JSX.Element {
           <div
             key={item.id}
             className="filter"
+            data-testid="filter"
             draggable
             onDragStart={(e) => dragStartHandler(e, item)}
             onDragLeave={(e) => dragLeaveHandler(e)}

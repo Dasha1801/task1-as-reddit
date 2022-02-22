@@ -12,6 +12,6 @@ describe('Test Sidebar component', () => {
       </Provider>
     );
 
-    expect(screen.getByTestId('sidebar')).toBeInTheDocument();
+    expect(screen.getAllByTestId('wrapperItems')).toHaveLength(5);
   });
 });

@@ -1,12 +1,12 @@
-import React from 'react';
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
+import React from 'react';
 import { Provider } from 'react-redux';
 import { store } from '../../redux';
 import ModalLogin from '../modalLogIn';
 
 describe('Test ModalLogin component', () => {
-  it('should render component', () => {
+  it('should render component', async () => {
     const setState = jest.fn();
     render(
       <Provider store={store}>

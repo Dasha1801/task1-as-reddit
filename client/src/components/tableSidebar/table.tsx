@@ -18,6 +18,7 @@ function Table(): JSX.Element {
             ref={provided.innerRef}
             {...provided.draggableProps}
             {...provided.dragHandleProps}
+            data-testid="tr"
           >
             <TrTable item={el} key={el.id} />
           </div>

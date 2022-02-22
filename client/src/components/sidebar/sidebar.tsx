@@ -25,7 +25,12 @@ function Sidebar(): JSX.Element {
     allItems.map((el, index) => (
       <Draggable key={el.id} draggableId={el.id} index={index}>
         {(provided) => (
-          <div ref={provided.innerRef} {...provided.draggableProps} {...provided.dragHandleProps}>
+          <div
+            ref={provided.innerRef}
+            {...provided.draggableProps}
+            {...provided.dragHandleProps}
+            data-testid="wrapperItems"
+          >
             {el.el}
           </div>
         )}
@@ -44,7 +49,7 @@ function Sidebar(): JSX.Element {
   };
 
   return (
-    <aside className="sidebar" data-testid="sidebar">
+    <aside className="sidebar">
       {!loading && (
         <DragDropContext onDragEnd={onDragEnd}>
           <Droppable droppableId="rules">
