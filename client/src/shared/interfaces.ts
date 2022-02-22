@@ -178,3 +178,8 @@ export interface IModerator {
   id: string;
   text?: string;
 }
+
+export interface ISideBar {
+  el: JSX.Element;
+  id: string;
+}
