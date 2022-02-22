@@ -1,4 +1,4 @@
-import { ArticleInfo, ICommentInfo, IDataTable, IRulesSubreddit, IFilters } from './interfaces';
+import { ArticleInfo, ICommentInfo, IDataTable, IRulesSubreddit, IFilters, IModerator } from './interfaces';
 
 export const item: ArticleInfo = {
   title: 'My website freezes after ...?',
@@ -101,4 +101,14 @@ export const filters: IFilters[] = [
   { name: 'Showoff Saturday', id: 'f2', order: 2 },
   { name: 'WTF Wednesday', id: 'f3', order: 3 },
   { name: 'Subreddit Stats', id: 'f4', order: 4 },
+];
+
+export const moderators: IModerator[] = [
+  { name: 'u/jeresig', id: 'm1', text: '' },
+  { name: 'u/honestbleeps', id: 'm2', text: 'Reddit Enhancement Suite' },
+  { name: 'u/kenman', id: 'm3', text: '' },
+  { name: 'u/TheNumberOneCulprit', id: 'm4', text: 'tabs and semicolons...' },
+  { name: 'u/AssistantBOT', id: 'm5', text: "- I'm actually written in Python..." },
+  { name: 'u/Ustice', id: 'm6', text: '' },
+  { name: 'u/AutoModerator', id: 'm7', text: '' },
 ];

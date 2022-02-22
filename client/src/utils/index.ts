@@ -1,5 +1,5 @@
-import { ICommentInfo } from '../shared/interfaces';
 import { cities } from '../data/cities';
+import { ICommentInfo } from '../shared/interfaces';
 
 export const getTime = (created_utc: number): string => {
   const nowTimeInSec = new Date().getTime() / 1000;

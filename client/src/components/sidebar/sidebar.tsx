@@ -5,6 +5,7 @@ import Rules from '../rules/rules';
 import Table from '../tableSidebar/table';
 import Community from '../communityBlock/community';
 import Filter from '../filterBlock/filter';
+import Moderators from '../moderators/moderators';
 
 function Sidebar(): JSX.Element {
   const { loading } = useSelector((state: TStore) => state.loading);
@@ -17,6 +18,7 @@ function Sidebar(): JSX.Element {
           <Rules />
           <Table />
           <Filter />
+          <Moderators />
         </>
       )}
     </aside>

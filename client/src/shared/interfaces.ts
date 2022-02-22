@@ -172,3 +172,9 @@ export interface IFilters {
   id: string;
   order: number;
 }
+
+export interface IModerator {
+  name: string;
+  id: string;
+  text?: string;
+}
