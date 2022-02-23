@@ -5,20 +5,4 @@
   min-height: 100vh;
   margin: 0 auto;
   padding: 20px 24px;
-
-  .userPage {
-    max-width: 1024px;
-    margin: 0 auto;
-  }
-
-  .userHeader {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-
-  .iconHeader {
-    cursor: pointer;
-    color: $iconUpdateProfile;
-  }
 }

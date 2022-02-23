@@ -12,6 +12,6 @@ describe('Test Sidebar component', () => {
       </Provider>
     );
 
-    expect(screen.getAllByTestId('wrapperItems')).toHaveLength(5);
+    expect(screen.getAllByTestId('wrapperItems')).toHaveLength(4);
   });
 });

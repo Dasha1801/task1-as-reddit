@@ -14,8 +14,7 @@ function Sidebar(): JSX.Element {
     { el: <Community />, id: 's1' },
     { el: <Rules />, id: 's2' },
     { el: <Table />, id: 's3' },
-    { el: <Filter />, id: 's4' },
-    { el: <Moderators />, id: 's5' },
+    { el: <Moderators />, id: 's4' },
   ];
 
   const { loading } = useSelector((state: TStore) => state.loading);
@@ -52,6 +51,7 @@ function Sidebar(): JSX.Element {
     <aside className="sidebar">
       {!loading && (
         <DragDropContext onDragEnd={onDragEnd}>
+          <Filter />
           <Droppable droppableId="rules">
             {(provided) => (
               <div {...provided.droppableProps} ref={provided.innerRef}>
