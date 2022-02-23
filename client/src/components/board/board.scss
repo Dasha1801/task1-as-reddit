@@ -1,14 +1,29 @@
 @import '../../colors.scss';
 
-.wrapperBoard {
-  display: flex;
-  justify-content: center;
+.board {
+  max-width: 1024px;
+  margin: 20px auto;
   background-color: $boardColor;
   border: 1px solid $boardColorBorder;
   border-radius: 0.25rem;
-  max-width: 1024px;
-  margin: 20px auto;
   padding: 20px 0;
+
+  .titleToDo {
+    text-align: center;
+    font-size: 24px;
+  }
+
+  .iconAddToDo {
+    color: #ff9d00e5;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+  }
+
+  .wrapperColumns {
+    display: flex;
+    justify-content: center;
+  }
 
   .itemsColumn {
     display: flex;
@@ -17,7 +32,7 @@
   }
 
   .nameColumn {
-    font-size: 24px;
+    font-size: 20px;
     padding: 0;
     text-align: center;
     margin-bottom: 5px;

@@ -6,12 +6,34 @@
     position: relative;
   }
 
+  .wrapperTask {
+    width: 80%;
+    margin: 0 auto;
+    position: relative;
+  }
+
   .label {
     display: flex;
     align-items: center;
     width: 100%;
     justify-content: space-between;
     margin-bottom: 25px;
+  }
+
+  .labelTask {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    width: 100%;
+    margin-bottom: 25px;
+    font-size: 17px;
+    font-weight: 600;
+  }
+
+  .inputTask {
+    width: 100%;
+    font-size: 14px;
+    margin-top: 5px;
   }
 
   .input {
@@ -34,6 +56,11 @@
     top: 32px;
     z-index: 10;
     background-color: $bgError;
+  }
+
+  .errorTask {
+    top: 2px;
+    right: 0;
   }
 
   .variantCity {
