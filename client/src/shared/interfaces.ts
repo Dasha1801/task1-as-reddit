@@ -183,3 +183,20 @@ export interface ISideBar {
   el: JSX.Element;
   id: string;
 }
+
+export interface IItemBoard {
+  content: string;
+  id: string;
+}
+
+export interface IColumn {
+  name: string;
+  items: IItemBoard[];
+}
+
+export interface IColumns {
+  [x: string]: {
+    name: string;
+    items: IItemBoard[];
+  };
+}

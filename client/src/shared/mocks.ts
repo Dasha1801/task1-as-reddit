@@ -1,4 +1,13 @@
-import { ArticleInfo, ICommentInfo, IDataTable, IRulesSubreddit, IFilters, IModerator } from './interfaces';
+import { v4 as uuid } from 'uuid';
+import {
+  ArticleInfo,
+  ICommentInfo,
+  IDataTable,
+  IRulesSubreddit,
+  IFilters,
+  IModerator,
+  IItemBoard,
+} from './interfaces';
 
 export const item: ArticleInfo = {
   title: 'My website freezes after ...?',
@@ -112,3 +121,26 @@ export const moderators: IModerator[] = [
   { name: 'u/Ustice', id: 'm6', text: '' },
   { name: 'u/AutoModerator', id: 'm7', text: '' },
 ];
+
+export const itemsBoard: IItemBoard[] = [
+  { id: uuid(), content: 'First task' },
+  { id: uuid(), content: 'Second task' },
+  { id: uuid(), content: 'Third task' },
+  { id: uuid(), content: 'Fourth task' },
+  { id: uuid(), content: 'Fifth task' },
+];
+
+export const columnsBoard = {
+  [uuid()]: {
+    name: 'Tasks',
+    items: itemsBoard,
+  },
+  [uuid()]: {
+    name: 'In Progress',
+    items: [],
+  },
+  [uuid()]: {
+    name: 'Done',
+    items: [],
+  },
+};
