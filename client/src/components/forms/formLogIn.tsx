@@ -2,6 +2,7 @@ import { Form, Formik } from 'formik';
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { ILogInUser } from '../../shared/interfaces';
+import { route } from '../../utils';
 import BasePopover from '../alert/basePopover';
 import FormBtns from '../btnsGroup/formBtns';
 import { TStore } from '../redux';
@@ -16,7 +17,7 @@ function FormLogIn(): JSX.Element {
   const dispatch = useDispatch();
 
   const handleLogIn = (data: ILogInUser): void => {
-    logInUser(data, 'login')(dispatch);
+    logInUser(data, route.logIn)(dispatch);
   };
 
   useEffect(() => {

@@ -1,5 +1,6 @@
 import { rest } from 'msw';
 import { baseUrl } from '../constants/index';
+import { route } from '../utils';
 
 export const handlers = [
   rest.post(`${baseUrl}posts`, (req, res, ctx) =>
@@ -71,14 +72,14 @@ export const handlers = [
     )
   ),
 
-  rest.post(`${baseUrl}api/auth/login`, (req, res, ctx) =>
+  rest.post(`${baseUrl}api/auth/${route.logIn}`, (req, res, ctx) =>
     res(
       ctx.status(200),
       ctx.json({ name: 'Simon', email: '6227968@gmail.com', phone: '+375296227968', accessToken: 'token' })
     )
   ),
 
-  rest.post(`${baseUrl}api/auth/signup`, (req, res, ctx) =>
+  rest.post(`${baseUrl}api/auth/${route.signUp}`, (req, res, ctx) =>
     res(
       ctx.status(200),
       ctx.json({

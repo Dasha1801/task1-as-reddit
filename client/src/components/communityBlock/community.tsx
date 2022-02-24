@@ -4,6 +4,7 @@ import { CSSTransition } from 'react-transition-group';
 import { Form } from 'react-bootstrap';
 import { BsFilePost, BsEye } from 'react-icons/bs';
 import { MdOutlineKeyboardArrowDown } from 'react-icons/md';
+import { timeout } from '../../constants';
 import './community.scss';
 
 function Community(): JSX.Element {
@@ -41,7 +42,7 @@ function Community(): JSX.Element {
             onClick={showDescription}
           />
         </div>
-        <CSSTransition in={show} timeout={1000} classNames="animation-item" unmountOnExit appear>
+        <CSSTransition in={show} timeout={timeout} classNames="animation-item" unmountOnExit appear>
           <div className="theme">
             <div className="wrapperTheme">
               <BsEye size={18} style={{ marginRight: '5px', display: 'block' }} />

@@ -10,7 +10,7 @@ function ModalLogIn({ show, setState }: IPropsModal): JSX.Element {
   return (
     <Modal show={show} onHide={handleClose}>
       <Modal.Header closeButton>
-        <Modal.Title>LOG IN</Modal.Title>
+        <Modal.Title data-testid="modalTitle">LOG IN</Modal.Title>
       </Modal.Header>
       <Modal.Body>
         <FormLogIn />

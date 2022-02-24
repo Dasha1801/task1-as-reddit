@@ -47,7 +47,7 @@ function Rules(): JSX.Element {
       <DragDropContext onDragEnd={onDragEnd}>
         <Droppable droppableId="rules">
           {(provided) => (
-            <ol className="contentSidebar" {...provided.droppableProps} ref={provided.innerRef}>
+            <ol className="contentSidebar rules" {...provided.droppableProps} ref={provided.innerRef}>
               {renderListItem()}
               {provided.placeholder}
             </ol>

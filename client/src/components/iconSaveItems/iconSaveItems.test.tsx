@@ -38,8 +38,6 @@ describe('Test IconSaveItems component', () => {
     userEvent.type(await screen.findByTestId(/name/i), 'Simon');
     userEvent.click(screen.getByText(/submit/i));
 
-    expect(await screen.findByText(/successfully completed/i)).toBeInTheDocument();
-
     const countArticles = await screen.findByTestId('countItem');
 
     expect(countArticles).toHaveTextContent('2');

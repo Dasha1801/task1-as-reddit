@@ -9,6 +9,7 @@ import {
   IRegisterSocialUser,
   ILogInSocialUser,
 } from '../../shared/interfaces';
+import { route } from '../../utils';
 import { getStateError } from './slices/errorSlice';
 import { getStateLoading } from './slices/loadingSlice';
 import { showPopover } from './slices/popoverSlice';
@@ -31,12 +32,12 @@ export const fetchData = (count: number, setArticles: React.Dispatch<React.SetSt
       });
   };
 
-export const logInUser = (res: ILogInUser | ILogInSocialUser, rout: string) =>
+export const logInUser = (res: ILogInUser | ILogInSocialUser, path: string) =>
   async function getResServer(
     dispatch: (arg0: { payload: { user: IUser } | { show: boolean }; type: string }) => void
   ) {
     axios
-      .post(`${baseUrl}api/auth/${rout === 'login' ? 'login' : 'socialLogin'}`, res)
+      .post(`${baseUrl}api/auth/${path === route.logIn ? route.logIn : route.socialLogin}`, res)
       .then((response) => {
         if (response.data.accessToken) {
           dispatch(addUser({ user: response.data }));
@@ -68,7 +69,7 @@ export const signUpUser = (res: IRegisterUser | IRegisterSocialUser) =>
     dispatch: (arg0: { payload: { user: IUser } | { show: boolean }; type: string }) => void
   ) {
     axios
-      .post(`${baseUrl}api/auth/signup`, res)
+      .post(`${baseUrl}api/auth/${route.signUp}`, res)
       .then((response) => {
         if (response.data.accessToken) {
           dispatch(

@@ -22,11 +22,7 @@ export const validateSignUp = Yup.object({
     .oneOf([Yup.ref('password'), null], 'Password must match')
     .required('Confirm password is required'),
   city: Yup.string()
-    .test('isCityValid', 'invalid city', (value): boolean => {
-      const isCityValid = value && findCity(value);
-
-      return isCityValid !== -1;
-    })
+    .test('isCityValid', 'invalid city', (value): boolean => (value && findCity(value)) !== -1)
     .required('City is required!'),
   address: Yup.string()
     .min(10, 'Address must be at least 10 characters')

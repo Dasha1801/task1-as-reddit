@@ -5,6 +5,7 @@ import { useSelector } from 'react-redux';
 import BasePopover from '../alert/basePopover';
 import PageNotFound from '../pageNotFound/pageNotFound';
 import { TStore } from '../redux';
+import { timeout } from '../../constants';
 import Header from '../header/header';
 import Main from '../main/main';
 import PostPage from '../postPage/postPage';
@@ -31,7 +32,7 @@ function App(): JSX.Element {
       )}
       <Header />
       <TransitionGroup>
-        <CSSTransition in timeout={1000} classNames="animation" unmountOnExit key={location.key}>
+        <CSSTransition in timeout={timeout} classNames="animation" unmountOnExit key={location.key}>
           <Routes>
             {routes.map(({ path, element }) => (
               <Route path={path} element={element} key={path} />

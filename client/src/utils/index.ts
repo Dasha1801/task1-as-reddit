@@ -1,5 +1,11 @@
 import { cities } from '../data/cities';
-import { ICommentInfo } from '../shared/interfaces';
+import { ICommentInfo, IFilters } from '../shared/interfaces';
+
+export enum route {
+  signUp = 'signUp',
+  logIn = 'logIn',
+  socialLogin = 'socialLogin',
+}
 
 export const getTime = (created_utc: number): string => {
   const nowTimeInSec = new Date().getTime() / 1000;
@@ -40,3 +46,5 @@ export const sortComments = (sortParams: string, items: ICommentInfo[]): ICommen
 
 export const findCity = (city: string): number =>
   cities.findIndex((el) => el.name.toLowerCase() === city.trim().toLowerCase());
+
+export const sortFilters = (a: IFilters, b: IFilters): number => (a.order > b.order ? 1 : -1);

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { sortFilters } from '../../utils';
 import { filters } from '../../shared/mocks';
 import { IFilters } from '../../shared/interfaces';
 import './filter.scss';
@@ -41,18 +42,16 @@ function Filter(): JSX.Element {
     );
   };
 
-  const sortItems = (a: IFilters, b: IFilters): number => (a.order > b.order ? 1 : -1);
-
   return (
     <div className="itemSidebar">
       <header className="title">Filter by flair</header>
-      <div className="contentFilter">
-        {items.sort(sortItems).map((item) => (
+      <div className="contentSidebar filters">
+        {items.sort(sortFilters).map((item) => (
           <div
+            draggable
             key={item.id}
             className="filter"
             data-testid="filter"
-            draggable
             onDragStart={(e) => dragStartHandler(e, item)}
             onDragLeave={(e) => dragLeaveHandler(e)}
             onDragEnd={(e) => dragEndHandler(e)}

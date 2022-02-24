@@ -1,24 +1,20 @@
 import React, { useState } from 'react';
 import { DragDropContext, Draggable, Droppable, DropResult } from 'react-beautiful-dnd';
-import { useSelector } from 'react-redux';
-import { TStore } from '../redux';
 import { ISideBar } from '../../shared/interfaces';
-import Rules from '../rules/rules';
-import Table from '../tableSidebar/table';
 import Community from '../communityBlock/community';
 import Filter from '../filterBlock/filter';
 import Moderators from '../moderators/moderators';
+import Rules from '../rules/rules';
+import Table from '../tableSidebar/table';
 
 function Sidebar(): JSX.Element {
   const itemsSidebar: ISideBar[] = [
     { el: <Community />, id: 's1' },
     { el: <Rules />, id: 's2' },
     { el: <Table />, id: 's3' },
-    { el: <Filter />, id: 's4' },
-    { el: <Moderators />, id: 's5' },
+    { el: <Moderators />, id: 's4' },
   ];
 
-  const { loading } = useSelector((state: TStore) => state.loading);
   const [allItems, setAllItems] = useState<ISideBar[]>(itemsSidebar);
 
   const renderListItem = (): JSX.Element[] =>
@@ -50,18 +46,17 @@ function Sidebar(): JSX.Element {
 
   return (
     <aside className="sidebar">
-      {!loading && (
-        <DragDropContext onDragEnd={onDragEnd}>
-          <Droppable droppableId="rules">
-            {(provided) => (
-              <div {...provided.droppableProps} ref={provided.innerRef}>
-                {renderListItem()}
-                {provided.placeholder}
-              </div>
-            )}
-          </Droppable>
-        </DragDropContext>
-      )}
+      <Filter />
+      <DragDropContext onDragEnd={onDragEnd}>
+        <Droppable droppableId="rules">
+          {(provided) => (
+            <div {...provided.droppableProps} ref={provided.innerRef}>
+              {renderListItem()}
+              {provided.placeholder}
+            </div>
+          )}
+        </Droppable>
+      </DragDropContext>
     </aside>
   );
 }

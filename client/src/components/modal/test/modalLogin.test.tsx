@@ -14,7 +14,7 @@ describe('Test ModalLogin component', () => {
       </Provider>
     );
 
-    expect(screen.getByText('LOG IN')).toBeInTheDocument();
+    expect(screen.getByTestId('modalTitle')).toBeInTheDocument();
     expect(screen.getByRole('button', { name: /submit/i })).toBeInTheDocument();
     expect(screen.getByRole('button', { name: /reset/i })).toBeInTheDocument();
   });

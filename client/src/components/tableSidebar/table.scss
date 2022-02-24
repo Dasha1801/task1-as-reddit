@@ -3,10 +3,7 @@
 .tableWrapper {
   margin: 12px auto;
   font-size: 12px;
-  line-height: 21px;
-  font-weight: 400;
-  word-wrap: break-word;
-  width: 95%;
+  padding: 0;
   border: 2px solid $tableBorderColor;
 
   .contentTable {

@@ -1,16 +1,13 @@
 @import '../../colors.scss';
 
-.contentFilter {
+.filters {
   display: flex;
   flex-wrap: wrap;
-  width: 95%;
-  padding: 12px 0 24px;
-  margin: 0 auto;
 
   .filter {
     background-color: $filterBg;
     font-size: 15px;
-    padding: 7px 12px;
+    padding: 5px 10px;
     border-radius: 20px;
     margin: 0 10px 10px 0;
     color: $filterColor;
@@ -18,7 +15,8 @@
   }
 
   .opacity {
-    opacity: 0.45;
+    opacity: 0.5;
+    -webkit-opacity: 0.5;
   }
 
   .active {

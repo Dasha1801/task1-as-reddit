@@ -14,6 +14,10 @@ function AutocompleteCity({ setState, city }: IFieldProps): JSX.Element {
     if (value.length > 1) {
       setSuggestions(cities.filter((el) => el.name.match(regex)));
     }
+
+    if (!value) {
+      setSuggestions([]);
+    }
   };
 
   const onClickHandler = (str: string): void => {
@@ -32,6 +36,7 @@ function AutocompleteCity({ setState, city }: IFieldProps): JSX.Element {
               key={el.name}
               value={el.name}
               type="button"
+              data-testid="variantCity"
               onClick={() => onClickHandler(el.name)}
             />
           ))}

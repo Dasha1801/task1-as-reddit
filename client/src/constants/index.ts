@@ -9,3 +9,4 @@ export const baseUrl =
 export const initialCount = 10;
 export const GG_APP_ID = '92734998337-la9pa0k2o3kr3da0v6904kc6jp5ac27g.apps.googleusercontent.com';
 export const FB_APP_ID = '280040930714284';
+export const timeout = 1000;

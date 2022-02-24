@@ -16,6 +16,7 @@
     justify-content: space-between;
     align-items: flex-start;
     padding: 10px;
+    cursor: pointer;
   }
 
   .title {
@@ -28,10 +29,18 @@
     padding: 0 12px;
   }
 
+  .contentSidebar {
+    margin: 0 auto;
+    font-size: 14px;
+    line-height: 21px;
+    font-weight: 400;
+    word-wrap: break-word;
+    padding: 12px;
+  }
+
   .arrowRule {
     width: 25px;
     height: 25px;
-    cursor: pointer;
     color: inherit;
     transform: rotate(0deg);
     transition: transform 1100ms;
@@ -84,15 +93,8 @@
     transition: all 1300ms;
   }
 
-  .contentSidebar {
+  .rules {
     list-style-type: none;
-    width: 95%;
-    padding: 12px;
-    margin: 0 auto;
-    font-size: 14px;
-    line-height: 21px;
-    font-weight: 400;
-    word-wrap: break-word;
   }
 
   @media (max-width: 460px) {

@@ -85,7 +85,7 @@ describe('Test FormSignUp Component', () => {
     expect(await screen.findByText(/successfully completed/i)).toBeInTheDocument();
   });
 
-  it('should be autocomplete', () => {
+  it('should be autocomplete', async () => {
     render(
       <Provider store={store}>
         <FormSignUp />
@@ -101,6 +101,12 @@ describe('Test FormSignUp Component', () => {
     userEvent.clear(fieldCity);
     userEvent.type(fieldCity, 'гр');
 
-    expect(screen.getByTestId('variants')).toBeInTheDocument();
+    const allVariantCity = screen.getAllByTestId('variantCity');
+
+    expect(allVariantCity).toHaveLength(3);
+
+    userEvent.click(allVariantCity[0]);
+
+    expect(screen.getByTestId<HTMLInputElement>(/city/).value).toEqual('Гродно');
   });
 });

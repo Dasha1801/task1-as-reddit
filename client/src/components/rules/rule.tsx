@@ -3,6 +3,7 @@ import classNames from 'classnames';
 import { MdOutlineKeyboardArrowDown } from 'react-icons/md';
 import { CSSTransition } from 'react-transition-group';
 import { IPropsItemRule } from '../../shared/interfaces';
+import { timeout } from '../../constants';
 import './rules.scss';
 
 function Rule({ item }: IPropsItemRule): JSX.Element {
@@ -11,15 +12,14 @@ function Rule({ item }: IPropsItemRule): JSX.Element {
 
   return (
     <li className="itemList" data-testid="rule">
-      <div className="headerRule">
+      <div className="headerRule" onClick={showDescription}>
         <h4 className="itemName">{item.title}</h4>
         <MdOutlineKeyboardArrowDown
           className={classNames('arrowOptions', { rotate: show })}
-          onClick={showDescription}
           data-testid="arrowInfo"
         />
       </div>
-      <CSSTransition in={show} timeout={1000} classNames="animation-item" unmountOnExit appear>
+      <CSSTransition in={show} timeout={timeout} classNames="animation-item" unmountOnExit appear>
         <p className="description" data-testid="description">
           {item.description}
         </p>

@@ -43,7 +43,7 @@ function Table(): JSX.Element {
       <DragDropContext onDragEnd={onDragEnd}>
         <Droppable droppableId="table">
           {(provided) => (
-            <div className="tableWrapper" {...provided.droppableProps} ref={provided.innerRef}>
+            <div className="contentSidebar tableWrapper" {...provided.droppableProps} ref={provided.innerRef}>
               <HeaderTable />
               {renderListItem()}
               {provided.placeholder}
