@@ -1,14 +1,16 @@
 import React, { useState } from 'react';
 import { DragDropContext, Draggable, Droppable } from 'react-beautiful-dnd';
 import { CgAdd } from 'react-icons/cg';
+import { useSelector } from 'react-redux';
 import { IColumn } from '../../shared/interfaces';
-import { columnsBoard } from '../../shared/mocks';
 import { onDragEnd } from '../../utils';
 import ModalCreateToDo from '../modal/modalCreateTodo';
+import { TStore } from '../redux';
 import './board.scss';
 
 function Board(): JSX.Element {
-  const [columns, setColumns] = useState(columnsBoard);
+  const { board } = useSelector((state: TStore) => state);
+  const [columns, setColumns] = useState(board);
   const [show, setShow] = useState(false);
 
   const renderListItem = (column: IColumn): JSX.Element[] =>
@@ -25,7 +27,7 @@ function Board(): JSX.Element {
               ...provided.draggableProps.style,
             }}
           >
-            {item.content}
+            {item.task}
           </div>
         )}
       </Draggable>

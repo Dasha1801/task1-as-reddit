@@ -185,7 +185,8 @@ export interface ISideBar {
 }
 
 export interface IItemBoard {
-  content: string;
+  task: string;
+  description: string;
   id: string;
 }
 
@@ -197,6 +198,6 @@ export interface IColumn {
 export interface IColumns {
   [x: string]: {
     name: string;
-    items: IItemBoard[];
+    items: IItemBoard[] | [];
   };
 }
