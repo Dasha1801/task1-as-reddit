@@ -7,6 +7,7 @@ import {
   IFilters,
   IModerator,
   IItemBoard,
+  IColumns,
 } from './interfaces';
 
 export const item: ArticleInfo = {
@@ -123,24 +124,24 @@ export const moderators: IModerator[] = [
 ];
 
 export const itemsBoard: IItemBoard[] = [
-  { id: uuid(), content: 'First task' },
-  { id: uuid(), content: 'Second task' },
-  { id: uuid(), content: 'Third task' },
-  { id: uuid(), content: 'Fourth task' },
-  { id: uuid(), content: 'Fifth task' },
+  { id: uuid(), task: 'First task', description: '' },
+  { id: uuid(), task: 'Second task', description: '' },
+  { id: uuid(), task: 'Third task', description: '' },
+  { id: uuid(), task: 'Fourth task', description: '' },
+  { id: uuid(), task: 'Fifth task', description: '' },
 ];
 
-export const columnsBoard = {
-  [uuid()]: {
+export const columnsBoard: IColumns = {
+  tasks: {
     name: 'Tasks',
     items: itemsBoard,
   },
-  [uuid()]: {
+  progress: {
     name: 'In Progress',
-    items: [],
+    items: [] as IItemBoard[],
   },
-  [uuid()]: {
+  done: {
     name: 'Done',
-    items: [],
+    items: [] as IItemBoard[],
   },
 };
