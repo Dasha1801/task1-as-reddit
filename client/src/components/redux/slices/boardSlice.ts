@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { IColumns, IItemBoard, IBoard } from '../../../shared/interfaces';
+import { IBoard, IColumns, IItemBoard } from '../../../shared/interfaces';
 
 const initialState: IBoard = {
   board: {

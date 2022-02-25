@@ -25,6 +25,7 @@ function FooterArticle({ item, className }: InfoItem): JSX.Element {
     if (!saved) {
       try {
         const resServer = await saveInDbArticle(item, accessToken);
+
         if (resServer.data) {
           getSavedArticles(accessToken)(dispatch);
           setSaved(true);

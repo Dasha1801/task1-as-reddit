@@ -205,3 +205,17 @@ export interface IColumns {
 export interface IBoard {
   board: IColumns;
 }
+
+export interface IPropsModalUpdate {
+  show: boolean;
+  setState: React.Dispatch<React.SetStateAction<boolean>>;
+  item: IItemBoard;
+  columnId: string;
+  column: IColumn;
+}
+
+export interface IPropsUpdateTask {
+  item: IItemBoard;
+  columnId: string;
+  column: IColumn;
+}
