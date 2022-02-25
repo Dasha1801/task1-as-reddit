@@ -1,0 +1,25 @@
+@import '../../colors.scss';
+
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+
+  .filter {
+    background-color: $filterBg;
+    font-size: 15px;
+    padding: 5px 10px;
+    border-radius: 20px;
+    margin: 0 10px 10px 0;
+    color: $filterColor;
+    cursor: grab;
+  }
+
+  .opacity {
+    opacity: 0.5;
+    -webkit-opacity: 0.5;
+  }
+
+  .active {
+    background-color: $filterActiveBg;
+  }
+}

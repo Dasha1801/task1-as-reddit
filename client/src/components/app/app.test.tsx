@@ -20,7 +20,6 @@ describe('App component', () => {
 
     expect(screen.getByTestId('app')).toBeInTheDocument();
     expect(screen.getByRole('main')).toBeInTheDocument();
-    expect(screen.getByRole('heading')).toBeInTheDocument();
   });
 
   it('should render img error', async () => {

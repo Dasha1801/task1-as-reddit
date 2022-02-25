@@ -2,6 +2,7 @@ import React from 'react';
 import { Modal } from 'react-bootstrap';
 import { IPropsModal } from '../../shared/interfaces';
 import FormLogIn from '../forms/formLogIn';
+import SocialButtons from '../authSocialButtons/socialButtons';
 
 function ModalLogIn({ show, setState }: IPropsModal): JSX.Element {
   const handleClose = (): void => setState(false);
@@ -9,10 +10,11 @@ function ModalLogIn({ show, setState }: IPropsModal): JSX.Element {
   return (
     <Modal show={show} onHide={handleClose}>
       <Modal.Header closeButton>
-        <Modal.Title>LOG IN</Modal.Title>
+        <Modal.Title data-testid="modalTitle">LOG IN</Modal.Title>
       </Modal.Header>
       <Modal.Body>
         <FormLogIn />
+        <SocialButtons action="logIn" />
       </Modal.Body>
     </Modal>
   );

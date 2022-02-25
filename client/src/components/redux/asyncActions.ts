@@ -1,7 +1,15 @@
 import axios from 'axios';
 import { baseUrl } from '../../constants';
 import { fetchArticles, fetchSavedArticles } from '../../server/api';
-import { ArticleInfo, ILogInUser, IRegisterUser, IUser } from '../../shared/interfaces';
+import {
+  ArticleInfo,
+  ILogInUser,
+  IRegisterUser,
+  IUser,
+  IRegisterSocialUser,
+  ILogInSocialUser,
+} from '../../shared/interfaces';
+import { route } from '../../utils';
 import { getStateError } from './slices/errorSlice';
 import { getStateLoading } from './slices/loadingSlice';
 import { showPopover } from './slices/popoverSlice';
@@ -24,12 +32,12 @@ export const fetchData = (count: number, setArticles: React.Dispatch<React.SetSt
       });
   };
 
-export const logInUser = (res: ILogInUser) =>
+export const logInUser = (res: ILogInUser | ILogInSocialUser, path: string) =>
   async function getResServer(
     dispatch: (arg0: { payload: { user: IUser } | { show: boolean }; type: string }) => void
   ) {
     axios
-      .post(`${baseUrl}api/auth/login`, res)
+      .post(`${baseUrl}api/auth/${path === route.logIn ? route.logIn : route.socialLogin}`, res)
       .then((response) => {
         if (response.data.accessToken) {
           dispatch(addUser({ user: response.data }));
@@ -40,12 +48,28 @@ export const logInUser = (res: ILogInUser) =>
       });
   };
 
-export const signUpUser = (res: IRegisterUser) =>
+export const updateProfile = (res: IRegisterUser) =>
+  async function getUpdateUser(
+    dispatch: (arg0: { payload: { user: IUser } | { show: boolean }; type: string }) => void
+  ) {
+    axios
+      .put(`${baseUrl}api/auth/update`, res)
+      .then((response) => {
+        if (response.data.accessToken) {
+          dispatch(addUser({ user: response.data }));
+        }
+      })
+      .finally(() => {
+        dispatch(showPopover({ show: true }));
+      });
+  };
+
+export const signUpUser = (res: IRegisterUser | IRegisterSocialUser) =>
   async function getResServer(
     dispatch: (arg0: { payload: { user: IUser } | { show: boolean }; type: string }) => void
   ) {
     axios
-      .post(`${baseUrl}api/auth/signup`, res)
+      .post(`${baseUrl}api/auth/${route.signUp}`, res)
       .then((response) => {
         if (response.data.accessToken) {
           dispatch(
@@ -60,6 +84,10 @@ export const signUpUser = (res: IRegisterUser) =>
 
 export const getSavedArticles = (accessToken: string) =>
   async function getUserSavedArticles(dispatch: (arg0: { payload: ArticleInfo[]; type: string }) => void) {
-    const resServer = await fetchSavedArticles(accessToken);
-    dispatch(setSavedArticles(resServer.data));
+    try {
+      const resServer = await fetchSavedArticles(accessToken);
+      dispatch(setSavedArticles(resServer.data));
+    } catch {
+      console.log('User unregister!');
+    }
   };

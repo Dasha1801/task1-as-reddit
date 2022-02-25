@@ -84,4 +84,29 @@ describe('Test FormSignUp Component', () => {
 
     expect(await screen.findByText(/successfully completed/i)).toBeInTheDocument();
   });
+
+  it('should be autocomplete', async () => {
+    render(
+      <Provider store={store}>
+        <FormSignUp />
+      </Provider>
+    );
+
+    const fieldCity = screen.getByTestId(/city/i);
+
+    userEvent.type(fieldCity, 'г');
+
+    expect(screen.queryByTestId('variants')).not.toBeInTheDocument();
+
+    userEvent.clear(fieldCity);
+    userEvent.type(fieldCity, 'гр');
+
+    const allVariantCity = screen.getAllByTestId('variantCity');
+
+    expect(allVariantCity).toHaveLength(3);
+
+    userEvent.click(allVariantCity[0]);
+
+    expect(screen.getByTestId<HTMLInputElement>(/city/).value).toEqual('Гродно');
+  });
 });

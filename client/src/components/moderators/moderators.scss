@@ -1,0 +1,51 @@
+@import '../../colors.scss';
+
+.contentSidebar {
+  .btnMessage {
+    width: 100%;
+    color: $moderatorsColor;
+    background-color: $moderatorsBg;
+    font-size: 15px;
+    font-weight: 600;
+    outline: none;
+    border: 1px solid $moderatorsColor;
+    padding: 3px 0;
+    border-radius: 20px;
+  }
+
+  .btnMessage:hover {
+    background-color: $moderatorsBtnHoverBg;
+  }
+
+  .wrapperModerator {
+    padding-top: 14px;
+    color: $moderatorsColor;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+  }
+
+  .textModerator {
+    margin: 0 4px;
+    padding: 0 4px;
+    font-weight: 500;
+    font-size: 13px;
+    background-color: $moderatorsTextBg;
+    color: $moderatorsTextColor;
+  }
+
+  .btnModerators {
+    padding-top: 14px;
+    color: $moderatorsColor;
+    background-color: $moderatorsBg;
+    border: none;
+    text-transform: uppercase;
+    display: block;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    margin-left: auto;
+    margin-bottom: 18px;
+    line-height: 16px;
+  }
+}

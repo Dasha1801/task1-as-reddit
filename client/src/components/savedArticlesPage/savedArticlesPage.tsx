@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import { TStore } from '../redux';
 import Article from '../article/article';
+import { timeout } from '../../constants';
 import './savedArticlesPage.scss';
 
 function SavedArticlesPage(): JSX.Element {
@@ -10,7 +11,7 @@ function SavedArticlesPage(): JSX.Element {
   function renderSaveArticles(): JSX.Element[] | JSX.Element {
     return savedArticles.length ? (
       savedArticles.map((item) => (
-        <CSSTransition key={item.id} timeout={500} classNames="animation">
+        <CSSTransition key={item.id} timeout={timeout / 2} classNames="animation">
           <Article item={item} key={item.id} />
         </CSSTransition>
       ))

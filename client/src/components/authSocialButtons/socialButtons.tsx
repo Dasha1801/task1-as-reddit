@@ -1,0 +1,66 @@
+import React, { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { FacebookLoginButton, GoogleLoginButton } from 'react-social-login-buttons';
+import { IResolveParams, LoginSocialFacebook, LoginSocialGoogle } from 'reactjs-social-login';
+import { signUpUser, getSavedArticles, logInUser } from '../redux/asyncActions';
+import { TStore } from '../redux';
+import { IAction, IProfile } from '../../shared/interfaces';
+import { route } from '../../utils';
+import { GG_APP_ID, FB_APP_ID } from '../../constants';
+import './socialButtons.scss';
+
+function SocialButtons({ action }: IAction): JSX.Element {
+  const dispatch = useDispatch();
+  const { accessToken } = useSelector((state: TStore) => state.user).user;
+  const [profile, setProfile] = useState<IProfile>({ name: '', email: '' });
+
+  const stylesBtn = { height: '35px', fontSize: '17px' };
+
+  const handleLogin = (): void => {
+    if (action === route.signUp && profile.email) {
+      signUpUser({ ...profile, phone: '', city: '', password: '' })(dispatch);
+    }
+
+    if (action === route.logIn && profile.email) {
+      logInUser({ email: profile.email }, route.socialLogin)(dispatch);
+    }
+  };
+
+  useEffect(() => {
+    getSavedArticles(accessToken)(dispatch);
+  }, [accessToken]);
+
+  useEffect(() => {
+    handleLogin();
+  }, [profile.email]);
+
+  return (
+    <div className="socialButtons">
+      <LoginSocialFacebook
+        appId={FB_APP_ID || ''}
+        onResolve={({ data }: IResolveParams) => {
+          data && setProfile({ name: data.name, email: data.email });
+        }}
+        onReject={(err) => {
+          console.log(err);
+        }}
+      >
+        <FacebookLoginButton style={stylesBtn} />
+      </LoginSocialFacebook>
+
+      <LoginSocialGoogle
+        client_id={GG_APP_ID || ''}
+        onResolve={({ data }: IResolveParams) => {
+          data && setProfile({ name: data.name, email: data.email });
+        }}
+        onReject={(err) => {
+          console.log(err);
+        }}
+      >
+        <GoogleLoginButton style={stylesBtn} />
+      </LoginSocialGoogle>
+    </div>
+  );
+}
+
+export default SocialButtons;

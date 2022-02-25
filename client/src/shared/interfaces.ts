@@ -63,9 +63,9 @@ export interface IComment {
 }
 
 export interface IRulesSubreddit {
-  short_name: string;
+  title: string;
   description: string;
-  created_utc: number;
+  id: string;
 }
 
 export interface ILimitArticles {
@@ -102,10 +102,19 @@ export interface IRegisterUser {
   address: string;
 }
 
+export interface IRegisterSocialUser {
+  name: string;
+  email: string;
+}
+
 export interface ILogInUser {
   name: string;
   email: string;
   password: string;
+}
+
+export interface ILogInSocialUser {
+  email: string;
 }
 
 export interface IUser {
@@ -132,4 +141,45 @@ export interface ICityProps {
 export interface IFieldProps {
   setState: (field: string, value: string, shouldValidate?: boolean | undefined) => void;
   city: string;
+}
+
+export interface IAction {
+  action: string;
+}
+
+export interface IProfile {
+  name: string;
+  email: string;
+}
+
+export interface IPropsItemRule {
+  item: IRulesSubreddit;
+}
+
+export interface IDataTable {
+  date: string;
+  organizers: string;
+  network: string;
+  id: string;
+}
+
+export interface IPropsTrTable {
+  item: IDataTable;
+}
+
+export interface IFilters {
+  name: string;
+  id: string;
+  order: number;
+}
+
+export interface IModerator {
+  name: string;
+  id: string;
+  text?: string;
+}
+
+export interface ISideBar {
+  el: JSX.Element;
+  id: string;
 }
