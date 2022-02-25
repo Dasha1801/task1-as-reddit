@@ -55,5 +55,15 @@
     margin-bottom: 8px;
     min-height: 50px;
     color: $boardColor;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .deleteBtn {
+    color: $btnDeleteTaskColor;
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
   }
 }

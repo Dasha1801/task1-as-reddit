@@ -3,11 +3,11 @@ import { baseUrl } from '../../constants';
 import { fetchArticles, fetchSavedArticles } from '../../server/api';
 import {
   ArticleInfo,
+  ILogInSocialUser,
   ILogInUser,
+  IRegisterSocialUser,
   IRegisterUser,
   IUser,
-  IRegisterSocialUser,
-  ILogInSocialUser,
 } from '../../shared/interfaces';
 import { route } from '../../utils';
 import { getStateError } from './slices/errorSlice';

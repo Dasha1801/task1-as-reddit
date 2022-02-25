@@ -49,6 +49,7 @@ export const findCity = (city: string): number =>
   cities.findIndex((el) => el.name.toLowerCase() === city.trim().toLowerCase());
 
 export const sortFilters = (a: IFilters, b: IFilters): number => (a.order > b.order ? 1 : -1);
+
 export const onDragEnd = (
   result: DropResult,
   columns: IColumns,

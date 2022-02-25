@@ -201,3 +201,7 @@ export interface IColumns {
     items: IItemBoard[] | [];
   };
 }
+
+export interface IBoard {
+  board: IColumns;
+}

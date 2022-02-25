@@ -1,23 +1,36 @@
 import React, { useEffect, useState } from 'react';
 import { DragDropContext, Draggable, Droppable } from 'react-beautiful-dnd';
 import { CgAdd } from 'react-icons/cg';
-import { useSelector } from 'react-redux';
+import { AiFillDelete } from 'react-icons/ai';
+import { useDispatch, useSelector } from 'react-redux';
 import { IColumn } from '../../shared/interfaces';
-import { onDragEnd } from '../../utils';
 import ModalCreateToDo from '../modal/modalCreateTodo';
 import { TStore } from '../redux';
+import { onDragEnd } from '../../utils';
+import { updateBoard } from '../redux/slices/boardSlice';
 import './board.scss';
 
 function Board(): JSX.Element {
-  const { board } = useSelector((state: TStore) => state);
+  const { board } = useSelector((state: TStore) => state.board);
   const [columns, setColumns] = useState(board);
   const [show, setShow] = useState(false);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(updateBoard(columns));
+  }, [columns, dispatch]);
 
   useEffect(() => {
     setColumns(board);
-  }, [board]);
+  }, [board.tasks.items.length]);
 
-  const renderListItem = (column: IColumn): JSX.Element[] =>
+  const handleDeleteTask = (columnId: string, id: string, column: IColumn): void => {
+    const updateItems = columns[columnId].items.filter((el) => el.id !== id);
+
+    setColumns({ ...columns, [columnId]: { ...column, items: updateItems } });
+  };
+
+  const renderListItem = (column: IColumn, columnId: string): JSX.Element[] =>
     column.items.map((item, idx) => (
       <Draggable key={item.id} draggableId={item.id} index={idx}>
         {(provided, snapshot) => (
@@ -32,6 +45,7 @@ function Board(): JSX.Element {
             }}
           >
             {item.task}
+            <AiFillDelete className="deleteBtn" onClick={() => handleDeleteTask(columnId, item.id, column)} />
           </div>
         )}
       </Draggable>
@@ -58,7 +72,7 @@ function Board(): JSX.Element {
                         background: snapshot.isDraggingOver ? '#dae0e6' : '#67bdff55',
                       }}
                     >
-                      {renderListItem(column)}
+                      {renderListItem(column, columnId)}
                       {provided.placeholder}
                     </div>
                   )}
