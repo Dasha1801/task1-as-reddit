@@ -3,7 +3,7 @@ import { v4 as uuid } from 'uuid';
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import { Button } from 'react-bootstrap';
-import TaskField from './field/taskField';
+import TaskField from './fields/taskField';
 import { validateTask } from './validate';
 import { addTask } from '../redux/slices/boardSlice';
 import './forms.scss';
@@ -20,8 +20,9 @@ function FormCreateTask(): JSX.Element {
     <Formik
       initialValues={{ task: '', description: '' }}
       validationSchema={validateTask}
-      onSubmit={(values) => {
+      onSubmit={(values, { resetForm }) => {
         handleCreate({ ...values, id: uuid() });
+        resetForm();
       }}
     >
       {(formik) => (

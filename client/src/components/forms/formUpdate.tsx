@@ -6,7 +6,7 @@ import FormBtns from '../btnsGroup/formBtns';
 import { TStore } from '../redux';
 import AutocompleteCity from './autocomplete/autocompleteCity';
 import { updateProfile } from '../redux/asyncActions';
-import TextField from './field/textField';
+import TextField from './fields/textField';
 import { validateUpdate } from './validate';
 import BasePopover from '../alert/basePopover';
 import './forms.scss';

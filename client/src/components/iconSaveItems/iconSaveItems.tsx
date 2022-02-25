@@ -13,7 +13,7 @@ function IconSaveItems(): JSX.Element {
 
   useEffect(() => {
     if (accessToken) getSavedArticles(accessToken)(dispatch);
-  }, [dispatch]);
+  }, [dispatch, accessToken]);
 
   const renderCountSavedItem = (): JSX.Element | null => {
     if (!countSaveItems) {
