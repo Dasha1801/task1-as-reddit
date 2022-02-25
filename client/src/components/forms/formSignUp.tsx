@@ -7,7 +7,7 @@ import FormBtns from '../btnsGroup/formBtns';
 import { TStore } from '../redux';
 import { getSavedArticles, signUpUser } from '../redux/asyncActions';
 import AutocompleteCity from './autocomplete/autocompleteCity';
-import TextField from './field/textField';
+import TextField from './fields/textField';
 import { validateSignUp } from './validate';
 import './forms.scss';
 

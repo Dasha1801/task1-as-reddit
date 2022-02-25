@@ -6,7 +6,7 @@ import BasePopover from '../alert/basePopover';
 import FormBtns from '../btnsGroup/formBtns';
 import { TStore } from '../redux';
 import { getSavedArticles, logInUser } from '../redux/asyncActions';
-import TextField from './field/textField';
+import TextField from './fields/textField';
 import { validateLogIn } from './validate';
 import './forms.scss';
 
@@ -21,7 +21,7 @@ function FormLogIn(): JSX.Element {
 
   useEffect(() => {
     getSavedArticles(accessToken)(dispatch);
-  }, [accessToken]);
+  }, [accessToken, dispatch]);
 
   return (
     <>

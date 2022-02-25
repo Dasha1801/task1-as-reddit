@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { DragDropContext, Draggable, Droppable } from 'react-beautiful-dnd';
 import { CgAdd } from 'react-icons/cg';
 import { useSelector } from 'react-redux';
@@ -12,6 +12,10 @@ function Board(): JSX.Element {
   const { board } = useSelector((state: TStore) => state);
   const [columns, setColumns] = useState(board);
   const [show, setShow] = useState(false);
+
+  useEffect(() => {
+    setColumns(board);
+  }, [board]);
 
   const renderListItem = (column: IColumn): JSX.Element[] =>
     column.items.map((item, idx) => (
@@ -43,6 +47,7 @@ function Board(): JSX.Element {
           {Object.entries(columns).map(([columnId, column], index) => (
             <div className="itemsColumn" key={columnId}>
               <div className="wrapperColumn">
+                <h5 className="nameColumn">{column.name}</h5>
                 <Droppable droppableId={columnId} key={columnId}>
                   {(provided, snapshot) => (
                     <div
@@ -53,7 +58,6 @@ function Board(): JSX.Element {
                         background: snapshot.isDraggingOver ? '#dae0e6' : '#67bdff55',
                       }}
                     >
-                      <h5 className="nameColumn">{column.name}</h5>
                       {renderListItem(column)}
                       {provided.placeholder}
                     </div>

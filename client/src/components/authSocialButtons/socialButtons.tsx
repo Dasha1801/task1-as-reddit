@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { FacebookLoginButton, GoogleLoginButton } from 'react-social-login-buttons';
 import { IResolveParams, LoginSocialFacebook, LoginSocialGoogle } from 'reactjs-social-login';
@@ -15,7 +15,7 @@ function SocialButtons({ action }: IAction): JSX.Element {
 
   const stylesBtn = { height: '35px', fontSize: '17px' };
 
-  const handleLogin = (): void => {
+  const handleLogin = useCallback((): void => {
     if (action === 'signUp' && profile.email) {
       signUpUser({ ...profile, phone: '', city: '', password: '' })(dispatch);
     }
@@ -23,15 +23,15 @@ function SocialButtons({ action }: IAction): JSX.Element {
     if (action === 'logIn' && profile.email) {
       logInUser({ email: profile.email }, 'socialLogin')(dispatch);
     }
-  };
+  }, [action, dispatch, profile]);
 
   useEffect(() => {
     getSavedArticles(accessToken)(dispatch);
-  }, [accessToken]);
+  }, [accessToken, dispatch]);
 
   useEffect(() => {
     handleLogin();
-  }, [profile.email]);
+  }, [profile.email, handleLogin]);
 
   return (
     <div className="socialButtons">
