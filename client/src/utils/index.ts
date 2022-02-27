@@ -2,8 +2,8 @@ import { cities } from '../data/cities';
 import { ICommentInfo, IFilters } from '../shared/interfaces';
 
 export enum route {
-  signUp = 'signUp',
-  logIn = 'logIn',
+  signUp = 'signup',
+  logIn = 'login',
   socialLogin = 'socialLogin',
 }
 

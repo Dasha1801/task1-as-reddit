@@ -9,7 +9,7 @@ import './forms.scss';
 import { validateTask } from './validate';
 import { updateBoard } from '../redux/slices/boardSlice';
 
-function FormUpdateTask({ item, column, columnId }: IPropsUpdateTask): JSX.Element {
+function FormUpdateTask({ item, column, columnId, handleClose }: IPropsUpdateTask): JSX.Element {
   const { board } = useSelector((state: TStore) => state.board);
   const dispatch = useDispatch();
 
@@ -23,9 +23,9 @@ function FormUpdateTask({ item, column, columnId }: IPropsUpdateTask): JSX.Eleme
     <Formik
       initialValues={item}
       validationSchema={validateTask}
-      onSubmit={(values, { resetForm }) => {
+      onSubmit={(values) => {
+        handleClose();
         handleUpdate(values);
-        resetForm();
       }}
     >
       {(formik) => (

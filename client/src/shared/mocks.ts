@@ -122,26 +122,3 @@ export const moderators: IModerator[] = [
   { name: 'u/Ustice', id: 'm6', text: '' },
   { name: 'u/AutoModerator', id: 'm7', text: '' },
 ];
-
-export const itemsBoard: IItemBoard[] = [
-  { id: uuid(), task: 'First task', description: '' },
-  { id: uuid(), task: 'Second task', description: '' },
-  { id: uuid(), task: 'Third task', description: '' },
-  { id: uuid(), task: 'Fourth task', description: '' },
-  { id: uuid(), task: 'Fifth task', description: '' },
-];
-
-export const columnsBoard: IColumns = {
-  tasks: {
-    name: 'Tasks',
-    items: itemsBoard,
-  },
-  progress: {
-    name: 'In Progress',
-    items: [] as IItemBoard[],
-  },
-  done: {
-    name: 'Done',
-    items: [] as IItemBoard[],
-  },
-};

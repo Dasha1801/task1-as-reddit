@@ -40,14 +40,15 @@ function Board(): JSX.Element {
                 ...provided.draggableProps.style,
               }}
             >
-              <div>
-                {item.task}
-                <AiOutlineEye className="eyeIcon" onClick={showDescription} />
+              <div className="taskText">{item.task}</div>
+              <div className="wrapperBtn">
+                <AiOutlineEye className="eyeIcon" onClick={showDescription} data-testid="eyeIcon" />
+                <AiFillDelete
+                  data-testid="iconDeleteTask"
+                  className="deleteBtn"
+                  onClick={() => handleDeleteTask(columnId, item.id, column)}
+                />
               </div>
-              <AiFillDelete
-                className="deleteBtn"
-                onClick={() => handleDeleteTask(columnId, item.id, column)}
-              />
             </div>
           )}
         </Draggable>
@@ -66,7 +67,11 @@ function Board(): JSX.Element {
     <div className="board">
       <h5 className="titleToDo">
         Create your ToDo
-        <CgAdd className="iconAddToDo" onClick={() => setShowModalCreate(!showModalCreate)} />
+        <CgAdd
+          className="iconAddToDo"
+          onClick={() => setShowModalCreate(!showModalCreate)}
+          data-testid="iconAddTask"
+        />
       </h5>
       <div className="wrapperColumns">
         <DragDropContext onDragEnd={(result) => onDragEnd(result, board)(dispatch)}>

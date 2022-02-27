@@ -218,4 +218,5 @@ export interface IPropsUpdateTask {
   item: IItemBoard;
   columnId: string;
   column: IColumn;
+  handleClose: () => void;
 }

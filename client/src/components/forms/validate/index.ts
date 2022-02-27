@@ -77,9 +77,9 @@ export const validateUpdate = Yup.object({
 
 export const validateTask = Yup.object({
   task: Yup.string()
-    .min(4, 'Name must be at least 4 characters')
-    .max(84, 'Length must be no more than 84 characters')
-    .required('Name is required'),
+    .min(4, 'Task must be at least 4 characters')
+    .max(40, 'Length must be no more than 40 characters')
+    .required('Task is required'),
   description: Yup.string()
     .min(6, 'Description must be at least 6 characters')
     .required('Description is required'),

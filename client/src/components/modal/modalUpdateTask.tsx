@@ -12,7 +12,7 @@ function ModalUpdateTask({ show, setState, item, columnId, column }: IPropsModal
         <Modal.Title>Do you update task?</Modal.Title>
       </Modal.Header>
       <Modal.Body>
-        <FormUpdateTask item={item} columnId={columnId} column={column} />
+        <FormUpdateTask item={item} columnId={columnId} column={column} handleClose={handleClose} />
       </Modal.Body>
     </Modal>
   );
