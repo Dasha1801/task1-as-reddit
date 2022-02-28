@@ -1,13 +1,15 @@
 import axios from 'axios';
+import { DropResult } from 'react-beautiful-dnd';
 import { baseUrl } from '../../constants';
 import { fetchArticles, fetchSavedArticles } from '../../server/api';
 import {
   ArticleInfo,
+  ILogInSocialUser,
   ILogInUser,
+  IRegisterSocialUser,
   IRegisterUser,
   IUser,
-  IRegisterSocialUser,
-  ILogInSocialUser,
+  IColumns,
 } from '../../shared/interfaces';
 import { route } from '../../utils';
 import { getStateError } from './slices/errorSlice';
@@ -15,6 +17,7 @@ import { getStateLoading } from './slices/loadingSlice';
 import { showPopover } from './slices/popoverSlice';
 import { setSavedArticles } from './slices/savedArticlesSlice';
 import { addUser } from './slices/userSlice';
+import { updateBoard } from './slices/boardSlice';
 
 export const fetchData = (count: number, setArticles: React.Dispatch<React.SetStateAction<ArticleInfo[]>>) =>
   async function getArticles(
@@ -89,5 +92,47 @@ export const getSavedArticles = (accessToken: string) =>
       dispatch(setSavedArticles(resServer.data));
     } catch {
       console.log('User unregister!');
+    }
+  };
+
+export const onDragEnd = (result: DropResult, columns: IColumns) =>
+  async function update(dispatch: (arg0: { payload: IColumns; type: string }) => void) {
+    if (!result.destination) return;
+    const { source, destination } = result;
+
+    if (source.droppableId !== destination.droppableId) {
+      const sourceColumn = columns[source.droppableId];
+      const destColumn = columns[destination.droppableId];
+      const sourceItems = [...sourceColumn.items];
+      const destItems = [...destColumn.items];
+      const [removed] = sourceItems.splice(source.index, 1);
+      destItems.splice(destination.index, 0, removed);
+      dispatch(
+        updateBoard({
+          ...columns,
+          [source.droppableId]: {
+            ...sourceColumn,
+            items: sourceItems,
+          },
+          [destination.droppableId]: {
+            ...destColumn,
+            items: destItems,
+          },
+        })
+      );
+    } else {
+      const column = columns[source.droppableId];
+      const copiedItems = [...column.items];
+      const [removed] = copiedItems.splice(source.index, 1);
+      copiedItems.splice(destination.index, 0, removed);
+      dispatch(
+        updateBoard({
+          ...columns,
+          [source.droppableId]: {
+            ...column,
+            items: copiedItems,
+          },
+        })
+      );
     }
   };

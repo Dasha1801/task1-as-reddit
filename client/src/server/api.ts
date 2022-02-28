@@ -1,6 +1,6 @@
 import axios, { AxiosResponse } from 'axios';
 import { baseUrl } from '../constants/index';
-import { ArticleInfo, IArticleId, ICommentInfo, ILimitArticles, IRulesSubreddit } from '../shared/interfaces';
+import { ArticleInfo, IArticleId, ICommentInfo, ILimitArticles } from '../shared/interfaces';
 
 export const fetchSavedArticles = (token: string): Promise<AxiosResponse> => {
   const options = {

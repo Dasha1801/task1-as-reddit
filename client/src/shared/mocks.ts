@@ -1,4 +1,4 @@
-import { ArticleInfo, ICommentInfo, IDataTable, IRulesSubreddit, IFilters, IModerator } from './interfaces';
+import { ArticleInfo, ICommentInfo, IDataTable, IFilters, IModerator, IRulesSubreddit } from './interfaces';
 
 export const item: ArticleInfo = {
   title: 'My website freezes after ...?',

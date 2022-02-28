@@ -1,0 +1,82 @@
+@import '../../colors.scss';
+
+.board {
+  max-width: 1024px;
+  margin: 20px auto;
+  background-color: $boardColor;
+  border: 1px solid $boardColorBorder;
+  border-radius: 0.25rem;
+  padding: 20px 0;
+
+  .titleToDo {
+    text-align: center;
+    font-size: 24px;
+  }
+
+  .iconAddToDo {
+    color: $btnAddTaskColor;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+  }
+
+  .wrapperColumns {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
+  .nameColumn {
+    font-size: 20px;
+    text-align: center;
+    margin-bottom: 5px;
+    background-color: $columnNameBg;
+    padding: 5px 0;
+  }
+
+  .wrapperColumn {
+    margin: 5px;
+  }
+
+  .column {
+    padding: 10px;
+    min-height: 350px;
+  }
+
+  .itemColumn {
+    background-color: $boardItemBg;
+    padding: 10px;
+    margin-bottom: 8px;
+    min-height: 50px;
+    color: $boardColor;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .taskText {
+    max-width: 220px;
+    word-wrap: break-word;
+  }
+
+  .wrapperBtn {
+    display: flex;
+    align-items: center;
+  }
+
+  .deleteBtn,
+  .eyeIcon {
+    width: 25px;
+    height: 20px;
+    cursor: pointer;
+  }
+
+  .deleteBtn {
+    color: $btnDeleteTaskColor;
+    height: 25px;
+  }
+
+  .deleteBtn:hover,
+  .eyeIcon:hover {
+    transform: scale(1.2);
+  }
+}

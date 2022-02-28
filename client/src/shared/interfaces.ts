@@ -13,10 +13,6 @@ export interface InfoItem {
   className?: string;
 }
 
-export interface ArticleProps {
-  data: ArticleInfo;
-}
-
 export interface ILikes {
   score: number;
   className?: string;
@@ -26,10 +22,6 @@ export interface IReplies {
   data: {
     children: ICommentProps[];
   };
-}
-
-export interface IRepliesChildren {
-  data: IReplies[];
 }
 
 export interface ICommentInfo {
@@ -182,4 +174,45 @@ export interface IModerator {
 export interface ISideBar {
   el: JSX.Element;
   id: string;
+}
+
+export interface IItemBoard {
+  task: string;
+  description: string;
+  id: string;
+}
+
+export interface IColumn {
+  name: string;
+  items: IItemBoard[];
+}
+
+export interface IColumns {
+  [x: string]: {
+    name: string;
+    items: IItemBoard[] | [];
+  };
+}
+
+export interface IBoard {
+  board: IColumns;
+}
+
+export interface IPropsModalUpdate {
+  show: boolean;
+  setState: React.Dispatch<React.SetStateAction<boolean>>;
+  item: IItemBoard;
+  columnId: string;
+  column: IColumn;
+}
+
+export interface IPropsUpdateTask {
+  item: IItemBoard;
+  columnId: string;
+  column: IColumn;
+  handleClose: () => void;
+}
+
+export interface IPropsCreateTask {
+  handleClose: () => void;
 }

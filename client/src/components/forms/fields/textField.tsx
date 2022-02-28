@@ -1,6 +1,6 @@
 import React from 'react';
 import { useField, FieldHookConfig } from 'formik';
-import './forms.scss';
+import '../forms.scss';
 
 interface ITextField {
   label: string;
