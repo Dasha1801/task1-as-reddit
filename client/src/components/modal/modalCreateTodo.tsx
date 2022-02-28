@@ -12,7 +12,7 @@ function ModalCreateToDo({ show, setState }: IPropsModal): JSX.Element {
         <Modal.Title>Create new task</Modal.Title>
       </Modal.Header>
       <Modal.Body>
-        <FormCreateTask />
+        <FormCreateTask handleClose={handleClose} />
       </Modal.Body>
     </Modal>
   );

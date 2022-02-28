@@ -7,9 +7,9 @@ import TaskField from './fields/taskField';
 import { validateTask } from './validate';
 import { addTask } from '../redux/slices/boardSlice';
 import './forms.scss';
-import { IItemBoard } from '../../shared/interfaces';
+import { IItemBoard, IPropsCreateTask } from '../../shared/interfaces';
 
-function FormCreateTask(): JSX.Element {
+function FormCreateTask({ handleClose }: IPropsCreateTask): JSX.Element {
   const dispatch = useDispatch();
 
   const handleCreate = (task: IItemBoard): void => {
@@ -22,6 +22,7 @@ function FormCreateTask(): JSX.Element {
       validationSchema={validateTask}
       onSubmit={(values, { resetForm }) => {
         handleCreate({ ...values, id: uuid() });
+        handleClose();
         resetForm();
       }}
     >

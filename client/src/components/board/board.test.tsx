@@ -35,7 +35,6 @@ describe('Test Board component', () => {
     userEvent.type(screen.getByTestId('task'), 'you need write test');
     userEvent.type(screen.getByTestId('description'), 'today until 8pm');
     userEvent.click(screen.getByText(/add task/i));
-    userEvent.click(screen.getByRole('dialog'));
 
     await waitForElementToBeRemoved(() => screen.queryByText(/create new task/i));
     const task = screen.getByText('you need write test');

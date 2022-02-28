@@ -6,10 +6,11 @@ import { store } from '../../redux';
 import FormCreateTask from '../formCreateTask';
 
 describe('Test FormCreateTask component', () => {
+  const handleClose = jest.fn();
   it('should render component', () => {
     render(
       <Provider store={store}>
-        <FormCreateTask />
+        <FormCreateTask handleClose={handleClose} />
       </Provider>
     );
 
@@ -21,7 +22,7 @@ describe('Test FormCreateTask component', () => {
   it('should be a validation check', async () => {
     render(
       <Provider store={store}>
-        <FormCreateTask />
+        <FormCreateTask handleClose={handleClose} />
       </Provider>
     );
 

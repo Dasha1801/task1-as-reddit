@@ -13,10 +13,6 @@ export interface InfoItem {
   className?: string;
 }
 
-export interface ArticleProps {
-  data: ArticleInfo;
-}
-
 export interface ILikes {
   score: number;
   className?: string;
@@ -26,10 +22,6 @@ export interface IReplies {
   data: {
     children: ICommentProps[];
   };
-}
-
-export interface IRepliesChildren {
-  data: IReplies[];
 }
 
 export interface ICommentInfo {
@@ -218,5 +210,9 @@ export interface IPropsUpdateTask {
   item: IItemBoard;
   columnId: string;
   column: IColumn;
+  handleClose: () => void;
+}
+
+export interface IPropsCreateTask {
   handleClose: () => void;
 }

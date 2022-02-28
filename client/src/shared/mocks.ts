@@ -1,14 +1,4 @@
-import { v4 as uuid } from 'uuid';
-import {
-  ArticleInfo,
-  ICommentInfo,
-  IDataTable,
-  IRulesSubreddit,
-  IFilters,
-  IModerator,
-  IItemBoard,
-  IColumns,
-} from './interfaces';
+import { ArticleInfo, ICommentInfo, IDataTable, IFilters, IModerator, IRulesSubreddit } from './interfaces';
 
 export const item: ArticleInfo = {
   title: 'My website freezes after ...?',

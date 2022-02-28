@@ -15,11 +15,14 @@ function Main(): JSX.Element {
   return (
     <main className="main" data-testid="main">
       <div className="wrapper">
-        {loading && <Spinner />}
+        {loading && (
+          <>
+            <Spinner /> <Sidebar />
+          </>
+        )}
         {!error && (
           <>
-            <Articles />
-            <Sidebar />
+            <Articles /> <Sidebar />
           </>
         )}
         <ButtonScrollTop />
