@@ -1,0 +1,88 @@
+@import '../../colors.scss';
+
+.info {
+  width: 606px;
+  height: 66px;
+  margin: 16px 0 0;
+  color: $productColor;
+
+  .named {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    position: absolute;
+    width: 292px;
+    top: 11px;
+    font-family: Arial;
+    font-style: normal;
+  }
+
+  .nameProduct {
+    font-size: 16px;
+    line-height: 22px;
+    margin: 2px 0px;
+  }
+
+  .codeProduct {
+    font-size: 12px;
+    line-height: 18px;
+    color: $codeProductColor;
+  }
+
+  .counterProduct {
+    position: absolute;
+    width: 96px;
+    height: 32px;
+    left: 316px;
+    top: 28px;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .iconProduct {
+    width: 32px;
+    height: 32px;
+  }
+
+  .remove {
+    background-image: url('../../../public/images/remove.png');
+    left: 0px;
+    top: 0px;
+  }
+
+  .add {
+    background-image: url('../../../public/images/add.png');
+    left: calc(50% - 32px / 2 + 32px);
+    top: calc(50% - 32px / 2);
+  }
+
+  .countProduct {
+    left: 33.33%;
+    right: 33.33%;
+    top: 6.25%;
+    bottom: 8.04%;
+    font-size: 14px;
+    line-height: 20px;
+    display: flex;
+    align-items: center;
+  }
+
+  .price {
+    position: absolute;
+    width: 87px;
+    height: 26px;
+    left: 516px;
+    top: 31px;
+    font-family: Arial;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 17px;
+    line-height: 26px;
+    text-align: right;
+  }
+
+  .kopecks {
+    font-size: 15px;
+    line-height: 28px;
+  }
+}

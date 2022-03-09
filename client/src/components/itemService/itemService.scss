@@ -1,0 +1,60 @@
+@import '../../colors.scss';
+
+.wrapperItem {
+  padding-bottom: 10px;
+  border-bottom: 1px solid $borderServiceColor;
+  margin-top: 5px;
+  font-family: Arial;
+
+  .itemService {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .checkbox {
+    width: 16px;
+    height: 16px;
+    line-height: 24px;
+    background: $checkboxBgColor;
+    display: block;
+  }
+
+  .nameService {
+    width: 473px;
+    font-size: 14px;
+    line-height: 20px;
+    margin: 3px 0 5px;
+  }
+
+  .priceService {
+    font-size: 15px;
+    line-height: 28px;
+    font-weight: 700;
+  }
+
+  .descriptionService {
+    margin-left: 25px;
+    width: 460px;
+    font-size: 12px;
+    line-height: 15px;
+    color: $descriptionServiceColor;
+    margin-bottom: 0;
+  }
+
+  .moreInfo {
+    display: flex;
+    align-items: center;
+    width: 83px;
+    justify-content: space-between;
+    font-size: 12px;
+    line-height: 20px;
+    color: $moreInfoServicesColor;
+  }
+
+  .moreInfo::before {
+    content: url(../../../public/images/link.png);
+    width: 16px;
+    height: 16px;
+  }
+}

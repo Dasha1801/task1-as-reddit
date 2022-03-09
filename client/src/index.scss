@@ -9,6 +9,10 @@ $fontContentComment: 'Lato', sans-serif;
 $widthContentArticle: 543px;
 $widthContentSaveArticle: 850px;
 
+* {
+  box-sizing: border-box;
+}
+
 body {
   padding: 0;
   margin: 0;

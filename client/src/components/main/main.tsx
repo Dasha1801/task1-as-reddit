@@ -1,10 +1,10 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import PageNotFound from '../pageNotFound/pageNotFound';
 import Articles from '../articles/articles';
-import Sidebar from '../sidebar/sidebar';
 import ButtonScrollTop from '../buttonScrollTop/buttonScrollTop';
+import PageNotFound from '../pageNotFound/pageNotFound';
 import { TStore } from '../redux';
+import Sidebar from '../sidebar/sidebar';
 import Spinner from '../spinner/spinner';
 import './main.scss';
 

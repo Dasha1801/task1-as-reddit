@@ -216,3 +216,24 @@ export interface IPropsUpdateTask {
 export interface IPropsCreateTask {
   handleClose: () => void;
 }
+
+export interface ICategory21 {
+  name: string;
+  id: string;
+  type: string;
+}
+
+export interface IItem21 {
+  name: string;
+  id: string;
+  code: string;
+  description: string;
+  link: string;
+  price: string;
+  outsource: boolean;
+  category: ICategory21;
+}
+
+export interface IItems21 {
+  [x: string]: IItem21[];
+}

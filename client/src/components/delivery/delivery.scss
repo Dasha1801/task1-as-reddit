@@ -1,0 +1,52 @@
+@import '../../colors.scss';
+
+.wrapperDelivery {
+  width: 606px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  border: 1px solid $borderDeliveryColor;
+  box-sizing: border-box;
+  border-radius: 4px;
+  font-family: Arial;
+  color: $productColor;
+
+  .delivery {
+    display: flex;
+    width: 402px;
+    height: 24px;
+    margin: 2px 0 0 15px;
+    align-items: center;
+  }
+
+  .titleDelivery {
+    width: 70px;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 20px;
+    margin: 0px 4px;
+  }
+
+  .itemDelivery {
+    font-size: 14px;
+    line-height: 20px;
+    display: flex;
+    align-items: center;
+    margin: 0px 4px;
+  }
+
+  .variant1::before {
+    content: url(../../../public/images/auto.png);
+    width: 24px;
+    height: 24px;
+    line-height: 24px;
+  }
+
+  .variant2::before {
+    content: url(../../../public/images/location.png);
+    width: 24px;
+    height: 24px;
+    line-height: 30px;
+    margin-left: 10px;
+  }
+}
