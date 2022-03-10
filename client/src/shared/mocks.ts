@@ -5,7 +5,8 @@ import {
   IFilters,
   IModerator,
   IRulesSubreddit,
-  IItems21,
+  IItemsServices21,
+  IProduct,
 } from './interfaces';
 
 export const item: ArticleInfo = {
@@ -121,7 +122,7 @@ export const moderators: IModerator[] = [
   { name: 'u/AutoModerator', id: 'm7', text: '' },
 ];
 
-export const data21vek: IItems21 = {
+export const dataServices21vek: IItemsServices21 = {
   '476171': [
     {
       name: 'Холодильник без электронного управления на дверях (за 2 двери)',
@@ -300,19 +301,36 @@ export const data21vek: IItems21 = {
         type: 'maintenance',
       },
     },
-    {
-      name: 'Надежная защита +2 года (500-999 руб.)',
-      id: '5005',
-      code: '6298575',
-      description: '',
-      link: 'https://www.21vek.by/info/extended_warranty.html',
-      price: '125.21',
-      outsource: false,
-      category: {
-        name: 'Надежная защита',
-        id: '157',
-        type: 'maintenance',
-      },
-    },
   ],
 };
+
+export const products21: IProduct[] = [
+  {
+    name: 'Кабель Apple MKQ42',
+    code: '458.328',
+    price: '139,00',
+    serviceId: '',
+    photo: 'https://res.cloudinary.com/megacritic/image/upload/v1646901316/pxls2j9rre0dwsleaatr.png',
+  },
+  {
+    name: 'Смартфон Apple iPhone 11 64GB / MHDF3 (фиолетовый)',
+    code: '6.267.216',
+    price: '2 099,00',
+    serviceId: '6099773',
+    photo: 'https://res.cloudinary.com/megacritic/image/upload/v1646901342/shbtuzxyscrfhlkfgbco.png',
+  },
+  {
+    name: 'Ноутбук Apple MacBook Air 13" M1 2020 256GB / MGN63 (серый) длинна 38',
+    code: '5.666.679',
+    price: '3 533,07',
+    serviceId: '6519574',
+    photo: 'https://res.cloudinary.com/megacritic/image/upload/v1646901346/kwrzkqie3l337w7ai9cp.png',
+  },
+  {
+    name: 'Холодильник с морозильником Bosch Serie 6 VitaFresh Plus KGN39AW32R',
+    code: '6.150.224',
+    price: '1 529,15',
+    serviceId: '476171',
+    photo: 'https://res.cloudinary.com/megacritic/image/upload/v1646901333/watoxlfhvberxfdfdkec.png',
+  },
+];

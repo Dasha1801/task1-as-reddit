@@ -223,7 +223,7 @@ export interface ICategory21 {
   type: string;
 }
 
-export interface IItem21 {
+export interface IItemServices21 {
   name: string;
   id: string;
   code: string;
@@ -234,6 +234,26 @@ export interface IItem21 {
   category: ICategory21;
 }
 
-export interface IItems21 {
-  [x: string]: IItem21[];
+export interface IItemService {
+  info: IItemServices21;
+}
+
+export interface IItemsServices21 {
+  [x: string]: IItemServices21[];
+}
+
+export interface IProduct {
+  name: string;
+  code: string;
+  price: string;
+  serviceId: string;
+  photo: string;
+}
+
+export interface IItemProduct {
+  product: IProduct;
+}
+
+export interface IIdService {
+  id: string;
 }

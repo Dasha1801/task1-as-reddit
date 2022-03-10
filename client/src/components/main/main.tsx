@@ -1,7 +1,7 @@
-import Product from 'components/product/product';
 import React from 'react';
 import { useSelector } from 'react-redux';
 import Articles from '../articles/articles';
+import ListProducts from '../listProducts/listProducts';
 import ButtonScrollTop from '../buttonScrollTop/buttonScrollTop';
 import PageNotFound from '../pageNotFound/pageNotFound';
 import { TStore } from '../redux';
@@ -24,7 +24,7 @@ function Main(): JSX.Element {
         {!error && (
           <>
             <div>
-              <Product /> <Articles />
+              <ListProducts /> <Articles />
             </div>
             <Sidebar />
           </>

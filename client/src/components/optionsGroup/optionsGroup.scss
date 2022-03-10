@@ -2,6 +2,7 @@
 @import '../../index.scss';
 
 .groupOptions {
+  margin: 16px 0 18px;
   margin-left: auto;
   width: 201px;
   height: 14px;
@@ -12,6 +13,7 @@
   font-size: 14px;
 
   .itemOption {
+    cursor: pointer;
     display: flex;
     font-weight: 400;
     line-height: 20px;

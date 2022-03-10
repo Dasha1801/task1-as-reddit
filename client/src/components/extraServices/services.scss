@@ -5,7 +5,7 @@
   font-family: $fontProduct;
   font-style: normal;
   width: 606px;
-  margin: 16px 0px;
+  margin: 16px 0 0;
   background: $servicesBgColor;
   border-radius: 8px;
   padding: 16px 15px 16px 19px;
@@ -26,5 +26,6 @@
     line-height: 20px;
     margin: 7px 0 0;
     margin-left: auto;
+    cursor: pointer;
   }
 }

@@ -1,21 +1,22 @@
 import React from 'react';
+import { getKopecks, getRubles } from 'utils';
+import { IItemService } from '../../shared/interfaces';
 import './itemService.scss';
 
-function ItemService(): JSX.Element {
+function ItemService({ info }: IItemService): JSX.Element {
+  const { name, description, price } = info;
+
   return (
     <div className="wrapperItem">
       <div className="itemService">
         <input type="checkbox" className="checkbox" />
-        <h5 className="nameService">Сертификат «Негарантийный ремонт» на 1 год</h5>
+        <h5 className="nameService">{name}</h5>
         <div className="priceService">
-          314,<span className="kopecks">85 р.</span>
+          {getRubles(price)},<span className="serviceKopecks">{getKopecks(price)} р.</span>
         </div>
       </div>
-      <p className="descriptionService">
-        Ремонт устройства - 1 раз, консультация по эксплуатации - неограниченное количество раз в течение 12
-        месяцев в компании «Единый Сервисный Центр»...
-        <span className="moreInfo">Подробнее</span>
-      </p>
+      <p className="descriptionService">{description}</p>
+      <div className="moreInfo">Подробнее</div>
     </div>
   );
 }
