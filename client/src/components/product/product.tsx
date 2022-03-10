@@ -2,6 +2,7 @@ import React from 'react';
 import InfoProduct from '../infoProduct/infoProduct';
 import Delivery from '../delivery/delivery';
 import Services from '../extraServices/services';
+import OptionsGroup from '../optionsGroup/optionsGroup';
 import './product.scss';
 
 function Product(): JSX.Element {
@@ -12,6 +13,7 @@ function Product(): JSX.Element {
         <InfoProduct />
         <Delivery />
         <Services />
+        <OptionsGroup />
       </div>
     </div>
   );

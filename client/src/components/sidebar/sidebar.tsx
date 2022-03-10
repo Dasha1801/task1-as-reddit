@@ -45,7 +45,7 @@ function Sidebar(): JSX.Element {
   };
 
   return (
-    <aside className="sidebar">
+    <aside className="sidebar" style={{ paddingTop: '20px' }}>
       <Filter />
       <DragDropContext onDragEnd={onDragEnd}>
         <Droppable droppableId="rules">

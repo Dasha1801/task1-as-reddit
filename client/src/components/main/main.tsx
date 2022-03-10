@@ -1,3 +1,4 @@
+import Product from 'components/product/product';
 import React from 'react';
 import { useSelector } from 'react-redux';
 import Articles from '../articles/articles';
@@ -22,7 +23,10 @@ function Main(): JSX.Element {
         )}
         {!error && (
           <>
-            <Articles /> <Sidebar />
+            <div>
+              <Product /> <Articles />
+            </div>
+            <Sidebar />
           </>
         )}
         <ButtonScrollTop />

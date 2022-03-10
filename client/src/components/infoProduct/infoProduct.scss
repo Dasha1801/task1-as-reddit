@@ -1,4 +1,5 @@
 @import '../../colors.scss';
+@import '../../index.scss';
 
 .info {
   width: 606px;
@@ -13,7 +14,7 @@
     position: absolute;
     width: 292px;
     top: 11px;
-    font-family: Arial;
+    font-family: $fontProduct;
     font-style: normal;
   }
 
@@ -69,20 +70,20 @@
 
   .price {
     position: absolute;
-    width: 87px;
+    width: 90px;
     height: 26px;
     left: 516px;
     top: 31px;
-    font-family: Arial;
+    font-family: $fontProduct;
     font-style: normal;
     font-weight: bold;
-    font-size: 17px;
+    font-size: 18px;
     line-height: 26px;
     text-align: right;
   }
 
   .kopecks {
-    font-size: 15px;
-    line-height: 28px;
+    font-size: 16px;
+    line-height: 29px;
   }
 }

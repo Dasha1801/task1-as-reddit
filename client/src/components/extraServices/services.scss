@@ -1,7 +1,8 @@
 @import '../../colors.scss';
+@import '../../index.scss';
 
 .services {
-  font-family: Arial;
+  font-family: $fontProduct;
   font-style: normal;
   width: 606px;
   margin: 16px 0px;

@@ -1,10 +1,11 @@
 @import '../../colors.scss';
+@import '../../index.scss';
 
 .wrapperItem {
-  padding-bottom: 10px;
+  padding-bottom: 11px;
   border-bottom: 1px solid $borderServiceColor;
   margin-top: 5px;
-  font-family: Arial;
+  font-family: $fontProduct;
 
   .itemService {
     display: flex;
