@@ -136,7 +136,7 @@ export const dataServices21vek: IItemsServices21 = {
       price: '45.00',
       outsource: true,
       category: {
-        name: 'Перенавеска дверей',
+        name: 'Настройка',
         id: '15',
         type: 'maintenance',
       },
@@ -150,7 +150,7 @@ export const dataServices21vek: IItemsServices21 = {
       price: '188.82',
       outsource: false,
       category: {
-        name: 'Надежная защита',
+        name: 'Сервесное обслуживание',
         id: '157',
         type: 'maintenance',
       },
@@ -164,7 +164,7 @@ export const dataServices21vek: IItemsServices21 = {
       price: '167.84',
       outsource: false,
       category: {
-        name: 'Надежная защита',
+        name: 'Защита',
         id: '157',
         type: 'maintenance',
       },
@@ -181,7 +181,7 @@ export const dataServices21vek: IItemsServices21 = {
       price: '44.85',
       outsource: false,
       category: {
-        name: 'Негарантийный ремонт',
+        name: 'Ремонт',
         id: '21',
         type: 'maintenance',
       },
@@ -198,7 +198,7 @@ export const dataServices21vek: IItemsServices21 = {
       price: '15.00',
       outsource: false,
       category: {
-        name: 'Настройка устройства (только в ПВЗ)',
+        name: 'Настройка',
         id: '123',
         type: 'maintenance',
       },
@@ -212,7 +212,7 @@ export const dataServices21vek: IItemsServices21 = {
       price: '10.00',
       outsource: false,
       category: {
-        name: 'Настройка устройства (только в ПВЗ)',
+        name: 'Настройка',
         id: '123',
         type: 'maintenance',
       },
@@ -228,7 +228,7 @@ export const dataServices21vek: IItemsServices21 = {
       price: '74.75',
       outsource: false,
       category: {
-        name: 'Негарантийный ремонт',
+        name: 'Ремонт',
         id: '21',
         type: 'maintenance',
       },
@@ -244,7 +244,7 @@ export const dataServices21vek: IItemsServices21 = {
       price: '35.88',
       outsource: false,
       category: {
-        name: 'Защита дисплея',
+        name: 'Защита',
         id: '147',
         type: 'maintenance',
       },
@@ -264,7 +264,7 @@ export const dataServices21vek: IItemsServices21 = {
       price: '20.00',
       outsource: false,
       category: {
-        name: 'Настройка устройства (только в ПВЗ)',
+        name: 'Настройка',
         id: '123',
         type: 'maintenance',
       },
@@ -282,7 +282,7 @@ export const dataServices21vek: IItemsServices21 = {
       price: '40.00',
       outsource: true,
       category: {
-        name: 'Установка и подвешивание',
+        name: 'Установка',
         id: '12',
         type: 'maintenance',
       },
@@ -296,7 +296,7 @@ export const dataServices21vek: IItemsServices21 = {
       price: '112.03',
       outsource: false,
       category: {
-        name: 'Надежная защита',
+        name: 'Защита',
         id: '157',
         type: 'maintenance',
       },

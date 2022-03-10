@@ -1,7 +1,6 @@
 import React from 'react';
 import Product from '../product/product';
 import { products21 } from '../../shared/mocks';
-import './listProducts.scss';
 
 function ListProducts(): JSX.Element {
   return (
