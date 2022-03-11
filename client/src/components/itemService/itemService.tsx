@@ -4,7 +4,7 @@ import { IItemService } from '../../shared/interfaces';
 import './itemService.scss';
 
 function ItemService({ info }: IItemService): JSX.Element {
-  const { name, description, price } = info;
+  const { name, description, price, link } = info;
 
   return (
     <div className="wrapperItem">
@@ -16,7 +16,11 @@ function ItemService({ info }: IItemService): JSX.Element {
         </div>
       </div>
       <p className="descriptionService">{description}</p>
-      <div className="moreInfo">Подробнее</div>
+      {link && (
+        <a className="moreInfo" target="_blank" href={link} rel="noreferrer">
+          Подробнее
+        </a>
+      )}
     </div>
   );
 }

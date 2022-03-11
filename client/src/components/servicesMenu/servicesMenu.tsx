@@ -1,16 +1,12 @@
 import React, { useCallback, useEffect, useState } from 'react';
-import classNames from 'classnames';
 import { IServicesMenu } from 'shared/interfaces';
 import ItemServiceMenu from '../itemServiceMenu/itemServiceMenu';
+import TabList from '../tabList/tabList';
 import './servicesMenu.scss';
 
 function ServicesMenu({ changeShowMenu, itemsService }: IServicesMenu): JSX.Element {
   const categories = Array.from(new Set(itemsService.map((el) => el.category.name)));
   const [currentCategory, setCurrentCategory] = useState(categories[1]);
-
-  const showNewService = (category: string): void => {
-    setCurrentCategory(category);
-  };
 
   const renderItems = useCallback(
     (category: string): JSX.Element | JSX.Element[] => {
@@ -19,7 +15,7 @@ function ServicesMenu({ changeShowMenu, itemsService }: IServicesMenu): JSX.Elem
       return (
         <>
           {items.map((el) => (
-            <ItemServiceMenu info={el} key={el.code} />
+            <ItemServiceMenu info={el} key={el.id} />
           ))}
         </>
       );
@@ -27,29 +23,9 @@ function ServicesMenu({ changeShowMenu, itemsService }: IServicesMenu): JSX.Elem
     [itemsService]
   );
 
-  const renderTabs = useCallback(
-    (category: string): JSX.Element => (
-      <div className="tabGroup">
-        {categories.map((el) => (
-          <div
-            className={classNames('tab', {
-              active: el === category,
-            })}
-            key={el}
-            onClick={() => showNewService(el)}
-          >
-            {el}
-          </div>
-        ))}
-      </div>
-    ),
-    [categories]
-  );
-
   useEffect(() => {
-    renderTabs(currentCategory);
     renderItems(currentCategory);
-  }, [currentCategory, renderTabs, renderItems]);
+  }, [currentCategory, renderItems]);
 
   return (
     <div className="menu" onClick={changeShowMenu}>
@@ -57,7 +33,11 @@ function ServicesMenu({ changeShowMenu, itemsService }: IServicesMenu): JSX.Elem
         <div className="closeMenu" onClick={changeShowMenu} />
         <div className="contentMenu">
           <h4 className="caption">Дополнительные услуги</h4>
-          {renderTabs(currentCategory)}
+          <TabList
+            categories={categories}
+            setCurrentCategory={setCurrentCategory}
+            currentCategory={currentCategory}
+          />
           {renderItems(currentCategory)}
         </div>
       </div>

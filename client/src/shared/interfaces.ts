@@ -262,3 +262,9 @@ export interface IServicesMenu {
   changeShowMenu: () => void;
   itemsService: IItemServices21[];
 }
+
+export interface ITabList {
+  categories: string[];
+  setCurrentCategory: React.Dispatch<React.SetStateAction<string>>;
+  currentCategory: string;
+}

@@ -20,6 +20,7 @@
     padding: 16px 16px 8px;
     margin-left: auto;
     overflow-y: scroll;
+    overflow-x: hidden;
   }
 
   .wrapperContent::-webkit-scrollbar {
@@ -40,7 +41,7 @@
     width: 24px;
     height: 24px;
     margin-left: auto;
-    cursor: pointer;
+    cursor: url(../../../public/images/cursor.png), auto;
   }
 
   .closeMenu::after {
@@ -53,29 +54,5 @@
     line-height: 28px;
     margin-top: 9px;
     text-align: center;
-  }
-
-  .tabGroup {
-    display: flex;
-    justify-content: space-between;
-    height: 40px;
-    padding: 3px 20px 15px 0;
-    width: 400px;
-    margin-top: 21px;
-    font-weight: 700;
-    font-size: 16px;
-    line-height: 22px;
-    color: $tabsColor;
-    border-bottom: 1px solid $tabsBorderColor;
-  }
-
-  .tab {
-    cursor: pointer;
-  }
-
-  .active {
-    color: $menuServicesColor;
-    border-bottom: 3px solid $menuServicesColor;
-    padding: 0 0 33px;
   }
 }

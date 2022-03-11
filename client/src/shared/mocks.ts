@@ -233,6 +233,37 @@ export const dataServices21vek: IItemsServices21 = {
       },
     },
     {
+      name: 'Android Стандарт(доступно только при самовывозе и наличии SIM-карты)',
+      id: '30087',
+      code: '5907362',
+      description: `Скидка 50% на услугу, если с этим заказом оформлен сертификат
+         на негарантийный ремонт. Для смартфона или планшета. В услугу входит: включение 
+         устройства, настройка по шагам, синхронизация контактов, создание учетной записи в Play Market, 
+         установка 1 мессенджера, заведение учетной записи, выдача памятки с данными учетной записи.`,
+      link: '',
+      price: '15.00',
+      outsource: false,
+      category: {
+        name: 'Настройка',
+        id: '123',
+        type: 'maintenance',
+      },
+    },
+    {
+      name: 'Перенос контактов(доступно только при самовывозе)',
+      id: '31579',
+      code: '5909271',
+      description: 'Для смартфона или планшета. Перенос данных записной книжки на новое устройство.',
+      link: '',
+      price: '10.00',
+      outsource: false,
+      category: {
+        name: 'Настройка',
+        id: '123',
+        type: 'maintenance',
+      },
+    },
+    {
       name: 'Сертификат «Негарантийный ремонт» на 2 года',
       id: '4176',
       code: '5977695',
@@ -243,24 +274,8 @@ export const dataServices21vek: IItemsServices21 = {
       price: '74.75',
       outsource: false,
       category: {
-        name: 'Ремонт',
+        name: 'Гарантия',
         id: '21',
-        type: 'maintenance',
-      },
-    },
-    {
-      name: 'Сертификат «Исправный телефон» на 1 год (защита дисплея)',
-      id: '4177',
-      code: '5977694',
-      description: `Ремонт дисплея – 1 раз, консультация по эксплуатации –
-        неограниченное число раз в течение 12 месяцев в компании «Единый Сервисный Центр».
-        Для смартфонов и планшетов.`,
-      link: 'https://www.21vek.by/services/nonwarranty_repair.html',
-      price: '35.88',
-      outsource: false,
-      category: {
-        name: 'Защита',
-        id: '147',
         type: 'maintenance',
       },
     },
@@ -279,7 +294,7 @@ export const dataServices21vek: IItemsServices21 = {
       price: '20.00',
       outsource: false,
       category: {
-        name: 'Настройка',
+        name: 'Сервесное обслуживание',
         id: '123',
         type: 'maintenance',
       },

@@ -12,7 +12,11 @@ function ItemServiceMenu({ info }: IItemService): JSX.Element {
           *Стоимость может измениться в зависимости от сложности и дополнительных работ.
         </p>
       )}
-      {info.link && <div className="moreInfo">Подробнее</div>}
+      {info.link && (
+        <a className="moreInfo" target="_blank" href={info.link} rel="noreferrer">
+          Подробнее
+        </a>
+      )}
       <div className="priceService">
         {info.price}
         {info.outsource ? ' р.*' : ' р.'}

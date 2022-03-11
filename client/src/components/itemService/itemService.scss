@@ -19,7 +19,6 @@
     line-height: 24px;
     background: $checkboxBgColor;
     display: block;
-    cursor: pointer;
   }
 
   .nameService {
@@ -58,7 +57,7 @@
   }
 
   .moreInfo {
-    cursor: pointer;
+    cursor: url(../../../public/images/cursor.png), auto;
     margin-left: 25px;
     display: flex;
     align-items: center;
