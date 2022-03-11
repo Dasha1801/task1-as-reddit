@@ -1,18 +1,35 @@
+@import '../../colors.scss';
+@import '../../index.scss';
+
 .menu {
   top: 0;
   left: 0;
   bottom: 0;
   right: 0;
-  background-color: rgba(26, 26, 26, 0.5);
+  background-color: $menuServicesBg;
   position: fixed;
   display: flex;
   z-index: 100;
+  font-family: $fontMenuServices;
+  font-style: normal;
+  color: $menuServicesColor;
 
   .wrapperContent {
-    background-color: white;
+    background-color: $menuServicesWrapperBg;
     width: 480px;
     padding: 16px 16px 8px;
     margin-left: auto;
+    overflow-y: scroll;
+  }
+
+  .wrapperContent::-webkit-scrollbar {
+    width: 5px;
+    background-color: transparent;
+  }
+
+  .wrapperContent::-webkit-scrollbar-thumb {
+    background: $menuScrollbarThumb;
+    border-radius: 4px;
   }
 
   .contentMenu {
@@ -36,9 +53,6 @@
     line-height: 28px;
     margin-top: 9px;
     text-align: center;
-    font-family: 'Arial';
-    font-style: normal;
-    color: #1a1a1a;
   }
 
   .tabGroup {
@@ -48,13 +62,11 @@
     padding: 3px 20px 15px 0;
     width: 400px;
     margin-top: 21px;
-    font-family: 'Arial';
-    font-style: normal;
     font-weight: 700;
     font-size: 16px;
     line-height: 22px;
-    color: #909399;
-    border-bottom: 1px solid #e6e7eb;
+    color: $tabsColor;
+    border-bottom: 1px solid $tabsBorderColor;
   }
 
   .tab {
@@ -62,8 +74,8 @@
   }
 
   .active {
-    color: #1a1a1a;
-    border-bottom: 3px solid #1a1a1a;
+    color: $menuServicesColor;
+    border-bottom: 3px solid $menuServicesColor;
     padding: 0 0 33px;
   }
 }

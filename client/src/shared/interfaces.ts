@@ -257,3 +257,8 @@ export interface IItemProduct {
 export interface IIdService {
   id: string;
 }
+
+export interface IServicesMenu {
+  changeShowMenu: () => void;
+  itemsService: IItemServices21[];
+}
