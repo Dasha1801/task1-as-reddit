@@ -336,13 +336,6 @@ export const dataServices21vek: IItemsServices21 = {
 
 export const products21: IProduct[] = [
   {
-    name: 'Кабель Apple MKQ42',
-    code: '458.328',
-    price: '139,00',
-    serviceId: '',
-    photo: 'https://res.cloudinary.com/megacritic/image/upload/v1646901316/pxls2j9rre0dwsleaatr.png',
-  },
-  {
     name: 'Смартфон Apple iPhone 11 64GB / MHDF3 (фиолетовый)',
     code: '6.267.216',
     price: '2 099,00',
@@ -355,6 +348,13 @@ export const products21: IProduct[] = [
     price: '3 533,07',
     serviceId: '6519574',
     photo: 'https://res.cloudinary.com/megacritic/image/upload/v1646901346/kwrzkqie3l337w7ai9cp.png',
+  },
+  {
+    name: 'Кабель Apple MKQ42',
+    code: '458.328',
+    price: '139,00',
+    serviceId: '',
+    photo: 'https://res.cloudinary.com/megacritic/image/upload/v1646901316/pxls2j9rre0dwsleaatr.png',
   },
   {
     name: 'Холодильник с морозильником Bosch Serie 6 VitaFresh Plus KGN39AW32R',

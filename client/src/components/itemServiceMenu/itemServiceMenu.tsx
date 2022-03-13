@@ -5,7 +5,7 @@ import './itemServiceMenu.scss';
 function ItemServiceMenu({ info }: IItemService): JSX.Element {
   return (
     <div className="itemServices">
-      <h6 className="nameService">{info.name}</h6>
+      <h6 className="nameServiceMenu">{info.name}</h6>
       <p className="descriptionItem">{info.description}</p>
       {info.outsource && (
         <p className="descriptionItem">

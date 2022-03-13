@@ -4,16 +4,17 @@
 .info {
   width: 606px;
   height: 66px;
-  margin: 16px 0 0;
+  position: relative;
   color: $productColor;
+  display: flex;
+  height: inherit;
+  align-items: center;
 
   .named {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
-    position: absolute;
+    padding-top: 10px;
     width: 292px;
-    top: 11px;
     font-family: $fontProduct;
     font-style: normal;
   }
@@ -21,7 +22,7 @@
   .nameProduct {
     font-size: 16px;
     line-height: 22px;
-    margin: 2px 0px;
+    margin-bottom: 5px;
     overflow: hidden;
     display: -webkit-box;
     -webkit-line-clamp: 2;
@@ -30,7 +31,6 @@
 
   .codeProduct {
     font-size: 12px;
-    line-height: 18px;
     color: $codeProductColor;
   }
 
@@ -78,7 +78,7 @@
     width: 90px;
     height: 26px;
     left: 516px;
-    top: 31px;
+    top: 30px;
     font-family: $fontProduct;
     font-style: normal;
     font-weight: bold;

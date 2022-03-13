@@ -9,9 +9,11 @@ import './product.scss';
 function Product({ product }: IItemProduct): JSX.Element {
   return (
     <div className="product">
-      <img className="img" src={product.photo} alt="images product" />
       <div className="wrapperInfo">
+        <img className="img" src={product.photo} alt="images product" />
         <InfoProduct product={product} />
+      </div>
+      <div className="containerService">
         <Delivery />
         <Services id={product.serviceId} />
         <OptionsGroup />

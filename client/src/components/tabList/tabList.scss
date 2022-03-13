@@ -3,6 +3,7 @@
 
 .tabGroup {
   overflow-x: scroll;
+  scroll-behavior: smooth;
   display: flex;
   height: 40px;
   padding: 3px 20px 15px 0;

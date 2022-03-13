@@ -261,6 +261,7 @@ export interface IIdService {
 export interface IServicesMenu {
   changeShowMenu: () => void;
   itemsService: IItemServices21[];
+  showMenu: boolean;
 }
 
 export interface ITabList {

@@ -1,6 +1,6 @@
 import classNames from 'classnames';
-import React, { useCallback, useState, useRef, useEffect } from 'react';
-import { ITabList } from 'shared/interfaces';
+import React, { useCallback, useEffect, useRef, useState } from 'react';
+import { ITabList } from '../../shared/interfaces';
 import './tabList.scss';
 
 function TabList({ categories, setCurrentCategory, currentCategory }: ITabList): JSX.Element {
@@ -8,11 +8,12 @@ function TabList({ categories, setCurrentCategory, currentCategory }: ITabList):
   const [scroll, setScroll] = useState({ isScroll: false, clientX: 0, scrollX: 0 });
 
   const showNewService = useCallback(
-    (category: string): void => {
-      setCurrentCategory(category);
-    },
+    (category: string): void => setCurrentCategory(category),
     [setCurrentCategory]
   );
+
+  const scrollToCenter = (e: React.MouseEvent<HTMLDivElement>): void =>
+    (e.target as Element).scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'end' });
 
   const onMouseMove = (e: React.MouseEvent<HTMLDivElement>): void => {
     if (ref && ref.current && !ref.current.contains(e.target as Element)) {
@@ -23,10 +24,12 @@ function TabList({ categories, setCurrentCategory, currentCategory }: ITabList):
     const { isScroll, clientX, scrollX } = scroll;
 
     if (isScroll && ref.current !== null) {
-      ref.current.scrollLeft = scrollX + e.clientX - clientX;
+      const scrollLeft = scrollX + e.clientX - clientX;
+      ref.current.scrollLeft = scrollLeft;
+
       setScroll({
         ...scroll,
-        scrollX: scrollX + e.clientX - clientX,
+        scrollX: scrollLeft,
         clientX: e.clientX,
       });
     }
@@ -37,7 +40,6 @@ function TabList({ categories, setCurrentCategory, currentCategory }: ITabList):
       return;
     }
     e.preventDefault();
-
     setScroll({ ...scroll, isScroll: false });
   };
 
@@ -59,7 +61,10 @@ function TabList({ categories, setCurrentCategory, currentCategory }: ITabList):
               activeTab: el === category,
             })}
             key={el}
-            onClick={() => showNewService(el)}
+            onClick={(e) => {
+              showNewService(el);
+              scrollToCenter(e);
+            }}
           >
             {el}
           </div>
@@ -77,9 +82,10 @@ function TabList({ categories, setCurrentCategory, currentCategory }: ITabList):
     <div
       className="tabGroup"
       ref={ref}
-      onMouseDown={(e) => onMouseDown(e)}
-      onMouseUp={(e) => onMouseUp(e)}
-      onMouseMove={(e) => onMouseMove(e)}
+      onMouseDown={onMouseDown}
+      onMouseUp={onMouseUp}
+      onMouseMove={onMouseMove}
+      onMouseLeave={onMouseUp}
     >
       {renderTabs(currentCategory)}
     </div>

@@ -29,7 +29,9 @@ function Services({ id }: IIdService): JSX.Element {
           </div>
         ) : null}
       </div>
-      {showMenu && <ServicesMenu changeShowMenu={changeShowMenu} itemsService={itemsService} />}
+      {showMenu && (
+        <ServicesMenu changeShowMenu={changeShowMenu} itemsService={itemsService} showMenu={showMenu} />
+      )}
     </>
   );
 }
