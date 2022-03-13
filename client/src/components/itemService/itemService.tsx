@@ -1,5 +1,5 @@
 import React from 'react';
-import { getKopecks, getRubles } from 'utils';
+import { getKopecks, getRubles } from '../../utils';
 import { IItemService } from '../../shared/interfaces';
 import './itemService.scss';
 

@@ -29,10 +29,10 @@ function ServicesMenu({ changeShowMenu, itemsService, showMenu }: IServicesMenu)
   }, [currentCategory, renderItems]);
 
   return (
-    <div className="menu" onClick={changeShowMenu}>
+    <div className="menu" onClick={changeShowMenu} data-testid="menuServices">
       <CSSTransition in={showMenu} timeout={1000} classNames="animation-menu" unmountOnExit appear>
         <div className="wrapperContent" onClick={(e) => e.stopPropagation()}>
-          <div className="closeMenu" onClick={changeShowMenu} />
+          <div className="closeMenu" onClick={changeShowMenu} data-testid='closeMenu'/>
           <div className="contentMenu">
             <h4 className="caption">Дополнительные услуги</h4>
             <TabList
