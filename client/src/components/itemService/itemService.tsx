@@ -9,8 +9,11 @@ function ItemService({ info }: IItemService): JSX.Element {
   return (
     <div className="wrapperItem">
       <div className="itemService">
-        <input type="checkbox" className="checkbox" />
-        <h5 className="nameService">{name}</h5>
+        <label className="nameService">
+          {name}
+          <input type="checkbox" className="checkbox" />
+          <span className="checkMark" />
+        </label>
         <div className="priceService">
           {getRubles(price)},<span className="serviceKopecks">{getKopecks(price)} р.</span>
         </div>

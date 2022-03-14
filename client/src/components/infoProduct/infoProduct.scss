@@ -4,16 +4,16 @@
 .info {
   width: 606px;
   height: 66px;
-  position: relative;
   color: $productColor;
   display: flex;
   height: inherit;
   align-items: center;
+  justify-content: space-between;
 
   .named {
     display: flex;
     flex-direction: column;
-    padding-top: 10px;
+    padding-top: 9px;
     width: 292px;
     font-family: $fontProduct;
     font-style: normal;
@@ -22,7 +22,7 @@
   .nameProduct {
     font-size: 16px;
     line-height: 22px;
-    margin-bottom: 5px;
+    margin-bottom: 4px;
     overflow: hidden;
     display: -webkit-box;
     -webkit-line-clamp: 2;
@@ -35,11 +35,8 @@
   }
 
   .counterProduct {
-    position: absolute;
     width: 96px;
     height: 32px;
-    left: 316px;
-    top: 28px;
     display: flex;
     justify-content: space-between;
   }
@@ -63,10 +60,6 @@
   }
 
   .countProduct {
-    left: 33.33%;
-    right: 33.33%;
-    top: 6.25%;
-    bottom: 8.04%;
     font-size: 14px;
     line-height: 20px;
     display: flex;
@@ -74,17 +67,15 @@
   }
 
   .price {
-    position: absolute;
-    width: 90px;
+    width: 170px;
+    text-align: right;
     height: 26px;
-    left: 516px;
-    top: 30px;
     font-family: $fontProduct;
     font-style: normal;
     font-weight: bold;
     font-size: 18px;
     line-height: 26px;
-    text-align: right;
+    margin: 0;
   }
 
   .kopecks {

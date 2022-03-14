@@ -40,7 +40,7 @@ function TabList({ categories, setCurrentCategory, currentCategory }: ITabList):
       return;
     }
     e.preventDefault();
-    setScroll({ ...scroll, isScroll: false });
+    setScroll({ isScroll: false, clientX: 0, scrollX: 0 });
   };
 
   const onMouseDown = (e: React.MouseEvent<HTMLDivElement>): void => {

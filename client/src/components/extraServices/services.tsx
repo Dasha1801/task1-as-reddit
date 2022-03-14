@@ -1,17 +1,23 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import { IIdService, IItemServices } from '../../shared/interfaces';
+import { dataServices } from '../../shared/mocks';
 import ItemService from '../itemService/itemService';
-import { dataServices21vek } from '../../shared/mocks';
-import { IItemServices21, IIdService } from '../../shared/interfaces';
 import ServicesMenu from '../servicesMenu/servicesMenu';
 import './services.scss';
 
 function Services({ id }: IIdService): JSX.Element {
   const [showMenu, setShowMenu] = useState(false);
-  const itemsService = dataServices21vek[id];
+  const itemsService = dataServices[id];
 
-  const changeShowMenu = (): void => setShowMenu(!showMenu);
+  const handlerClick = (): void => {
+    setShowMenu(!showMenu);
+  };
 
-  const renderServices = (items: IItemServices21[]): JSX.Element[] =>
+  useEffect(() => {
+    showMenu ? document.body.classList.add('noneScroll') : document.body.classList.remove('noneScroll');
+  }, [showMenu]);
+
+  const renderServices = (items: IItemServices[]): JSX.Element[] =>
     items.slice(0, 2).map((el) => <ItemService info={el} key={el.id} />);
 
   return (
@@ -22,7 +28,7 @@ function Services({ id }: IIdService): JSX.Element {
             <h3 className="titleServices">Дополнительные услуги</h3>
             {renderServices(itemsService)}
             {itemsService.length > 2 && (
-              <div className="allServices" onClick={changeShowMenu}>
+              <div className="allServices" onClick={handlerClick}>
                 Все услуги
               </div>
             )}
@@ -30,7 +36,7 @@ function Services({ id }: IIdService): JSX.Element {
         ) : null}
       </div>
       {showMenu && (
-        <ServicesMenu changeShowMenu={changeShowMenu} itemsService={itemsService} showMenu={showMenu} />
+        <ServicesMenu changeShowMenu={handlerClick} itemsService={itemsService} showMenu={showMenu} />
       )}
     </>
   );

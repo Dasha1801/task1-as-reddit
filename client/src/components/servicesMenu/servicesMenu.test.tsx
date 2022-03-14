@@ -2,15 +2,13 @@ import React from 'react';
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import ServicesMenu from './servicesMenu';
-import { dataServices21vek } from '../../shared/mocks';
+import { dataServices } from '../../shared/mocks';
 
 describe('Test ServicesMenu component', () => {
   const changeShowMenu = jest.fn();
 
   it('should render component', () => {
-    render(
-      <ServicesMenu changeShowMenu={changeShowMenu} showMenu itemsService={dataServices21vek['476171']} />
-    );
+    render(<ServicesMenu changeShowMenu={changeShowMenu} showMenu itemsService={dataServices['476171']} />);
 
     expect(screen.getByText(/дополнительные услуги/i)).toBeInTheDocument();
     expect(screen.getByText(/Гарантия/i)).toBeInTheDocument();
@@ -20,9 +18,7 @@ describe('Test ServicesMenu component', () => {
 
   it('should render new services when click tab', () => {
     window.HTMLElement.prototype.scrollIntoView = jest.fn();
-    render(
-      <ServicesMenu changeShowMenu={changeShowMenu} showMenu itemsService={dataServices21vek['476171']} />
-    );
+    render(<ServicesMenu changeShowMenu={changeShowMenu} showMenu itemsService={dataServices['476171']} />);
 
     userEvent.click(screen.getByText(/гарантия/i));
 

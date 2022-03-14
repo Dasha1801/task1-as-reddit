@@ -14,6 +14,10 @@
   font-style: normal;
   color: $menuServicesColor;
 
+  .wrapperItemServiceMenu {
+    margin-top: 23px;
+  }
+
   .animation-menu-enter,
   .animation-menu-appear {
     transform: translateX(484px);
@@ -23,6 +27,15 @@
   .animation-menu-appear-active {
     transform: translateX(0);
     transition: all 1000ms;
+  }
+
+  .animation-menu-exit {
+    transform: translateX(0);
+    transition: all 1000ms;
+  }
+
+  .animation-menu-exit-active {
+    transform: translateX(484px);
   }
 
   .wrapperContent {

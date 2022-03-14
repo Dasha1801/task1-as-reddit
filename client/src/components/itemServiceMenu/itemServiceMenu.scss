@@ -5,7 +5,7 @@
   border: 1px solid $itemMenuBorderColor;
   border-radius: 8px;
   padding: 20px;
-  margin: 23px 0;
+  margin-bottom: 20px;
   font-family: $fontMenuServices;
   font-style: normal;
   color: $menuServicesColor;
@@ -20,6 +20,11 @@
     font-weight: 400;
     font-size: 14px;
     line-height: 20px;
+    margin-bottom: 12px;
+  }
+
+  .noneMargin {
+    margin-bottom: 0;
   }
 
   .moreInfo {
@@ -31,6 +36,7 @@
     font-size: 14px;
     line-height: 20px;
     color: $moreInfoServicesColor;
+    margin: 12px 0px;
   }
 
   .moreInfo::before {

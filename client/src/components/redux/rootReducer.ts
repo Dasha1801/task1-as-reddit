@@ -1,12 +1,12 @@
 import { combineReducers } from '@reduxjs/toolkit';
 import { article_reducer } from './slices/articleSlice';
+import { board_reducer } from './slices/boardSlice';
 import { error_reducer } from './slices/errorSlice';
 import { loading_reducer } from './slices/loadingSlice';
+import { popover_reducer } from './slices/popoverSlice';
 import { savedArticles_reducer } from './slices/savedArticlesSlice';
 import { sort_reducer } from './slices/sortSlice';
 import { user_reducer } from './slices/userSlice';
-import { popover_reducer } from './slices/popoverSlice';
-import { board_reducer } from './slices/boardSlice';
 
 const rootReducer = combineReducers({
   loading: loading_reducer,

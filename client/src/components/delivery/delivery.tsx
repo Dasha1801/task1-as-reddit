@@ -6,8 +6,14 @@ function Delivery(): JSX.Element {
     <div className="wrapperDelivery">
       <div className="delivery">
         <h3 className="titleDelivery">Доставка:</h3>
-        <span className="itemDelivery variant1">Курьером завтра</span>
-        <span className="itemDelivery variant2">Самовывоз сегодня</span>
+        <div className="itemDelivery variant1">
+          <img src="images/auto.png" alt="" />
+          <span>Курьером завтра</span>
+        </div>
+        <div className="itemDelivery variant2">
+          <img src="images/location.png" alt="" />
+          <span>Самовывоз сегодня</span>
+        </div>
       </div>
     </div>
   );

@@ -13,40 +13,32 @@
 
   .delivery {
     display: flex;
-    width: 402px;
-    height: 24px;
-    margin: 2px 0 0 15px;
+    width: 382px;
+    margin-left: 20px;
     align-items: center;
+    justify-content: space-between;
   }
 
   .titleDelivery {
     width: 70px;
     font-weight: bold;
     font-size: 14px;
-    line-height: 20px;
-    margin: 0px 4px;
+    margin: 0;
   }
 
   .itemDelivery {
     font-size: 14px;
-    line-height: 20px;
     display: flex;
+    justify-content: space-between;
     align-items: center;
-    margin: 0px 4px;
   }
 
-  .variant1::before {
-    content: url(../../../public/images/auto.png);
-    width: 24px;
-    height: 24px;
-    line-height: 24px;
+  .variant1 {
+    width: 135px;
+    margin-right: 12px;
   }
 
-  .variant2::before {
-    content: url(../../../public/images/location.png);
-    width: 24px;
-    height: 24px;
-    line-height: 30px;
-    margin-left: 10px;
+  .variant2 {
+    width: 153px;
   }
 }

@@ -10,7 +10,7 @@ function Product({ product }: IItemProduct): JSX.Element {
   return (
     <div className="product">
       <div className="wrapperInfo" data-testid='infoProduct'>
-        <img className="img" src={product.photo} alt="images product" />
+        <img className="img" src={product.photo} alt="images product" data-testid='image'/>
         <InfoProduct product={product} />
       </div>
       <div className="containerService" data-testid='servicesProduct'>

@@ -217,13 +217,13 @@ export interface IPropsCreateTask {
   handleClose: () => void;
 }
 
-export interface ICategory21 {
+export interface ICategory {
   name: string;
   id: string;
   type: string;
 }
 
-export interface IItemServices21 {
+export interface IItemServices {
   name: string;
   id: string;
   code: string;
@@ -231,15 +231,15 @@ export interface IItemServices21 {
   link: string;
   price: string;
   outsource: boolean;
-  category: ICategory21;
+  category: ICategory;
 }
 
 export interface IItemService {
-  info: IItemServices21;
+  info: IItemServices;
 }
 
-export interface IItemsServices21 {
-  [x: string]: IItemServices21[];
+export interface IItemsServices {
+  [x: string]: IItemServices[];
 }
 
 export interface IProduct {
@@ -260,7 +260,7 @@ export interface IIdService {
 
 export interface IServicesMenu {
   changeShowMenu: () => void;
-  itemsService: IItemServices21[];
+  itemsService: IItemServices[];
   showMenu: boolean;
 }
 

@@ -5,7 +5,7 @@ import {
   IFilters,
   IModerator,
   IRulesSubreddit,
-  IItemsServices21,
+  IItemsServices,
   IProduct,
 } from './interfaces';
 
@@ -122,7 +122,7 @@ export const moderators: IModerator[] = [
   { name: 'u/AutoModerator', id: 'm7', text: '' },
 ];
 
-export const dataServices21vek: IItemsServices21 = {
+export const dataServices: IItemsServices = {
   '476171': [
     {
       name: 'Сертификат «Негарантийный ремонт» на 1 год',
@@ -334,7 +334,7 @@ export const dataServices21vek: IItemsServices21 = {
   ],
 };
 
-export const products21: IProduct[] = [
+export const products: IProduct[] = [
   {
     name: 'Смартфон Apple iPhone 11 64GB / MHDF3 (фиолетовый)',
     code: '6.267.216',
