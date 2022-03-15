@@ -269,3 +269,7 @@ export interface ITabList {
   setCurrentCategory: React.Dispatch<React.SetStateAction<string>>;
   currentCategory: string;
 }
+
+export interface IPopoverBasket {
+  text: string;
+}
