@@ -1,0 +1,35 @@
+@import '../../colors.scss';
+@import '../../index.scss';
+
+.baseBtn {
+  border: none;
+
+  border-radius: 4px;
+  margin-left: 16px;
+}
+
+.baseBtn:hover {
+  cursor: url(../../../public/images/cursor.png), auto;
+}
+
+.btnAddService {
+  background: $btnAddBg;
+  font-family: $fontMenuServices;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 20px;
+  padding: 14px 24px;
+  text-align: center;
+  color: $btnAddColor;
+}
+
+.btnDeleteService {
+  width: 40px;
+  height: 40px;
+  background-color: $btnDeleteBg;
+  background-image: url(../../../public/images/basket.png);
+  background-repeat: no-repeat;
+  background-size: 11.38px 12.56px;
+  background-position: center;
+}

@@ -49,7 +49,13 @@
     font-weight: 700;
     font-size: 18px;
     line-height: 26px;
-    text-align: right;
     margin-top: 16px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+  }
+
+  .star {
+    color: $colorStar;
   }
 }
