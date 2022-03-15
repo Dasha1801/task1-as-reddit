@@ -23,6 +23,7 @@ require("./routes/article.route")(app);
 require("./routes/comment.route")(app);
 require("./routes/savedArticle.route")(app);
 require("./routes/user.route")(app);
+require("./routes/service.route")(app);
 
 // setInterval(() => {
 //   fetchData();
