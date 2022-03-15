@@ -7,6 +7,7 @@ import { popover_reducer } from './slices/popoverSlice';
 import { savedArticles_reducer } from './slices/savedArticlesSlice';
 import { sort_reducer } from './slices/sortSlice';
 import { user_reducer } from './slices/userSlice';
+import { service_reducer } from './slices/serviceSlice';
 
 const rootReducer = combineReducers({
   loading: loading_reducer,
@@ -17,6 +18,7 @@ const rootReducer = combineReducers({
   user: user_reducer,
   popover: popover_reducer,
   board: board_reducer,
+  service: service_reducer,
 });
 
 export default rootReducer;

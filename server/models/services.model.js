@@ -1,5 +1,11 @@
 module.exports = (sequelize, Sequelize) => {
   const Services = sequelize.define("service", {
+    id: {
+      type: Sequelize.INTEGER,
+      autoIncrement: true,
+      primaryKey: true,
+      allowNull: false,
+    },
     userId: {
       type: Sequelize.STRING,
     },
@@ -11,7 +17,6 @@ module.exports = (sequelize, Sequelize) => {
     },
     serviceId: {
       type: Sequelize.STRING,
-      primaryKey: true,
     },
   });
 
