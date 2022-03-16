@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { DropResult } from 'react-beautiful-dnd';
 import { baseUrl } from '../../constants';
-import { fetchArticles, fetchSavedArticles } from '../../server/api';
+import { fetchArticles, fetchSavedArticles, getSavedServices } from '../../server/api';
 import {
   ArticleInfo,
   ILogInSocialUser,
@@ -10,6 +10,7 @@ import {
   IRegisterUser,
   IUser,
   IColumns,
+  ISavedService,
 } from '../../shared/interfaces';
 import { route } from '../../utils';
 import { getStateError } from './slices/errorSlice';
@@ -18,6 +19,7 @@ import { showPopover } from './slices/popoverSlice';
 import { setSavedArticles } from './slices/savedArticlesSlice';
 import { addUser } from './slices/userSlice';
 import { updateBoard } from './slices/boardSlice';
+import { getServices } from './slices/serviceSlice';
 
 export const fetchData = (count: number, setArticles: React.Dispatch<React.SetStateAction<ArticleInfo[]>>) =>
   async function getArticles(
@@ -33,6 +35,13 @@ export const fetchData = (count: number, setArticles: React.Dispatch<React.SetSt
       .finally(() => {
         dispatch(getStateLoading({ loading: false }));
       });
+  };
+
+export const fetchSavedServices = () =>
+  async function getSaveServices(dispatch: (arg0: { payload: ISavedService[]; type: string }) => void) {
+    const savedServices = await getSavedServices();
+
+    dispatch(getServices(savedServices));
   };
 
 export const logInUser = (res: ILogInUser | ILogInSocialUser, path: string) =>

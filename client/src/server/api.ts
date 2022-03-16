@@ -1,6 +1,24 @@
 import axios, { AxiosResponse } from 'axios';
 import { baseUrl } from '../constants/index';
-import { ArticleInfo, IArticleId, ICommentInfo, ILimitArticles } from '../shared/interfaces';
+import {
+  ArticleInfo,
+  IArticleId,
+  ICommentInfo,
+  ILimitArticles,
+  ISavedService,
+  IServiceId,
+} from '../shared/interfaces';
+
+export const saveService = (service: ISavedService): Promise<void> =>
+  axios.post(`${baseUrl}service`, service);
+
+export const deleteService = (serviceId: IServiceId): Promise<void> =>
+  axios.post(`${baseUrl}delete`, serviceId);
+
+export const getSavedServices = (): Promise<ISavedService[]> =>
+  axios.get(`${baseUrl}services`).then((res) => res.data);
+
+axios.get(`${baseUrl}services`).then((res) => res.data);
 
 export const fetchSavedArticles = (token: string): Promise<AxiosResponse> => {
   const options = {

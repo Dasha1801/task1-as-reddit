@@ -238,6 +238,12 @@ export interface IItemService {
   info: IItemServices;
 }
 
+export interface IItemServiceMenu {
+  info: IItemServices;
+  code: string;
+  idService: string;
+}
+
 export interface IItemsServices {
   [x: string]: IItemServices[];
 }
@@ -254,14 +260,17 @@ export interface IItemProduct {
   product: IProduct;
 }
 
-export interface IIdService {
+export interface IService {
   id: string;
+  code: string;
 }
 
 export interface IServicesMenu {
   changeShowMenu: () => void;
   itemsService: IItemServices[];
   showMenu: boolean;
+  code: string;
+  idService: string;
 }
 
 export interface ITabList {
@@ -272,4 +281,14 @@ export interface ITabList {
 
 export interface IPopoverBasket {
   text: string;
+}
+
+export interface ISavedService {
+  productId: string;
+  servicesName: string;
+  serviceId: string;
+}
+
+export interface IServiceId {
+  serviceId: string;
 }

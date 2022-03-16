@@ -1,8 +1,8 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import Articles from '../articles/articles';
-import ListProducts from '../listProducts/listProducts';
 import ButtonScrollTop from '../buttonScrollTop/buttonScrollTop';
+import ListProducts from '../listProducts/listProducts';
 import PageNotFound from '../pageNotFound/pageNotFound';
 import { TStore } from '../redux';
 import Sidebar from '../sidebar/sidebar';

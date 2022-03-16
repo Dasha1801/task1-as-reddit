@@ -6,7 +6,13 @@ import TabList from '../tabList/tabList';
 import { timeout } from '../../constants';
 import './servicesMenu.scss';
 
-function ServicesMenu({ changeShowMenu, itemsService, showMenu }: IServicesMenu): JSX.Element {
+function ServicesMenu({
+  changeShowMenu,
+  itemsService,
+  showMenu,
+  code,
+  idService,
+}: IServicesMenu): JSX.Element {
   const [isAnimation, setIsAnimation] = useState(showMenu);
   const categories = Array.from(new Set(itemsService.map((el) => el.category.name)));
   const [currentCategory, setCurrentCategory] = useState(categories[1]);
@@ -25,12 +31,12 @@ function ServicesMenu({ changeShowMenu, itemsService, showMenu }: IServicesMenu)
       return (
         <div className="wrapperItemServiceMenu">
           {items.map((el) => (
-            <ItemServiceMenu info={el} key={el.id} />
+            <ItemServiceMenu info={el} key={el.id} code={code} idService={idService} />
           ))}
         </div>
       );
     },
-    [itemsService]
+    [itemsService, code, idService]
   );
 
   useEffect(() => {

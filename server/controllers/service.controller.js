@@ -3,7 +3,6 @@ const Service = db.services;
 
 exports.addService = (req, res) => {
   const service = {
-    userId: req.body.userId,
     productId: req.body.productId,
     servicesName: req.body.servicesName,
     serviceId: req.body.serviceId,
@@ -22,8 +21,7 @@ exports.addService = (req, res) => {
 };
 
 exports.findServices = (req, res) => {
-  const { userId } = req.body;
-  Service.findAll({ where: { userId: userId } })
+  Service.findAll()
     .then((data) => {
       res.send(data);
     })
@@ -33,11 +31,10 @@ exports.findServices = (req, res) => {
 };
 
 exports.deleteService = (req, res) => {
-  const { userId } = req.body;
   const { serviceId } = req.body;
 
   Service.destroy({
-    where: { userId: userId, serviceId: serviceId },
+    where: { serviceId: serviceId },
   })
     .then((num) => {
       if (num == 1) {

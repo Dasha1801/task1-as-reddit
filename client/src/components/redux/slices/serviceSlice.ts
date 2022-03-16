@@ -1,16 +1,11 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { ISavedService } from '../../../shared/interfaces';
 
-interface IService {
-  productId: string;
-  servicesName: string;
-  serviceId: string;
+interface IStateServices {
+  services: ISavedService[];
 }
 
-interface IServices {
-  services: IService[];
-}
-
-const initialState: IServices = {
+const initialState: IStateServices = {
   services: [],
 };
 
@@ -18,7 +13,7 @@ const serviceSlice = createSlice({
   name: 'service',
   initialState,
   reducers: {
-    getServices: (state, { payload }: PayloadAction<IService[]>) => {
+    getServices: (state, { payload }: PayloadAction<ISavedService[]>) => {
       state.services = payload;
     },
   },

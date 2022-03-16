@@ -10,6 +10,15 @@
   font-style: normal;
   color: $menuServicesColor;
 
+  .wrapperTitle {
+    display: flex;
+    align-items: baseline;
+  }
+
+  .popoverIcon {
+    margin-right: 8px;
+  }
+
   .nameServiceMenu {
     font-weight: 700;
     font-size: 16px;
@@ -58,4 +67,8 @@
   .star {
     color: $colorStar;
   }
+}
+
+.saveItem {
+  border: 2px solid $itemAddedBorderColor;
 }

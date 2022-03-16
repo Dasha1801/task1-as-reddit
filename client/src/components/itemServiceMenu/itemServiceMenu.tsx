@@ -1,16 +1,22 @@
 import React from 'react';
+import classNames from 'classnames';
 import { useSelector } from 'react-redux';
-import BtnAdd from '../btnsService/btnAdd';
-import { IItemService } from '../../shared/interfaces';
 import { TStore } from '../redux';
+import { IItemServiceMenu } from '../../shared/interfaces';
+import BtnAdd from '../btnsService/btnAdd';
+import BtnDelete from '../btnsService/btnDelete';
 import './itemServiceMenu.scss';
 
-function ItemServiceMenu({ info }: IItemService): JSX.Element {
-  const { user } = useSelector((state: TStore) => state.user);
+function ItemServiceMenu({ info, code, idService }: IItemServiceMenu): JSX.Element {
+  const { services } = useSelector((state: TStore) => state.service);
+  const isAdd = services.find((el) => el.serviceId === info.id);
 
   return (
-    <div className="itemServices">
-      <h6 className="nameServiceMenu">{info.name}</h6>
+    <div className={classNames('itemServices', { saveItem: isAdd })}>
+      <div className="wrapperTitle">
+        {isAdd && <img src="images/iconPopover.png" alt="icon" className="popoverIcon" />}
+        <h6 className="nameServiceMenu">{info.name}</h6>
+      </div>
       <p className="descriptionItem noneMargin">{info.description}</p>
       {info.outsource && (
         <p className="descriptionItem">
@@ -27,7 +33,8 @@ function ItemServiceMenu({ info }: IItemService): JSX.Element {
         {info.price}
         {' p.'}
         {info.outsource && <span className="star">*</span>}
-        {user.name && <BtnAdd />}
+
+        {isAdd ? <BtnDelete info={info} /> : <BtnAdd info={info} code={code} idService={idService} />}
       </div>
     </div>
   );

@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import { IIdService, IItemServices } from '../../shared/interfaces';
+import { IService, IItemServices } from '../../shared/interfaces';
 import { dataServices } from '../../shared/mocks';
 import ItemService from '../itemService/itemService';
 import ServicesMenu from '../servicesMenu/servicesMenu';
 import './services.scss';
 
-function Services({ id }: IIdService): JSX.Element {
+function Services({ id, code }: IService): JSX.Element {
   const [showMenu, setShowMenu] = useState(false);
   const itemsService = dataServices[id];
 
@@ -36,7 +36,13 @@ function Services({ id }: IIdService): JSX.Element {
         ) : null}
       </div>
       {showMenu && (
-        <ServicesMenu changeShowMenu={handlerClick} itemsService={itemsService} showMenu={showMenu} />
+        <ServicesMenu
+          changeShowMenu={handlerClick}
+          itemsService={itemsService}
+          showMenu={showMenu}
+          code={code}
+          idService={id}
+        />
       )}
     </>
   );
