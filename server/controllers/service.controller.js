@@ -6,6 +6,7 @@ exports.addService = (req, res) => {
     productId: req.body.productId,
     servicesName: req.body.servicesName,
     serviceId: req.body.serviceId,
+    category: req.body.category,
   };
 
   Service.create(service)

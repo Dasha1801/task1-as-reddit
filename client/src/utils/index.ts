@@ -1,5 +1,5 @@
 import { cities } from '../data/cities';
-import { ICommentInfo, IFilters } from '../shared/interfaces';
+import { ICommentInfo, IFilters, ISavedService } from '../shared/interfaces';
 
 export enum route {
   signUp = 'signup',
@@ -52,3 +52,6 @@ export const sortFilters = (a: IFilters, b: IFilters): number => (a.order > b.or
 export const getRubles = (str: string): string => str.slice(0, -3);
 
 export const getKopecks = (str: string): string => str.slice(str.length - 2);
+
+export const getCountSavedServices = (str: string, services: ISavedService[], code: string): number =>
+  services.filter((el) => el.productId === code).filter((el) => el.category === str).length;

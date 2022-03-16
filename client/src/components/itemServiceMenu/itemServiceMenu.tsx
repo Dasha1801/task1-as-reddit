@@ -9,7 +9,7 @@ import './itemServiceMenu.scss';
 
 function ItemServiceMenu({ info, code, idService }: IItemServiceMenu): JSX.Element {
   const { services } = useSelector((state: TStore) => state.service);
-  const isAdd = services.find((el) => el.serviceId === info.id);
+  const isAdd = services.find((el) => el.serviceId === info.id && el.productId === code);
 
   return (
     <div className={classNames('itemServices', { saveItem: isAdd })}>

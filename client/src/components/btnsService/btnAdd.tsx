@@ -8,7 +8,12 @@ import './stylesBtn.scss';
 function BtnAdd({ info, code, idService }: IItemServiceMenu): JSX.Element {
   const dispatch = useDispatch();
   const handlerClick = async (): Promise<void> => {
-    await saveService({ productId: code, servicesName: idService, serviceId: info.id });
+    await saveService({
+      productId: code,
+      servicesName: idService,
+      serviceId: info.id,
+      category: info.category.name,
+    });
 
     fetchSavedServices()(dispatch);
   };

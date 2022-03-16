@@ -15,7 +15,7 @@ function ServicesMenu({
 }: IServicesMenu): JSX.Element {
   const [isAnimation, setIsAnimation] = useState(showMenu);
   const categories = Array.from(new Set(itemsService.map((el) => el.category.name)));
-  const [currentCategory, setCurrentCategory] = useState(categories[1]);
+  const [currentCategory, setCurrentCategory] = useState(categories[0]);
 
   const close = (): void => {
     setIsAnimation(!isAnimation);
@@ -54,6 +54,7 @@ function ServicesMenu({
               categories={categories}
               setCurrentCategory={setCurrentCategory}
               currentCategory={currentCategory}
+              code={code}
             />
             {renderItems(currentCategory)}
           </div>

@@ -277,6 +277,7 @@ export interface ITabList {
   categories: string[];
   setCurrentCategory: React.Dispatch<React.SetStateAction<string>>;
   currentCategory: string;
+  code: string;
 }
 
 export interface IPopoverBasket {
@@ -287,6 +288,7 @@ export interface ISavedService {
   productId: string;
   servicesName: string;
   serviceId: string;
+  category: string;
 }
 
 export interface IServiceId {

@@ -10,6 +10,7 @@ module.exports = (sequelize, Sequelize) => {
       type: Sequelize.STRING,
       primaryKey: true,
     },
+    category: Sequelize.STRING,
   });
 
   return Services;
