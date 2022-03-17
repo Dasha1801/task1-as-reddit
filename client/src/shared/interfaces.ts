@@ -242,6 +242,7 @@ export interface IItemServiceMenu {
   info: IItemServices;
   code: string;
   idService: string;
+  checked?: boolean;
 }
 
 export interface IItemsServices {

@@ -1,17 +1,12 @@
-import React, { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import React from 'react';
+import { useSelector } from 'react-redux';
+import { products } from '../../shared/mocks';
+import PopoverService from '../popoverService/popover';
 import Product from '../product/product';
 import { TStore } from '../redux';
-import PopoverService from '../popoverService/popover';
-import { products } from '../../shared/mocks';
-import { fetchSavedServices } from '../redux/asyncActions';
 
 function ListProducts(): JSX.Element {
-  const dispatch = useDispatch();
   const { text, isShow } = useSelector((state: TStore) => state.popoverService).popoverService;
-  useEffect(() => {
-    fetchSavedServices()(dispatch);
-  }, [dispatch]);
 
   return (
     <div>

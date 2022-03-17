@@ -25,7 +25,7 @@ describe('Test ServicesMenu component', () => {
     expect(screen.getByText(/дополнительные услуги/i)).toBeInTheDocument();
     expect(screen.getByText(/Гарантия/i)).toBeInTheDocument();
     expect(screen.getByText(/Сервесное обслуживание/i)).toBeInTheDocument();
-    expect(screen.getByText(/Сервесное обслуживание/i)).toHaveClass('activeTab');
+    expect(screen.getByText(/Гарантия/i)).toHaveClass('activeTab');
   });
 
   it('should render new services when click tab', () => {
