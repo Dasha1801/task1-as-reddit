@@ -1,12 +1,16 @@
 import React, { useEffect, useState } from 'react';
-import { IService, IItemServices } from '../../shared/interfaces';
+import { useSelector } from 'react-redux';
+import { IItemServices, ISavedService, IService } from '../../shared/interfaces';
 import { dataServices } from '../../shared/mocks';
 import ItemService from '../itemService/itemService';
+import { TStore } from '../redux';
 import ServicesMenu from '../servicesMenu/servicesMenu';
 import './services.scss';
 
 function Services({ id, code }: IService): JSX.Element {
   const [showMenu, setShowMenu] = useState(false);
+  const { services } = useSelector((state: TStore) => state.service);
+  const savedServices = services.filter((el) => el.productId === code);
   const itemsService = dataServices[id];
 
   const handlerClick = (): void => {
@@ -17,8 +21,19 @@ function Services({ id, code }: IService): JSX.Element {
     showMenu ? document.body.classList.add('noneScroll') : document.body.classList.remove('noneScroll');
   }, [showMenu]);
 
-  const renderServices = (items: IItemServices[]): JSX.Element[] =>
-    items.slice(0, 2).map((el) => <ItemService info={el} key={el.id} />);
+  const renderServices = (items: IItemServices[], savedItems: ISavedService[]): JSX.Element[] => {
+    if (!savedItems.length) {
+      return items.slice(0, 2).map((el) => <ItemService info={el} key={el.id} />);
+    }
+
+    const getSavedItems = savedItems.reduce((acc, el) => {
+      items.find((item) => item.id === el.serviceId && acc.push(item));
+
+      return acc;
+    }, [] as IItemServices[]);
+
+    return getSavedItems.map((el) => <ItemService info={el} key={el.id} />);
+  };
 
   return (
     <>
@@ -26,7 +41,7 @@ function Services({ id, code }: IService): JSX.Element {
         {id ? (
           <div className="services">
             <h3 className="titleServices">Дополнительные услуги</h3>
-            {renderServices(itemsService)}
+            {renderServices(itemsService, savedServices)}
             {itemsService.length > 2 && (
               <div className="allServices" onClick={handlerClick}>
                 Все услуги
