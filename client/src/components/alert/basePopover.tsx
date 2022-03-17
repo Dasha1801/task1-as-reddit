@@ -2,7 +2,7 @@ import React from 'react';
 import { useDispatch } from 'react-redux';
 import { Alert } from 'react-bootstrap';
 import { IPopover } from '../../shared/interfaces';
-import { showPopover } from '../redux/slices/popoverSlice';
+import { showPopoverAuth } from '../redux/slices/popoverAuth';
 import './alert.scss';
 
 function BasePopover({ ...props }: IPopover): JSX.Element {
@@ -12,7 +12,7 @@ function BasePopover({ ...props }: IPopover): JSX.Element {
   return (
     <Alert
       variant={variant}
-      onClose={() => dispatch(showPopover({ show: false }))}
+      onClose={() => dispatch(showPopoverAuth({ show: false }))}
       dismissible
       className={`alert ${className}`}
     >

@@ -2,7 +2,7 @@ import React from 'react';
 import { IPopoverBasket } from '../../shared/interfaces';
 import './popover.scss';
 
-function Popover({ text }: IPopoverBasket): JSX.Element {
+function PopoverService({ text }: IPopoverBasket): JSX.Element {
   return (
     <div className="containerPopover">
       <img src="images/iconPopover.png" alt="icon" className="popoverIcon" />
@@ -11,4 +11,4 @@ function Popover({ text }: IPopoverBasket): JSX.Element {
   );
 }
 
-export default Popover;
+export default PopoverService;

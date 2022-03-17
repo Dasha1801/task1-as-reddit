@@ -11,13 +11,10 @@ exports.addService = (req, res) => {
 
   Service.create(service)
     .then((data) => {
-      res.send(data);
+      res.send("Услуга добавлена в корзину");
     })
     .catch((err) => {
-      res.status(500).send({
-        message:
-          err.message || "Some error occurred while creating the Service.",
-      });
+      res.status(500).send("Что-то пошло не так, попробуйте еще раз");
     });
 };
 
@@ -39,18 +36,10 @@ exports.deleteService = (req, res) => {
   })
     .then((num) => {
       if (num == 1) {
-        res.send({
-          message: "Service was deleted successfully!",
-        });
-      } else {
-        res.send({
-          message: `Cannot delete Service with id=${id}. Maybe Service was not found!`,
-        });
+        res.send("Услуга удалена");
       }
     })
     .catch((err) => {
-      res.status(500).send({
-        message: "Could not delete Service with id=" + id,
-      });
+      res.status(500).send("Что-то пошло не так, попробуйте еще раз");
     });
 };

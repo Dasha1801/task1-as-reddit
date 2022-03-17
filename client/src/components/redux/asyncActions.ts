@@ -15,7 +15,7 @@ import {
 import { route } from '../../utils';
 import { getStateError } from './slices/errorSlice';
 import { getStateLoading } from './slices/loadingSlice';
-import { showPopover } from './slices/popoverSlice';
+import { showPopoverAuth } from './slices/popoverAuth';
 import { setSavedArticles } from './slices/savedArticlesSlice';
 import { addUser } from './slices/userSlice';
 import { updateBoard } from './slices/boardSlice';
@@ -56,7 +56,7 @@ export const logInUser = (res: ILogInUser | ILogInSocialUser, path: string) =>
         }
       })
       .finally(() => {
-        dispatch(showPopover({ show: true }));
+        dispatch(showPopoverAuth({ show: true }));
       });
   };
 
@@ -72,7 +72,7 @@ export const updateProfile = (res: IRegisterUser) =>
         }
       })
       .finally(() => {
-        dispatch(showPopover({ show: true }));
+        dispatch(showPopoverAuth({ show: true }));
       });
   };
 
@@ -90,7 +90,7 @@ export const signUpUser = (res: IRegisterUser | IRegisterSocialUser) =>
         }
       })
       .finally(() => {
-        dispatch(showPopover({ show: true }));
+        dispatch(showPopoverAuth({ show: true }));
       });
   };
 

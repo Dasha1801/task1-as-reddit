@@ -13,7 +13,7 @@ import './forms.scss';
 
 function FormUpdate(): JSX.Element {
   const { name, email, accessToken, phone, city, address } = useSelector((state: TStore) => state.user).user;
-  const { show } = useSelector((state: TStore) => state.popover);
+  const { show } = useSelector((state: TStore) => state.popoverAuth);
   const dispatch = useDispatch();
 
   const handleUpdate = (props: IRegisterUser): void => {
