@@ -1,11 +1,10 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import { deleteService, saveService } from '../../server/api';
-import { showPopoverService, hidePopoverService } from '../redux/slices/popoverService';
-import { fetchSavedServices } from '../redux/asyncActions';
-import { timeout } from '../../constants';
-import { getKopecks, getRubles } from '../../utils';
+import { sendMessage } from '../../server/socket';
 import { IItemServiceMenu } from '../../shared/interfaces';
+import { getKopecks, getRubles, hidePopover } from '../../utils';
+import { showPopoverService } from '../redux/slices/popoverService';
 import './itemService.scss';
 
 function ItemService({ info, checked, code, idService }: IItemServiceMenu): JSX.Element {
@@ -25,11 +24,8 @@ function ItemService({ info, checked, code, idService }: IItemServiceMenu): JSX.
       const res = await deleteService({ serviceId: info.id });
       dispatch(showPopoverService({ text: res, isShow: true }));
     }
-
-    fetchSavedServices()(dispatch);
-    setTimeout(() => {
-      dispatch(hidePopoverService());
-    }, timeout * 2);
+    sendMessage();
+    hidePopover();
   };
 
   return (

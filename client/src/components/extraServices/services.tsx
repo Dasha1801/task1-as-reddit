@@ -1,23 +1,17 @@
 import React, { useEffect, useState } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { IItemServices, ISavedService, IService } from '../../shared/interfaces';
 import { dataServices } from '../../shared/mocks';
 import ItemService from '../itemService/itemService';
 import { TStore } from '../redux';
-import { fetchSavedServices } from '../redux/asyncActions';
 import ServicesMenu from '../servicesMenu/servicesMenu';
 import './services.scss';
 
 function Services({ id, code }: IService): JSX.Element {
-  const dispatch = useDispatch();
   const [showMenu, setShowMenu] = useState(false);
   const { services } = useSelector((state: TStore) => state.service);
   const savedServices = services.filter((el) => el.productId === code);
   const itemsService = dataServices[id];
-
-  useEffect(() => {
-    fetchSavedServices()(dispatch);
-  }, [dispatch]);
 
   const handlerClick = (): void => {
     setShowMenu(!showMenu);

@@ -1,10 +1,10 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
-import { fetchSavedServices } from '../redux/asyncActions';
-import { showPopoverService, hidePopoverService } from '../redux/slices/popoverService';
 import { saveService } from '../../server/api';
+import { sendMessage } from '../../server/socket';
 import { IItemServiceMenu } from '../../shared/interfaces';
-import { timeout } from '../../constants';
+import { hidePopover } from '../../utils';
+import { showPopoverService } from '../redux/slices/popoverService';
 import './stylesBtn.scss';
 
 function BtnAdd({ info, code, idService }: IItemServiceMenu): JSX.Element {
@@ -18,10 +18,8 @@ function BtnAdd({ info, code, idService }: IItemServiceMenu): JSX.Element {
       category: info.category.name,
     });
     dispatch(showPopoverService({ text: res, isShow: true }));
-    fetchSavedServices()(dispatch);
-    setTimeout(() => {
-      dispatch(hidePopoverService());
-    }, timeout * 2);
+    sendMessage();
+    hidePopover();
   };
 
   return (

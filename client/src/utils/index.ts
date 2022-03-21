@@ -1,5 +1,8 @@
 import { cities } from '../data/cities';
 import { ICommentInfo, IFilters, ISavedService } from '../shared/interfaces';
+import { store } from '../components/redux';
+import { hidePopoverService } from '../components/redux/slices/popoverService';
+import { timeout } from '../constants';
 
 export enum route {
   signUp = 'signup',
@@ -55,3 +58,9 @@ export const getKopecks = (str: string): string => str.slice(str.length - 2);
 
 export const getCountSavedServices = (str: string, services: ISavedService[], code: string): number =>
   services.filter((el) => el.productId === code).filter((el) => el.category === str).length;
+
+export const hidePopover = (): void => {
+  setTimeout(() => {
+    store.dispatch(hidePopoverService());
+  }, timeout * 2);
+};

@@ -1,5 +1,7 @@
 import React, { useCallback, useEffect, useState } from 'react';
+import { useSelector } from 'react-redux';
 import { CSSTransition } from 'react-transition-group';
+import { TStore } from '../redux';
 import { IServicesMenu } from '../../shared/interfaces';
 import ItemServiceMenu from '../itemServiceMenu/itemServiceMenu';
 import TabList from '../tabList/tabList';
@@ -13,6 +15,7 @@ function ServicesMenu({
   code,
   idService,
 }: IServicesMenu): JSX.Element {
+  const { services } = useSelector((state: TStore) => state.service);
   const [isAnimation, setIsAnimation] = useState(showMenu);
   const categories = Array.from(new Set(itemsService.map((el) => el.category.name)));
   const [currentCategory, setCurrentCategory] = useState(categories[0]);
@@ -41,7 +44,7 @@ function ServicesMenu({
 
   useEffect(() => {
     renderItems(currentCategory);
-  }, [currentCategory, renderItems]);
+  }, [currentCategory, renderItems, services.length]);
 
   return (
     <div className="menu" onClick={close} data-testid="menuServices">
