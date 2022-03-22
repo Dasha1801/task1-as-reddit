@@ -1,11 +1,11 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { CSSTransition } from 'react-transition-group';
-import { TStore } from '../redux';
+import { timeout } from '../../constants';
 import { IServicesMenu } from '../../shared/interfaces';
 import ItemServiceMenu from '../itemServiceMenu/itemServiceMenu';
+import { TStore } from '../redux';
 import TabList from '../tabList/tabList';
-import { timeout } from '../../constants';
 import './servicesMenu.scss';
 
 function ServicesMenu({

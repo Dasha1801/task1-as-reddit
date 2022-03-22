@@ -1,9 +1,9 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
+import { fetchSavedServices, hidePopover } from '../redux/asyncActions';
 import { deleteService } from '../../server/api';
 import { sendMessage } from '../../server/socket';
 import { IItemService } from '../../shared/interfaces';
-import { hidePopover } from '../../utils';
 import { showPopoverService } from '../redux/slices/popoverService';
 import './stylesBtn.scss';
 
@@ -13,6 +13,7 @@ function BtnDelete({ info }: IItemService): JSX.Element {
   const handlerClick = async (): Promise<void> => {
     const res = await deleteService({ serviceId: info.id });
     dispatch(showPopoverService({ text: res, isShow: true }));
+    fetchSavedServices()(dispatch);
     sendMessage();
     hidePopover();
   };

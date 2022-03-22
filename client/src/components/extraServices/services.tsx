@@ -23,7 +23,9 @@ function Services({ id, code }: IService): JSX.Element {
 
   const renderServices = (items: IItemServices[], savedItems: ISavedService[]): JSX.Element[] => {
     if (!savedItems.length) {
-      return items.slice(0, 2).map((el) => <ItemService info={el} key={el.id} code={code} idService={id} />);
+      return items
+        .slice(0, 2)
+        .map((el) => <ItemService info={el} key={el.id} code={code} idService={id} isChecked={false} />);
     }
 
     const getSavedItems = savedItems.reduce((acc, el) => {
@@ -33,7 +35,7 @@ function Services({ id, code }: IService): JSX.Element {
     }, [] as IItemServices[]);
 
     return getSavedItems.map((el) => (
-      <ItemService info={el} key={el.id} checked code={code} idService={id} />
+      <ItemService info={el} key={el.id} code={code} idService={id} isChecked />
     ));
   };
 

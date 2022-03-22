@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { DropResult } from 'react-beautiful-dnd';
-import { baseUrl } from '../../constants';
+import { baseUrl, timeout } from '../../constants';
 import { fetchArticles, fetchSavedArticles, getSavedServices } from '../../server/api';
 import {
   ArticleInfo,
@@ -12,6 +12,7 @@ import {
   IColumns,
   ISavedService,
 } from '../../shared/interfaces';
+import { store } from './index';
 import { route } from '../../utils';
 import { getStateError } from './slices/errorSlice';
 import { getStateLoading } from './slices/loadingSlice';
@@ -20,6 +21,7 @@ import { setSavedArticles } from './slices/savedArticlesSlice';
 import { addUser } from './slices/userSlice';
 import { updateBoard } from './slices/boardSlice';
 import { getServices } from './slices/serviceSlice';
+import { hidePopoverService, showPopoverService } from './slices/popoverService';
 
 export const fetchData = (count: number, setArticles: React.Dispatch<React.SetStateAction<ArticleInfo[]>>) =>
   async function getArticles(
@@ -145,3 +147,31 @@ export const onDragEnd = (result: DropResult, columns: IColumns) =>
       );
     }
   };
+
+export const hidePopover = (): void => {
+  setTimeout(() => {
+    store.dispatch(hidePopoverService());
+  }, timeout * 2);
+};
+
+// eslint-disable-next-line @typescript-eslint/ban-types
+export function throttle(fc: Function, delay: number): Function {
+  let isThrottle = false;
+
+  function wrapper(): void {
+    if (isThrottle) {
+      store.dispatch(showPopoverService({ text: 'Что-то пошло не так, попробуйте еще раз', isShow: true }));
+      hidePopover();
+
+      return;
+    }
+    isThrottle = true;
+    setTimeout(() => {
+      isThrottle = false;
+      fc();
+    }, delay);
+  }
+
+  return wrapper;
+}
+

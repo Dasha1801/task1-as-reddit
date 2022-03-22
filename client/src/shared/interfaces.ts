@@ -238,11 +238,17 @@ export interface IItemService {
   info: IItemServices;
 }
 
+export interface IItemServiceBasket {
+  info: IItemServices;
+  code: string;
+  idService: string;
+  isChecked: boolean;
+}
+
 export interface IItemServiceMenu {
   info: IItemServices;
   code: string;
   idService: string;
-  checked?: boolean;
 }
 
 export interface IItemsServices {

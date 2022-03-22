@@ -81,7 +81,7 @@ function TabList({ categories, setCurrentCategory, currentCategory, code }: ITab
       </>
     ),
 
-    [categories, showNewService, services.length]
+    [categories, showNewService, services, code]
   );
 
   useEffect(() => {

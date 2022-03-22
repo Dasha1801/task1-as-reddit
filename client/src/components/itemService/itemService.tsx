@@ -1,18 +1,19 @@
-import React from 'react';
+import React, { useCallback, useMemo } from 'react';
 import { useDispatch } from 'react-redux';
 import { deleteService, saveService } from '../../server/api';
 import { sendMessage } from '../../server/socket';
-import { IItemServiceMenu } from '../../shared/interfaces';
-import { getKopecks, getRubles, hidePopover } from '../../utils';
+import { IItemServiceBasket } from '../../shared/interfaces';
+import { getKopecks, getRubles } from '../../utils';
+import { hidePopover, throttle } from '../redux/asyncActions';
 import { showPopoverService } from '../redux/slices/popoverService';
 import './itemService.scss';
 
-function ItemService({ info, checked, code, idService }: IItemServiceMenu): JSX.Element {
+function ItemService({ info, isChecked, code, idService }: IItemServiceBasket): JSX.Element {
   const { name, description, price, link } = info;
   const dispatch = useDispatch();
 
-  const handlerClick = async (): Promise<void> => {
-    if (!checked) {
+  const handlerClick = useCallback(async (): Promise<void> => {
+    if (!isChecked) {
       const res = await saveService({
         productId: code,
         servicesName: idService,
@@ -26,14 +27,16 @@ function ItemService({ info, checked, code, idService }: IItemServiceMenu): JSX.
     }
     sendMessage();
     hidePopover();
-  };
+  }, [isChecked, code, dispatch, idService, info.category.name, info.id]);
+
+  const delay = useMemo(() => throttle(handlerClick, 3000), [handlerClick]);
 
   return (
     <div className="wrapperItem">
       <div className="itemService">
-        <label className="nameService" onChange={handlerClick}>
+        <label className="nameService">
           {name}
-          <input type="checkbox" className="checkbox" defaultChecked={checked} />
+          <input type="checkbox" className="checkbox" onChange={() => delay()} checked={isChecked} />
           <span className="checkMark" />
         </label>
         <div className="priceService">
