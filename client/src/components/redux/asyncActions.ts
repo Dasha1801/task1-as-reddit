@@ -174,4 +174,3 @@ export function throttle(fc: Function, delay: number): Function {
 
   return wrapper;
 }
-

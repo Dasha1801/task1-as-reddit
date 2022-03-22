@@ -1,6 +1,6 @@
-import React from 'react';
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
+import React from 'react';
 import { Provider } from 'react-redux';
 import { store } from '../redux';
 import Services from './services';
@@ -9,7 +9,7 @@ describe('Test Services component', () => {
   it('should render component', () => {
     render(
       <Provider store={store}>
-        <Services id="6519574" code="41867" />
+        <Services id="6519574" code="5.666.679" />
       </Provider>
     );
 
@@ -20,7 +20,7 @@ describe('Test Services component', () => {
   it('should render button "все услуги"', () => {
     render(
       <Provider store={store}>
-        <Services id="6099773" code="41867" />
+        <Services id="6099773" code="6.267.216" />
       </Provider>
     );
 
@@ -30,7 +30,7 @@ describe('Test Services component', () => {
   it('should render menuServices when click button "все услуги"', () => {
     render(
       <Provider store={store}>
-        <Services id="6099773" code="41867" />
+        <Services id="6099773" code="6.267.216" />
       </Provider>
     );
 

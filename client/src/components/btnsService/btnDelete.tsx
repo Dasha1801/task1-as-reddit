@@ -19,7 +19,7 @@ function BtnDelete({ info }: IItemService): JSX.Element {
   };
 
   return (
-    <div className="btnDeleteService baseBtn" onClick={handlerClick}>
+    <div className="btnDeleteService baseBtn" onClick={handlerClick} data-testid="iconBasket">
       <svg width="12" height="14" viewBox="0 0 12 14" xmlns="http://www.w3.org/2000/svg">
         <path
           fillRule="evenodd"

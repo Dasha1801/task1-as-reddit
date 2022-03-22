@@ -19,7 +19,7 @@ describe('Test FooterArticle component', () => {
     expect(screen.getByText(/Comments/i)).toBeInTheDocument();
   });
 
-  it('should be change text  when you click on the iconSave', () => {
+  it('should be change text  when you click on the iconSave', async () => {
     render(
       <Provider store={store}>
         <FooterArticle item={item} />
@@ -33,6 +33,6 @@ describe('Test FooterArticle component', () => {
 
     userEvent.click(saveIcon);
 
-    expect(listItemSave).toHaveTextContent(/saved/i);
+    expect(await screen.findByTestId('listItemSave')).toHaveTextContent(/saved/i);
   });
 });

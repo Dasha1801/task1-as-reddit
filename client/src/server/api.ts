@@ -18,8 +18,6 @@ export const deleteService = (serviceId: IServiceId): Promise<string> =>
 export const getSavedServices = (): Promise<ISavedService[]> =>
   axios.get(`${baseUrl}services`).then((res) => res.data);
 
-axios.get(`${baseUrl}services`).then((res) => res.data);
-
 export const fetchSavedArticles = (token: string): Promise<AxiosResponse> => {
   const options = {
     headers: { 'x-access-token': token },

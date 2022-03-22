@@ -12,7 +12,7 @@ function ItemServiceMenu({ info, code, idService }: IItemServiceMenu): JSX.Eleme
   const isAdd = services.find((el) => el.serviceId === info.id && el.productId === code);
 
   return (
-    <div className={classNames('itemServices', { saveItem: isAdd })}>
+    <div className={classNames('itemServices', { saveItem: isAdd })} data-testid="serviceMenu">
       <div className="wrapperTitle">
         {isAdd && <img src="images/iconPopover.png" alt="icon" className="popoverIcon" />}
         <h6 className="nameServiceMenu">{info.name}</h6>

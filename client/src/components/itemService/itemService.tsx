@@ -29,14 +29,14 @@ function ItemService({ info, isChecked, code, idService }: IItemServiceBasket): 
     hidePopover();
   }, [isChecked, code, dispatch, idService, info.category.name, info.id]);
 
-  const delay = useMemo(() => throttle(handlerClick, 3000), [handlerClick]);
+  const handlerDelay = useMemo(() => throttle(handlerClick, 3000), [handlerClick]);
 
   return (
-    <div className="wrapperItem">
+    <div className="wrapperItem" data-testid="service">
       <div className="itemService">
-        <label className="nameService">
+        <label className="nameService" data-testid="label">
           {name}
-          <input type="checkbox" className="checkbox" onChange={() => delay()} checked={isChecked} />
+          <input type="checkbox" className="checkbox" onChange={() => handlerDelay()} checked={isChecked} />
           <span className="checkMark" />
         </label>
         <div className="priceService">
