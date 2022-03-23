@@ -5,7 +5,7 @@ export const PATH = {
 export const baseUrlWs =
   process.env.NODE_ENV === 'development'
     ? `ws://localhost:3001/`
-    : `ws://deploy-server-as-reddit.herokuapp.com/`;
+    : `wss://deploy-server-as-reddit.herokuapp.com/`;
 
 export const baseUrl =
   process.env.NODE_ENV === 'development'
