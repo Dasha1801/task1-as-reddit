@@ -39,13 +39,6 @@ export const fetchData = (count: number, setArticles: React.Dispatch<React.SetSt
       });
   };
 
-export const fetchSavedServices = () =>
-  async function getSaveServices(dispatch: (arg0: { payload: ISavedService[]; type: string }) => void) {
-    const savedServices = await getSavedServices();
-
-    dispatch(getServices(savedServices));
-  };
-
 export const logInUser = (res: ILogInUser | ILogInSocialUser, path: string) =>
   async function getResServer(
     dispatch: (arg0: { payload: { user: IUser } | { show: boolean }; type: string }) => void
@@ -53,13 +46,9 @@ export const logInUser = (res: ILogInUser | ILogInSocialUser, path: string) =>
     axios
       .post(`${baseUrl}api/auth/${path === route.logIn ? route.logIn : route.socialLogin}`, res)
       .then((response) => {
-        if (response.data.accessToken) {
-          dispatch(addUser({ user: response.data }));
-        }
+        if (response.data.accessToken) dispatch(addUser({ user: response.data }));
       })
-      .finally(() => {
-        dispatch(showPopoverAuth({ show: true }));
-      });
+      .finally(() => dispatch(showPopoverAuth({ show: true })));
   };
 
 export const updateProfile = (res: IRegisterUser) =>
@@ -151,7 +140,7 @@ export const onDragEnd = (result: DropResult, columns: IColumns) =>
 export const hidePopover = (): void => {
   setTimeout(() => {
     store.dispatch(hidePopoverService());
-  }, timeout * 2);
+  }, timeout);
 };
 
 // eslint-disable-next-line @typescript-eslint/ban-types
@@ -174,3 +163,9 @@ export function throttle(fc: Function, delay: number): Function {
 
   return wrapper;
 }
+
+export const fetchSavedServices = () =>
+  async function getSaveServices(dispatch: (arg0: { payload: ISavedService[]; type: string }) => void) {
+    const savedServices = await getSavedServices();
+    dispatch(getServices(savedServices));
+  };

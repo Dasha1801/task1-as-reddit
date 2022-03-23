@@ -1,8 +1,9 @@
 import { rest } from 'msw';
-import { baseUrl } from '../constants/index';
+import { baseUrl, baseUrlWs } from '../constants/index';
 import { route } from '../utils';
 
 export const handlers = [
+  rest.post(baseUrlWs, (req, res, ctx) => res(ctx.json('update'))),
   rest.post(`${baseUrl}posts`, (req, res, ctx) =>
     res(
       ctx.json([
@@ -135,6 +136,15 @@ export const handlers = [
           category: 'Сервесное обслуживание',
           createdAt: '2022-03-22T10:26:47.000Z',
           updatedAt: '2022-03-22T10:26:47.000Z',
+        },
+        {
+          number: 2531,
+          productId: '6.267.216',
+          servicesName: '6099773',
+          serviceId: '3157',
+          category: 'Настройка',
+          createdAt: '2022-03-23T09:19:32.000Z',
+          updatedAt: '2022-03-23T09:19:32.000Z',
         },
       ])
     )

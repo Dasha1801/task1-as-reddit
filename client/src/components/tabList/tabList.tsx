@@ -72,6 +72,7 @@ function TabList({ categories, setCurrentCategory, currentCategory, code }: ITab
                 showNewService(el);
                 scrollToCenter(e);
               }}
+              data-testid={el}
             >
               {el}
               {count ? <div className="countServices">{count}</div> : null}

@@ -4,7 +4,7 @@ import './popover.scss';
 
 function PopoverService({ text }: IPopoverBasket): JSX.Element {
   return (
-    <div className="containerPopover">
+    <div className="containerPopover" data-testid="popover">
       <img src="images/iconPopover.png" alt="icon" className="popoverIcon" />
       <span className="popoverText">{text}</span>
     </div>
