@@ -1,0 +1,36 @@
+@import '../../colors.scss';
+@import '../../index.scss';
+
+.groupOptions {
+  margin: 16px 0 18px;
+  margin-left: auto;
+  width: 201px;
+  height: 14px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: $fontProduct;
+  font-size: 14px;
+
+  .itemOption {
+    cursor: url(../../../public/images/cursor.png), auto;
+    display: flex;
+    font-weight: 400;
+    line-height: 20px;
+    color: $productColor;
+  }
+
+  .delete::before {
+    content: url(../../../public/images/delete.png);
+    width: 21.5px;
+    height: 14.9px;
+    line-height: 26px;
+  }
+
+  .save::before {
+    content: url(../../../public/images/save.png);
+    width: 23.5px;
+    height: 14.9px;
+    line-height: 24px;
+  }
+}

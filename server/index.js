@@ -24,9 +24,9 @@ require("./routes/comment.route")(app);
 require("./routes/savedArticle.route")(app);
 require("./routes/user.route")(app);
 
-setInterval(() => {
-  fetchData();
-}, timeUpdate);
+// setInterval(() => {
+//   fetchData();
+// }, timeUpdate);
 
 app.listen(PORT, () => {
   console.log(`Yey, your server is running on port ${PORT}`);

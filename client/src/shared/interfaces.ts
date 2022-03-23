@@ -216,3 +216,56 @@ export interface IPropsUpdateTask {
 export interface IPropsCreateTask {
   handleClose: () => void;
 }
+
+export interface ICategory {
+  name: string;
+  id: string;
+  type: string;
+}
+
+export interface IItemServices {
+  name: string;
+  id: string;
+  code: string;
+  description: string;
+  link: string;
+  price: string;
+  outsource: boolean;
+  category: ICategory;
+}
+
+export interface IItemService {
+  info: IItemServices;
+}
+
+export interface IItemsServices {
+  [x: string]: IItemServices[];
+}
+
+export interface IProduct {
+  name: string;
+  code: string;
+  price: string;
+  serviceId: string;
+  photo: string;
+}
+
+export interface IItemProduct {
+  product: IProduct;
+}
+
+export interface IIdService {
+  id: string;
+}
+
+export interface IServicesMenu {
+  changeShowMenu: () => void;
+  itemsService: IItemServices[];
+  showMenu: boolean;
+}
+
+export interface ITabList {
+  categories: string[];
+  setCurrentCategory: React.Dispatch<React.SetStateAction<string>>;
+  currentCategory: string;
+}

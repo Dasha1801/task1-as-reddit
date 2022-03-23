@@ -8,6 +8,16 @@ $fontContentPost: 'Lato', sans-serif;
 $fontContentComment: 'Lato', sans-serif;
 $widthContentArticle: 543px;
 $widthContentSaveArticle: 850px;
+$fontProduct: 'Arial';
+$fontMenuServices: 'Arial';
+
+* {
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+}
 
 body {
   padding: 0;
@@ -34,4 +44,8 @@ body {
   .linkPost {
     font-size: 11px;
   }
+}
+
+.noneScroll {
+  overflow: hidden;
 }

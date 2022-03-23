@@ -1,0 +1,44 @@
+@import '../../colors.scss';
+@import '../../index.scss';
+
+.wrapperDelivery {
+  height: 48px;
+  display: flex;
+  align-items: center;
+  border: 1px solid $borderDeliveryColor;
+  box-sizing: border-box;
+  border-radius: 4px;
+  font-family: $fontProduct;
+  color: $productColor;
+
+  .delivery {
+    display: flex;
+    width: 382px;
+    margin-left: 20px;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .titleDelivery {
+    width: 70px;
+    font-weight: bold;
+    font-size: 14px;
+    margin: 0;
+  }
+
+  .itemDelivery {
+    font-size: 14px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .variant1 {
+    width: 135px;
+    margin-right: 12px;
+  }
+
+  .variant2 {
+    width: 153px;
+  }
+}

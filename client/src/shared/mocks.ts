@@ -1,4 +1,13 @@
-import { ArticleInfo, ICommentInfo, IDataTable, IFilters, IModerator, IRulesSubreddit } from './interfaces';
+import {
+  ArticleInfo,
+  ICommentInfo,
+  IDataTable,
+  IFilters,
+  IModerator,
+  IRulesSubreddit,
+  IItemsServices,
+  IProduct,
+} from './interfaces';
 
 export const item: ArticleInfo = {
   title: 'My website freezes after ...?',
@@ -111,4 +120,247 @@ export const moderators: IModerator[] = [
   { name: 'u/AssistantBOT', id: 'm5', text: "- I'm actually written in Python..." },
   { name: 'u/Ustice', id: 'm6', text: '' },
   { name: 'u/AutoModerator', id: 'm7', text: '' },
+];
+
+export const dataServices: IItemsServices = {
+  '476171': [
+    {
+      name: 'Сертификат «Негарантийный ремонт» на 1 год',
+      id: '2478',
+      code: '1060421',
+      description: `Ремонт устройства – 1 раз, консультация по эксплуатации – неограниченное число 
+      раз в течение 12 месяцев в компании «Единый Сервисный Центр». Для смартфонов и планшетов.`,
+      link: 'https://www.21vek.by/services/nonwarranty_repair.html',
+      price: '44.85',
+      outsource: false,
+      category: {
+        name: 'Гарантия',
+        id: '21',
+        type: 'maintenance',
+      },
+    },
+    {
+      name: 'Надежная защита +2 года (от 1000 руб.)',
+      id: '5002',
+      code: '6298578',
+      description: '',
+      link: 'https://www.21vek.by/info/extended_warranty.html',
+      price: '188.82',
+      outsource: false,
+      category: {
+        name: 'Сервесное обслуживание',
+        id: '157',
+        type: 'maintenance',
+      },
+    },
+    {
+      name: 'Холодильник без электронного управления на дверях (за 2 двери)',
+      id: '42',
+      code: '41860',
+      description: `При наличии электронных доводчиков стоимость перенавески дверей составит 45 руб.,
+      время работ – 1-1,5 часа. Производится в Минске, Минском районе, в Бресте, Гомеле, Гродно, Могилеве,
+      Витебске, Борисове, Бобруйске, Барановичах, Орше, Островце, Кобрине, Мозыре, Пинске, Лиде, Жлобине,
+      Полоцке.`,
+      link: '',
+      price: '45.00',
+      outsource: true,
+      category: {
+        name: 'Настройка',
+        id: '15',
+        type: 'maintenance',
+      },
+    },
+    {
+      name: 'Надежная защита +1 год (от 1000 руб.)',
+      id: '5011',
+      code: '6298567',
+      description: '',
+      link: 'https://www.21vek.by/info/extended_warranty.html',
+      price: '167.84',
+      outsource: false,
+      category: {
+        name: 'Защита',
+        id: '157',
+        type: 'maintenance',
+      },
+    },
+  ],
+  '6099773': [
+    {
+      name: 'Сертификат «Негарантийный ремонт» на 1 год',
+      id: '2478',
+      code: '1060421',
+      description: `Ремонт устройства – 1 раз, консультация по эксплуатации – неограниченное число 
+      раз в течение 12 месяцев в компании «Единый Сервисный Центр». Для смартфонов и планшетов.`,
+      link: 'https://www.21vek.by/services/nonwarranty_repair.html',
+      price: '44.85',
+      outsource: false,
+      category: {
+        name: 'Гарантия',
+        id: '21',
+        type: 'maintenance',
+      },
+    },
+    {
+      name: 'Android Стандарт(доступно только при самовывозе и наличии SIM-карты)',
+      id: '3008',
+      code: '5907362',
+      description: `Скидка 50% на услугу, если с этим заказом оформлен сертификат
+         на негарантийный ремонт. Для смартфона или планшета. В услугу входит: включение 
+         устройства, настройка по шагам, синхронизация контактов, создание учетной записи в Play Market, 
+         установка 1 мессенджера, заведение учетной записи, выдача памятки с данными учетной записи.`,
+      link: '',
+      price: '15.00',
+      outsource: false,
+      category: {
+        name: 'Настройка',
+        id: '123',
+        type: 'maintenance',
+      },
+    },
+    {
+      name: 'Перенос контактов(доступно только при самовывозе)',
+      id: '3157',
+      code: '5909271',
+      description: 'Для смартфона или планшета. Перенос данных записной книжки на новое устройство.',
+      link: '',
+      price: '10.00',
+      outsource: false,
+      category: {
+        name: 'Настройка',
+        id: '123',
+        type: 'maintenance',
+      },
+    },
+    {
+      name: 'Android Стандарт(доступно только при самовывозе и наличии SIM-карты)',
+      id: '30087',
+      code: '5907362',
+      description: `Скидка 50% на услугу, если с этим заказом оформлен сертификат
+         на негарантийный ремонт. Для смартфона или планшета. В услугу входит: включение 
+         устройства, настройка по шагам, синхронизация контактов, создание учетной записи в Play Market, 
+         установка 1 мессенджера, заведение учетной записи, выдача памятки с данными учетной записи.`,
+      link: '',
+      price: '15.00',
+      outsource: false,
+      category: {
+        name: 'Настройка',
+        id: '123',
+        type: 'maintenance',
+      },
+    },
+    {
+      name: 'Перенос контактов(доступно только при самовывозе)',
+      id: '31579',
+      code: '5909271',
+      description: 'Для смартфона или планшета. Перенос данных записной книжки на новое устройство.',
+      link: '',
+      price: '10.00',
+      outsource: false,
+      category: {
+        name: 'Настройка',
+        id: '123',
+        type: 'maintenance',
+      },
+    },
+    {
+      name: 'Сертификат «Негарантийный ремонт» на 2 года',
+      id: '4176',
+      code: '5977695',
+      description: `Ремонт устройства – 2 раза, консультация по эксплуатации – неограниченное
+        число раз в течение 24 месяцев в компании «Единый Сервисный Центр».
+        Для смартфонов и планшетов.`,
+      link: 'https://www.21vek.by/services/nonwarranty_repair.html',
+      price: '74.75',
+      outsource: false,
+      category: {
+        name: 'Гарантия',
+        id: '21',
+        type: 'maintenance',
+      },
+    },
+    {
+      name: 'Android Премиум(доступно только при самовывозе и наличии SIM-карты)',
+      id: '4624',
+      code: '6124798',
+      description: `Скидка 50% на услугу, если с этим заказом оформлен сертификат
+        на негарантийный ремонт. Для смартфона или планшета. В услугу входит: включение устройства,
+        настройка по шагам, синхронизация контактов, создание учетной записи в Play Market,
+        установка из него приложений (до 3 мессенджеров, до 3 соцсетей на выбор),
+        заведение учетных записей в приложениях, выдача памятки с
+        данными учетных записей. Перенос данных со старого устройства (при его наличии) с помощью
+        сопряжения или приложения.`,
+      link: '',
+      price: '20.00',
+      outsource: false,
+      category: {
+        name: 'Сервесное обслуживание',
+        id: '123',
+        type: 'maintenance',
+      },
+    },
+  ],
+  '6519574': [
+    {
+      name: 'Телевизор с диагональю до 42"',
+      id: '1',
+      code: '41867',
+      description: `Производится в Минске, Минском районе, в Бресте, Гомеле,
+        Гродно, Могилеве, Витебске, Борисове, Бобруйске, Барановичах, Орше,
+        Островце, Кобрине, Мозыре, Пинске, Лиде, Жлобине, Полоцке.`,
+      link: '',
+      price: '40.00',
+      outsource: true,
+      category: {
+        name: 'Установка',
+        id: '12',
+        type: 'maintenance',
+      },
+    },
+    {
+      name: 'Надежная защита +1 год (500-999 руб.)',
+      id: '4999',
+      code: '6298564',
+      description: '',
+      link: 'https://www.21vek.by/info/extended_warranty.html',
+      price: '112.03',
+      outsource: false,
+      category: {
+        name: 'Защита',
+        id: '157',
+        type: 'maintenance',
+      },
+    },
+  ],
+};
+
+export const products: IProduct[] = [
+  {
+    name: 'Смартфон Apple iPhone 11 64GB / MHDF3 (фиолетовый)',
+    code: '6.267.216',
+    price: '2 099,00',
+    serviceId: '6099773',
+    photo: 'https://res.cloudinary.com/megacritic/image/upload/v1646901342/shbtuzxyscrfhlkfgbco.png',
+  },
+  {
+    name: 'Ноутбук Apple MacBook Air 13" M1 2020 256GB / MGN63 (серый) длинна 38',
+    code: '5.666.679',
+    price: '3 533,07',
+    serviceId: '6519574',
+    photo: 'https://res.cloudinary.com/megacritic/image/upload/v1646901346/kwrzkqie3l337w7ai9cp.png',
+  },
+  {
+    name: 'Кабель Apple MKQ42',
+    code: '458.328',
+    price: '139,00',
+    serviceId: '',
+    photo: 'https://res.cloudinary.com/megacritic/image/upload/v1646901316/pxls2j9rre0dwsleaatr.png',
+  },
+  {
+    name: 'Холодильник с морозильником Bosch Serie 6 VitaFresh Plus KGN39AW32R',
+    code: '6.150.224',
+    price: '1 529,15',
+    serviceId: '476171',
+    photo: 'https://res.cloudinary.com/megacritic/image/upload/v1646901333/watoxlfhvberxfdfdkec.png',
+  },
 ];

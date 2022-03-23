@@ -1,0 +1,55 @@
+@import '../../colors.scss';
+@import '../../index.scss';
+
+.itemServices {
+  border: 1px solid $itemMenuBorderColor;
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 20px;
+  font-family: $fontMenuServices;
+  font-style: normal;
+  color: $menuServicesColor;
+
+  .nameServiceMenu {
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 22px;
+  }
+
+  .descriptionItem {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+    margin-bottom: 12px;
+  }
+
+  .noneMargin {
+    margin-bottom: 0;
+  }
+
+  .moreInfo {
+    cursor: url(../../../public/images/cursor.png), auto;
+    display: flex;
+    align-items: center;
+    width: 92px;
+    justify-content: space-between;
+    font-size: 14px;
+    line-height: 20px;
+    color: $moreInfoServicesColor;
+    margin: 12px 0px;
+  }
+
+  .moreInfo::before {
+    content: url(../../../public/images/link.png);
+    width: 16px;
+    height: 16px;
+  }
+
+  .priceService {
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 26px;
+    text-align: right;
+    margin-top: 16px;
+  }
+}

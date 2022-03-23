@@ -1,16 +1,16 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 import { Route, Routes, useLocation } from 'react-router-dom';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
-import { useSelector } from 'react-redux';
-import BasePopover from '../alert/basePopover';
-import PageNotFound from '../pageNotFound/pageNotFound';
-import { TStore } from '../redux';
 import { timeout } from '../../constants';
+import BasePopover from '../alert/basePopover';
 import Header from '../header/header';
 import Main from '../main/main';
+import PageNotFound from '../pageNotFound/pageNotFound';
 import PostPage from '../postPage/postPage';
-import UserPage from '../userPage/userPage';
+import { TStore } from '../redux';
 import SavedArticlesPage from '../savedArticlesPage/savedArticlesPage';
+import UserPage from '../userPage/userPage';
 import './app.scss';
 
 function App(): JSX.Element {

@@ -1,0 +1,82 @@
+@import '../../colors.scss';
+@import '../../index.scss';
+
+.menu {
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-color: $menuServicesBg;
+  position: fixed;
+  display: flex;
+  z-index: 100;
+  font-family: $fontMenuServices;
+  font-style: normal;
+  color: $menuServicesColor;
+
+  .wrapperItemServiceMenu {
+    margin-top: 23px;
+  }
+
+  .animation-menu-enter,
+  .animation-menu-appear {
+    transform: translateX(484px);
+  }
+
+  .animation-menu-enter-active,
+  .animation-menu-appear-active {
+    transform: translateX(0);
+    transition: all 1000ms;
+  }
+
+  .animation-menu-exit {
+    transform: translateX(0);
+    transition: all 1000ms;
+  }
+
+  .animation-menu-exit-active {
+    transform: translateX(484px);
+  }
+
+  .wrapperContent {
+    background-color: $menuServicesWrapperBg;
+    width: 484px;
+    padding: 16px 16px 8px;
+    margin-left: auto;
+    overflow-y: scroll;
+    overflow-x: hidden;
+  }
+
+  .wrapperContent::-webkit-scrollbar {
+    width: 5px;
+    background-color: transparent;
+  }
+
+  .wrapperContent::-webkit-scrollbar-thumb {
+    background: $menuScrollbarThumb;
+    border-radius: 4px;
+  }
+
+  .contentMenu {
+    padding: 0 24px;
+  }
+
+  .closeMenu {
+    width: 24px;
+    height: 24px;
+    margin-left: auto;
+    cursor: url(../../../public/images/cursor.png), auto;
+  }
+
+  .closeMenu::after {
+    content: url(../../../public/images/close.png);
+  }
+
+  .caption {
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 28px;
+    margin-top: 9px;
+    text-align: center;
+  }
+}

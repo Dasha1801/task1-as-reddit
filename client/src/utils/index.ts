@@ -48,3 +48,7 @@ export const findCity = (city: string): number =>
   cities.findIndex((el) => el.name.toLowerCase() === city.trim().toLowerCase());
 
 export const sortFilters = (a: IFilters, b: IFilters): number => (a.order > b.order ? 1 : -1);
+
+export const getRubles = (str: string): string => str.slice(0, -3);
+
+export const getKopecks = (str: string): string => str.slice(str.length - 2);

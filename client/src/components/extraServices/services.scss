@@ -1,0 +1,31 @@
+@import '../../colors.scss';
+@import '../../index.scss';
+
+.services {
+  font-family: $fontProduct;
+  font-style: normal;
+  width: 606px;
+  margin-top: 16px;
+  background: $servicesBgColor;
+  border-radius: 8px;
+  padding: 16px 15px 16px 20px;
+  color: $productColor;
+
+  .titleServices {
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 20px;
+    margin-bottom: 10px;
+  }
+
+  .allServices {
+    color: $moreInfoServicesColor;
+    width: 70px;
+    height: 20px;
+    font-size: 14px;
+    line-height: 20px;
+    margin-top: 7px;
+    margin-left: auto;
+    cursor: url(../../../public/images/cursor.png), auto;
+  }
+}
