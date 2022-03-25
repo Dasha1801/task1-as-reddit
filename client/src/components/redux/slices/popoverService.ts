@@ -1,10 +1,8 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { IPopoverService } from '../../../shared/interfaces';
 
 interface IPopoverState {
-  popoverService: {
-    text: string;
-    isShow: boolean;
-  };
+  popoverService: IPopoverService;
 }
 
 const initialState: IPopoverState = {

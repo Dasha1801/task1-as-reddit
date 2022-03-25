@@ -1,27 +1,31 @@
 import axios from 'axios';
 import { DropResult } from 'react-beautiful-dnd';
 import { baseUrl, timeout } from '../../constants';
-import { fetchArticles, fetchSavedArticles, getSavedServices } from '../../server/api';
+import {
+  deleteService,
+  fetchArticles,
+  fetchSavedArticles,
+  getSavedServices,
+  saveService
+} from '../../server/api';
 import {
   ArticleInfo,
-  ILogInSocialUser,
-  ILogInUser,
-  IRegisterSocialUser,
+  IColumns, IItemServices, ILogInSocialUser,
+  ILogInUser, IPopoverService, IRegisterSocialUser,
   IRegisterUser,
-  IUser,
-  IColumns,
   ISavedService,
+  IUser
 } from '../../shared/interfaces';
-import { store } from './index';
 import { route } from '../../utils';
+import { store } from './index';
+import { updateBoard } from './slices/boardSlice';
 import { getStateError } from './slices/errorSlice';
 import { getStateLoading } from './slices/loadingSlice';
 import { showPopoverAuth } from './slices/popoverAuth';
-import { setSavedArticles } from './slices/savedArticlesSlice';
-import { addUser } from './slices/userSlice';
-import { updateBoard } from './slices/boardSlice';
-import { getServices } from './slices/serviceSlice';
 import { hidePopoverService, showPopoverService } from './slices/popoverService';
+import { setSavedArticles } from './slices/savedArticlesSlice';
+import { getServices } from './slices/serviceSlice';
+import { addUser } from './slices/userSlice';
 
 export const fetchData = (count: number, setArticles: React.Dispatch<React.SetStateAction<ArticleInfo[]>>) =>
   async function getArticles(
@@ -143,29 +147,26 @@ export const hidePopover = (): void => {
   }, timeout);
 };
 
-// eslint-disable-next-line @typescript-eslint/ban-types
-export function throttle(fc: Function, delay: number): Function {
-  let isThrottle = false;
-
-  function wrapper(): void {
-    if (isThrottle) {
-      store.dispatch(showPopoverService({ text: 'Что-то пошло не так, попробуйте еще раз', isShow: true }));
-      hidePopover();
-
-      return;
-    }
-    isThrottle = true;
-    setTimeout(() => {
-      isThrottle = false;
-      fc();
-    }, delay);
-  }
-
-  return wrapper;
-}
-
 export const fetchSavedServices = () =>
   async function getSaveServices(dispatch: (arg0: { payload: ISavedService[]; type: string }) => void) {
     const savedServices = await getSavedServices();
     dispatch(getServices(savedServices));
   };
+
+export const deleteServiceHandler = (id: string) =>
+  async function remove(dispatch: (arg0: { payload: IPopoverService; type: string }) => void) {
+    const res = await deleteService({ serviceId: id });
+    dispatch(showPopoverService({ text: res, isShow: true }));
+  };
+
+export const saveServiceHandler = (info: IItemServices, idService: string, servicesCode: string) =>
+  async function save(dispatch: (arg0: { payload: IPopoverService; type: string }) => void) {
+    const res = await saveService({
+      productId: servicesCode,
+      servicesName: idService,
+      serviceId: info.id,
+      category: info.category.name,
+    });
+    dispatch(showPopoverService({ text: res, isShow: true }));
+  };
+

@@ -1,20 +1,25 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
-import { deleteService } from '../../server/api';
 import { sendMessage } from '../../server/socket';
 import { IItemService } from '../../shared/interfaces';
-import { hidePopover } from '../redux/asyncActions';
+import { deleteServiceHandler, hidePopover } from '../redux/asyncActions';
 import { showPopoverService } from '../redux/slices/popoverService';
+import { changeStatusUpdate } from '../redux/slices/serviceSlice';
 import './stylesBtn.scss';
 
 function BtnDelete({ info }: IItemService): JSX.Element {
   const dispatch = useDispatch();
 
   const handlerClick = async (): Promise<void> => {
-    const res = await deleteService({ serviceId: info.id });
-    dispatch(showPopoverService({ text: res, isShow: true }));
-    sendMessage();
-    hidePopover();
+    try {
+      await deleteServiceHandler(info.id)(dispatch);
+      dispatch(changeStatusUpdate(true));
+      sendMessage();
+    } catch {
+      dispatch(showPopoverService({ text: 'Что-то пошло не так, попробуйте еще раз', isShow: true }));
+    } finally {
+      hidePopover();
+    }
   };
 
   return (

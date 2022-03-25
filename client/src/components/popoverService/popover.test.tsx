@@ -24,18 +24,13 @@ describe('Test PopoverService component', () => {
     const service = screen.getByText('Телевизор с диагональю до 42"');
 
     userEvent.click(service);
-    userEvent.click(service);
-
-    expect(screen.getByText('Что-то пошло не так, попробуйте еще раз')).toBeInTheDocument();
-
-    await waitForElementToBeRemoved(() => screen.queryByTestId('popover'));
 
     await waitFor(
       async () => {
         expect(await screen.findByText('Услуга добавлена в корзину')).toBeInTheDocument();
       },
       {
-        timeout: 2000,
+        timeout: 3500,
       }
     );
 

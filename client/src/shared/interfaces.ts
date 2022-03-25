@@ -238,13 +238,6 @@ export interface IItemService {
   info: IItemServices;
 }
 
-export interface IItemServiceBasket {
-  info: IItemServices;
-  code: string;
-  idService: string;
-  isChecked: boolean;
-}
-
 export interface IItemServiceMenu {
   info: IItemServices;
   code: string;
@@ -300,4 +293,15 @@ export interface ISavedService {
 
 export interface IServiceId {
   serviceId: string;
+}
+
+export interface IPopoverService {
+  text: string;
+  isShow: boolean;
+}
+
+export interface IPropsDeleteServices {
+  info: IItemServices;
+  idService: string;
+  servicesCode: string;
 }

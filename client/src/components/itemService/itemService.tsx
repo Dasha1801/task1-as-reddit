@@ -1,42 +1,56 @@
-import React, { useCallback, useMemo } from 'react';
-import { useDispatch } from 'react-redux';
-import { deleteService, saveService } from '../../server/api';
+import React, { useCallback, useMemo, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { sendMessage } from '../../server/socket';
-import { IItemServiceBasket } from '../../shared/interfaces';
-import { getKopecks, getRubles } from '../../utils';
-import { hidePopover, throttle } from '../redux/asyncActions';
+import { IItemServiceMenu } from '../../shared/interfaces';
+import { getKopecks, getRubles, isChecked, throttle } from '../../utils';
+import { TStore } from '../redux';
+import { deleteServiceHandler, hidePopover, saveServiceHandler } from '../redux/asyncActions';
 import { showPopoverService } from '../redux/slices/popoverService';
+import { changeStatusUpdate } from '../redux/slices/serviceSlice';
 import './itemService.scss';
 
-function ItemService({ info, isChecked, code, idService }: IItemServiceBasket): JSX.Element {
-  const { name, description, price, link } = info;
+function ItemService({ info, code, idService }: IItemServiceMenu): JSX.Element {
   const dispatch = useDispatch();
+  const { name, description, price, link, id } = info;
+  const { services } = useSelector((state: TStore) => state.service);
+  const isAdd = useMemo(() => isChecked(services, id, idService), [services, id, idService]);
+  const [checked, setChecked] = useState(isAdd);
 
-  const handlerClick = useCallback(async (): Promise<void> => {
-    if (!isChecked) {
-      const res = await saveService({
-        productId: code,
-        servicesName: idService,
-        serviceId: info.id,
-        category: info.category.name,
-      });
-      dispatch(showPopoverService({ text: res, isShow: true }));
-    } else {
-      const res = await deleteService({ serviceId: info.id });
-      dispatch(showPopoverService({ text: res, isShow: true }));
+  const handlerOnChange = useCallback(async (): Promise<void> => {
+    try {
+      if (isAdd) {
+        await deleteServiceHandler(id)(dispatch);
+        setChecked(false);
+      } else {
+        await saveServiceHandler(info, idService, code)(dispatch);
+        setChecked(true);
+      }
+      dispatch(changeStatusUpdate(false));
+      sendMessage();
+    } catch {
+      dispatch(showPopoverService({ text: 'Что-то пошло не так, попробуйте еще раз', isShow: true }));
+      setChecked(isAdd);
+    } finally {
+      hidePopover();
     }
-    sendMessage();
-    hidePopover();
-  }, [isChecked, code, dispatch, idService, info.category.name, info.id]);
+  }, [isAdd, code, dispatch, idService, id, info]);
 
-  const handlerDelay = useMemo(() => throttle(handlerClick, 3000), [handlerClick]);
+  const handlerDelay = useMemo(() => throttle(handlerOnChange, 3000), [handlerOnChange]);
 
   return (
     <div className="wrapperItem" data-testid="service">
       <div className="itemService">
         <label className="nameService" data-testid="label">
           {name}
-          <input type="checkbox" className="checkbox" onChange={() => handlerDelay()} checked={isChecked} />
+          <input
+            type="checkbox"
+            className="checkbox"
+            checked={checked}
+            onChange={() => {
+              setChecked(!checked);
+              handlerDelay();
+            }}
+          />
           <span className="checkMark" />
         </label>
         <div className="priceService">

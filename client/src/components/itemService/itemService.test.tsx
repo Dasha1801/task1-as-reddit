@@ -9,7 +9,7 @@ describe('Test ItemService component', () => {
   it('should render component', () => {
     render(
       <Provider store={store}>
-        <ItemService info={dataServices['476171'][0]} code="6.150.224" idService="2478" isChecked={false} />
+        <ItemService info={dataServices['476171'][0]} code="6.150.224" idService="2478"  />
       </Provider>
     );
 
@@ -22,7 +22,7 @@ describe('Test ItemService component', () => {
   it("should don't render button 'подробнее'", () => {
     render(
       <Provider store={store}>
-        <ItemService info={dataServices['476171'][2]} code="6.150.224" idService="42" isChecked={false} />
+        <ItemService info={dataServices['476171'][2]} code="6.150.224" idService="42"/>
       </Provider>
     );
 
