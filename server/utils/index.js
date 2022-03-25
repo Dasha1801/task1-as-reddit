@@ -36,4 +36,14 @@ const fetchData = async () => {
   }
 };
 
+const handler = (ws, msg, aWss) => {
+  ws.id = msg.id;
+  aWss.clients.forEach((client) => {
+    if (client.id === msg.id) {
+      client.send(JSON.stringify(msg));
+    }
+  });
+};
+
+exports.handler = handler;
 exports.fetchData = fetchData;

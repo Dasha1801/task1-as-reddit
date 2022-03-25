@@ -1,5 +1,5 @@
 import { cities } from '../data/cities';
-import { ICommentInfo, IFilters } from '../shared/interfaces';
+import { ICommentInfo, IFilters, ISavedService, IItemServices } from '../shared/interfaces';
 
 export enum route {
   signUp = 'signup',
@@ -52,3 +52,36 @@ export const sortFilters = (a: IFilters, b: IFilters): number => (a.order > b.or
 export const getRubles = (str: string): string => str.slice(0, -3);
 
 export const getKopecks = (str: string): string => str.slice(str.length - 2);
+
+export const filterSavedServices = (services: ISavedService[], code: string): ISavedService[] | [] =>
+  services.filter((el) => el.productId === code);
+
+export const getCountSavedServices = (str: string, services: ISavedService[], code: string): number =>
+  filterSavedServices(services, code).filter((el) => el.category === str).length;
+
+export const getSavedItems = (items: IItemServices[], savedItems: ISavedService[]): IItemServices[] =>
+  savedItems.reduce((acc, el) => {
+    items.find((item) => item.id === el.serviceId && acc.push(item));
+
+    return acc;
+  }, [] as IItemServices[]);
+
+export const isChecked = (services: ISavedService[], id: string, servicesName: string): boolean =>
+  services.some((el) => el.serviceId === id && el.servicesName === servicesName);
+
+// eslint-disable-next-line @typescript-eslint/ban-types
+export function throttle(fc: Function, delay: number): Function {
+  let isThrottle = false;
+
+  function wrapper(): void {
+    if (isThrottle) return;
+
+    isThrottle = true;
+    setTimeout(() => {
+      isThrottle = false;
+      fc();
+    }, delay);
+  }
+
+  return wrapper;
+}

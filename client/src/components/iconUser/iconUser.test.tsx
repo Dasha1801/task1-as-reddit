@@ -19,7 +19,7 @@ describe('Test IconUser Component', () => {
     expect(screen.getByTestId('logoUser')).toBeInTheDocument();
   });
 
-  it('change state when click iconUser', () => {
+  it('change state when click iconUser', async () => {
     render(
       <Provider store={store}>
         <HashRouter>
@@ -32,7 +32,7 @@ describe('Test IconUser Component', () => {
 
     userEvent.click(screen.getByTestId('logoUser'));
 
-    expect(screen.getByRole('button', { name: /log in/i })).toBeInTheDocument();
-    expect(screen.getByRole('button', { name: /sign up/i })).toBeInTheDocument();
+    expect(await screen.findByRole('button', { name: /log in/i })).toBeInTheDocument();
+    expect(await screen.findByRole('button', { name: /sign up/i })).toBeInTheDocument();
   });
 });

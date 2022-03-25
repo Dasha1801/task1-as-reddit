@@ -28,6 +28,7 @@ db.articles = require("./article.model")(sequelize, Sequelize);
 db.savedArticles = require("./savedArticle.model")(sequelize, Sequelize);
 db.comments = require("./comment.model")(sequelize, Sequelize);
 db.users = require("./user.model")(sequelize, Sequelize);
+db.services = require("./services.model")(sequelize, Sequelize);
 
 db.users.hasMany(db.savedArticles, {
   as: "savedArticles",

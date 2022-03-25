@@ -15,7 +15,7 @@ import './app.scss';
 
 function App(): JSX.Element {
   const { user } = useSelector((state: TStore) => state.user);
-  const { show } = useSelector((state: TStore) => state.popover);
+  const { show } = useSelector((state: TStore) => state.popoverAuth);
   const location = useLocation();
   const routes = [
     { path: '/', element: <Main /> },

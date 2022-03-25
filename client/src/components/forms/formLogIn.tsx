@@ -13,7 +13,7 @@ import './forms.scss';
 
 function FormLogIn(): JSX.Element {
   const { accessToken } = useSelector((state: TStore) => state.user).user;
-  const { show } = useSelector((state: TStore) => state.popover);
+  const { show } = useSelector((state: TStore) => state.popoverAuth);
   const dispatch = useDispatch();
 
   const handleLogIn = (data: ILogInUser): void => {

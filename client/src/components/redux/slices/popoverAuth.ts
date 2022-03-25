@@ -12,15 +12,15 @@ type TPayload = {
   show: boolean;
 };
 
-const popoverSlice = createSlice({
+const popoverAuthSlice = createSlice({
   name: 'popover',
   initialState,
   reducers: {
-    showPopover: (state, { payload }: PayloadAction<TPayload>) => {
+    showPopoverAuth: (state, { payload }: PayloadAction<TPayload>) => {
       state.show = payload.show;
     },
   },
 });
 
-export const popover_reducer = popoverSlice.reducer;
-export const { showPopover } = popoverSlice.actions;
+export const popoverAuth_reducer = popoverAuthSlice.reducer;
+export const { showPopoverAuth } = popoverAuthSlice.actions;

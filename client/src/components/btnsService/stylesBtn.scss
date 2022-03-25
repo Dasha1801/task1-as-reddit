@@ -1,0 +1,46 @@
+@import '../../colors.scss';
+@import '../../index.scss';
+
+.baseBtn {
+  border: none;
+  border-radius: 4px;
+  margin-left: 16px;
+}
+
+.baseBtn:hover {
+  cursor: url(../../../public/images/cursor.png), auto;
+}
+
+.btnAddService {
+  background: $btnAddBg;
+  font-family: $fontMenuServices;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 20px;
+  padding: 14px 24px;
+  text-align: center;
+  color: $btnAddColor;
+}
+
+.btnDeleteService {
+  width: 40px;
+  height: 40px;
+  border: 1px solid $btnDeleteBorderColor;
+  background-color: $btnDeleteBg;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.btnDeleteService:hover {
+  background-color: $btnDeleteBgHover;
+}
+
+.btnDeleteService svg {
+  fill: $colorBasket;
+}
+
+.btnDeleteService:hover svg {
+  fill: $colorBasketHover;
+}

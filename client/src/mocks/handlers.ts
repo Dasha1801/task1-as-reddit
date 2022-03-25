@@ -1,8 +1,9 @@
 import { rest } from 'msw';
-import { baseUrl } from '../constants/index';
+import { baseUrl, baseUrlWs } from '../constants/index';
 import { route } from '../utils';
 
 export const handlers = [
+  rest.post(baseUrlWs, (req, res, ctx) => res(ctx.json('update'))),
   rest.post(`${baseUrl}posts`, (req, res, ctx) =>
     res(
       ctx.json([
@@ -72,6 +73,25 @@ export const handlers = [
     )
   ),
 
+  rest.post(`${baseUrl}save`, (req, res, ctx) =>
+    res(
+      ctx.json([
+        {
+          id: 's89yy0',
+          title: 'My review and comparison !',
+          author: 'Samar04',
+          selftext: '',
+          url: 'https://blog.crankshafttech.com/2022/01/banglejs2-hands-.html',
+          score: 8,
+          num_comments: 2,
+          createdAt: '2022-02-12T20:59:23.000Z',
+          updatedAt: '2022-02-12T20:59:23.000Z',
+          userEmail: '6227968@gmail.com',
+        },
+      ])
+    )
+  ),
+
   rest.post(`${baseUrl}api/auth/${route.logIn}`, (req, res, ctx) =>
     res(
       ctx.status(200),
@@ -95,4 +115,42 @@ export const handlers = [
       })
     )
   ),
+
+  rest.get(`${baseUrl}services`, (req, res, ctx) =>
+    res(
+      ctx.json([
+        {
+          number: 2311,
+          productId: '6.267.216',
+          servicesName: '6099773',
+          serviceId: '4176',
+          category: 'Гарантия',
+          createdAt: '2022-03-22T10:11:39.000Z',
+          updatedAt: '2022-03-22T10:11:39.000Z',
+        },
+        {
+          number: 2331,
+          productId: '6.267.216',
+          servicesName: '6099773',
+          serviceId: '4624',
+          category: 'Сервесное обслуживание',
+          createdAt: '2022-03-22T10:26:47.000Z',
+          updatedAt: '2022-03-22T10:26:47.000Z',
+        },
+        {
+          number: 2531,
+          productId: '6.267.216',
+          servicesName: '6099773',
+          serviceId: '3157',
+          category: 'Настройка',
+          createdAt: '2022-03-23T09:19:32.000Z',
+          updatedAt: '2022-03-23T09:19:32.000Z',
+        },
+      ])
+    )
+  ),
+
+  rest.post(`${baseUrl}service`, (req, res, ctx) => res(ctx.json('Услуга добавлена в корзину'))),
+
+  rest.post(`${baseUrl}delete`, (req, res, ctx) => res(ctx.json('Услуга удалена'))),
 ];

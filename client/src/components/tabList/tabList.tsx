@@ -1,11 +1,15 @@
 import classNames from 'classnames';
 import React, { useCallback, useEffect, useRef, useState } from 'react';
+import { useSelector } from 'react-redux';
+import { TStore } from '../redux';
 import { ITabList } from '../../shared/interfaces';
+import { getCountSavedServices as getCount } from '../../utils';
 import './tabList.scss';
 
-function TabList({ categories, setCurrentCategory, currentCategory }: ITabList): JSX.Element {
+function TabList({ categories, setCurrentCategory, currentCategory, code }: ITabList): JSX.Element {
   const ref = useRef<HTMLDivElement | null>(null);
   const [scroll, setScroll] = useState({ isScroll: false, clientX: 0, scrollX: 0 });
+  const { services } = useSelector((state: TStore) => state.service);
 
   const showNewService = useCallback(
     (category: string): void => setCurrentCategory(category),
@@ -55,23 +59,30 @@ function TabList({ categories, setCurrentCategory, currentCategory }: ITabList):
   const renderTabs = useCallback(
     (category: string): JSX.Element => (
       <>
-        {categories.map((el) => (
-          <div
-            className={classNames('tab', {
-              activeTab: el === category,
-            })}
-            key={el}
-            onClick={(e) => {
-              showNewService(el);
-              scrollToCenter(e);
-            }}
-          >
-            {el}
-          </div>
-        ))}
+        {categories.map((el) => {
+          const count = getCount(el, services, code);
+
+          return (
+            <div
+              className={classNames('tab', {
+                activeTab: el === category,
+              })}
+              key={el}
+              onClick={(e) => {
+                showNewService(el);
+                scrollToCenter(e);
+              }}
+              data-testid={el}
+            >
+              {el}
+              {count ? <div className="countServices">{count}</div> : null}
+            </div>
+          );
+        })}
       </>
     ),
-    [categories, showNewService]
+
+    [categories, showNewService, services, code]
   );
 
   useEffect(() => {

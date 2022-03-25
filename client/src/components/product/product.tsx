@@ -9,13 +9,13 @@ import './product.scss';
 function Product({ product }: IItemProduct): JSX.Element {
   return (
     <div className="product">
-      <div className="wrapperInfo" data-testid='infoProduct'>
-        <img className="img" src={product.photo} alt="images product" data-testid='image'/>
+      <div className="wrapperInfo" data-testid="infoProduct">
+        <img className="img" src={product.photo} alt="images product" data-testid="image" />
         <InfoProduct product={product} />
       </div>
-      <div className="containerService" data-testid='servicesProduct'>
+      <div className="containerService" data-testid="servicesProduct">
         <Delivery />
-        <Services id={product.serviceId} />
+        <Services id={product.serviceId} code={product.code} />
         <OptionsGroup />
       </div>
     </div>

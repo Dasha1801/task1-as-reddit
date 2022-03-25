@@ -1,6 +1,8 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
+import { Provider } from 'react-redux';
+import { store } from '../redux';
 import ServicesMenu from './servicesMenu';
 import { dataServices } from '../../shared/mocks';
 
@@ -8,17 +10,37 @@ describe('Test ServicesMenu component', () => {
   const changeShowMenu = jest.fn();
 
   it('should render component', () => {
-    render(<ServicesMenu changeShowMenu={changeShowMenu} showMenu itemsService={dataServices['476171']} />);
+    render(
+      <Provider store={store}>
+        <ServicesMenu
+          changeShowMenu={changeShowMenu}
+          showMenu
+          itemsService={dataServices['476171']}
+          code="41867"
+          idService="476171"
+        />
+      </Provider>
+    );
 
     expect(screen.getByText(/дополнительные услуги/i)).toBeInTheDocument();
     expect(screen.getByText(/Гарантия/i)).toBeInTheDocument();
     expect(screen.getByText(/Сервесное обслуживание/i)).toBeInTheDocument();
-    expect(screen.getByText(/Сервесное обслуживание/i)).toHaveClass('activeTab');
+    expect(screen.getByText(/Гарантия/i)).toHaveClass('activeTab');
   });
 
   it('should render new services when click tab', () => {
     window.HTMLElement.prototype.scrollIntoView = jest.fn();
-    render(<ServicesMenu changeShowMenu={changeShowMenu} showMenu itemsService={dataServices['476171']} />);
+    render(
+      <Provider store={store}>
+        <ServicesMenu
+          changeShowMenu={changeShowMenu}
+          showMenu
+          itemsService={dataServices['476171']}
+          code="41867"
+          idService="476171"
+        />
+      </Provider>
+    );
 
     userEvent.click(screen.getByText(/гарантия/i));
 

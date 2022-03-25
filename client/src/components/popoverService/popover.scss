@@ -1,0 +1,31 @@
+@import '../../colors.scss';
+@import '../../index.scss';
+
+.containerPopover {
+  background: $popoverBgColor;
+  border-radius: 4px;
+  padding: 12px;
+  display: flex;
+  align-items: center;
+  width: 346px;
+  height: 40px;
+  z-index: 300;
+  position: fixed;
+  bottom: 24px;
+  left: calc(50% - 346px / 2);
+
+  .popoverIcon {
+    width: 16px;
+    height: 16px;
+    margin-right: 8px;
+  }
+
+  .popoverText {
+    font-family: $fontProduct;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 20px;
+    color: $popoverColor;
+  }
+}

@@ -1,17 +1,56 @@
-import React from 'react';
-import { getKopecks, getRubles } from '../../utils';
-import { IItemService } from '../../shared/interfaces';
+import React, { useCallback, useMemo, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { sendMessage } from '../../server/socket';
+import { IItemServiceMenu } from '../../shared/interfaces';
+import { getKopecks, getRubles, isChecked, throttle } from '../../utils';
+import { TStore } from '../redux';
+import { deleteServiceHandler, hidePopover, saveServiceHandler } from '../redux/asyncActions';
+import { showPopoverService } from '../redux/slices/popoverService';
+import { changeStatusUpdate } from '../redux/slices/serviceSlice';
 import './itemService.scss';
 
-function ItemService({ info }: IItemService): JSX.Element {
-  const { name, description, price, link } = info;
+function ItemService({ info, code, idService }: IItemServiceMenu): JSX.Element {
+  const dispatch = useDispatch();
+  const { name, description, price, link, id } = info;
+  const { services } = useSelector((state: TStore) => state.service);
+  const isAdd = useMemo(() => isChecked(services, id, idService), [services, id, idService]);
+  const [checked, setChecked] = useState(isAdd);
+
+  const handlerOnChange = useCallback(async (): Promise<void> => {
+    try {
+      if (isAdd) {
+        await deleteServiceHandler(id)(dispatch);
+        setChecked(false);
+      } else {
+        await saveServiceHandler(info, idService, code)(dispatch);
+        setChecked(true);
+      }
+      dispatch(changeStatusUpdate(false));
+      sendMessage();
+    } catch {
+      dispatch(showPopoverService({ text: 'Что-то пошло не так, попробуйте еще раз', isShow: true }));
+      setChecked(isAdd);
+    } finally {
+      hidePopover();
+    }
+  }, [isAdd, code, dispatch, idService, id, info]);
+
+  const handlerDelay = useMemo(() => throttle(handlerOnChange, 3000), [handlerOnChange]);
 
   return (
-    <div className="wrapperItem">
+    <div className="wrapperItem" data-testid="service">
       <div className="itemService">
-        <label className="nameService">
+        <label className="nameService" data-testid="label">
           {name}
-          <input type="checkbox" className="checkbox" />
+          <input
+            type="checkbox"
+            className="checkbox"
+            checked={checked}
+            onChange={() => {
+              setChecked(!checked);
+              handlerDelay();
+            }}
+          />
           <span className="checkMark" />
         </label>
         <div className="priceService">
