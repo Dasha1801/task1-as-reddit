@@ -9,21 +9,21 @@ import './itemServiceMenu.scss';
 
 function ItemServiceMenu({ info, code, idService }: IItemServiceMenu): JSX.Element {
   const { services } = useSelector((state: TStore) => state.service);
-  const isAdd = services.find((el) => el.serviceId === info.id && el.productId === code);
+  const isAdded = services.find((el) => el.serviceId === info.id && el.productId === code);
 
   return (
     <div
-      className={classNames('itemServices', { saveItem: isAdd })}
-      data-testid={isAdd ? 'saveItem' : 'item'}
+      className={classNames('itemServices', { saveItem: isAdded })}
+      data-testid={isAdded ? 'saveItem' : 'item'}
     >
       <div className="wrapperTitle">
-        {isAdd && <img src="images/iconPopover.png" alt="icon" className="popoverIcon" />}
+        {isAdded && <img src="images/iconPopover.png" alt="icon" className="popoverIcon" />}
         <h6 className="nameServiceMenu">{info.name}</h6>
       </div>
       <p className="descriptionItem noneMargin">{info.description}</p>
       {info.outsource && (
         <p className="descriptionItem">
-          <span className="star">*</span>Стоимость может измениться в зависимости от сложности и
+          <span className="asterisk">*</span>Стоимость может измениться в зависимости от сложности и
           дополнительных работ.
         </p>
       )}
@@ -37,7 +37,7 @@ function ItemServiceMenu({ info, code, idService }: IItemServiceMenu): JSX.Eleme
         {' p.'}
         {info.outsource && <span className="star">*</span>}
 
-        {isAdd ? <BtnDelete info={info} /> : <BtnAdd info={info} code={code} idService={idService} />}
+        {isAdded ? <BtnDelete info={info} /> : <BtnAdd info={info} code={code} idService={idService} />}
       </div>
     </div>
   );

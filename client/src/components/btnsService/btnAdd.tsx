@@ -2,7 +2,7 @@ import React from 'react';
 import { useDispatch } from 'react-redux';
 import { sendMessage } from '../../server/socket';
 import { IItemServiceMenu } from '../../shared/interfaces';
-import { hidePopover, saveServiceHandler } from '../redux/asyncActions';
+import { hidePopover, saveService } from '../redux/asyncActions';
 import { showPopoverService } from '../redux/slices/popoverService';
 import { changeStatusUpdate } from '../redux/slices/serviceSlice';
 import './stylesBtn.scss';
@@ -12,7 +12,7 @@ function BtnAdd({ info, code, idService }: IItemServiceMenu): JSX.Element {
 
   const handlerClick = async (): Promise<void> => {
     try {
-      await saveServiceHandler(info, idService, code)(dispatch);
+      await saveService(info, idService, code)(dispatch);
       dispatch(changeStatusUpdate(true));
       sendMessage();
     } catch {

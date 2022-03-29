@@ -2,19 +2,23 @@ import axios from 'axios';
 import { DropResult } from 'react-beautiful-dnd';
 import { baseUrl, timeout } from '../../constants';
 import {
-  deleteService,
+  deleteServiceInDb,
   fetchArticles,
   fetchSavedArticles,
   getSavedServices,
-  saveService
+  saveServiceInDb,
 } from '../../server/api';
 import {
   ArticleInfo,
-  IColumns, IItemServices, ILogInSocialUser,
-  ILogInUser, IPopoverService, IRegisterSocialUser,
+  IColumns,
+  IItemServices,
+  ILogInSocialUser,
+  ILogInUser,
+  IPopoverService,
+  IRegisterSocialUser,
   IRegisterUser,
   ISavedService,
-  IUser
+  IUser,
 } from '../../shared/interfaces';
 import { route } from '../../utils';
 import { store } from './index';
@@ -153,15 +157,15 @@ export const fetchSavedServices = () =>
     dispatch(getServices(savedServices));
   };
 
-export const deleteServiceHandler = (id: string) =>
+export const deleteService = (id: string) =>
   async function remove(dispatch: (arg0: { payload: IPopoverService; type: string }) => void) {
-    const res = await deleteService({ serviceId: id });
+    const res = await deleteServiceInDb({ serviceId: id });
     dispatch(showPopoverService({ text: res, isShow: true }));
   };
 
-export const saveServiceHandler = (info: IItemServices, idService: string, servicesCode: string) =>
+export const saveService = (info: IItemServices, idService: string, servicesCode: string) =>
   async function save(dispatch: (arg0: { payload: IPopoverService; type: string }) => void) {
-    const res = await saveService({
+    const res = await saveServiceInDb({
       productId: servicesCode,
       servicesName: idService,
       serviceId: info.id,
@@ -169,4 +173,3 @@ export const saveServiceHandler = (info: IItemServices, idService: string, servi
     });
     dispatch(showPopoverService({ text: res, isShow: true }));
   };
-

@@ -4,7 +4,7 @@ import { sendMessage } from '../../server/socket';
 import { IItemServiceMenu } from '../../shared/interfaces';
 import { getKopecks, getRubles, isChecked, throttle } from '../../utils';
 import { TStore } from '../redux';
-import { deleteServiceHandler, hidePopover, saveServiceHandler } from '../redux/asyncActions';
+import { deleteService, hidePopover, saveService } from '../redux/asyncActions';
 import { showPopoverService } from '../redux/slices/popoverService';
 import { changeStatusUpdate } from '../redux/slices/serviceSlice';
 import './itemService.scss';
@@ -19,10 +19,10 @@ function ItemService({ info, code, idService }: IItemServiceMenu): JSX.Element {
   const handlerOnChange = useCallback(async (): Promise<void> => {
     try {
       if (isAdd) {
-        await deleteServiceHandler(id)(dispatch);
+        await deleteService(id)(dispatch);
         setChecked(false);
       } else {
-        await saveServiceHandler(info, idService, code)(dispatch);
+        await saveService(info, idService, code)(dispatch);
         setChecked(true);
       }
       dispatch(changeStatusUpdate(false));
@@ -40,7 +40,7 @@ function ItemService({ info, code, idService }: IItemServiceMenu): JSX.Element {
   return (
     <div className="wrapperItem" data-testid="service">
       <div className="itemService">
-        <label className="nameService" data-testid="label">
+        <label className="serviceLabel">
           {name}
           <input
             type="checkbox"

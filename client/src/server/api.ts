@@ -9,10 +9,10 @@ import {
   IServiceId,
 } from '../shared/interfaces';
 
-export const saveService = (service: ISavedService): Promise<string> =>
+export const saveServiceInDb = (service: ISavedService): Promise<string> =>
   axios.post(`${baseUrl}service`, service).then((res) => res.data);
 
-export const deleteService = (serviceId: IServiceId): Promise<string> =>
+export const deleteServiceInDb = (serviceId: IServiceId): Promise<string> =>
   axios.post(`${baseUrl}delete`, serviceId).then((res) => res.data);
 
 export const getSavedServices = (): Promise<ISavedService[]> =>

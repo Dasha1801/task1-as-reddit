@@ -2,7 +2,7 @@ import React from 'react';
 import { useDispatch } from 'react-redux';
 import { sendMessage } from '../../server/socket';
 import { IItemService } from '../../shared/interfaces';
-import { deleteServiceHandler, hidePopover } from '../redux/asyncActions';
+import { deleteService, hidePopover } from '../redux/asyncActions';
 import { showPopoverService } from '../redux/slices/popoverService';
 import { changeStatusUpdate } from '../redux/slices/serviceSlice';
 import './stylesBtn.scss';
@@ -12,7 +12,7 @@ function BtnDelete({ info }: IItemService): JSX.Element {
 
   const handlerClick = async (): Promise<void> => {
     try {
-      await deleteServiceHandler(info.id)(dispatch);
+      await deleteService(info.id)(dispatch);
       dispatch(changeStatusUpdate(true));
       sendMessage();
     } catch {
